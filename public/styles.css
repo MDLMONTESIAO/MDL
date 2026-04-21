@@ -671,7 +671,7 @@ h1 {
 
 .reader-tools {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(62px, 1fr));
   gap: 7px;
   padding: 9px 12px;
   background: #050505;
@@ -686,6 +686,112 @@ h1 {
   border: 1px solid #39342e;
   font-size: 12px;
   font-weight: 950;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.tuner-panel[hidden] {
+  display: none;
+}
+
+.tuner-panel {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  background: #080808;
+  border-bottom: 1px solid #302c27;
+  color: var(--white);
+}
+
+.tuner-readout {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.tuner-readout span {
+  color: #bcb3a9;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.tuner-readout strong {
+  min-width: 74px;
+  color: var(--gold-2);
+  font-size: 42px;
+  line-height: .9;
+  text-align: center;
+}
+
+.tuner-readout em {
+  color: #ddd1bd;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.tuner-meter {
+  position: relative;
+  height: 34px;
+  border-radius: 999px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(120, 54, 69, .88), rgba(199, 154, 59, .86) 42%, rgba(125, 146, 124, .95) 49%, rgba(125, 146, 124, .95) 51%, rgba(199, 154, 59, .86) 58%, rgba(120, 54, 69, .88));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .09);
+}
+
+.tuner-meter span {
+  position: absolute;
+  inset: 5px auto 5px 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, .72);
+}
+
+.tuner-meter i {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 4px;
+  height: 42px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: var(--white);
+  box-shadow: 0 0 14px rgba(255, 255, 255, .5);
+  transition: left .08s linear;
+}
+
+.tuner-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.tuner-footer p {
+  margin: 0;
+  color: #ddd1bd;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.tuner-footer button {
+  min-width: 88px;
+  min-height: 38px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: #17120c;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.tuner-footer button.active {
+  background: #f2dce0;
+  color: var(--wine);
 }
 
 .chord-sheet {
@@ -713,6 +819,12 @@ h1 {
   font-family: "Cascadia Mono", Consolas, monospace;
   font-size: var(--reader-font, 15px);
   line-height: 1.72;
+}
+
+.chord-sheet.singer-mode pre {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.86;
 }
 
 .chord-sheet i,
@@ -1278,7 +1390,7 @@ body.screen-admin .main-area {
 }
 
 .reader-tools {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(62px, 1fr));
   gap: 6px;
   padding: 9px 24px;
 }
@@ -1564,6 +1676,7 @@ body.screen-admin .main-area {
   .worship-list,
   .reader-top,
   .reader-tools,
+  .tuner-panel,
   .chord-sheet,
   .admin-hero,
   .admin-panel {

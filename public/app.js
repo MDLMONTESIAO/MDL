@@ -115,6 +115,10 @@ const OFFLINE_DB_NAME = "mdl-acervo-offline";
 const OFFLINE_DB_VERSION = 1;
 const OFFLINE_BUNDLE_SIZE = 80;
 const INSTALL_PROMPT_AUTO_HIDE_MS = 3000;
+const TUNER_MIN_FREQUENCY = 65;
+const TUNER_MAX_FREQUENCY = 1200;
+const TUNER_SILENCE_RMS = 0.012;
+const TUNER_UPDATE_INTERVAL_MS = 80;
 let deferredInstallPrompt = null;
 let installPromptAutoHideTimer = null;
 
@@ -133,6 +137,16 @@ const state = {
   generatedAt: null,
   playEditing: false,
   autoScrollTimer: null,
+  singerMode: localStorage.getItem("mdl.singerMode") === "true",
+  tunerOpen: false,
+  tunerRunning: false,
+  tunerStream: null,
+  tunerAudioContext: null,
+  tunerSource: null,
+  tunerAnalyser: null,
+  tunerBuffer: null,
+  tunerFrame: null,
+  tunerLastAt: 0,
   offlineSongs: new Set(),
   offlineArtistDownloads: new Map(),
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
@@ -197,6 +211,14 @@ const dom = {
   readerArtist: document.getElementById("readerArtist"),
   toneButton: document.getElementById("toneButton"),
   autoButton: document.getElementById("autoButton"),
+  singerModeButton: document.getElementById("singerModeButton"),
+  tunerButton: document.getElementById("tunerButton"),
+  tunerPanel: document.getElementById("tunerPanel"),
+  tunerNote: document.getElementById("tunerNote"),
+  tunerFrequency: document.getElementById("tunerFrequency"),
+  tunerCents: document.getElementById("tunerCents"),
+  tunerNeedle: document.getElementById("tunerNeedle"),
+  tunerStartButton: document.getElementById("tunerStartButton"),
   chordSheet: document.getElementById("chordSheet"),
   chordGuide: document.getElementById("chordGuide"),
   chordGuideName: document.getElementById("chordGuideName"),
@@ -274,6 +296,10 @@ async function loadSongs() {
 function bindEvents() {
   document.addEventListener("click", handleClick);
   document.addEventListener("keydown", handleKeyDown);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopTuner();
+  });
+  window.addEventListener("pagehide", () => stopTuner());
   dom.search.addEventListener("input", () => {
     filterSongs();
     renderCatalog();
@@ -323,6 +349,9 @@ function handleClick(event) {
     if (action === "add-current-play") return addToPlay(state.currentSongId, currentKeyLabel());
     if (action === "font-down") return setReaderFont(state.readerFont - 1);
     if (action === "font-up") return setReaderFont(state.readerFont + 1);
+    if (action === "toggle-singer-mode") return toggleSingerMode();
+    if (action === "toggle-tuner") return toggleTunerPanel();
+    if (action === "start-tuner") return state.tunerRunning ? stopTuner() : startTuner();
     if (action === "transpose-down") return transposeCurrentSong(-1);
     if (action === "transpose-up") return transposeCurrentSong(1);
     if (action === "reset-tone") return resetTone();
@@ -555,11 +584,15 @@ async function openSong(id) {
 }
 
 function renderCurrentSheet() {
-  const html = transposeHtml(state.currentSheetHtml, state.transposeOffset);
-  dom.chordSheet.innerHTML = `<pre>${decorateChordHtml(html)}</pre>`;
+  const html = state.singerMode
+    ? stripChordsToLyrics(state.currentSheetHtml)
+    : decorateChordHtml(transposeHtml(state.currentSheetHtml, state.transposeOffset));
+  dom.chordSheet.innerHTML = `<pre>${html}</pre>`;
   applyReaderPreferences();
   updateToneButton();
-  if (state.chordGuideOpen && state.activeChordBase) {
+  if (state.singerMode) {
+    closeChordGuide(true);
+  } else if (state.chordGuideOpen && state.activeChordBase) {
     refreshChordGuide();
   }
 }
@@ -684,6 +717,7 @@ async function autoRefreshLibrary() {
 function showView(viewName) {
   if (viewName !== "reader") {
     stopAutoScroll();
+    stopTuner();
     closeChordGuide(true);
   }
   state.currentView = viewName;
@@ -710,6 +744,12 @@ function setReaderFont(size) {
 
 function applyReaderPreferences() {
   dom.chordSheet.style.setProperty("--reader-font", `${state.readerFont}px`);
+  dom.chordSheet.classList.toggle("singer-mode", state.singerMode);
+  if (dom.singerModeButton) {
+    dom.singerModeButton.classList.toggle("active", state.singerMode);
+    dom.singerModeButton.setAttribute("aria-pressed", String(state.singerMode));
+  }
+  syncTunerControls();
 }
 
 function transposeCurrentSong(direction) {
@@ -719,6 +759,14 @@ function transposeCurrentSong(direction) {
 
 function resetTone() {
   state.transposeOffset = 0;
+  renderCurrentSheet();
+}
+
+function toggleSingerMode() {
+  state.singerMode = !state.singerMode;
+  localStorage.setItem("mdl.singerMode", String(state.singerMode));
+  stopAutoScroll();
+  closeChordGuide(true);
   renderCurrentSheet();
 }
 
@@ -753,6 +801,208 @@ function updateToneButton() {
 function currentKeyLabel() {
   if (!state.baseKey) return "Tom";
   return `Tom ${transposeNote(state.baseKey, state.transposeOffset)}`;
+}
+
+function toggleTunerPanel() {
+  state.tunerOpen = !state.tunerOpen;
+  if (!state.tunerOpen) stopTuner(true);
+  syncTunerControls();
+}
+
+function syncTunerControls() {
+  if (dom.tunerPanel) dom.tunerPanel.hidden = !state.tunerOpen;
+  if (dom.tunerButton) {
+    dom.tunerButton.classList.toggle("active", state.tunerOpen);
+    dom.tunerButton.setAttribute("aria-pressed", String(state.tunerOpen));
+  }
+  if (dom.tunerStartButton) {
+    dom.tunerStartButton.textContent = state.tunerRunning ? "Parar" : "Iniciar";
+    dom.tunerStartButton.classList.toggle("active", state.tunerRunning);
+  }
+}
+
+async function startTuner() {
+  if (state.tunerRunning) return;
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass || !navigator.mediaDevices?.getUserMedia) {
+    setTunerStatus("Microfone indisponivel");
+    toast("Microfone indisponivel neste navegador");
+    return;
+  }
+
+  try {
+    state.tunerOpen = true;
+    syncTunerControls();
+    setTunerStatus("Abrindo microfone");
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: false,
+        noiseSuppression: false,
+        autoGainControl: false
+      }
+    });
+    const audioContext = new AudioContextClass();
+    if (audioContext.state === "suspended") await audioContext.resume();
+
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 4096;
+    analyser.smoothingTimeConstant = 0.82;
+
+    const source = audioContext.createMediaStreamSource(stream);
+    source.connect(analyser);
+
+    state.tunerStream = stream;
+    state.tunerAudioContext = audioContext;
+    state.tunerSource = source;
+    state.tunerAnalyser = analyser;
+    state.tunerBuffer = new Float32Array(analyser.fftSize);
+    state.tunerRunning = true;
+    state.tunerLastAt = 0;
+    syncTunerControls();
+    tickTuner();
+  } catch {
+    stopTuner();
+    setTunerStatus("Microfone bloqueado");
+    toast("Nao foi possivel abrir o microfone");
+  }
+}
+
+function stopTuner(resetReading = false) {
+  if (state.tunerFrame) {
+    cancelAnimationFrame(state.tunerFrame);
+    state.tunerFrame = null;
+  }
+  if (state.tunerSource) {
+    try {
+      state.tunerSource.disconnect();
+    } catch {}
+  }
+  if (state.tunerStream) {
+    state.tunerStream.getTracks().forEach((track) => track.stop());
+  }
+  if (state.tunerAudioContext) {
+    state.tunerAudioContext.close().catch(() => {});
+  }
+
+  state.tunerRunning = false;
+  state.tunerStream = null;
+  state.tunerAudioContext = null;
+  state.tunerSource = null;
+  state.tunerAnalyser = null;
+  state.tunerBuffer = null;
+  state.tunerLastAt = 0;
+
+  if (resetReading) resetTunerReading();
+  else if (dom.tunerCents) dom.tunerCents.textContent = "Afinador pausado";
+  syncTunerControls();
+}
+
+function tickTuner(timestamp = performance.now()) {
+  if (!state.tunerRunning || !state.tunerAnalyser || !state.tunerBuffer) return;
+  state.tunerFrame = requestAnimationFrame(tickTuner);
+
+  if (timestamp - state.tunerLastAt < TUNER_UPDATE_INTERVAL_MS) return;
+  state.tunerLastAt = timestamp;
+
+  state.tunerAnalyser.getFloatTimeDomainData(state.tunerBuffer);
+  const frequency = detectPitch(state.tunerBuffer, state.tunerAudioContext.sampleRate);
+  renderTunerReading(frequency);
+}
+
+function detectPitch(buffer, sampleRate) {
+  let sumSquares = 0;
+  for (const sample of buffer) sumSquares += sample * sample;
+  const rms = Math.sqrt(sumSquares / buffer.length);
+  if (rms < TUNER_SILENCE_RMS) return null;
+
+  const minTau = Math.max(2, Math.floor(sampleRate / TUNER_MAX_FREQUENCY));
+  const maxTau = Math.min(buffer.length - 1, Math.floor(sampleRate / TUNER_MIN_FREQUENCY));
+  const searchLength = buffer.length - maxTau;
+  const yin = new Float32Array(maxTau + 1);
+
+  for (let tau = 1; tau <= maxTau; tau += 1) {
+    let difference = 0;
+    for (let index = 0; index < searchLength; index += 1) {
+      const delta = buffer[index] - buffer[index + tau];
+      difference += delta * delta;
+    }
+    yin[tau] = difference;
+  }
+
+  let runningSum = 0;
+  for (let tau = 1; tau <= maxTau; tau += 1) {
+    runningSum += yin[tau];
+    yin[tau] = runningSum ? (yin[tau] * tau) / runningSum : 1;
+  }
+
+  for (let tau = minTau; tau <= maxTau; tau += 1) {
+    if (yin[tau] < 0.12) {
+      while (tau + 1 <= maxTau && yin[tau + 1] < yin[tau]) tau += 1;
+      const betterTau = refinePitchTau(yin, tau);
+      return sampleRate / betterTau;
+    }
+  }
+
+  return null;
+}
+
+function refinePitchTau(yin, tau) {
+  const previous = yin[tau - 1];
+  const current = yin[tau];
+  const next = yin[tau + 1];
+  if (previous === undefined || next === undefined) return tau;
+  const divisor = previous + next - (2 * current);
+  return divisor ? tau + ((previous - next) / (2 * divisor)) : tau;
+}
+
+function renderTunerReading(frequency) {
+  if (!frequency) {
+    resetTunerReading("Aguardando som");
+    return;
+  }
+
+  const note = frequencyToNote(frequency);
+  const cents = Math.round(note.cents);
+  const offset = clamp(note.cents, -50, 50);
+
+  if (dom.tunerNote) dom.tunerNote.textContent = `${note.name}${note.octave}`;
+  if (dom.tunerFrequency) dom.tunerFrequency.textContent = `${frequency.toFixed(1)} Hz`;
+  if (dom.tunerNeedle) dom.tunerNeedle.style.left = `${50 + offset}%`;
+  if (dom.tunerCents) {
+    dom.tunerCents.textContent = Math.abs(cents) <= 5
+      ? "Afinado"
+      : cents < 0
+        ? `Suba ${Math.abs(cents)} cents`
+        : `Desca ${Math.abs(cents)} cents`;
+  }
+}
+
+function frequencyToNote(frequency) {
+  const midi = Math.round(12 * Math.log2(frequency / 440) + 69);
+  const noteIndex = (midi + 1200) % 12;
+  const target = 440 * (2 ** ((midi - 69) / 12));
+  return {
+    name: NOTE_SHARP[noteIndex],
+    octave: Math.floor(midi / 12) - 1,
+    cents: 1200 * Math.log2(frequency / target)
+  };
+}
+
+function resetTunerReading(message = "Aguardando som") {
+  if (dom.tunerNote) dom.tunerNote.textContent = "--";
+  if (dom.tunerFrequency) dom.tunerFrequency.textContent = "-- Hz";
+  if (dom.tunerCents) dom.tunerCents.textContent = message;
+  if (dom.tunerNeedle) dom.tunerNeedle.style.left = "50%";
+}
+
+function setTunerStatus(message) {
+  if (dom.tunerCents) dom.tunerCents.textContent = message;
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
 }
 
 function startService() {
@@ -1231,6 +1481,31 @@ function decorateChordHtml(html) {
     node.innerHTML = wrapChordNodeTokens(node.textContent || "");
   });
   return template.innerHTML;
+}
+
+function stripChordsToLyrics(html) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  template.content.querySelectorAll("i").forEach((node) => node.remove());
+
+  const lines = (template.content.textContent || "")
+    .replace(/\r/g, "")
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trim());
+
+  const cleaned = [];
+  for (const line of lines) {
+    if (!line) {
+      if (cleaned.length && cleaned[cleaned.length - 1]) cleaned.push("");
+      continue;
+    }
+    cleaned.push(line);
+  }
+
+  while (cleaned.length && !cleaned[0]) cleaned.shift();
+  while (cleaned.length && !cleaned[cleaned.length - 1]) cleaned.pop();
+
+  return escapeHtml(cleaned.join("\n"));
 }
 
 function splitChordSegments(text) {

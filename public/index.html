@@ -164,10 +164,28 @@
           <button type="button" data-action="transpose-down">-1</button>
           <button type="button" data-action="reset-tone" id="toneButton">Tom</button>
           <button type="button" data-action="transpose-up">+1</button>
+          <button type="button" data-action="toggle-singer-mode" id="singerModeButton" aria-pressed="false">Cantor</button>
           <button type="button" data-action="font-down">A-</button>
           <button type="button" data-action="font-up">A+</button>
           <button type="button" data-action="toggle-autoscroll" id="autoButton">Auto</button>
+          <button type="button" data-action="toggle-tuner" id="tunerButton" aria-pressed="false">Afinador</button>
         </div>
+
+        <section class="tuner-panel" id="tunerPanel" aria-label="Afinador" hidden>
+          <div class="tuner-readout">
+            <span>Afinador</span>
+            <strong id="tunerNote">--</strong>
+            <em id="tunerFrequency">-- Hz</em>
+          </div>
+          <div class="tuner-meter" aria-hidden="true">
+            <span></span>
+            <i id="tunerNeedle"></i>
+          </div>
+          <div class="tuner-footer">
+            <p id="tunerCents">Aguardando som</p>
+            <button type="button" data-action="start-tuner" id="tunerStartButton">Iniciar</button>
+          </div>
+        </section>
 
         <article class="chord-sheet" id="chordSheet">
           <div class="loader">Abrindo cifra...</div>
