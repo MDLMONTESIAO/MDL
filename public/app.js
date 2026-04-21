@@ -64,12 +64,18 @@ const CHORD_SHAPE_LIBRARY = {
   A7sus4: { frets: ["x", 0, 2, 0, 3, 0], label: "Forma aberta" },
   Cadd9: { frets: ["x", 3, 2, 0, 3, 3], label: "Forma aberta" },
   Gadd9: { frets: [3, 2, 0, 0, 3, 0], label: "Forma aberta" },
+  "C/E": { frets: [0, 3, 2, 0, 1, 0], label: "Baixo em E" },
   "G/B": { frets: ["x", 2, 0, 0, 0, 3], label: "Baixo em B" },
   "D/F#": { frets: [2, "x", 0, 2, 3, 2], label: "Baixo em F#" },
-  "A/C#": { frets: ["x", 4, 2, 2, 2, 0], label: "Baixo em C#", baseFret: 1 },
+  "A/C#": {
+    frets: ["x", 4, 2, 2, 2, 0],
+    label: "Baixo em C#",
+    barres: [{ fret: 2, fromString: 2, toString: 4 }]
+  },
   "A9/C#": { frets: ["x", 4, 5, 4, 5, 5], label: "Baixo em C#", baseFret: 4 },
   "E/G#": { frets: [4, 2, 2, 1, 0, 0], label: "Baixo em G#", baseFret: 1 }
 };
+const CUSTOM_MAJOR_BASS_SHAPE_KEYS = ["C/E", "D/F#", "E/G#", "A/C#"];
 const MOVABLE_CHORD_SHAPES = {
   major: {
     lowE: { template: [0, 2, 2, 1, 0, 0], label: "Forma móvel de E" },
@@ -107,6 +113,9 @@ const MOVABLE_CHORD_SHAPES = {
 const OPEN_STRING_NOTE_INDEX = { lowE: 4, a: 9 };
 const OFFLINE_DB_NAME = "mdl-acervo-offline";
 const OFFLINE_DB_VERSION = 1;
+const INSTALL_PROMPT_AUTO_HIDE_MS = 3000;
+let deferredInstallPrompt = null;
+let installPromptAutoHideTimer = null;
 
 const state = {
   songs: [],
@@ -119,6 +128,7 @@ const state = {
   baseKey: null,
   activeChordBase: null,
   chordGuideOpen: false,
+  theme: localStorage.getItem("mdl.theme") || "light",
   generatedAt: null,
   playEditing: false,
   autoScrollTimer: null,
@@ -192,6 +202,12 @@ const dom = {
   chordGuideDiagram: document.getElementById("chordGuideDiagram"),
   chordGuideNotes: document.getElementById("chordGuideNotes"),
   chordGuideHint: document.getElementById("chordGuideHint"),
+  themeToggleButton: document.getElementById("themeToggleButton"),
+  themeToggleIcon: document.getElementById("themeToggleIcon"),
+  installPrompt: document.getElementById("installPrompt"),
+  installPromptText: document.getElementById("installPromptText"),
+  installPromptButton: document.getElementById("installPromptButton"),
+  readerFavoriteButton: document.getElementById("readerFavoriteButton"),
   adminSongCount: document.getElementById("adminSongCount"),
   adminArtistCount: document.getElementById("adminArtistCount"),
   adminUpdatedAt: document.getElementById("adminUpdatedAt")
@@ -201,6 +217,8 @@ init();
 
 async function init() {
   registerServiceWorker();
+  initTheme();
+  initInstallPrompt();
   savePlay();
   await loadSongs();
   await refreshOfflineSongIds();
@@ -285,10 +303,16 @@ function handleClick(event) {
   if (artist) return renderArtistSongs(artist);
   if (!action) return;
 
+  event.preventDefault();
+  event.stopPropagation();
+
   if (action === "open") return openSong(id);
   if (action === "add-play") return addToPlay(id);
   if (action === "remove-play") return removeFromPlay(id);
   if (action === "favorite") return toggleFavorite(id);
+  if (action === "toggle-theme") return toggleTheme();
+  if (action === "install-app") return installApp();
+  if (action === "dismiss-install") return hideInstallPrompt();
   if (action === "clear-play") return clearPlay();
   if (action === "refresh") return refreshLibrary();
   if (action === "back") return showView(state.previousView || "acervo");
@@ -345,6 +369,7 @@ function renderCatalog() {
   dom.songList.innerHTML = state.filtered.length
     ? state.filtered.map(renderSongCard).join("")
     : emptyState("Nenhuma música encontrada.");
+  syncFavoriteControls();
 }
 
 function renderFavorites() {
@@ -352,6 +377,7 @@ function renderFavorites() {
   dom.favoriteList.innerHTML = songs.length
     ? songs.map(renderSongCard).join("")
     : emptyState("Suas favoritas aparecem aqui.");
+  syncFavoriteControls();
 }
 
 function renderPlay() {
@@ -396,7 +422,10 @@ function renderArtistSongs(artist) {
 }
 
 function renderSongCard(song) {
-  const favoriteClass = state.favorites.has(song.id) ? "mini-action active" : "mini-action";
+  const isFavorite = state.favorites.has(song.id);
+  const favoriteClass = isFavorite ? "mini-action active" : "mini-action";
+  const favoriteTitle = isFavorite ? "Remover dos favoritos" : "Favoritar";
+  const favoriteGlyph = isFavorite ? "★" : "☆";
   return `
     <article class="song-card">
       <button class="song-main" type="button" data-action="open" data-id="${escapeAttr(song.id)}">
@@ -404,7 +433,7 @@ function renderSongCard(song) {
         <span class="song-meta">${escapeHtml(song.artist)}${song.collection ? ` · ${escapeHtml(song.collection)}` : ""}</span>
       </button>
       <div class="song-actions">
-        <button class="${favoriteClass}" type="button" data-action="favorite" data-id="${escapeAttr(song.id)}" title="Favoritar">☆</button>
+        <button class="${favoriteClass}" type="button" data-action="favorite" data-id="${escapeAttr(song.id)}" title="${favoriteTitle}" aria-label="${favoriteTitle}" aria-pressed="${isFavorite}">${favoriteGlyph}</button>
         <button class="mini-action primary" type="button" data-action="add-play" data-id="${escapeAttr(song.id)}" title="Adicionar ao culto">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
         </button>
@@ -447,6 +476,7 @@ async function openSong(id) {
   dom.readerTitle.textContent = song.title;
   dom.readerArtist.textContent = song.artist;
   dom.chordSheet.innerHTML = `<div class="loader">Abrindo cifra...</div>`;
+  syncFavoriteControls();
   closeChordGuide(true);
   showView("reader");
 
@@ -544,15 +574,38 @@ function clearPlay() {
 
 function toggleFavorite(id) {
   if (!id) return;
+  let isFavorite = false;
   if (state.favorites.has(id)) {
     state.favorites.delete(id);
   } else {
     state.favorites.add(id);
+    isFavorite = true;
   }
   localStorage.setItem("mdl.favorites", JSON.stringify(Array.from(state.favorites)));
   renderCatalog();
   renderFavorites();
   updateStats();
+  syncFavoriteControls();
+  toast(isFavorite ? "Musica adicionada aos favoritos" : "Musica removida dos favoritos");
+}
+
+function syncFavoriteControls() {
+  document.querySelectorAll('[data-action="favorite"][data-id]').forEach((button) => {
+    const isFavorite = state.favorites.has(button.dataset.id);
+    const title = isFavorite ? "Remover dos favoritos" : "Favoritar";
+    button.classList.toggle("active", isFavorite);
+    button.textContent = isFavorite ? "★" : "☆";
+    button.title = title;
+    button.setAttribute("aria-label", title);
+    button.setAttribute("aria-pressed", String(isFavorite));
+  });
+
+  const readerIsFavorite = Boolean(state.currentSongId && state.favorites.has(state.currentSongId));
+  if (dom.readerFavoriteButton) {
+    dom.readerFavoriteButton.classList.toggle("active", readerIsFavorite);
+    dom.readerFavoriteButton.title = readerIsFavorite ? "Remover dos favoritos" : "Favoritar";
+    dom.readerFavoriteButton.setAttribute("aria-pressed", String(readerIsFavorite));
+  }
 }
 
 async function refreshLibrary() {
@@ -769,6 +822,164 @@ function registerServiceWorker() {
   navigator.serviceWorker.register("/sw.js").catch(() => {});
 }
 
+function initTheme() {
+  const savedTheme = localStorage.getItem("mdl.theme");
+  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+  applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
+}
+
+function applyTheme(theme) {
+  const normalizedTheme = theme === "dark" ? "dark" : "light";
+  state.theme = normalizedTheme;
+  document.documentElement.dataset.theme = normalizedTheme;
+  localStorage.setItem("mdl.theme", normalizedTheme);
+
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) themeMeta.setAttribute("content", normalizedTheme === "dark" ? "#090f1a" : "#111111");
+
+  if (dom.themeToggleButton) {
+    dom.themeToggleButton.setAttribute("aria-label", normalizedTheme === "dark" ? "Ativar modo claro" : "Ativar modo noturno");
+    dom.themeToggleButton.setAttribute("aria-pressed", String(normalizedTheme === "dark"));
+  }
+  if (dom.themeToggleIcon) {
+    dom.themeToggleIcon.innerHTML = normalizedTheme === "dark" ? "&#9728;" : "&#9790;";
+  }
+}
+
+function toggleTheme() {
+  applyTheme(state.theme === "dark" ? "light" : "dark");
+}
+
+function initInstallPrompt() {
+  setInstallPromptState();
+  bindInstallPromptActivity();
+
+  if (isAppInstalled()) {
+    markAppInstalled();
+    hideInstallPrompt(true);
+    return;
+  }
+
+  if (!isStandaloneApp()) {
+    setTimeout(showInstallPrompt, 800);
+  }
+
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    showInstallPrompt();
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    markAppInstalled();
+    hideInstallPrompt(true);
+    toast("Aplicativo instalado na tela inicial");
+  });
+}
+
+function showInstallPrompt() {
+  if (!dom.installPrompt || isAppInstalled()) return;
+  setInstallPromptState();
+  dom.installPrompt.hidden = false;
+  requestAnimationFrame(() => {
+    dom.installPrompt.classList.add("visible");
+    scheduleInstallPromptAutoHide();
+  });
+}
+
+function hideInstallPrompt(immediate = false) {
+  if (!dom.installPrompt) return;
+  clearInstallPromptAutoHide();
+  dom.installPrompt.classList.remove("visible");
+  if (immediate) {
+    dom.installPrompt.hidden = true;
+    return;
+  }
+  setTimeout(() => {
+    dom.installPrompt.hidden = true;
+  }, 180);
+}
+
+function setInstallPromptState() {
+  if (!dom.installPromptButton) return;
+  const installed = isAppInstalled();
+  dom.installPromptButton.disabled = installed;
+  dom.installPromptButton.textContent = installed ? "Instalado" : "Instalar";
+
+  if (dom.installPromptText) {
+    if (installed) {
+      dom.installPromptText.textContent = "Aplicativo instalado na tela inicial.";
+    } else if (deferredInstallPrompt) {
+      dom.installPromptText.textContent = "Toque em Instalar para criar o icone na tela inicial.";
+    } else {
+      dom.installPromptText.textContent = getInstallHelpMessage();
+    }
+  }
+}
+
+function bindInstallPromptActivity() {
+  if (!dom.installPrompt) return;
+  ["pointerdown", "keydown", "focusin"].forEach((eventName) => {
+    dom.installPrompt.addEventListener(eventName, clearInstallPromptAutoHide);
+  });
+}
+
+function scheduleInstallPromptAutoHide() {
+  clearInstallPromptAutoHide();
+  installPromptAutoHideTimer = setTimeout(() => hideInstallPrompt(), INSTALL_PROMPT_AUTO_HIDE_MS);
+}
+
+function clearInstallPromptAutoHide() {
+  if (!installPromptAutoHideTimer) return;
+  clearTimeout(installPromptAutoHideTimer);
+  installPromptAutoHideTimer = null;
+}
+
+async function installApp() {
+  if (isAppInstalled()) {
+    toast("O aplicativo ja esta instalado");
+    return;
+  }
+
+  if (!deferredInstallPrompt) {
+    toast(getInstallHelpMessage());
+    return;
+  }
+
+  deferredInstallPrompt.prompt();
+  const choice = await deferredInstallPrompt.userChoice.catch(() => null);
+  deferredInstallPrompt = null;
+  setInstallPromptState();
+
+  if (choice?.outcome === "accepted") {
+    hideInstallPrompt();
+    toast("Instalacao iniciada");
+  } else {
+    toast("Instalacao cancelada");
+  }
+}
+
+function isStandaloneApp() {
+  return window.matchMedia?.("(display-mode: standalone)")?.matches || window.navigator.standalone === true;
+}
+
+function isAppInstalled() {
+  return isStandaloneApp() || localStorage.getItem("mdl.appInstalled") === "true";
+}
+
+function markAppInstalled() {
+  localStorage.setItem("mdl.appInstalled", "true");
+}
+
+function getInstallHelpMessage() {
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (isIos) {
+    return "No Safari, toque em Compartilhar e depois em Adicionar a Tela de Inicio.";
+  }
+  return "No navegador, abra o menu e escolha Instalar aplicativo ou Adicionar a tela inicial.";
+}
+
 function openOfflineDb() {
   return new Promise((resolve, reject) => {
     if (!("indexedDB" in window)) {
@@ -919,6 +1130,7 @@ function renderChordGuideDiagram(guide) {
         ${guide.shape.baseFret > 1 ? `<span class="chord-base-fret">${guide.shape.baseFret}</span>` : ""}
         ${STRING_LABELS.map((_, index) => `<span class="chord-string-line" style="--string:${index};"></span>`).join("")}
         ${[0, 1, 2, 3, 4, 5].map((fret) => `<span class="chord-fret-line${fret === 0 && guide.shape.baseFret === 1 ? " nut" : ""}" style="--fret:${fret};"></span>`).join("")}
+        ${renderChordBarres(guide.shape)}
         ${renderChordDots(guide.shape)}
       </div>
       <div class="chord-string-labels">${STRING_LABELS.map((label) => `<span>${label}</span>`).join("")}</div>
@@ -939,8 +1151,27 @@ function renderChordDots(shape) {
     if (!Number.isInteger(fret) || fret <= 0) return "";
     const relativeFret = fret - shape.baseFret + 1;
     if (relativeFret < 1 || relativeFret > 5) return "";
+    if (isStringCoveredByBarre(shape, index, fret)) return "";
     return `<span class="chord-dot" style="--string:${index}; --fret:${relativeFret};"></span>`;
   }).join("");
+}
+
+function renderChordBarres(shape) {
+  return (shape.barres || []).map((barre) => {
+    const relativeFret = barre.fret - shape.baseFret + 1;
+    if (relativeFret < 1 || relativeFret > 5) return "";
+    const start = Math.min(barre.fromString, barre.toString);
+    const end = Math.max(barre.fromString, barre.toString);
+    return `<span class="chord-barre" style="--string-start:${start}; --string-end:${end}; --fret:${relativeFret};"></span>`;
+  }).join("");
+}
+
+function isStringCoveredByBarre(shape, stringIndex, fret) {
+  return (shape.barres || []).some((barre) => {
+    const start = Math.min(barre.fromString, barre.toString);
+    const end = Math.max(barre.fromString, barre.toString);
+    return barre.fret === fret && stringIndex >= start && stringIndex <= end;
+  });
 }
 
 function parseChordName(chordName) {
@@ -1017,6 +1248,11 @@ function resolveChordShape(parsed) {
     return normalizeChordShape(exactShape, { approximate: false, handlesBass: true });
   }
 
+  const customBassShape = resolveCustomBassShape(parsed);
+  if (customBassShape) {
+    return customBassShape;
+  }
+
   const baseKey = `${parsed.root}${parsed.familyMeta.lookup}`;
   const baseShape = CHORD_SHAPE_LIBRARY[baseKey];
   if (baseShape) {
@@ -1028,6 +1264,64 @@ function resolveChordShape(parsed) {
 
   if (!parsed.familyMeta.shapeFamily) return null;
   return createMovableShape(parsed);
+}
+
+function resolveCustomBassShape(parsed) {
+  if (parsed.family !== "major" || !parsed.bass || parsed.suffix) return null;
+  if ((NOTE_INDEX[parsed.bass] - NOTE_INDEX[parsed.root] + 12) % 12 !== 4) return null;
+
+  let bestShape = null;
+  let bestScore = null;
+
+  for (const key of CUSTOM_MAJOR_BASS_SHAPE_KEYS) {
+    const reference = parseChordName(key);
+    const template = CHORD_SHAPE_LIBRARY[key];
+    if (!reference || !template) continue;
+
+    const upward = (NOTE_INDEX[parsed.root] - NOTE_INDEX[reference.root] + 12) % 12;
+    const deltas = upward === 0 ? [0] : [upward, upward - 12];
+
+    for (const delta of deltas) {
+      const shiftedShape = transposeChordShape(template, delta);
+      if (!shiftedShape) continue;
+      const score = scoreChordShape(shiftedShape);
+      if (!bestScore || score < bestScore) {
+        bestShape = shiftedShape;
+        bestScore = score;
+      }
+    }
+  }
+
+  return bestShape ? normalizeChordShape(bestShape, { approximate: false, handlesBass: true }) : null;
+}
+
+function transposeChordShape(shape, semitones) {
+  const frets = shape.frets.map((fret) => {
+    if (fret === "x") return "x";
+    const nextFret = fret + semitones;
+    return nextFret >= 0 ? nextFret : null;
+  });
+  if (frets.some((fret) => fret === null)) return null;
+
+  const barres = (shape.barres || []).map((barre) => ({
+    ...barre,
+    fret: barre.fret + semitones
+  }));
+  if (barres.some((barre) => barre.fret < 0)) return null;
+
+  return {
+    ...shape,
+    frets,
+    barres
+  };
+}
+
+function scoreChordShape(shape) {
+  const positiveFrets = shape.frets.filter((value) => Number.isInteger(value) && value > 0);
+  if (!positiveFrets.length) return 0;
+  const maxFret = Math.max(...positiveFrets);
+  const minFret = Math.min(...positiveFrets);
+  return maxFret * 100 + minFret * 10 + (maxFret - minFret);
 }
 
 function createMovableShape(parsed) {
@@ -1063,6 +1357,7 @@ function normalizeChordShape(shape, overrides = {}) {
   const hasOpenStrings = shape.frets.some((value) => value === 0);
   return {
     frets: shape.frets.slice(),
+    barres: Array.isArray(shape.barres) ? shape.barres.map((barre) => ({ ...barre })) : [],
     label: shape.label || "Forma sugerida",
     baseFret: shape.baseFret || ((!hasOpenStrings && positiveFrets.length) ? Math.min(...positiveFrets) : 1),
     approximate: Boolean(shape.approximate || overrides.approximate),
