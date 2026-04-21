@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Monte Sião",
-  "generatedAt": "2026-04-21T02:49:45.207Z",
-  "totalSongs": 3075,
-  "totalArtists": 26,
+  "generatedAt": "2026-04-21T03:04:56.711Z",
+  "totalSongs": 3078,
+  "totalArtists": 27,
   "artists": [
     "Alexsander Lucio",
     "Aline Barros",
@@ -26,6 +26,7 @@
     "Leonardo Goncalves",
     "Morada",
     "Nivea Soares",
+    "Rayssa Andreoli",
     "Renascer Praise",
     "Rose Nascimento",
     "Trazendo A Arca",
@@ -27608,6 +27609,39 @@
       "updatedAt": "2026-04-20T00:43:49.444Z",
       "apiUrl": "/api/songs/nivea-soares-visitacao-9b55b9d039",
       "offlineKey": "mdl-song-nivea-soares-visitacao-9b55b9d039"
+    },
+    {
+      "id": "rayssa-andreoli-imperfeito-43b94951a5",
+      "title": "Imperfeito",
+      "artist": "Rayssa Andreoli",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-04-21T03:03:54.990Z",
+      "apiUrl": "/api/songs/rayssa-andreoli-imperfeito-43b94951a5",
+      "offlineKey": "mdl-song-rayssa-andreoli-imperfeito-43b94951a5"
+    },
+    {
+      "id": "rayssa-andreoli-meu-sol-10-8c17529c02",
+      "title": "Meu sol -10",
+      "artist": "Rayssa Andreoli",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-04-21T03:03:58.613Z",
+      "apiUrl": "/api/songs/rayssa-andreoli-meu-sol-10-8c17529c02",
+      "offlineKey": "mdl-song-rayssa-andreoli-meu-sol-10-8c17529c02"
+    },
+    {
+      "id": "rayssa-andreoli-tudo-por-ele-90a08be0ac",
+      "title": "Tudo Por Ele",
+      "artist": "Rayssa Andreoli",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Gb",
+      "updatedAt": "2026-04-21T03:03:50.191Z",
+      "apiUrl": "/api/songs/rayssa-andreoli-tudo-por-ele-90a08be0ac",
+      "offlineKey": "mdl-song-rayssa-andreoli-tudo-por-ele-90a08be0ac"
     },
     {
       "id": "renascer-praise-1000-graus-a6a680c926",
