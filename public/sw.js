@@ -1,5 +1,5 @@
-const CACHE_NAME = "cifras-mdl-shell-v2";
-const API_CACHE = "cifras-mdl-api-v2";
+const CACHE_NAME = "cifras-mdl-shell-v5";
+const API_CACHE = "cifras-mdl-api-v5";
 
 const APP_SHELL = [
   "/",
