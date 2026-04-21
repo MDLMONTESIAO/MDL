@@ -3,9 +3,10 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const CONFIG_PATH = path.join(ROOT, "data", "pastas.json");
-const DB_PATH = path.join(ROOT, "data", "acervo-db.json");
-const DATA_DIR = path.join(ROOT, "data");
+const APP_DATA_DIR = path.join(ROOT, "data");
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : APP_DATA_DIR;
+const CONFIG_PATH = path.join(APP_DATA_DIR, "pastas.json");
+const DB_PATH = path.join(DATA_DIR, "acervo-db.json");
 const SONGS_DIR = path.join(DATA_DIR, "songs");
 const INDEX_PATH = path.join(DATA_DIR, "index.json");
 
@@ -146,12 +147,13 @@ function formatName(name) {
 function readSongHtml(filePath, ext) {
   const raw = fs.readFileSync(filePath, "utf8");
   if (ext === ".txt") {
-    return escapeHtml(raw);
+    return convertBracketChords(escapeHtml(raw));
   }
 
-  const match = raw.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i);
-  const pre = match ? match[1] : escapeHtml(stripTags(raw));
-  return sanitizePre(pre);
+  const preMatch = raw.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i);
+  const cifraContainerMatch = raw.match(/<div[^>]*class=["'][^"']*\bcifra-container\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i);
+  const content = preMatch?.[1] || cifraContainerMatch?.[1] || escapeHtml(stripTags(raw));
+  return convertBracketChords(sanitizePre(content));
 }
 
 function sanitizePre(html) {
@@ -174,6 +176,21 @@ function inferKeyFromHtml(html) {
   const text = chordTag ? stripTags(chordTag[1]) : stripTags(html);
   const match = text.match(/\b([A-G](?:#|b)?)(?:[0-9A-Za-zº°+\-#b()]*)?(?:\/[A-G](?:#|b)?)?\b/);
   return match ? match[1] : null;
+}
+
+function convertBracketChords(html) {
+  return String(html || "").replace(/\[([^\]\r\n]+)\]/g, (match, content) => {
+    const normalized = content.trim();
+    if (!normalized || !isChordGroup(normalized)) return match;
+    return `<i>${escapeHtml(normalized)}</i>`;
+  });
+}
+
+function isChordGroup(value) {
+  return String(value || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((token) => /^[A-G](?:#|b)?(?:[0-9A-Za-zÂºÂ°+\-#b()]*)?(?:\/[A-G](?:#|b)?)?$/.test(token));
 }
 
 function slugify(value) {
