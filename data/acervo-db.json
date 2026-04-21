@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Monte Sião",
-  "generatedAt": "2026-04-21T13:13:26.818Z",
-  "totalSongs": 3727,
-  "totalArtists": 37,
+  "generatedAt": "2026-04-21T13:24:29.151Z",
+  "totalSongs": 3731,
+  "totalArtists": 38,
   "artists": [
     "Alexsander Lucio",
     "Aline Barros",
@@ -40,6 +40,7 @@
     "Sued Silva",
     "Trazendo A Arca",
     "Valesca Mayssa",
+    "Vigilia Attos2",
     "Vineyard Music Brasil"
   ],
   "songs": [
@@ -39950,6 +39951,50 @@
       "updatedAt": "2026-04-20T01:16:47.897Z",
       "apiUrl": "/api/songs/valesca-mayssa-vendavais-db88cda2fa",
       "offlineKey": "mdl-song-valesca-mayssa-vendavais-db88cda2fa"
+    },
+    {
+      "id": "vigilia-attos2-cancao-que-nao-envelhece-784f0827bb",
+      "title": "Canção Que Não Envelhece",
+      "artist": "Vigilia Attos2",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Ab",
+      "updatedAt": "2026-04-21T13:23:46.860Z",
+      "apiUrl": "/api/songs/vigilia-attos2-cancao-que-nao-envelhece-784f0827bb",
+      "offlineKey": "mdl-song-vigilia-attos2-cancao-que-nao-envelhece-784f0827bb"
+    },
+    {
+      "id": "vigilia-attos2-leao-ruja-o-leao-16c7b3e5bf",
+      "title": "Leão Ruja o Leão",
+      "artist": "Vigilia Attos2",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-04-21T13:23:50.481Z",
+      "apiUrl": "/api/songs/vigilia-attos2-leao-ruja-o-leao-16c7b3e5bf",
+      "offlineKey": "mdl-song-vigilia-attos2-leao-ruja-o-leao-16c7b3e5bf"
+    },
+    {
+      "id": "vigilia-attos2-o-fogo-ardera-acende-outra-vez-e2997900bd",
+      "title": "O Fogo Arderá Acende Outra Vez",
+      "artist": "Vigilia Attos2",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-04-21T13:23:54.089Z",
+      "apiUrl": "/api/songs/vigilia-attos2-o-fogo-ardera-acende-outra-vez-e2997900bd",
+      "offlineKey": "mdl-song-vigilia-attos2-o-fogo-ardera-acende-outra-vez-e2997900bd"
+    },
+    {
+      "id": "vigilia-attos2-unico-que-ele-cresca-04550a56ea",
+      "title": "Único + Que Ele Cresça",
+      "artist": "Vigilia Attos2",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-04-21T13:23:57.765Z",
+      "apiUrl": "/api/songs/vigilia-attos2-unico-que-ele-cresca-04550a56ea",
+      "offlineKey": "mdl-song-vigilia-attos2-unico-que-ele-cresca-04550a56ea"
     },
     {
       "id": "vineyard-music-brasil-a-rocha-7a79ed3af8",
