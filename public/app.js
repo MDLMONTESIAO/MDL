@@ -1650,6 +1650,7 @@ function syncTunerControls() {
   if (dom.tunerStartButton) {
     dom.tunerStartButton.textContent = state.tunerRunning ? "Parar" : "Iniciar";
     dom.tunerStartButton.classList.toggle("active", state.tunerRunning);
+    dom.tunerStartButton.setAttribute("aria-label", state.tunerRunning ? "Parar afinador" : "Iniciar afinador");
   }
 }
 
@@ -1658,8 +1659,8 @@ async function startTuner() {
 
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
   if (!AudioContextClass || !navigator.mediaDevices?.getUserMedia) {
-    setTunerStatus("Microfone indisponivel");
-    toast("Microfone indisponivel neste navegador");
+    setTunerStatus("Microfone indisponível");
+    toast("Microfone indisponível neste navegador");
     return;
   }
 
@@ -1697,7 +1698,7 @@ async function startTuner() {
   } catch {
     stopTuner();
     setTunerStatus("Microfone bloqueado");
-    toast("Nao foi possivel abrir o microfone");
+    toast("Não foi possível abrir o microfone");
   }
 }
 
@@ -1799,15 +1800,15 @@ function renderTunerReading(frequency) {
   const cents = Math.round(note.cents);
   const offset = clamp(note.cents, -50, 50);
 
-  if (dom.tunerNote) dom.tunerNote.textContent = `${note.name}${note.octave}`;
+  if (dom.tunerNote) dom.tunerNote.textContent = note.name;
   if (dom.tunerFrequency) dom.tunerFrequency.textContent = `${frequency.toFixed(1)} Hz`;
   if (dom.tunerNeedle) dom.tunerNeedle.style.left = `${50 + offset}%`;
   if (dom.tunerCents) {
     dom.tunerCents.textContent = Math.abs(cents) <= 5
-      ? "Afinado"
+      ? "Afinado!"
       : cents < 0
         ? `Suba ${Math.abs(cents)} cents`
-        : `Desca ${Math.abs(cents)} cents`;
+        : `Desça ${Math.abs(cents)} cents`;
   }
 }
 
@@ -1822,9 +1823,9 @@ function frequencyToNote(frequency) {
   };
 }
 
-function resetTunerReading(message = "Aguardando som") {
-  if (dom.tunerNote) dom.tunerNote.textContent = "--";
-  if (dom.tunerFrequency) dom.tunerFrequency.textContent = "-- Hz";
+function resetTunerReading(message = "Iniciar microfone") {
+  if (dom.tunerNote) dom.tunerNote.textContent = "A";
+  if (dom.tunerFrequency) dom.tunerFrequency.textContent = "440 Hz";
   if (dom.tunerCents) dom.tunerCents.textContent = message;
   if (dom.tunerNeedle) dom.tunerNeedle.style.left = "50%";
 }

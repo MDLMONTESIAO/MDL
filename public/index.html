@@ -10,7 +10,7 @@
   <title>Acervo Musical MDL Inova</title>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/logo-inova.jpg">
-  <link rel="stylesheet" href="/styles.css?v=20260422-play">
+  <link rel="stylesheet" href="/styles.css?v=20260422-tuner">
   <script>
     (() => {
       const savedTheme = localStorage.getItem("mdl.theme");
@@ -252,22 +252,6 @@
           <button type="button" data-action="toggle-tuner" id="tunerButton" aria-pressed="false">Afinador</button>
         </div>
 
-        <section class="tuner-panel" id="tunerPanel" aria-label="Afinador" hidden>
-          <div class="tuner-readout">
-            <span>Afinador</span>
-            <strong id="tunerNote">--</strong>
-            <em id="tunerFrequency">-- Hz</em>
-          </div>
-          <div class="tuner-meter" aria-hidden="true">
-            <span></span>
-            <i id="tunerNeedle"></i>
-          </div>
-          <div class="tuner-footer">
-            <p id="tunerCents">Aguardando som</p>
-            <button type="button" data-action="start-tuner" id="tunerStartButton">Iniciar</button>
-          </div>
-        </section>
-
         <article class="chord-sheet" id="chordSheet">
           <div class="loader">Abrindo cifra...</div>
         </article>
@@ -356,6 +340,27 @@
       </section>
     </main>
 
+    <section class="tuner-panel" id="tunerPanel" aria-label="Afinador" hidden>
+      <div class="tuner-shell">
+        <div class="tuner-hero">
+          <button class="tuner-close" type="button" data-action="toggle-tuner" aria-label="Fechar afinador">×</button>
+          <div class="tuner-readout">
+            <span>Tuner</span>
+            <strong id="tunerNote">A</strong>
+            <em id="tunerFrequency">440 Hz</em>
+            <p id="tunerCents">Iniciar microfone</p>
+          </div>
+          <button class="tuner-orb" type="button" data-action="start-tuner" id="tunerStartButton" aria-label="Iniciar afinador">
+            Iniciar
+          </button>
+        </div>
+        <div class="tuner-meter" aria-hidden="true">
+          <span></span>
+          <i id="tunerNeedle"></i>
+        </div>
+      </div>
+    </section>
+
     <footer class="screen-footer">Desenvolvido por Odiman Ramalho 21970955634</footer>
   </div>
 
@@ -433,6 +438,6 @@
     </form>
   </section>
 
-  <script src="/app.js?v=20260422-play"></script>
+  <script src="/app.js?v=20260422-tuner"></script>
 </body>
 </html>
