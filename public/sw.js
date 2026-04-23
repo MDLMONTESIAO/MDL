@@ -1,11 +1,11 @@
-const CACHE_NAME = "acervo-mdl-inova-shell-v8";
-const API_CACHE = "acervo-mdl-inova-api-v8";
+const CACHE_NAME = "acervo-mdl-inova-shell-v9";
+const API_CACHE = "acervo-mdl-inova-api-v9";
 
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=20260422-tuner",
-  "/app.js?v=20260422-tuner",
+  "/styles.css?v=20260423-artist-thumbs",
+  "/app.js?v=20260423-artist-thumbs",
   "/manifest.webmanifest",
   "/assets/logo-inova.jpg"
 ];

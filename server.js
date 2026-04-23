@@ -17,12 +17,17 @@ const INDEX_PATH = path.join(DATA_DIR, "index.json");
 const FALLBACK_INDEX_PATH = path.join(APP_DATA_DIR, "index.json");
 const SONGS_DIR = path.join(DATA_DIR, "songs");
 const FALLBACK_SONGS_DIR = path.join(APP_DATA_DIR, "songs");
+const ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const FALLBACK_ARTIST_THUMBS_PATH = path.join(APP_DATA_DIR, "artist-thumbs.json");
+const ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
+const FALLBACK_ARTIST_THUMBS_DIR = path.join(APP_DATA_DIR, "artist-thumbs");
 const IMPORT_SCRIPT = path.join(__dirname, "scripts", "importar-acervo.js");
 const AUTH_PATH = path.join(DATA_DIR, "auth.json");
 const DEVICE_HEADER = "x-device-id";
 const TOKEN_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 30;
 const RESET_CODE_TTL_MS = 1000 * 60 * 15;
 const RESET_RESEND_INTERVAL_MS = 1000 * 60;
+const ARTIST_THUMB_MAX_BYTES = 4 * 1024 * 1024;
 const LOCAL_RESET_PREVIEW = !process.env.RENDER && !process.env.RENDER_SERVICE_ID && process.env.NODE_ENV !== "production";
 const SMTP_SECURE = /^(1|true|yes)$/i.test(String(process.env.SMTP_SECURE || ""));
 const SMTP_HOST = String(process.env.SMTP_HOST || "").trim();
@@ -48,6 +53,7 @@ const mimeTypes = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".png": "image/png",
+  ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".webmanifest": "application/manifest+json; charset=utf-8"
 };
@@ -74,6 +80,127 @@ function readSongRecord(id) {
   const songPath = fs.existsSync(primarySongPath) ? primarySongPath : fallbackSongPath;
   if (!fs.existsSync(songPath)) return null;
   return JSON.parse(fs.readFileSync(songPath, "utf8"));
+}
+
+function readArtistThumbs() {
+  return {
+    ...readArtistThumbFile(FALLBACK_ARTIST_THUMBS_PATH),
+    ...readArtistThumbFile(ARTIST_THUMBS_PATH)
+  };
+}
+
+function readArtistThumbFile(filePath) {
+  if (!fs.existsSync(filePath)) return {};
+  const raw = safeJsonParse(fs.readFileSync(filePath, "utf8"), {});
+  const source = raw?.artistThumbs && typeof raw.artistThumbs === "object"
+    ? raw.artistThumbs
+    : raw?.thumbs && typeof raw.thumbs === "object"
+      ? raw.thumbs
+      : raw;
+  return normalizeArtistThumbs(source);
+}
+
+function normalizeArtistThumbs(source) {
+  if (!source || typeof source !== "object" || Array.isArray(source)) return {};
+
+  const thumbs = {};
+  for (const [rawArtist, rawUrl] of Object.entries(source)) {
+    const artist = normalizeArtistName(rawArtist);
+    const url = sanitizeArtistThumbUrl(rawUrl);
+    if (artist && url) thumbs[artist] = url;
+  }
+  return thumbs;
+}
+
+function writeArtistThumbs(artistThumbs) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.writeFileSync(ARTIST_THUMBS_PATH, JSON.stringify({
+    updatedAt: new Date().toISOString(),
+    artistThumbs
+  }, null, 2), "utf8");
+}
+
+function getArtistThumbFor(artist, artistThumbs) {
+  const name = normalizeArtistName(artist);
+  if (!name) return "";
+  if (artistThumbs[name]) return artistThumbs[name];
+
+  const key = normalizeText(name);
+  const match = Object.entries(artistThumbs).find(([candidate]) => normalizeText(candidate) === key);
+  return match?.[1] || "";
+}
+
+function attachArtistThumbsToSongs(songs, artistThumbs) {
+  return songs.map((song) => {
+    const artistThumb = getArtistThumbFor(song.artist, artistThumbs);
+    return artistThumb ? { ...song, artistThumb } : song;
+  });
+}
+
+function parseArtistThumbDataUrl(dataUrl) {
+  const match = String(dataUrl || "").match(/^data:(image\/(?:jpeg|png|webp));base64,([a-z0-9+/=\r\n]+)$/i);
+  if (!match) {
+    const error = new Error("invalid-image");
+    error.code = "invalid-image";
+    throw error;
+  }
+
+  const mime = match[1].toLowerCase();
+  const buffer = Buffer.from(match[2].replace(/\s+/g, ""), "base64");
+  if (!buffer.length || buffer.length > ARTIST_THUMB_MAX_BYTES || !isValidImageBuffer(mime, buffer)) {
+    const error = new Error("invalid-image");
+    error.code = buffer.length > ARTIST_THUMB_MAX_BYTES ? "image-too-large" : "invalid-image";
+    throw error;
+  }
+
+  return {
+    buffer,
+    mime,
+    ext: mime === "image/jpeg" ? "jpg" : mime.replace("image/", "")
+  };
+}
+
+function isValidImageBuffer(mime, buffer) {
+  if (mime === "image/jpeg") {
+    return buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;
+  }
+  if (mime === "image/png") {
+    return buffer.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+  }
+  if (mime === "image/webp") {
+    return buffer.slice(0, 4).toString("ascii") === "RIFF" && buffer.slice(8, 12).toString("ascii") === "WEBP";
+  }
+  return false;
+}
+
+function normalizeArtistName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 120);
+}
+
+function slugifyArtist(value) {
+  return normalizeText(value)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "artista";
+}
+
+function sanitizeArtistThumbUrl(value) {
+  const url = String(value || "").trim();
+  if (/^\/artist-thumbs\/[a-z0-9_-]+\.(?:jpg|jpeg|png|webp)(?:\?v=\d+)?$/i.test(url)) return url;
+  if (/^\/assets\/artists\/[a-z0-9_./-]+\.(?:jpg|jpeg|png|webp|svg)(?:\?v=\d+)?$/i.test(url)) return url;
+  return "";
+}
+
+function safeArtistThumbPath(urlPath) {
+  const fileName = decodeURIComponent(String(urlPath || "").replace(/^\/artist-thumbs\//, ""));
+  if (!/^[a-z0-9_-]+\.(?:jpg|jpeg|png|webp)$/i.test(fileName)) return null;
+
+  const primary = path.join(ARTIST_THUMBS_DIR, fileName);
+  if (fs.existsSync(primary)) return primary;
+
+  const fallback = path.join(FALLBACK_ARTIST_THUMBS_DIR, fileName);
+  if (fs.existsSync(fallback)) return fallback;
+
+  return null;
 }
 
 function ensureAuthStore() {
@@ -766,6 +893,38 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (url.pathname === "/api/artist-thumbs" && req.method === "POST") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+    if (session.user.role !== "leader") return sendJson(res, 403, { ok: false, error: "leader-only" });
+
+    try {
+      const body = await parseJsonBody(req, ARTIST_THUMB_MAX_BYTES * 2);
+      const artist = normalizeArtistName(body.artist);
+      if (!artist) return sendJson(res, 400, { ok: false, error: "invalid-artist" });
+
+      const image = parseArtistThumbDataUrl(body.dataUrl);
+      const fileName = `${slugifyArtist(artist)}.${image.ext}`;
+      fs.mkdirSync(ARTIST_THUMBS_DIR, { recursive: true });
+      fs.writeFileSync(path.join(ARTIST_THUMBS_DIR, fileName), image.buffer);
+
+      const artistThumbs = readArtistThumbs();
+      const urlPath = `/artist-thumbs/${fileName}?v=${Date.now()}`;
+      artistThumbs[artist] = urlPath;
+      writeArtistThumbs(artistThumbs);
+
+      return sendJson(res, 200, {
+        ok: true,
+        artist,
+        url: urlPath,
+        artistThumbs
+      });
+    } catch (error) {
+      const status = error.code === "image-too-large" ? 413 : 400;
+      return sendJson(res, status, { ok: false, error: error.code || error.message });
+    }
+  }
+
   if (req.url === "/api/status") {
     const statusPath = fs.existsSync(INDEX_PATH) ? INDEX_PATH : FALLBACK_INDEX_PATH;
     if (!fs.existsSync(statusPath)) {
@@ -796,6 +955,10 @@ const server = http.createServer(async (req, res) => {
 
       const query = normalizeText(url.searchParams.get("q") || "");
       const limit = Math.max(1, Math.min(5000, Number(url.searchParams.get("limit") || 5000)));
+      const artistThumbs = {
+        ...normalizeArtistThumbs(db.artistThumbs),
+        ...readArtistThumbs()
+      };
       const songs = query
         ? db.songs.filter((song) => normalizeText(`${song.title} ${song.artist} ${song.collection || ""}`).includes(query)).slice(0, limit)
         : db.songs.slice(0, limit);
@@ -807,7 +970,8 @@ const server = http.createServer(async (req, res) => {
         totalSongs: db.totalSongs,
         totalArtists: db.totalArtists,
         artists: db.artists || [],
-        songs
+        artistThumbs,
+        songs: attachArtistThumbsToSongs(songs, artistThumbs)
       });
     } catch (error) {
       return sendJson(res, 500, { ready: false, error: error.message });
@@ -838,6 +1002,29 @@ const server = http.createServer(async (req, res) => {
     } catch (error) {
       return sendJson(res, 400, { error: error.message });
     }
+  }
+
+  if (url.pathname.startsWith("/artist-thumbs/") && req.method === "GET") {
+    const thumbPath = safeArtistThumbPath(url.pathname);
+    if (!thumbPath) {
+      res.writeHead(404);
+      return res.end("Arquivo nao encontrado");
+    }
+
+    fs.readFile(thumbPath, (error, data) => {
+      if (error) {
+        res.writeHead(404);
+        return res.end("Arquivo nao encontrado");
+      }
+
+      const ext = path.extname(thumbPath).toLowerCase();
+      res.writeHead(200, {
+        "Content-Type": mimeTypes[ext] || "application/octet-stream",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      });
+      res.end(data);
+    });
+    return;
   }
 
   const filePath = safeStaticPath(req.url || "/");

@@ -162,6 +162,7 @@ const state = {
   offlineArtistDownloads: new Map(),
   songMedia: new Map(),
   artistThumbs: new Map(),
+  publicArtistThumbs: new Map(),
   localAudioUrls: new Map(),
   pendingCoverSongId: null,
   pendingAudioSongId: null,
@@ -805,8 +806,10 @@ async function loadSongs() {
     const data = await response.json();
     state.generatedAt = data.generatedAt || null;
     state.songs = Array.isArray(data.songs) && data.songs.length ? data.songs : sampleSongs;
+    setPublicArtistThumbs(data.artistThumbs, state.songs);
     idbSetMeta("catalog", {
       generatedAt: state.generatedAt,
+      artistThumbs: Object.fromEntries(state.publicArtistThumbs),
       songs: state.songs
     }).catch(() => {});
   } catch {
@@ -815,6 +818,7 @@ async function loadSongs() {
     state.songs = Array.isArray(offlineCatalog?.songs) && offlineCatalog.songs.length
       ? offlineCatalog.songs
       : sampleSongs;
+    setPublicArtistThumbs(offlineCatalog?.artistThumbs, state.songs);
   }
 }
 
@@ -979,8 +983,9 @@ function renderDashboard() {
 function renderTopArtist(artist, songs) {
   const thumb = getArtistThumb(artist);
   const initials = getInitials(artist);
+  const thumbTitle = isLeader() ? `Enviar thumb online de ${artist}` : `Salvar thumb de ${artist} neste aparelho`;
   return `
-    <button class="top-artist-avatar" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="Trocar thumb de ${escapeAttr(artist)}" aria-label="Trocar thumb de ${escapeAttr(artist)}">
+    <button class="top-artist-avatar" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="${escapeAttr(thumbTitle)}" aria-label="${escapeAttr(thumbTitle)}">
       ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(initials)}</span>`}
       <b>${formatNumber(songs.length)}</b>
     </button>
@@ -1072,10 +1077,11 @@ function renderArtistCard(artist, songs) {
       ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>`
       : `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>`;
   const thumb = getArtistThumb(artist);
+  const thumbTitle = isLeader() ? "Enviar thumb online" : "Salvar thumb neste aparelho";
 
   return `
     <article class="artist-card">
-      <button class="artist-thumb" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="Trocar thumb" aria-label="Trocar thumb de ${escapeAttr(artist)}">
+      <button class="artist-thumb" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="${escapeAttr(thumbTitle)}" aria-label="${escapeAttr(thumbTitle)} de ${escapeAttr(artist)}">
         ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(getInitials(artist))}</span>`}
       </button>
       <button class="artist-main" type="button" data-artist="${escapeAttr(artist)}">
@@ -1109,7 +1115,7 @@ function renderSongCard(song) {
   const songMeta = getSongMetaLabel(song);
   const playLocked = !isLeader();
   const media = getSongMedia(song.id);
-  const cover = media?.cover;
+  const cover = media?.cover || getArtistThumb(song.artist);
   const hasAudio = Boolean(media?.audioBlob);
   const playTitle = playLocked ? "Apenas o líder pode adicionar ao Play do ensaio" : "Adicionar ao Play do ensaio";
   return `
@@ -1149,7 +1155,7 @@ function getVisibleCollection(collection) {
 function renderWorshipSong(entry, song, index) {
   const key = entry.key || song.key || "Tom";
   const media = getSongMedia(song.id);
-  const cover = media?.cover;
+  const cover = media?.cover || getArtistThumb(song.artist);
   const hasAudio = Boolean(media?.audioBlob);
   const offlineBadge = state.offlineSongs.has(song.id) ? `<span class="offline-badge">offline</span>` : "";
   const localAudioBadge = hasAudio ? `<span class="local-audio-badge">MP3</span>` : "";
@@ -1338,8 +1344,54 @@ function getSongMedia(id) {
   return state.songMedia.get(songId);
 }
 
+function setPublicArtistThumbs(thumbs = {}, songs = []) {
+  state.publicArtistThumbs = new Map();
+
+  if (thumbs && typeof thumbs === "object" && !Array.isArray(thumbs)) {
+    Object.entries(thumbs).forEach(([artist, thumb]) => {
+      const name = normalizeArtistName(artist);
+      const url = String(thumb || "").trim();
+      if (name && url) state.publicArtistThumbs.set(name, url);
+    });
+  }
+
+  songs.forEach((song) => {
+    const name = normalizeArtistName(song.artist);
+    const url = String(song.artistThumb || "").trim();
+    if (name && url && !state.publicArtistThumbs.has(name)) {
+      state.publicArtistThumbs.set(name, url);
+    }
+  });
+}
+
+function setPublicArtistThumb(artist, thumb) {
+  const name = normalizeArtistName(artist);
+  const url = String(thumb || "").trim();
+  if (!name || !url) return;
+  state.publicArtistThumbs.set(name, url);
+  state.songs.forEach((song) => {
+    if (normalizeArtistName(song.artist) === name) song.artistThumb = url;
+  });
+}
+
 function getArtistThumb(artist) {
-  return state.artistThumbs.get(String(artist || "")) || "";
+  const name = normalizeArtistName(artist);
+  if (!name) return "";
+  return state.artistThumbs.get(name)
+    || state.publicArtistThumbs.get(name)
+    || getPublicArtistThumbByNormalizedName(name)
+    || "";
+}
+
+function getPublicArtistThumbByNormalizedName(artist) {
+  const key = normalize(artist);
+  const match = Array.from(state.publicArtistThumbs.entries())
+    .find(([candidate]) => normalize(candidate) === key);
+  return match?.[1] || "";
+}
+
+function normalizeArtistName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ");
 }
 
 function makeMediaKey(type, value) {
@@ -1405,21 +1457,54 @@ async function handleArtistThumbSelected(event) {
   if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
 
   const dataUrl = await fileToDataUrl(file);
-  state.artistThumbs.set(artist, dataUrl);
+  const artistName = normalizeArtistName(artist);
+  state.artistThumbs.set(artistName, dataUrl);
   await idbPutMedia({
-    key: makeMediaKey("artist-thumb", artist),
+    key: makeMediaKey("artist-thumb", artistName),
     type: "artist-thumb",
     userId: getCurrentUserId(),
-    artist,
+    artist: artistName,
     name: file.name,
     mime: file.type,
     size: file.size,
     dataUrl,
     updatedAt: new Date().toISOString()
   });
+
+  const uploaded = isLeader() ? await uploadArtistThumb(artistName, dataUrl) : null;
   renderDashboard();
+  renderCatalog();
+  renderFavorites();
+  renderPlay();
   renderArtists();
-  toast("Thumb salva neste aparelho");
+  updateReaderMedia();
+  toast(uploaded
+    ? "Thumb salva no sistema online"
+    : isLeader()
+      ? "Thumb salva neste aparelho; online indisponivel"
+      : "Thumb salva neste aparelho");
+}
+
+async function uploadArtistThumb(artist, dataUrl) {
+  try {
+    const response = await fetch("/api/artist-thumbs", {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ artist, dataUrl })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.url) throw new Error(data.error || "upload-failed");
+
+    setPublicArtistThumb(data.artist || artist, data.url);
+    idbSetMeta("catalog", {
+      generatedAt: state.generatedAt,
+      artistThumbs: Object.fromEntries(state.publicArtistThumbs),
+      songs: state.songs
+    }).catch(() => {});
+    return data;
+  } catch {
+    return null;
+  }
 }
 
 async function handleLocalAudioSelected(event) {
@@ -1474,7 +1559,7 @@ function updateReaderMedia() {
   }
 
   const media = getSongMedia(song.id);
-  const cover = media.cover;
+  const cover = media.cover || getArtistThumb(song.artist);
   dom.readerMedia.hidden = false;
   if (dom.readerCover) {
     dom.readerCover.innerHTML = cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`;
@@ -2331,7 +2416,7 @@ async function loadLocalMedia() {
       state.songMedia.set(record.songId, media);
     }
     if (record.type === "artist-thumb" && record.artist && record.dataUrl) {
-      state.artistThumbs.set(record.artist, record.dataUrl);
+      state.artistThumbs.set(normalizeArtistName(record.artist), record.dataUrl);
     }
   }
 }

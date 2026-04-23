@@ -59,6 +59,11 @@ atualizar-acervo.bat
 Cada musico pode adicionar musicas ao `Play ensaio` no proprio aparelho.
 A lista fica salva no navegador daquele aparelho e permite remover musicas adicionadas por engano.
 
+## Thumbs dos artistas
+
+Entre como `lider`, abra a aba `Artistas` e toque na foto do artista para escolher uma imagem.
+No sistema online, a thumb e salva no disco persistente do Render e passa a aparecer para todos os aparelhos.
+
 ## Base online do acervo
 
 O importador gera uma base do acervo em:
