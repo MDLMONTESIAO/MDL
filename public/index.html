@@ -103,6 +103,50 @@
 
     <main class="main-area">
       <section class="view active" id="view-acervo">
+        <section class="dashboard-hero" aria-label="Resumo do acervo">
+          <article class="today-card">
+            <div>
+              <span class="dashboard-kicker">Acervo Musical</span>
+              <h2>Ensaio de Hoje</h2>
+              <p id="dashboardPlaySummary">Monte o repertorio para comecar</p>
+              <strong id="dashboardTimer">00:15:30</strong>
+            </div>
+            <button class="dashboard-play" type="button" data-action="start-service" title="Iniciar ensaio" aria-label="Iniciar ensaio">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
+          </article>
+
+          <aside class="top-artists-card">
+            <div class="top-card-head">
+              <h3>Top Artistas</h3>
+              <span id="dashboardArtistCount">0</span>
+            </div>
+            <div class="top-artist-stack" id="topArtistStack"></div>
+            <div class="top-stats">
+              <span>Musicas <strong id="dashboardSongCount">0</strong></span>
+              <span>MP3 locais <strong id="dashboardAudioCount">0</strong></span>
+            </div>
+          </aside>
+        </section>
+
+        <section class="dashboard-shortcuts" aria-label="Atalhos">
+          <button type="button" data-view="favoritas">
+            <span>Favoritas</span>
+            <strong id="dashboardFavoriteCount">0</strong>
+          </button>
+          <button type="button" data-view="play">
+            <span>Repertorio</span>
+            <strong id="dashboardPlayCount">0</strong>
+          </button>
+          <button type="button" data-action="toggle-tuner">
+            <span>Afinador</span>
+            <strong>440</strong>
+          </button>
+          <button type="button" data-view="artistas">
+            <span>Artistas</span>
+            <strong id="dashboardArtistShortcutCount">0</strong>
+          </button>
+        </section>
         <div class="section-head">
           <div>
             <h2>Acervo</h2>
@@ -186,6 +230,16 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l2 4 4 .5-3 3 .8 4.5-3.8-2.2L8.2 17l.8-4.5-3-3 4-.5z"></path></svg>
           </button>
         </div>
+
+        <section class="reader-media" id="readerMedia" hidden>
+          <div class="reader-cover" id="readerCover" aria-hidden="true"></div>
+          <div class="reader-media-copy">
+            <strong id="readerAudioName">MP3 local</strong>
+            <span id="readerAudioStatus">Somente neste aparelho</span>
+          </div>
+          <button type="button" data-action="add-current-audio">MP3</button>
+          <audio id="localAudioPlayer" controls preload="metadata"></audio>
+        </section>
 
         <div class="reader-tools">
           <button type="button" data-action="transpose-down">-1</button>
@@ -304,6 +358,10 @@
 
     <footer class="screen-footer">Desenvolvido por Odiman Ramalho 21970955634</footer>
   </div>
+
+  <input id="localCoverInput" type="file" accept="image/*" hidden>
+  <input id="artistThumbInput" type="file" accept="image/*" hidden>
+  <input id="localAudioInput" type="file" accept="audio/mpeg,audio/mp3,audio/*" hidden>
 
   <section class="account-modal" id="accountModal" aria-labelledby="accountTitle" hidden>
     <button class="account-backdrop" type="button" data-action="close-account" aria-label="Fechar conta"></button>

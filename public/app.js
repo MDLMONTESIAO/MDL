@@ -112,9 +112,11 @@ const MOVABLE_CHORD_SHAPES = {
 };
 const OPEN_STRING_NOTE_INDEX = { lowE: 4, a: 9 };
 const OFFLINE_DB_NAME = "mdl-acervo-offline";
-const OFFLINE_DB_VERSION = 1;
+const OFFLINE_DB_VERSION = 2;
 const OFFLINE_BUNDLE_SIZE = 80;
 const INSTALL_PROMPT_AUTO_HIDE_MS = 3000;
+const LOCAL_COVER_MAX_BYTES = 4 * 1024 * 1024;
+const LOCAL_AUDIO_MAX_BYTES = 120 * 1024 * 1024;
 const TUNER_MIN_FREQUENCY = 65;
 const TUNER_MAX_FREQUENCY = 1200;
 const TUNER_SILENCE_RMS = 0.012;
@@ -158,6 +160,12 @@ const state = {
   tunerLastAt: 0,
   offlineSongs: new Set(),
   offlineArtistDownloads: new Map(),
+  songMedia: new Map(),
+  artistThumbs: new Map(),
+  localAudioUrls: new Map(),
+  pendingCoverSongId: null,
+  pendingAudioSongId: null,
+  pendingArtistThumb: null,
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
   favorites: new Set(JSON.parse(localStorage.getItem("mdl.favorites") || "[]")),
   play: migratePlay(JSON.parse(localStorage.getItem("mdl.playEnsaio") || "[]"))
@@ -209,6 +217,14 @@ const dom = {
   loginStatus: document.getElementById("loginStatus"),
   appShell: document.getElementById("appShell"),
   search: document.getElementById("searchInput"),
+  topArtistStack: document.getElementById("topArtistStack"),
+  dashboardPlaySummary: document.getElementById("dashboardPlaySummary"),
+  dashboardSongCount: document.getElementById("dashboardSongCount"),
+  dashboardArtistCount: document.getElementById("dashboardArtistCount"),
+  dashboardAudioCount: document.getElementById("dashboardAudioCount"),
+  dashboardFavoriteCount: document.getElementById("dashboardFavoriteCount"),
+  dashboardPlayCount: document.getElementById("dashboardPlayCount"),
+  dashboardArtistShortcutCount: document.getElementById("dashboardArtistShortcutCount"),
   libraryStats: document.getElementById("libraryStats"),
   favoriteStats: document.getElementById("favoriteStats"),
   playStats: document.getElementById("playStats"),
@@ -233,6 +249,14 @@ const dom = {
   tunerCents: document.getElementById("tunerCents"),
   tunerNeedle: document.getElementById("tunerNeedle"),
   tunerStartButton: document.getElementById("tunerStartButton"),
+  readerMedia: document.getElementById("readerMedia"),
+  readerCover: document.getElementById("readerCover"),
+  readerAudioName: document.getElementById("readerAudioName"),
+  readerAudioStatus: document.getElementById("readerAudioStatus"),
+  localAudioPlayer: document.getElementById("localAudioPlayer"),
+  localCoverInput: document.getElementById("localCoverInput"),
+  artistThumbInput: document.getElementById("artistThumbInput"),
+  localAudioInput: document.getElementById("localAudioInput"),
   chordSheet: document.getElementById("chordSheet"),
   chordGuide: document.getElementById("chordGuide"),
   chordGuideName: document.getElementById("chordGuideName"),
@@ -301,6 +325,7 @@ async function startAuthenticatedApp() {
   savePlay();
   await loadSongs();
   await refreshOfflineSongIds();
+  await loadLocalMedia();
   applyPreviewState();
   applyReaderPreferences();
   filterSongs();
@@ -817,6 +842,9 @@ function bindEvents() {
     renderCatalog();
     if (state.currentView !== "acervo") showView("acervo");
   });
+  dom.localCoverInput?.addEventListener("change", handleLocalCoverSelected);
+  dom.artistThumbInput?.addEventListener("change", handleArtistThumbSelected);
+  dom.localAudioInput?.addEventListener("change", handleLocalAudioSelected);
 }
 
 function handleClick(event) {
@@ -855,6 +883,11 @@ function handleClick(event) {
     if (action === "add-play") return requireLeader() && addToPlay(id);
     if (action === "remove-play") return requireLeader() && removeFromPlay(id);
     if (action === "favorite") return toggleFavorite(id);
+    if (action === "set-cover") return chooseLocalCover(id);
+    if (action === "set-artist-thumb") return chooseArtistThumb(artist);
+    if (action === "set-audio") return chooseLocalAudio(id);
+    if (action === "add-current-audio") return chooseLocalAudio(state.currentSongId);
+    if (action === "play-audio") return playLocalAudio(id);
     if (action === "download-artist") return downloadArtistForOffline(artist);
     if (action === "toggle-theme") return toggleTheme();
     if (action === "install-app") return installApp();
@@ -920,11 +953,38 @@ function filterSongs() {
 }
 
 function renderAll() {
+  renderDashboard();
   renderCatalog();
   renderFavorites();
   renderPlay();
   renderArtists();
   updateStats();
+}
+
+function renderDashboard() {
+  const groups = getArtistGroups();
+  const topArtists = groups.slice(0, 3);
+  if (dom.topArtistStack) {
+    dom.topArtistStack.innerHTML = topArtists.length
+      ? topArtists.map(([artist, songs]) => renderTopArtist(artist, songs)).join("")
+      : `<span class="top-artist-empty">MDL</span>`;
+  }
+  if (dom.dashboardPlaySummary) {
+    dom.dashboardPlaySummary.textContent = state.play.length
+      ? `${state.play.length} musica${state.play.length === 1 ? "" : "s"} no repertorio`
+      : "Monte o repertorio para comecar";
+  }
+}
+
+function renderTopArtist(artist, songs) {
+  const thumb = getArtistThumb(artist);
+  const initials = getInitials(artist);
+  return `
+    <button class="top-artist-avatar" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="Trocar thumb de ${escapeAttr(artist)}" aria-label="Trocar thumb de ${escapeAttr(artist)}">
+      ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(initials)}</span>`}
+      <b>${formatNumber(songs.length)}</b>
+    </button>
+  `;
 }
 
 function renderCatalog() {
@@ -965,15 +1025,21 @@ function renderPlay() {
 }
 
 function renderArtists() {
+  const artists = getArtistGroups("name");
+  dom.artistList.innerHTML = artists.map(([artist, songs]) => renderArtistCard(artist, songs)).join("");
+  updateStats();
+}
+
+function getArtistGroups(sortBy = "count") {
   const groups = new Map();
   state.songs.forEach((song) => {
     if (!groups.has(song.artist)) groups.set(song.artist, []);
     groups.get(song.artist).push(song);
   });
 
-  const artists = Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
-  dom.artistList.innerHTML = artists.map(([artist, songs]) => renderArtistCard(artist, songs)).join("");
-  updateStats();
+  const artists = Array.from(groups.entries());
+  if (sortBy === "name") return artists.sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
+  return artists.sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], "pt-BR"));
 }
 
 function renderArtistCard(artist, songs) {
@@ -1005,9 +1071,13 @@ function renderArtistCard(artist, songs) {
     : isOffline
       ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>`
       : `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>`;
+  const thumb = getArtistThumb(artist);
 
   return `
     <article class="artist-card">
+      <button class="artist-thumb" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="Trocar thumb" aria-label="Trocar thumb de ${escapeAttr(artist)}">
+        ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(getInitials(artist))}</span>`}
+      </button>
       <button class="artist-main" type="button" data-artist="${escapeAttr(artist)}">
         <span class="artist-title">${escapeHtml(artist)}</span>
         <span class="artist-meta">${escapeHtml(metaLabel)}</span>
@@ -1038,14 +1108,24 @@ function renderSongCard(song) {
   const favoriteGlyph = isFavorite ? "★" : "☆";
   const songMeta = getSongMetaLabel(song);
   const playLocked = !isLeader();
+  const media = getSongMedia(song.id);
+  const cover = media?.cover;
+  const hasAudio = Boolean(media?.audioBlob);
   const playTitle = playLocked ? "Apenas o líder pode adicionar ao Play do ensaio" : "Adicionar ao Play do ensaio";
   return `
     <article class="song-card">
+      <button class="song-cover" type="button" data-action="set-cover" data-id="${escapeAttr(song.id)}" title="Trocar capa local" aria-label="Trocar capa local de ${escapeAttr(song.title)}">
+        ${cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`}
+      </button>
       <button class="song-main" type="button" data-action="open" data-id="${escapeAttr(song.id)}">
         <span class="song-title">${escapeHtml(song.title)}</span>
-        <span class="song-meta">${escapeHtml(songMeta)}</span>
+        <span class="song-meta">${escapeHtml(songMeta)}${hasAudio ? " - MP3 local" : ""}</span>
       </button>
       <div class="song-actions">
+        ${hasAudio ? `<button class="mini-action audio-ready" type="button" data-action="play-audio" data-id="${escapeAttr(song.id)}" title="Tocar MP3 local" aria-label="Tocar MP3 local"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>` : ""}
+        <button class="mini-action" type="button" data-action="set-audio" data-id="${escapeAttr(song.id)}" title="Adicionar MP3 local" aria-label="Adicionar MP3 local">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </button>
         <button class="${favoriteClass}" type="button" data-action="favorite" data-id="${escapeAttr(song.id)}" title="${favoriteTitle}" aria-label="${favoriteTitle}" aria-pressed="${isFavorite}">${favoriteGlyph}</button>
         <button class="mini-action primary${playLocked ? " locked" : ""}" type="button" data-action="add-play" data-id="${escapeAttr(song.id)}" title="${escapeAttr(playTitle)}" aria-label="${escapeAttr(playTitle)}"${playLocked ? " disabled" : ""}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
@@ -1119,6 +1199,7 @@ async function openSong(id) {
   }
 
   renderCurrentSheet();
+  updateReaderMedia();
 }
 
 function renderCurrentSheet() {
@@ -1237,6 +1318,208 @@ function syncFavoriteControls() {
     dom.readerFavoriteButton.title = readerIsFavorite ? "Remover dos favoritos" : "Favoritar";
     dom.readerFavoriteButton.setAttribute("aria-pressed", String(readerIsFavorite));
   }
+}
+
+function getCurrentUserId() {
+  return state.auth?.user?.id || state.selectedLoginUser || "local";
+}
+
+function getSongMedia(id) {
+  const songId = String(id || "");
+  if (!state.songMedia.has(songId)) state.songMedia.set(songId, {});
+  return state.songMedia.get(songId);
+}
+
+function getArtistThumb(artist) {
+  return state.artistThumbs.get(String(artist || "")) || "";
+}
+
+function makeMediaKey(type, value) {
+  return `${getCurrentUserId()}:${type}:${String(value || "").toLowerCase()}`;
+}
+
+function chooseLocalCover(id) {
+  if (!id || !dom.localCoverInput) return;
+  state.pendingCoverSongId = id;
+  dom.localCoverInput.value = "";
+  dom.localCoverInput.click();
+}
+
+function chooseArtistThumb(artist) {
+  if (!artist || !dom.artistThumbInput) return;
+  state.pendingArtistThumb = artist;
+  dom.artistThumbInput.value = "";
+  dom.artistThumbInput.click();
+}
+
+function chooseLocalAudio(id) {
+  if (!id || !dom.localAudioInput) return;
+  state.pendingAudioSongId = id;
+  dom.localAudioInput.value = "";
+  dom.localAudioInput.click();
+}
+
+async function handleLocalCoverSelected(event) {
+  const songId = state.pendingCoverSongId;
+  state.pendingCoverSongId = null;
+  const file = event.target.files?.[0];
+  if (!songId || !file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+
+  const dataUrl = await fileToDataUrl(file);
+  const media = getSongMedia(songId);
+  media.cover = dataUrl;
+  media.coverName = file.name;
+  state.songMedia.set(songId, media);
+  await idbPutMedia({
+    key: makeMediaKey("song-cover", songId),
+    type: "song-cover",
+    userId: getCurrentUserId(),
+    songId,
+    name: file.name,
+    mime: file.type,
+    size: file.size,
+    dataUrl,
+    updatedAt: new Date().toISOString()
+  });
+  renderAll();
+  updateReaderMedia();
+  toast("Capa salva neste aparelho");
+}
+
+async function handleArtistThumbSelected(event) {
+  const artist = state.pendingArtistThumb;
+  state.pendingArtistThumb = null;
+  const file = event.target.files?.[0];
+  if (!artist || !file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+
+  const dataUrl = await fileToDataUrl(file);
+  state.artistThumbs.set(artist, dataUrl);
+  await idbPutMedia({
+    key: makeMediaKey("artist-thumb", artist),
+    type: "artist-thumb",
+    userId: getCurrentUserId(),
+    artist,
+    name: file.name,
+    mime: file.type,
+    size: file.size,
+    dataUrl,
+    updatedAt: new Date().toISOString()
+  });
+  renderDashboard();
+  renderArtists();
+  toast("Thumb salva neste aparelho");
+}
+
+async function handleLocalAudioSelected(event) {
+  const songId = state.pendingAudioSongId;
+  state.pendingAudioSongId = null;
+  const file = event.target.files?.[0];
+  if (!songId || !file) return;
+  if (!file.type.startsWith("audio/") && !/\.mp3$/i.test(file.name)) return toast("Escolha um MP3");
+  if (file.size > LOCAL_AUDIO_MAX_BYTES) return toast("MP3 muito grande para este aparelho");
+
+  const previousUrl = state.localAudioUrls.get(songId);
+  if (previousUrl) URL.revokeObjectURL(previousUrl);
+  state.localAudioUrls.delete(songId);
+
+  const media = getSongMedia(songId);
+  media.audioBlob = file;
+  media.audioName = file.name;
+  media.audioSize = file.size;
+  media.audioMime = file.type || "audio/mpeg";
+  state.songMedia.set(songId, media);
+  await idbPutMedia({
+    key: makeMediaKey("song-audio", songId),
+    type: "song-audio",
+    userId: getCurrentUserId(),
+    songId,
+    name: file.name,
+    mime: file.type || "audio/mpeg",
+    size: file.size,
+    blob: file,
+    updatedAt: new Date().toISOString()
+  });
+  renderAll();
+  updateReaderMedia();
+  toast("MP3 salvo somente neste aparelho");
+}
+
+async function playLocalAudio(id) {
+  const song = findSong(id);
+  const media = getSongMedia(id);
+  if (!song || !media?.audioBlob) return chooseLocalAudio(id);
+  if (state.currentSongId !== id) await openSong(id);
+  updateReaderMedia();
+  dom.localAudioPlayer?.play().catch(() => {});
+}
+
+function updateReaderMedia() {
+  if (!dom.readerMedia) return;
+  const song = findSong(state.currentSongId);
+  if (!song) {
+    dom.readerMedia.hidden = true;
+    return;
+  }
+
+  const media = getSongMedia(song.id);
+  const cover = media.cover;
+  dom.readerMedia.hidden = false;
+  if (dom.readerCover) {
+    dom.readerCover.innerHTML = cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`;
+  }
+  if (dom.readerAudioName) dom.readerAudioName.textContent = media.audioName || "Adicionar MP3 local";
+  if (dom.readerAudioStatus) {
+    dom.readerAudioStatus.textContent = media.audioBlob
+      ? `${formatBytes(media.audioSize)} neste aparelho`
+      : "Nenhum MP3 local para esta cifra";
+  }
+  if (dom.localAudioPlayer) {
+    if (media.audioBlob) {
+      dom.localAudioPlayer.hidden = false;
+      dom.localAudioPlayer.src = getLocalAudioUrl(song.id, media.audioBlob);
+    } else {
+      dom.localAudioPlayer.hidden = true;
+      dom.localAudioPlayer.removeAttribute("src");
+      dom.localAudioPlayer.load();
+    }
+  }
+}
+
+function getLocalAudioUrl(songId, blob) {
+  if (!state.localAudioUrls.has(songId)) {
+    state.localAudioUrls.set(songId, URL.createObjectURL(blob));
+  }
+  return state.localAudioUrls.get(songId);
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+
+function getInitials(value) {
+  return String(value || "MDL")
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0] || "")
+    .join("")
+    .toUpperCase() || "MDL";
+}
+
+function formatBytes(value) {
+  const bytes = Number(value || 0);
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  if (bytes >= 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${bytes} B`;
 }
 
 async function refreshLibrary() {
@@ -1591,6 +1874,7 @@ async function adminRefresh() {
 function updateStats() {
   const total = state.songs.length;
   const artists = new Set(state.songs.map((song) => song.artist)).size;
+  const audioCount = Array.from(state.songMedia.values()).filter((media) => media.audioBlob).length;
   dom.libraryStats.textContent = `${total} ${total === 1 ? "música" : "músicas"} · ${artists} ${artists === 1 ? "artista" : "artistas"}`;
   dom.favoriteStats.textContent = `${state.favorites.size} ${state.favorites.size === 1 ? "música" : "músicas"}`;
   if (dom.playStats) dom.playStats.textContent = `${state.play.length} ${state.play.length === 1 ? "música separada" : "músicas separadas"}`;
@@ -1600,11 +1884,18 @@ function updateStats() {
   dom.artistStats.textContent = `${artists} ${artists === 1 ? "artista" : "artistas"}`;
   if (dom.adminSongCount) dom.adminSongCount.textContent = formatNumber(total);
   if (dom.adminArtistCount) dom.adminArtistCount.textContent = formatNumber(artists);
+  if (dom.dashboardSongCount) dom.dashboardSongCount.textContent = formatNumber(total);
+  if (dom.dashboardArtistCount) dom.dashboardArtistCount.textContent = formatNumber(artists);
+  if (dom.dashboardAudioCount) dom.dashboardAudioCount.textContent = formatNumber(audioCount);
+  if (dom.dashboardFavoriteCount) dom.dashboardFavoriteCount.textContent = formatNumber(state.favorites.size);
+  if (dom.dashboardPlayCount) dom.dashboardPlayCount.textContent = formatNumber(state.play.length);
+  if (dom.dashboardArtistShortcutCount) dom.dashboardArtistShortcutCount.textContent = formatNumber(artists);
   if (dom.adminUpdatedAt) dom.adminUpdatedAt.textContent = state.generatedAt ? `Atualizada hoje às ${formatTime(state.generatedAt)}` : "Atualizada automaticamente";
 }
 
 function savePlay() {
   localStorage.setItem("mdl.playEnsaio", JSON.stringify(state.play));
+  renderDashboard();
   updateStats();
 }
 
@@ -1961,6 +2252,9 @@ function openOfflineDb() {
       if (!db.objectStoreNames.contains("meta")) {
         db.createObjectStore("meta", { keyPath: "key" });
       }
+      if (!db.objectStoreNames.contains("media")) {
+        db.createObjectStore("media", { keyPath: "key" });
+      }
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
@@ -1989,6 +2283,48 @@ async function idbGetAllSongs() {
   const songs = await idbRequest(db.transaction("songs", "readonly").objectStore("songs").getAll());
   db.close();
   return songs || [];
+}
+
+async function idbPutMedia(record) {
+  if (!record?.key) return;
+  const db = await openOfflineDb();
+  await idbRequest(db.transaction("media", "readwrite").objectStore("media").put(record));
+  db.close();
+}
+
+async function idbGetAllMedia() {
+  const db = await openOfflineDb();
+  const media = await idbRequest(db.transaction("media", "readonly").objectStore("media").getAll());
+  db.close();
+  return media || [];
+}
+
+async function loadLocalMedia() {
+  state.songMedia = new Map();
+  state.artistThumbs = new Map();
+  const records = await idbGetAllMedia().catch(() => []);
+  const userId = getCurrentUserId();
+
+  for (const record of records) {
+    if (record.userId !== userId) continue;
+    if (record.type === "song-cover" && record.songId && record.dataUrl) {
+      const media = getSongMedia(record.songId);
+      media.cover = record.dataUrl;
+      media.coverName = record.name || "";
+      state.songMedia.set(record.songId, media);
+    }
+    if (record.type === "song-audio" && record.songId && record.blob) {
+      const media = getSongMedia(record.songId);
+      media.audioBlob = record.blob;
+      media.audioName = record.name || "MP3 local";
+      media.audioSize = record.size || record.blob.size || 0;
+      media.audioMime = record.mime || record.blob.type || "audio/mpeg";
+      state.songMedia.set(record.songId, media);
+    }
+    if (record.type === "artist-thumb" && record.artist && record.dataUrl) {
+      state.artistThumbs.set(record.artist, record.dataUrl);
+    }
+  }
 }
 
 async function idbSetMeta(key, value) {
