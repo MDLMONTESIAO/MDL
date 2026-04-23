@@ -995,7 +995,7 @@ const server = http.createServer(async (req, res) => {
       if (!db) return sendJson(res, 200, { ready: false, songs: [], artists: [] });
 
       const query = normalizeText(url.searchParams.get("q") || "");
-      const limit = Math.max(1, Math.min(5000, Number(url.searchParams.get("limit") || 5000)));
+      const limit = Math.max(1, Math.min(10000, Number(url.searchParams.get("limit") || 10000)));
       const artistThumbs = {
         ...normalizeArtistThumbs(db.artistThumbs),
         ...readArtistThumbs()

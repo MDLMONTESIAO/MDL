@@ -801,7 +801,7 @@ function applyPreviewState() {
 
 async function loadSongs() {
   try {
-    const response = await fetch(`/api/catalog?limit=5000&v=${Date.now()}`);
+    const response = await fetch(`/api/catalog?limit=10000&v=${Date.now()}`);
     if (!response.ok) throw new Error("index-not-found");
     const data = await response.json();
     state.generatedAt = data.generatedAt || null;
