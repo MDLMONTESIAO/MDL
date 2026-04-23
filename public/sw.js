@@ -1,11 +1,11 @@
-const CACHE_NAME = "acervo-mdl-inova-shell-v9";
-const API_CACHE = "acervo-mdl-inova-api-v9";
+const CACHE_NAME = "acervo-mdl-inova-shell-v10";
+const API_CACHE = "acervo-mdl-inova-api-v10";
 
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=20260423-artist-thumbs",
-  "/app.js?v=20260423-artist-thumbs",
+  "/styles.css?v=20260423-sync-thumbs",
+  "/app.js?v=20260423-sync-thumbs",
   "/manifest.webmanifest",
   "/assets/logo-inova.jpg"
 ];
@@ -40,6 +40,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (isAppShellAsset(url)) {
+    event.respondWith(networkFirst(request, CACHE_NAME));
+    return;
+  }
+
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request).catch(() => caches.match("/index.html"))
@@ -70,4 +75,12 @@ async function networkFirst(request, cacheName) {
     if (cached) return cached;
     throw new Error("offline-and-not-cached");
   }
+}
+
+function isAppShellAsset(url) {
+  return [
+    "/app.js",
+    "/styles.css",
+    "/manifest.webmanifest"
+  ].includes(url.pathname);
 }
