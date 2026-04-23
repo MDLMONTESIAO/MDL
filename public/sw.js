@@ -1,13 +1,13 @@
-const CACHE_NAME = "cifras-mdl-shell-v7";
-const API_CACHE = "cifras-mdl-api-v7";
+const CACHE_NAME = "acervo-mdl-monte-siao-shell-v10";
+const API_CACHE = "acervo-mdl-monte-siao-api-v10";
 
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css",
-  "/app.js",
+  "/styles.css?v=20260423-sync-thumbs",
+  "/app.js?v=20260423-sync-thumbs",
   "/manifest.webmanifest",
-  "/assets/logo-monte-siao.jpg"
+  "/assets/logo-inova.jpg"
 ];
 
 self.addEventListener("install", (event) => {
@@ -37,6 +37,11 @@ self.addEventListener("fetch", (event) => {
 
   if (url.pathname.startsWith("/api/")) {
     event.respondWith(networkFirst(request, API_CACHE));
+    return;
+  }
+
+  if (isAppShellAsset(url)) {
+    event.respondWith(networkFirst(request, CACHE_NAME));
     return;
   }
 
@@ -70,4 +75,12 @@ async function networkFirst(request, cacheName) {
     if (cached) return cached;
     throw new Error("offline-and-not-cached");
   }
+}
+
+function isAppShellAsset(url) {
+  return [
+    "/app.js",
+    "/styles.css",
+    "/manifest.webmanifest"
+  ].includes(url.pathname);
 }

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: acervo-musical-mdl
+    name: acervo-musical-mdl-monte-siao
     runtime: node
     plan: starter
     region: oregon
@@ -11,6 +11,6 @@ services:
       - key: DATA_DIR
         value: /opt/render/project/src/storage
     disk:
-      name: acervo-data
+      name: acervo-monte-siao-data
       mountPath: /opt/render/project/src/storage
       sizeGB: 5

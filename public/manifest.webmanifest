@@ -1,7 +1,7 @@
 {
   "name": "Acervo Musical MDL Monte Sião",
-  "short_name": "Cifras MDL",
-  "description": "Aplicativo de cifras e repertorios do MDL Monte Siao.",
+  "short_name": "MDL Monte Sião",
+  "description": "Aplicativo de cifras e repertorios do MDL Monte Sião.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
@@ -14,7 +14,7 @@
   "categories": ["music", "productivity", "utilities"],
   "icons": [
     {
-      "src": "/assets/logo-monte-siao.jpg",
+      "src": "/assets/logo-inova.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any"

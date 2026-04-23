@@ -112,9 +112,19 @@ const MOVABLE_CHORD_SHAPES = {
 };
 const OPEN_STRING_NOTE_INDEX = { lowE: 4, a: 9 };
 const OFFLINE_DB_NAME = "mdl-acervo-offline";
-const OFFLINE_DB_VERSION = 1;
+const OFFLINE_DB_VERSION = 2;
 const OFFLINE_BUNDLE_SIZE = 80;
 const INSTALL_PROMPT_AUTO_HIDE_MS = 3000;
+const LOCAL_COVER_MAX_BYTES = 4 * 1024 * 1024;
+const LOCAL_AUDIO_MAX_BYTES = 120 * 1024 * 1024;
+const TUNER_MIN_FREQUENCY = 65;
+const TUNER_MAX_FREQUENCY = 1200;
+const TUNER_SILENCE_RMS = 0.012;
+const TUNER_UPDATE_INTERVAL_MS = 80;
+const LOGIN_USERS = {
+  lider: { label: "Líder", role: "leader", initial: "L" },
+  musico: { label: "Músico", role: "musician", initial: "M" }
+};
 let deferredInstallPrompt = null;
 let installPromptAutoHideTimer = null;
 
@@ -124,6 +134,11 @@ const state = {
   currentView: "acervo",
   currentSongId: null,
   previousView: "acervo",
+  appStarted: false,
+  deviceId: ensureDeviceId(),
+  deviceLabel: getDeviceLabel(),
+  auth: readStoredAuth(),
+  selectedLoginUser: localStorage.getItem("mdl.lastLoginUser") || "lider",
   currentSheetHtml: "",
   transposeOffset: 0,
   baseKey: null,
@@ -133,8 +148,25 @@ const state = {
   generatedAt: null,
   playEditing: false,
   autoScrollTimer: null,
+  singerMode: localStorage.getItem("mdl.singerMode") === "true",
+  tunerOpen: false,
+  tunerRunning: false,
+  tunerStream: null,
+  tunerAudioContext: null,
+  tunerSource: null,
+  tunerAnalyser: null,
+  tunerBuffer: null,
+  tunerFrame: null,
+  tunerLastAt: 0,
   offlineSongs: new Set(),
   offlineArtistDownloads: new Map(),
+  songMedia: new Map(),
+  artistThumbs: new Map(),
+  publicArtistThumbs: new Map(),
+  localAudioUrls: new Map(),
+  pendingCoverSongId: null,
+  pendingAudioSongId: null,
+  pendingArtistThumb: null,
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
   favorites: new Set(JSON.parse(localStorage.getItem("mdl.favorites") || "[]")),
   play: migratePlay(JSON.parse(localStorage.getItem("mdl.playEnsaio") || "[]"))
@@ -180,7 +212,20 @@ Pronta para abrir`
 };
 
 const dom = {
+  loginScreen: document.getElementById("loginScreen"),
+  loginForm: document.getElementById("loginForm"),
+  loginPassword: document.getElementById("loginPassword"),
+  loginStatus: document.getElementById("loginStatus"),
+  appShell: document.getElementById("appShell"),
   search: document.getElementById("searchInput"),
+  topArtistStack: document.getElementById("topArtistStack"),
+  dashboardPlaySummary: document.getElementById("dashboardPlaySummary"),
+  dashboardSongCount: document.getElementById("dashboardSongCount"),
+  dashboardArtistCount: document.getElementById("dashboardArtistCount"),
+  dashboardAudioCount: document.getElementById("dashboardAudioCount"),
+  dashboardFavoriteCount: document.getElementById("dashboardFavoriteCount"),
+  dashboardPlayCount: document.getElementById("dashboardPlayCount"),
+  dashboardArtistShortcutCount: document.getElementById("dashboardArtistShortcutCount"),
   libraryStats: document.getElementById("libraryStats"),
   favoriteStats: document.getElementById("favoriteStats"),
   playStats: document.getElementById("playStats"),
@@ -197,6 +242,22 @@ const dom = {
   readerArtist: document.getElementById("readerArtist"),
   toneButton: document.getElementById("toneButton"),
   autoButton: document.getElementById("autoButton"),
+  singerModeButton: document.getElementById("singerModeButton"),
+  tunerButton: document.getElementById("tunerButton"),
+  tunerPanel: document.getElementById("tunerPanel"),
+  tunerNote: document.getElementById("tunerNote"),
+  tunerFrequency: document.getElementById("tunerFrequency"),
+  tunerCents: document.getElementById("tunerCents"),
+  tunerNeedle: document.getElementById("tunerNeedle"),
+  tunerStartButton: document.getElementById("tunerStartButton"),
+  readerMedia: document.getElementById("readerMedia"),
+  readerCover: document.getElementById("readerCover"),
+  readerAudioName: document.getElementById("readerAudioName"),
+  readerAudioStatus: document.getElementById("readerAudioStatus"),
+  localAudioPlayer: document.getElementById("localAudioPlayer"),
+  localCoverInput: document.getElementById("localCoverInput"),
+  artistThumbInput: document.getElementById("artistThumbInput"),
+  localAudioInput: document.getElementById("localAudioInput"),
   chordSheet: document.getElementById("chordSheet"),
   chordGuide: document.getElementById("chordGuide"),
   chordGuideName: document.getElementById("chordGuideName"),
@@ -206,6 +267,26 @@ const dom = {
   chordGuideHint: document.getElementById("chordGuideHint"),
   themeToggleButton: document.getElementById("themeToggleButton"),
   themeToggleIcon: document.getElementById("themeToggleIcon"),
+  accountButton: document.getElementById("accountButton"),
+  accountInitial: document.getElementById("accountInitial"),
+  accountModal: document.getElementById("accountModal"),
+  accountForm: document.getElementById("accountForm"),
+  accountRole: document.getElementById("accountRole"),
+  accountName: document.getElementById("accountName"),
+  accountStatus: document.getElementById("accountStatus"),
+  accountEmail: document.getElementById("accountEmail"),
+  currentPassword: document.getElementById("currentPassword"),
+  newPassword: document.getElementById("newPassword"),
+  confirmPassword: document.getElementById("confirmPassword"),
+  resetModal: document.getElementById("resetModal"),
+  resetForm: document.getElementById("resetForm"),
+  resetRole: document.getElementById("resetRole"),
+  resetDeviceLabel: document.getElementById("resetDeviceLabel"),
+  resetEmail: document.getElementById("resetEmail"),
+  resetCode: document.getElementById("resetCode"),
+  resetNewPassword: document.getElementById("resetNewPassword"),
+  resetConfirmPassword: document.getElementById("resetConfirmPassword"),
+  resetStatus: document.getElementById("resetStatus"),
   installPrompt: document.getElementById("installPrompt"),
   installPromptText: document.getElementById("installPromptText"),
   installPromptButton: document.getElementById("installPromptButton"),
@@ -220,12 +301,33 @@ init();
 async function init() {
   registerServiceWorker();
   initTheme();
+  bindEvents();
+  syncLoginSelection();
+  syncAuthUi();
+
+  if (!(await restoreSession())) {
+    showLogin();
+    return;
+  }
+
+  await startAuthenticatedApp();
+}
+
+async function startAuthenticatedApp() {
+  if (state.appStarted) {
+    showAuthenticatedApp();
+    renderAll();
+    return;
+  }
+
+  state.appStarted = true;
+  showAuthenticatedApp();
   initInstallPrompt();
   savePlay();
   await loadSongs();
   await refreshOfflineSongIds();
+  await loadLocalMedia();
   applyPreviewState();
-  bindEvents();
   applyReaderPreferences();
   filterSongs();
   renderAll();
@@ -244,6 +346,452 @@ async function init() {
   setInterval(autoRefreshLibrary, 30000);
 }
 
+function readStoredAuth() {
+  try {
+    const stored = JSON.parse(localStorage.getItem("mdl.auth") || "null");
+    if (!stored?.token || !stored?.user?.id) return null;
+    return stored;
+  } catch {
+    localStorage.removeItem("mdl.auth");
+    return null;
+  }
+}
+
+function writeStoredAuth() {
+  if (state.auth?.token && state.auth?.user) {
+    localStorage.setItem("mdl.auth", JSON.stringify(state.auth));
+  } else {
+    localStorage.removeItem("mdl.auth");
+  }
+}
+
+function ensureDeviceId() {
+  const stored = String(localStorage.getItem("mdl.deviceId") || "").trim().toLowerCase();
+  if (/^[a-z0-9_-]{12,80}$/.test(stored)) return stored;
+
+  const nextId = makeDeviceId();
+  localStorage.setItem("mdl.deviceId", nextId);
+  return nextId;
+}
+
+function makeDeviceId() {
+  const random = (globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`)
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]/g, "");
+  return `device_${random}`.slice(0, 80);
+}
+
+function getDeviceLabel() {
+  const platform = navigator.userAgentData?.platform || navigator.platform || "aparelho";
+  const kind = /mobile|android|iphone|ipad/i.test(navigator.userAgent || "") ? "mobile" : "desktop";
+  return `${platform} ${kind}`.trim();
+}
+
+async function restoreSession() {
+  if (!state.auth?.token) return false;
+
+  try {
+    const response = await fetch("/api/auth/session", {
+      headers: authHeaders()
+    });
+    if (!response.ok) throw new Error("session-expired");
+    const data = await response.json();
+    state.auth = { token: state.auth.token, user: data.user };
+    writeStoredAuth();
+    syncAuthUi();
+    return true;
+  } catch {
+    state.auth = null;
+    writeStoredAuth();
+    syncAuthUi();
+    return false;
+  }
+}
+
+function deviceHeaders(extra = {}) {
+  return {
+    "X-Device-Id": state.deviceId,
+    ...extra
+  };
+}
+
+function authHeaders(extra = {}) {
+  return {
+    ...deviceHeaders(extra),
+    ...(state.auth?.token ? { Authorization: `Bearer ${state.auth.token}` } : {})
+  };
+}
+
+function showLogin(message = "") {
+  closeAccountModal(true);
+  closeResetModal(true);
+  if (dom.loginScreen) dom.loginScreen.hidden = false;
+  if (dom.appShell) dom.appShell.hidden = true;
+  if (dom.loginStatus) dom.loginStatus.textContent = message;
+  setTimeout(() => dom.loginPassword?.focus(), 50);
+}
+
+function showAuthenticatedApp() {
+  if (dom.loginScreen) dom.loginScreen.hidden = true;
+  if (dom.appShell) dom.appShell.hidden = false;
+  syncAuthUi();
+}
+
+function selectLoginUser(userId) {
+  if (!LOGIN_USERS[userId]) return;
+  state.selectedLoginUser = userId;
+  localStorage.setItem("mdl.lastLoginUser", userId);
+  syncLoginSelection();
+  syncResetUi();
+  if (dom.loginStatus) dom.loginStatus.textContent = "";
+  dom.loginPassword?.focus();
+}
+
+function syncLoginSelection() {
+  if (!LOGIN_USERS[state.selectedLoginUser]) state.selectedLoginUser = "lider";
+  document.querySelectorAll("[data-action='select-login-user']").forEach((button) => {
+    const selected = button.dataset.userId === state.selectedLoginUser;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+}
+
+async function loginSelectedUser() {
+  const password = dom.loginPassword?.value || "";
+  if (!password) {
+    if (dom.loginStatus) dom.loginStatus.textContent = "Digite a senha.";
+    return;
+  }
+
+  if (dom.loginStatus) dom.loginStatus.textContent = "Entrando...";
+  try {
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: deviceHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({
+        userId: state.selectedLoginUser,
+        password,
+        deviceId: state.deviceId,
+        deviceLabel: state.deviceLabel
+      })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.token) throw new Error(data.error || "invalid-login");
+
+    state.auth = { token: data.token, user: data.user };
+    writeStoredAuth();
+    localStorage.setItem("mdl.lastLoginUser", state.selectedLoginUser);
+    if (dom.loginPassword) dom.loginPassword.value = "";
+    await startAuthenticatedApp();
+  } catch (error) {
+    if (dom.loginStatus) dom.loginStatus.textContent = describeLoginError(error);
+    return;
+    if (dom.loginStatus) dom.loginStatus.textContent = "Usuário ou senha inválidos.";
+  }
+}
+
+function syncAuthUi() {
+  const user = state.auth?.user;
+  const config = user ? LOGIN_USERS[user.id] : null;
+  document.body.classList.toggle("role-leader", isLeader());
+  document.body.classList.toggle("role-musician", user?.role === "musician");
+
+  if (dom.accountInitial) dom.accountInitial.textContent = config?.initial || "U";
+  if (dom.accountButton && user) {
+    dom.accountButton.title = `Conta: ${user.label}`;
+    dom.accountButton.setAttribute("aria-label", `Conta: ${user.label}`);
+  }
+  if (dom.accountRole) dom.accountRole.textContent = user?.label || "Perfil";
+  if (dom.accountEmail && document.activeElement !== dom.accountEmail) {
+    dom.accountEmail.value = user?.email || "";
+  }
+  if (dom.accountName) dom.accountName.textContent = isLeader()
+    ? "Pode editar o Play do ensaio neste aparelho"
+    : "Pode visualizar o Play do ensaio neste aparelho";
+
+  syncResetUi();
+
+  renderPermissionState();
+}
+
+function openAccountModal() {
+  if (!state.auth?.user || !dom.accountModal) return;
+  dom.accountModal.hidden = false;
+  if (dom.accountStatus) dom.accountStatus.textContent = "";
+  if (dom.accountEmail) dom.accountEmail.value = state.auth.user.email || "";
+  (state.auth.user.email ? dom.currentPassword : dom.accountEmail)?.focus();
+}
+
+function closeAccountModal(silent = false) {
+  if (!dom.accountModal) return;
+  dom.accountModal.hidden = true;
+  if (dom.accountForm) dom.accountForm.reset();
+  if (!silent && dom.accountStatus) dom.accountStatus.textContent = "";
+}
+
+function openResetModal() {
+  if (!dom.resetModal) return;
+  syncResetUi();
+  if (dom.resetStatus) dom.resetStatus.textContent = "";
+  dom.resetModal.hidden = false;
+  dom.resetEmail?.focus();
+}
+
+function closeResetModal(silent = false) {
+  if (!dom.resetModal) return;
+  dom.resetModal.hidden = true;
+  if (dom.resetForm) dom.resetForm.reset();
+  if (!silent && dom.resetStatus) dom.resetStatus.textContent = "";
+}
+
+function syncResetUi() {
+  const config = LOGIN_USERS[state.selectedLoginUser] || LOGIN_USERS.lider;
+  if (dom.resetRole) dom.resetRole.textContent = config.label;
+  if (dom.resetDeviceLabel) dom.resetDeviceLabel.textContent = `Recuperacao para ${config.label.toLowerCase()} deste aparelho`;
+}
+
+async function saveAccount() {
+  const email = normalizeEmailInput(dom.accountEmail?.value || "");
+  const currentPassword = dom.currentPassword?.value || "";
+  const newPassword = dom.newPassword?.value || "";
+  const confirmPassword = dom.confirmPassword?.value || "";
+  const emailChanged = email !== normalizeEmailInput(state.auth?.user?.email || "");
+  const wantsPasswordChange = Boolean(currentPassword || newPassword || confirmPassword);
+
+  if (!emailChanged && !wantsPasswordChange) {
+    if (dom.accountStatus) dom.accountStatus.textContent = "Nada para salvar.";
+    return;
+  }
+  if (email && !isValidEmailInput(email)) {
+    if (dom.accountStatus) dom.accountStatus.textContent = "Digite um e-mail valido.";
+    return;
+  }
+  if (wantsPasswordChange && !currentPassword) {
+    if (dom.accountStatus) dom.accountStatus.textContent = "Digite a senha atual.";
+    return;
+  }
+
+  if (wantsPasswordChange && newPassword.length < 4) {
+    if (dom.accountStatus) dom.accountStatus.textContent = "A nova senha precisa ter pelo menos 4 caracteres.";
+    return;
+  }
+  if (wantsPasswordChange && newPassword !== confirmPassword) {
+    if (dom.accountStatus) dom.accountStatus.textContent = "A confirmação não confere.";
+    return;
+  }
+
+  if (dom.accountStatus) dom.accountStatus.textContent = "Salvando...";
+  try {
+    let updatedUser = state.auth?.user;
+
+    if (emailChanged) {
+      const emailResponse = await fetch("/api/auth/update-email", {
+        method: "POST",
+        headers: authHeaders({ "Content-Type": "application/json" }),
+        body: JSON.stringify({ email })
+      });
+      const emailData = await emailResponse.json().catch(() => ({}));
+      if (!emailResponse.ok || !emailData.ok) throw new Error(emailData.error || "update-email-failed");
+      updatedUser = emailData.user || updatedUser;
+    }
+
+    if (!wantsPasswordChange) {
+      state.auth = { ...state.auth, user: updatedUser };
+      writeStoredAuth();
+      syncAuthUi();
+      if (dom.accountForm) dom.accountForm.reset();
+      if (dom.accountEmail) dom.accountEmail.value = updatedUser?.email || "";
+      if (dom.accountStatus) dom.accountStatus.textContent = "E-mail atualizado.";
+      toast("E-mail atualizado");
+      return;
+    }
+    const response = await fetch("/api/auth/change-password", {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ currentPassword, newPassword })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) throw new Error(data.error || "change-failed");
+    updatedUser = data.user || updatedUser;
+    state.auth = { ...state.auth, user: updatedUser };
+    writeStoredAuth();
+    syncAuthUi();
+    if (dom.accountForm) dom.accountForm.reset();
+    if (dom.accountEmail) dom.accountEmail.value = updatedUser?.email || "";
+    if (dom.accountStatus) dom.accountStatus.textContent = "Dados salvos e senha atualizada.";
+    toast("Senha atualizada neste aparelho");
+  } catch (error) {
+    if (dom.accountStatus) dom.accountStatus.textContent = describeAccountError(error);
+    return;
+    if (dom.accountStatus) dom.accountStatus.textContent = "Senha atual inválida.";
+  }
+}
+
+async function requestResetCode() {
+  const email = normalizeEmailInput(dom.resetEmail?.value || "");
+  if (!isValidEmailInput(email)) {
+    if (dom.resetStatus) dom.resetStatus.textContent = "Digite o e-mail cadastrado.";
+    return;
+  }
+
+  if (dom.resetStatus) dom.resetStatus.textContent = "Enviando codigo...";
+  try {
+    const response = await fetch("/api/auth/request-reset", {
+      method: "POST",
+      headers: deviceHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({
+        userId: state.selectedLoginUser,
+        email,
+        deviceId: state.deviceId,
+        deviceLabel: state.deviceLabel
+      })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) throw new Error(data.error || "request-reset-failed");
+
+    if (dom.resetStatus) {
+      dom.resetStatus.textContent = data.previewCode
+        ? `Codigo de teste local: ${data.previewCode}`
+        : "Codigo enviado para o e-mail cadastrado.";
+    }
+    dom.resetCode?.focus();
+  } catch (error) {
+    if (dom.resetStatus) dom.resetStatus.textContent = describeResetRequestError(error);
+  }
+}
+
+async function submitResetPassword() {
+  const email = normalizeEmailInput(dom.resetEmail?.value || "");
+  const code = String(dom.resetCode?.value || "").trim();
+  const newPassword = dom.resetNewPassword?.value || "";
+  const confirmPassword = dom.resetConfirmPassword?.value || "";
+
+  if (!isValidEmailInput(email)) {
+    if (dom.resetStatus) dom.resetStatus.textContent = "Digite o e-mail cadastrado.";
+    return;
+  }
+  if (!code) {
+    if (dom.resetStatus) dom.resetStatus.textContent = "Digite o codigo recebido.";
+    return;
+  }
+  if (newPassword.length < 4) {
+    if (dom.resetStatus) dom.resetStatus.textContent = "A nova senha precisa ter pelo menos 4 caracteres.";
+    return;
+  }
+  if (newPassword !== confirmPassword) {
+    if (dom.resetStatus) dom.resetStatus.textContent = "A confirmacao nao confere.";
+    return;
+  }
+
+  if (dom.resetStatus) dom.resetStatus.textContent = "Redefinindo senha...";
+  try {
+    const response = await fetch("/api/auth/reset-password", {
+      method: "POST",
+      headers: deviceHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({
+        userId: state.selectedLoginUser,
+        email,
+        code,
+        newPassword,
+        deviceId: state.deviceId,
+        deviceLabel: state.deviceLabel
+      })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) throw new Error(data.error || "reset-password-failed");
+
+    closeResetModal(true);
+    if (dom.loginPassword) dom.loginPassword.value = "";
+    if (dom.loginStatus) dom.loginStatus.textContent = "Senha redefinida. Entre com a nova senha.";
+    toast("Senha redefinida neste aparelho");
+  } catch (error) {
+    if (dom.resetStatus) dom.resetStatus.textContent = describeResetConfirmError(error);
+  }
+}
+
+function normalizeEmailInput(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function isValidEmailInput(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeEmailInput(value));
+}
+
+function describeLoginError(error) {
+  const code = error?.message || "";
+  if (code === "invalid-device") return "Nao foi possivel identificar este aparelho.";
+  return "Usuario ou senha invalidos.";
+}
+
+function describeAccountError(error) {
+  const code = error?.message || "";
+  if (code === "invalid-email") return "Digite um e-mail valido.";
+  if (code === "invalid-current-password") return "Senha atual invalida.";
+  if (code === "password-too-short") return "A nova senha precisa ter pelo menos 4 caracteres.";
+  return "Nao foi possivel salvar agora.";
+}
+
+function describeResetRequestError(error) {
+  const code = error?.message || "";
+  if (code === "invalid-email") return "Digite o e-mail cadastrado.";
+  if (code === "email-not-registered") return "Este perfil ainda nao tem e-mail cadastrado neste aparelho.";
+  if (code === "email-mismatch") return "O e-mail nao confere com este aparelho.";
+  if (code === "reset-wait") return "Aguarde um minuto para pedir outro codigo.";
+  if (code === "email-not-configured") return "O envio por e-mail ainda precisa ser configurado no servidor.";
+  if (code === "invalid-device") return "Nao foi possivel identificar este aparelho.";
+  return "Nao foi possivel enviar o codigo agora.";
+}
+
+function describeResetConfirmError(error) {
+  const code = error?.message || "";
+  if (code === "invalid-email") return "Digite o e-mail cadastrado.";
+  if (code === "invalid-reset-code") return "Codigo invalido.";
+  if (code === "reset-not-requested") return "Peca um codigo antes de redefinir.";
+  if (code === "reset-expired") return "O codigo expirou. Peca outro.";
+  if (code === "email-mismatch") return "O e-mail nao confere com este aparelho.";
+  if (code === "password-too-short") return "A nova senha precisa ter pelo menos 4 caracteres.";
+  if (code === "invalid-device") return "Nao foi possivel identificar este aparelho.";
+  return "Nao foi possivel redefinir a senha agora.";
+}
+
+function logout() {
+  stopAutoScroll();
+  stopTuner(true);
+  closeChordGuide(true);
+  closeAccountModal(true);
+  closeResetModal(true);
+  state.auth = null;
+  writeStoredAuth();
+  syncAuthUi();
+  showLogin("Sessao encerrada.");
+}
+
+function isLeader() {
+  return state.auth?.user?.role === "leader";
+}
+
+function requireLeader() {
+  if (isLeader()) return true;
+  toast("Apenas o líder pode editar o Play do ensaio");
+  return false;
+}
+
+function renderPermissionState() {
+  if (!state.appStarted) return;
+  if (!isLeader()) state.playEditing = false;
+  document.querySelectorAll('[data-action="add-play"], [data-action="add-current-play"]').forEach((button) => {
+    const locked = !isLeader();
+    button.disabled = locked;
+    button.classList.toggle("locked", locked);
+    button.title = locked ? "Apenas o líder pode adicionar ao Play do ensaio" : "Adicionar ao Play do ensaio";
+    button.setAttribute("aria-label", button.title);
+  });
+  if (dom.editPlayButton) {
+    dom.editPlayButton.disabled = !isLeader();
+    dom.editPlayButton.title = isLeader() ? "Editar Play do ensaio" : "Apenas o líder pode editar";
+  }
+}
+
 function applyPreviewState() {
   const params = new URLSearchParams(location.search);
   if (params.get("demo") === "culto") {
@@ -253,13 +801,15 @@ function applyPreviewState() {
 
 async function loadSongs() {
   try {
-    const response = await fetch(`/api/catalog?limit=5000&v=${Date.now()}`);
+    const response = await fetch(`/api/catalog?limit=10000&v=${Date.now()}`);
     if (!response.ok) throw new Error("index-not-found");
     const data = await response.json();
     state.generatedAt = data.generatedAt || null;
     state.songs = Array.isArray(data.songs) && data.songs.length ? data.songs : sampleSongs;
+    setPublicArtistThumbs(data.artistThumbs, state.songs);
     idbSetMeta("catalog", {
       generatedAt: state.generatedAt,
+      artistThumbs: Object.fromEntries(state.publicArtistThumbs),
       songs: state.songs
     }).catch(() => {});
   } catch {
@@ -268,17 +818,37 @@ async function loadSongs() {
     state.songs = Array.isArray(offlineCatalog?.songs) && offlineCatalog.songs.length
       ? offlineCatalog.songs
       : sampleSongs;
+    setPublicArtistThumbs(offlineCatalog?.artistThumbs, state.songs);
   }
 }
 
 function bindEvents() {
   document.addEventListener("click", handleClick);
   document.addEventListener("keydown", handleKeyDown);
-  dom.search.addEventListener("input", () => {
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopTuner();
+  });
+  window.addEventListener("pagehide", () => stopTuner());
+  dom.loginForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    loginSelectedUser();
+  });
+  dom.accountForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveAccount();
+  });
+  dom.resetForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitResetPassword();
+  });
+  dom.search?.addEventListener("input", () => {
     filterSongs();
     renderCatalog();
     if (state.currentView !== "acervo") showView("acervo");
   });
+  dom.localCoverInput?.addEventListener("change", handleLocalCoverSelected);
+  dom.artistThumbInput?.addEventListener("change", handleArtistThumbSelected);
+  dom.localAudioInput?.addEventListener("change", handleLocalAudioSelected);
 }
 
 function handleClick(event) {
@@ -306,30 +876,45 @@ function handleClick(event) {
     event.preventDefault();
     event.stopPropagation();
 
+    if (action === "select-login-user") return selectLoginUser(button.dataset.userId);
+    if (action === "open-account") return openAccountModal();
+    if (action === "close-account") return closeAccountModal();
+    if (action === "open-reset") return openResetModal();
+    if (action === "close-reset") return closeResetModal();
+    if (action === "request-reset-code") return requestResetCode();
+    if (action === "logout") return logout();
     if (action === "open") return openSong(id);
-    if (action === "add-play") return addToPlay(id);
-    if (action === "remove-play") return removeFromPlay(id);
+    if (action === "add-play") return requireLeader() && addToPlay(id);
+    if (action === "remove-play") return requireLeader() && removeFromPlay(id);
     if (action === "favorite") return toggleFavorite(id);
+    if (action === "set-cover") return chooseLocalCover(id);
+    if (action === "set-artist-thumb") return chooseArtistThumb(artist);
+    if (action === "set-audio") return chooseLocalAudio(id);
+    if (action === "add-current-audio") return chooseLocalAudio(state.currentSongId);
+    if (action === "play-audio") return playLocalAudio(id);
     if (action === "download-artist") return downloadArtistForOffline(artist);
     if (action === "toggle-theme") return toggleTheme();
     if (action === "install-app") return installApp();
     if (action === "dismiss-install") return hideInstallPrompt();
-    if (action === "clear-play") return clearPlay();
+    if (action === "clear-play") return requireLeader() && clearPlay();
     if (action === "refresh") return refreshLibrary();
     if (action === "back") return showView(state.previousView || "acervo");
     if (action === "back-play") return showView(state.previousView && state.previousView !== "play" ? state.previousView : "acervo");
     if (action === "go-home") return showView("acervo");
     if (action === "favorite-current") return toggleFavorite(state.currentSongId);
-    if (action === "add-current-play") return addToPlay(state.currentSongId, currentKeyLabel());
+    if (action === "add-current-play") return requireLeader() && addToPlay(state.currentSongId, currentKeyLabel());
     if (action === "font-down") return setReaderFont(state.readerFont - 1);
     if (action === "font-up") return setReaderFont(state.readerFont + 1);
+    if (action === "toggle-singer-mode") return toggleSingerMode();
+    if (action === "toggle-tuner") return toggleTunerPanel();
+    if (action === "start-tuner") return state.tunerRunning ? stopTuner() : startTuner();
     if (action === "transpose-down") return transposeCurrentSong(-1);
     if (action === "transpose-up") return transposeCurrentSong(1);
     if (action === "reset-tone") return resetTone();
     if (action === "toggle-autoscroll") return toggleAutoScroll();
     if (action === "start-service") return startService();
     if (action === "share-play") return sharePlay();
-    if (action === "toggle-edit-play") return togglePlayEditing();
+    if (action === "toggle-edit-play") return requireLeader() && togglePlayEditing();
     if (action === "admin-refresh") return adminRefresh();
     if (action === "close-chord-guide") return closeChordGuide();
   }
@@ -346,6 +931,16 @@ function handleKeyDown(event) {
 
   if (event.key === "Escape" && state.chordGuideOpen) {
     closeChordGuide();
+    return;
+  }
+
+  if (event.key === "Escape" && dom.accountModal && !dom.accountModal.hidden) {
+    closeAccountModal();
+    return;
+  }
+
+  if (event.key === "Escape" && dom.resetModal && !dom.resetModal.hidden) {
+    closeResetModal();
   }
 }
 
@@ -362,6 +957,7 @@ function filterSongs() {
 }
 
 function renderAll() {
+  renderDashboard();
   renderCatalog();
   renderFavorites();
   renderPlay();
@@ -369,11 +965,39 @@ function renderAll() {
   updateStats();
 }
 
+function renderDashboard() {
+  const groups = getArtistGroups();
+  const topArtists = groups.slice(0, 3);
+  if (dom.topArtistStack) {
+    dom.topArtistStack.innerHTML = topArtists.length
+      ? topArtists.map(([artist, songs]) => renderTopArtist(artist, songs)).join("")
+      : `<span class="top-artist-empty">MDL</span>`;
+  }
+  if (dom.dashboardPlaySummary) {
+    dom.dashboardPlaySummary.textContent = state.play.length
+      ? `${state.play.length} musica${state.play.length === 1 ? "" : "s"} no repertorio`
+      : "Monte o repertorio para comecar";
+  }
+}
+
+function renderTopArtist(artist, songs) {
+  const thumb = getArtistThumb(artist);
+  const initials = getInitials(artist);
+  const thumbTitle = isLeader() ? `Enviar thumb online de ${artist}` : `Salvar thumb de ${artist} neste aparelho`;
+  return `
+    <button class="top-artist-avatar" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="${escapeAttr(thumbTitle)}" aria-label="${escapeAttr(thumbTitle)}">
+      ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(initials)}</span>`}
+      <b>${formatNumber(songs.length)}</b>
+    </button>
+  `;
+}
+
 function renderCatalog() {
   dom.songList.innerHTML = state.filtered.length
     ? state.filtered.map(renderSongCard).join("")
     : emptyState("Nenhuma música encontrada.");
   syncFavoriteControls();
+  renderPermissionState();
 }
 
 function renderFavorites() {
@@ -382,6 +1006,7 @@ function renderFavorites() {
     ? songs.map(renderSongCard).join("")
     : emptyState("Suas favoritas aparecem aqui.");
   syncFavoriteControls();
+  renderPermissionState();
 }
 
 function renderPlay() {
@@ -389,26 +1014,37 @@ function renderPlay() {
     .map((entry) => ({ entry, song: findSong(entry.id) }))
     .filter(({ song }) => Boolean(song));
 
+  const playEmptyText = isLeader()
+    ? "Adicione músicas pelo botão + no acervo. Elas aparecem aqui para o ensaio."
+    : "O Play do ensaio aparecerá aqui quando o líder adicionar músicas.";
+
   dom.playList.innerHTML = entries.length
     ? entries.map(({ entry, song }, index) => renderWorshipSong(entry, song, index)).join("")
-    : emptyState("Adicione músicas pelo botão + no acervo. Elas aparecem aqui para o culto.");
+    : emptyState(playEmptyText);
 
   if (dom.editPlayButton) {
     dom.editPlayButton.textContent = state.playEditing ? "Concluir" : "Editar";
   }
   updateStats();
+  renderPermissionState();
 }
 
 function renderArtists() {
+  const artists = getArtistGroups("name");
+  dom.artistList.innerHTML = artists.map(([artist, songs]) => renderArtistCard(artist, songs)).join("");
+  updateStats();
+}
+
+function getArtistGroups(sortBy = "count") {
   const groups = new Map();
   state.songs.forEach((song) => {
     if (!groups.has(song.artist)) groups.set(song.artist, []);
     groups.get(song.artist).push(song);
   });
 
-  const artists = Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
-  dom.artistList.innerHTML = artists.map(([artist, songs]) => renderArtistCard(artist, songs)).join("");
-  updateStats();
+  const artists = Array.from(groups.entries());
+  if (sortBy === "name") return artists.sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
+  return artists.sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], "pt-BR"));
 }
 
 function renderArtistCard(artist, songs) {
@@ -440,9 +1076,14 @@ function renderArtistCard(artist, songs) {
     : isOffline
       ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>`
       : `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>`;
+  const thumb = getArtistThumb(artist);
+  const thumbTitle = isLeader() ? "Enviar thumb online" : "Salvar thumb neste aparelho";
 
   return `
     <article class="artist-card">
+      <button class="artist-thumb" type="button" data-action="set-artist-thumb" data-artist="${escapeAttr(artist)}" title="${escapeAttr(thumbTitle)}" aria-label="${escapeAttr(thumbTitle)} de ${escapeAttr(artist)}">
+        ${thumb ? `<img src="${escapeAttr(thumb)}" alt="">` : `<span>${escapeHtml(getInitials(artist))}</span>`}
+      </button>
       <button class="artist-main" type="button" data-artist="${escapeAttr(artist)}">
         <span class="artist-title">${escapeHtml(artist)}</span>
         <span class="artist-meta">${escapeHtml(metaLabel)}</span>
@@ -461,7 +1102,7 @@ function renderArtistCard(artist, songs) {
 
 function renderArtistSongs(artist) {
   dom.search.value = artist;
-  state.filtered = getArtistSongs(artist).slice(0, 120);
+  state.filtered = getArtistSongs(artist);
   showView("acervo");
   renderCatalog();
 }
@@ -472,15 +1113,27 @@ function renderSongCard(song) {
   const favoriteTitle = isFavorite ? "Remover dos favoritos" : "Favoritar";
   const favoriteGlyph = isFavorite ? "★" : "☆";
   const songMeta = getSongMetaLabel(song);
+  const playLocked = !isLeader();
+  const media = getSongMedia(song.id);
+  const cover = media?.cover || getArtistThumb(song.artist);
+  const hasAudio = Boolean(media?.audioBlob);
+  const playTitle = playLocked ? "Apenas o líder pode adicionar ao Play do ensaio" : "Adicionar ao Play do ensaio";
   return `
     <article class="song-card">
+      <button class="song-cover" type="button" data-action="set-cover" data-id="${escapeAttr(song.id)}" title="Trocar capa local" aria-label="Trocar capa local de ${escapeAttr(song.title)}">
+        ${cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`}
+      </button>
       <button class="song-main" type="button" data-action="open" data-id="${escapeAttr(song.id)}">
         <span class="song-title">${escapeHtml(song.title)}</span>
-        <span class="song-meta">${escapeHtml(songMeta)}</span>
+        <span class="song-meta">${escapeHtml(songMeta)}${hasAudio ? " - MP3 local" : ""}</span>
       </button>
       <div class="song-actions">
+        ${hasAudio ? `<button class="mini-action audio-ready" type="button" data-action="play-audio" data-id="${escapeAttr(song.id)}" title="Tocar MP3 local" aria-label="Tocar MP3 local"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>` : ""}
+        <button class="mini-action" type="button" data-action="set-audio" data-id="${escapeAttr(song.id)}" title="Adicionar MP3 local" aria-label="Adicionar MP3 local">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </button>
         <button class="${favoriteClass}" type="button" data-action="favorite" data-id="${escapeAttr(song.id)}" title="${favoriteTitle}" aria-label="${favoriteTitle}" aria-pressed="${isFavorite}">${favoriteGlyph}</button>
-        <button class="mini-action primary" type="button" data-action="add-play" data-id="${escapeAttr(song.id)}" title="Adicionar ao culto">
+        <button class="mini-action primary${playLocked ? " locked" : ""}" type="button" data-action="add-play" data-id="${escapeAttr(song.id)}" title="${escapeAttr(playTitle)}" aria-label="${escapeAttr(playTitle)}"${playLocked ? " disabled" : ""}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
         </button>
       </div>
@@ -501,19 +1154,27 @@ function getVisibleCollection(collection) {
 
 function renderWorshipSong(entry, song, index) {
   const key = entry.key || song.key || "Tom";
+  const media = getSongMedia(song.id);
+  const cover = media?.cover || getArtistThumb(song.artist);
+  const hasAudio = Boolean(media?.audioBlob);
   const offlineBadge = state.offlineSongs.has(song.id) ? `<span class="offline-badge">offline</span>` : "";
-  const removeButton = state.playEditing
+  const localAudioBadge = hasAudio ? `<span class="local-audio-badge">MP3</span>` : "";
+  const removeButton = state.playEditing && isLeader()
     ? `<button class="worship-remove" type="button" data-action="remove-play" data-id="${escapeAttr(song.id)}" title="Remover cifra">×</button>`
     : "";
 
   return `
     <article class="worship-song">
+      <span class="worship-cover">
+        ${cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`}
+      </span>
       <span class="worship-index">${index + 1}</span>
       <button class="worship-song-main" type="button" data-action="open" data-id="${escapeAttr(song.id)}">
         <strong>${escapeHtml(song.title)}</strong>
         <span>${escapeHtml(song.artist)}</span>
       </button>
       ${offlineBadge}
+      ${localAudioBadge}
       <span class="tone-pill">${escapeHtml(key)}</span>
       ${removeButton}
     </article>
@@ -552,14 +1213,19 @@ async function openSong(id) {
   }
 
   renderCurrentSheet();
+  updateReaderMedia();
 }
 
 function renderCurrentSheet() {
-  const html = transposeHtml(state.currentSheetHtml, state.transposeOffset);
-  dom.chordSheet.innerHTML = `<pre>${decorateChordHtml(html)}</pre>`;
+  const html = state.singerMode
+    ? stripChordsToLyrics(state.currentSheetHtml)
+    : decorateChordHtml(transposeHtml(state.currentSheetHtml, state.transposeOffset));
+  dom.chordSheet.innerHTML = `<pre>${html}</pre>`;
   applyReaderPreferences();
   updateToneButton();
-  if (state.chordGuideOpen && state.activeChordBase) {
+  if (state.singerMode) {
+    closeChordGuide(true);
+  } else if (state.chordGuideOpen && state.activeChordBase) {
     refreshChordGuide();
   }
 }
@@ -600,6 +1266,7 @@ function closeChordGuide(preserveBase = false) {
 }
 
 function addToPlay(id, selectedKey = null) {
+  if (!isLeader()) return requireLeader();
   if (!id) return;
   const song = findSong(id);
   if (!song) return;
@@ -613,17 +1280,19 @@ function addToPlay(id, selectedKey = null) {
 
   savePlay();
   renderPlay();
-  toast("Adicionada ao Culto de Domingo");
+  toast("Adicionada ao Play do ensaio");
   downloadSongForOffline(id);
 }
 
 function removeFromPlay(id) {
+  if (!isLeader()) return requireLeader();
   state.play = state.play.filter((entry) => entry.id !== id);
   savePlay();
   renderPlay();
 }
 
 function clearPlay() {
+  if (!isLeader()) return requireLeader();
   state.play = [];
   savePlay();
   renderPlay();
@@ -665,6 +1334,301 @@ function syncFavoriteControls() {
   }
 }
 
+function getCurrentUserId() {
+  return state.auth?.user?.id || state.selectedLoginUser || "local";
+}
+
+function getSongMedia(id) {
+  const songId = String(id || "");
+  if (!state.songMedia.has(songId)) state.songMedia.set(songId, {});
+  return state.songMedia.get(songId);
+}
+
+function setPublicArtistThumbs(thumbs = {}, songs = []) {
+  state.publicArtistThumbs = new Map();
+
+  if (thumbs && typeof thumbs === "object" && !Array.isArray(thumbs)) {
+    Object.entries(thumbs).forEach(([artist, thumb]) => {
+      const name = normalizeArtistName(artist);
+      const url = String(thumb || "").trim();
+      if (name && url) state.publicArtistThumbs.set(name, url);
+    });
+  }
+
+  songs.forEach((song) => {
+    const name = normalizeArtistName(song.artist);
+    const url = String(song.artistThumb || "").trim();
+    if (name && url && !state.publicArtistThumbs.has(name)) {
+      state.publicArtistThumbs.set(name, url);
+    }
+  });
+}
+
+function setPublicArtistThumb(artist, thumb) {
+  const name = normalizeArtistName(artist);
+  const url = String(thumb || "").trim();
+  if (!name || !url) return;
+  state.publicArtistThumbs.set(name, url);
+  state.songs.forEach((song) => {
+    if (normalizeArtistName(song.artist) === name) song.artistThumb = url;
+  });
+}
+
+function getArtistThumb(artist) {
+  const name = normalizeArtistName(artist);
+  if (!name) return "";
+  return state.artistThumbs.get(name)
+    || state.publicArtistThumbs.get(name)
+    || getPublicArtistThumbByNormalizedName(name)
+    || "";
+}
+
+function getPublicArtistThumbByNormalizedName(artist) {
+  const key = normalize(artist);
+  const match = Array.from(state.publicArtistThumbs.entries())
+    .find(([candidate]) => normalize(candidate) === key);
+  return match?.[1] || "";
+}
+
+function getLibraryRefreshSignature() {
+  const artistThumbSnapshot = Array.from(state.publicArtistThumbs.entries())
+    .sort(([left], [right]) => left.localeCompare(right, "pt-BR"));
+  return JSON.stringify({
+    generatedAt: state.generatedAt || "",
+    songs: state.songs.length,
+    artistThumbs: artistThumbSnapshot
+  });
+}
+
+function normalizeArtistName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ");
+}
+
+function makeMediaKey(type, value) {
+  return `${getCurrentUserId()}:${type}:${String(value || "").toLowerCase()}`;
+}
+
+function chooseLocalCover(id) {
+  if (!id || !dom.localCoverInput) return;
+  state.pendingCoverSongId = id;
+  dom.localCoverInput.value = "";
+  dom.localCoverInput.click();
+}
+
+function chooseArtistThumb(artist) {
+  if (!artist || !dom.artistThumbInput) return;
+  state.pendingArtistThumb = artist;
+  dom.artistThumbInput.value = "";
+  dom.artistThumbInput.click();
+}
+
+function chooseLocalAudio(id) {
+  if (!id || !dom.localAudioInput) return;
+  state.pendingAudioSongId = id;
+  dom.localAudioInput.value = "";
+  dom.localAudioInput.click();
+}
+
+async function handleLocalCoverSelected(event) {
+  const songId = state.pendingCoverSongId;
+  state.pendingCoverSongId = null;
+  const file = event.target.files?.[0];
+  if (!songId || !file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+
+  const dataUrl = await fileToDataUrl(file);
+  const media = getSongMedia(songId);
+  media.cover = dataUrl;
+  media.coverName = file.name;
+  state.songMedia.set(songId, media);
+  await idbPutMedia({
+    key: makeMediaKey("song-cover", songId),
+    type: "song-cover",
+    userId: getCurrentUserId(),
+    songId,
+    name: file.name,
+    mime: file.type,
+    size: file.size,
+    dataUrl,
+    updatedAt: new Date().toISOString()
+  });
+  renderAll();
+  updateReaderMedia();
+  toast("Capa salva neste aparelho");
+}
+
+async function handleArtistThumbSelected(event) {
+  const artist = state.pendingArtistThumb;
+  state.pendingArtistThumb = null;
+  const file = event.target.files?.[0];
+  if (!artist || !file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+
+  const dataUrl = await fileToDataUrl(file);
+  const artistName = normalizeArtistName(artist);
+  state.artistThumbs.set(artistName, dataUrl);
+  await idbPutMedia({
+    key: makeMediaKey("artist-thumb", artistName),
+    type: "artist-thumb",
+    userId: getCurrentUserId(),
+    artist: artistName,
+    name: file.name,
+    mime: file.type,
+    size: file.size,
+    dataUrl,
+    updatedAt: new Date().toISOString()
+  });
+
+  const uploaded = isLeader() ? await uploadArtistThumb(artistName, dataUrl) : null;
+  if (uploaded) {
+    state.artistThumbs.delete(artistName);
+    await idbDeleteMedia(makeMediaKey("artist-thumb", artistName)).catch(() => {});
+  }
+  renderDashboard();
+  renderCatalog();
+  renderFavorites();
+  renderPlay();
+  renderArtists();
+  updateReaderMedia();
+  toast(uploaded
+    ? "Thumb salva no sistema online"
+    : isLeader()
+      ? "Thumb salva neste aparelho; online indisponivel"
+      : "Thumb salva neste aparelho");
+}
+
+async function uploadArtistThumb(artist, dataUrl) {
+  try {
+    const response = await fetch("/api/artist-thumbs", {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ artist, dataUrl })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.url) throw new Error(data.error || "upload-failed");
+
+    setPublicArtistThumb(data.artist || artist, data.url);
+    idbSetMeta("catalog", {
+      generatedAt: state.generatedAt,
+      artistThumbs: Object.fromEntries(state.publicArtistThumbs),
+      songs: state.songs
+    }).catch(() => {});
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+async function handleLocalAudioSelected(event) {
+  const songId = state.pendingAudioSongId;
+  state.pendingAudioSongId = null;
+  const file = event.target.files?.[0];
+  if (!songId || !file) return;
+  if (!file.type.startsWith("audio/") && !/\.mp3$/i.test(file.name)) return toast("Escolha um MP3");
+  if (file.size > LOCAL_AUDIO_MAX_BYTES) return toast("MP3 muito grande para este aparelho");
+
+  const previousUrl = state.localAudioUrls.get(songId);
+  if (previousUrl) URL.revokeObjectURL(previousUrl);
+  state.localAudioUrls.delete(songId);
+
+  const media = getSongMedia(songId);
+  media.audioBlob = file;
+  media.audioName = file.name;
+  media.audioSize = file.size;
+  media.audioMime = file.type || "audio/mpeg";
+  state.songMedia.set(songId, media);
+  await idbPutMedia({
+    key: makeMediaKey("song-audio", songId),
+    type: "song-audio",
+    userId: getCurrentUserId(),
+    songId,
+    name: file.name,
+    mime: file.type || "audio/mpeg",
+    size: file.size,
+    blob: file,
+    updatedAt: new Date().toISOString()
+  });
+  renderAll();
+  updateReaderMedia();
+  toast("MP3 salvo somente neste aparelho");
+}
+
+async function playLocalAudio(id) {
+  const song = findSong(id);
+  const media = getSongMedia(id);
+  if (!song || !media?.audioBlob) return chooseLocalAudio(id);
+  if (state.currentSongId !== id) await openSong(id);
+  updateReaderMedia();
+  dom.localAudioPlayer?.play().catch(() => {});
+}
+
+function updateReaderMedia() {
+  if (!dom.readerMedia) return;
+  const song = findSong(state.currentSongId);
+  if (!song) {
+    dom.readerMedia.hidden = true;
+    return;
+  }
+
+  const media = getSongMedia(song.id);
+  const cover = media.cover || getArtistThumb(song.artist);
+  dom.readerMedia.hidden = false;
+  if (dom.readerCover) {
+    dom.readerCover.innerHTML = cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`;
+  }
+  if (dom.readerAudioName) dom.readerAudioName.textContent = media.audioName || "Adicionar MP3 local";
+  if (dom.readerAudioStatus) {
+    dom.readerAudioStatus.textContent = media.audioBlob
+      ? `${formatBytes(media.audioSize)} neste aparelho`
+      : "Nenhum MP3 local para esta cifra";
+  }
+  if (dom.localAudioPlayer) {
+    if (media.audioBlob) {
+      dom.localAudioPlayer.hidden = false;
+      dom.localAudioPlayer.src = getLocalAudioUrl(song.id, media.audioBlob);
+    } else {
+      dom.localAudioPlayer.hidden = true;
+      dom.localAudioPlayer.removeAttribute("src");
+      dom.localAudioPlayer.load();
+    }
+  }
+}
+
+function getLocalAudioUrl(songId, blob) {
+  if (!state.localAudioUrls.has(songId)) {
+    state.localAudioUrls.set(songId, URL.createObjectURL(blob));
+  }
+  return state.localAudioUrls.get(songId);
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+
+function getInitials(value) {
+  return String(value || "MDL")
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0] || "")
+    .join("")
+    .toUpperCase() || "MDL";
+}
+
+function formatBytes(value) {
+  const bytes = Number(value || 0);
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  if (bytes >= 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${bytes} B`;
+}
+
 async function refreshLibrary() {
   await loadSongs();
   filterSongs();
@@ -673,9 +1637,9 @@ async function refreshLibrary() {
 
 async function autoRefreshLibrary() {
   if (state.currentView === "reader") return;
-  const before = state.songs.length;
+  const before = getLibraryRefreshSignature();
   await loadSongs();
-  if (state.songs.length !== before) {
+  if (getLibraryRefreshSignature() !== before) {
     filterSongs();
     renderAll();
   }
@@ -684,6 +1648,7 @@ async function autoRefreshLibrary() {
 function showView(viewName) {
   if (viewName !== "reader") {
     stopAutoScroll();
+    stopTuner();
     closeChordGuide(true);
   }
   state.currentView = viewName;
@@ -710,6 +1675,12 @@ function setReaderFont(size) {
 
 function applyReaderPreferences() {
   dom.chordSheet.style.setProperty("--reader-font", `${state.readerFont}px`);
+  dom.chordSheet.classList.toggle("singer-mode", state.singerMode);
+  if (dom.singerModeButton) {
+    dom.singerModeButton.classList.toggle("active", state.singerMode);
+    dom.singerModeButton.setAttribute("aria-pressed", String(state.singerMode));
+  }
+  syncTunerControls();
 }
 
 function transposeCurrentSong(direction) {
@@ -719,6 +1690,14 @@ function transposeCurrentSong(direction) {
 
 function resetTone() {
   state.transposeOffset = 0;
+  renderCurrentSheet();
+}
+
+function toggleSingerMode() {
+  state.singerMode = !state.singerMode;
+  localStorage.setItem("mdl.singerMode", String(state.singerMode));
+  stopAutoScroll();
+  closeChordGuide(true);
   renderCurrentSheet();
 }
 
@@ -755,6 +1734,209 @@ function currentKeyLabel() {
   return `Tom ${transposeNote(state.baseKey, state.transposeOffset)}`;
 }
 
+function toggleTunerPanel() {
+  state.tunerOpen = !state.tunerOpen;
+  if (!state.tunerOpen) stopTuner(true);
+  syncTunerControls();
+}
+
+function syncTunerControls() {
+  if (dom.tunerPanel) dom.tunerPanel.hidden = !state.tunerOpen;
+  if (dom.tunerButton) {
+    dom.tunerButton.classList.toggle("active", state.tunerOpen);
+    dom.tunerButton.setAttribute("aria-pressed", String(state.tunerOpen));
+  }
+  if (dom.tunerStartButton) {
+    dom.tunerStartButton.textContent = state.tunerRunning ? "Parar" : "Iniciar";
+    dom.tunerStartButton.classList.toggle("active", state.tunerRunning);
+    dom.tunerStartButton.setAttribute("aria-label", state.tunerRunning ? "Parar afinador" : "Iniciar afinador");
+  }
+}
+
+async function startTuner() {
+  if (state.tunerRunning) return;
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass || !navigator.mediaDevices?.getUserMedia) {
+    setTunerStatus("Microfone indisponível");
+    toast("Microfone indisponível neste navegador");
+    return;
+  }
+
+  try {
+    state.tunerOpen = true;
+    syncTunerControls();
+    setTunerStatus("Abrindo microfone");
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: false,
+        noiseSuppression: false,
+        autoGainControl: false
+      }
+    });
+    const audioContext = new AudioContextClass();
+    if (audioContext.state === "suspended") await audioContext.resume();
+
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 4096;
+    analyser.smoothingTimeConstant = 0.82;
+
+    const source = audioContext.createMediaStreamSource(stream);
+    source.connect(analyser);
+
+    state.tunerStream = stream;
+    state.tunerAudioContext = audioContext;
+    state.tunerSource = source;
+    state.tunerAnalyser = analyser;
+    state.tunerBuffer = new Float32Array(analyser.fftSize);
+    state.tunerRunning = true;
+    state.tunerLastAt = 0;
+    syncTunerControls();
+    tickTuner();
+  } catch {
+    stopTuner();
+    setTunerStatus("Microfone bloqueado");
+    toast("Não foi possível abrir o microfone");
+  }
+}
+
+function stopTuner(resetReading = false) {
+  if (state.tunerFrame) {
+    cancelAnimationFrame(state.tunerFrame);
+    state.tunerFrame = null;
+  }
+  if (state.tunerSource) {
+    try {
+      state.tunerSource.disconnect();
+    } catch {}
+  }
+  if (state.tunerStream) {
+    state.tunerStream.getTracks().forEach((track) => track.stop());
+  }
+  if (state.tunerAudioContext) {
+    state.tunerAudioContext.close().catch(() => {});
+  }
+
+  state.tunerRunning = false;
+  state.tunerStream = null;
+  state.tunerAudioContext = null;
+  state.tunerSource = null;
+  state.tunerAnalyser = null;
+  state.tunerBuffer = null;
+  state.tunerLastAt = 0;
+
+  if (resetReading) resetTunerReading();
+  else if (dom.tunerCents) dom.tunerCents.textContent = "Afinador pausado";
+  syncTunerControls();
+}
+
+function tickTuner(timestamp = performance.now()) {
+  if (!state.tunerRunning || !state.tunerAnalyser || !state.tunerBuffer) return;
+  state.tunerFrame = requestAnimationFrame(tickTuner);
+
+  if (timestamp - state.tunerLastAt < TUNER_UPDATE_INTERVAL_MS) return;
+  state.tunerLastAt = timestamp;
+
+  state.tunerAnalyser.getFloatTimeDomainData(state.tunerBuffer);
+  const frequency = detectPitch(state.tunerBuffer, state.tunerAudioContext.sampleRate);
+  renderTunerReading(frequency);
+}
+
+function detectPitch(buffer, sampleRate) {
+  let sumSquares = 0;
+  for (const sample of buffer) sumSquares += sample * sample;
+  const rms = Math.sqrt(sumSquares / buffer.length);
+  if (rms < TUNER_SILENCE_RMS) return null;
+
+  const minTau = Math.max(2, Math.floor(sampleRate / TUNER_MAX_FREQUENCY));
+  const maxTau = Math.min(buffer.length - 1, Math.floor(sampleRate / TUNER_MIN_FREQUENCY));
+  const searchLength = buffer.length - maxTau;
+  const yin = new Float32Array(maxTau + 1);
+
+  for (let tau = 1; tau <= maxTau; tau += 1) {
+    let difference = 0;
+    for (let index = 0; index < searchLength; index += 1) {
+      const delta = buffer[index] - buffer[index + tau];
+      difference += delta * delta;
+    }
+    yin[tau] = difference;
+  }
+
+  let runningSum = 0;
+  for (let tau = 1; tau <= maxTau; tau += 1) {
+    runningSum += yin[tau];
+    yin[tau] = runningSum ? (yin[tau] * tau) / runningSum : 1;
+  }
+
+  for (let tau = minTau; tau <= maxTau; tau += 1) {
+    if (yin[tau] < 0.12) {
+      while (tau + 1 <= maxTau && yin[tau + 1] < yin[tau]) tau += 1;
+      const betterTau = refinePitchTau(yin, tau);
+      return sampleRate / betterTau;
+    }
+  }
+
+  return null;
+}
+
+function refinePitchTau(yin, tau) {
+  const previous = yin[tau - 1];
+  const current = yin[tau];
+  const next = yin[tau + 1];
+  if (previous === undefined || next === undefined) return tau;
+  const divisor = previous + next - (2 * current);
+  return divisor ? tau + ((previous - next) / (2 * divisor)) : tau;
+}
+
+function renderTunerReading(frequency) {
+  if (!frequency) {
+    resetTunerReading("Aguardando som");
+    return;
+  }
+
+  const note = frequencyToNote(frequency);
+  const cents = Math.round(note.cents);
+  const offset = clamp(note.cents, -50, 50);
+
+  if (dom.tunerNote) dom.tunerNote.textContent = note.name;
+  if (dom.tunerFrequency) dom.tunerFrequency.textContent = `${frequency.toFixed(1)} Hz`;
+  if (dom.tunerNeedle) dom.tunerNeedle.style.left = `${50 + offset}%`;
+  if (dom.tunerCents) {
+    dom.tunerCents.textContent = Math.abs(cents) <= 5
+      ? "Afinado!"
+      : cents < 0
+        ? `Suba ${Math.abs(cents)} cents`
+        : `Desça ${Math.abs(cents)} cents`;
+  }
+}
+
+function frequencyToNote(frequency) {
+  const midi = Math.round(12 * Math.log2(frequency / 440) + 69);
+  const noteIndex = (midi + 1200) % 12;
+  const target = 440 * (2 ** ((midi - 69) / 12));
+  return {
+    name: NOTE_SHARP[noteIndex],
+    octave: Math.floor(midi / 12) - 1,
+    cents: 1200 * Math.log2(frequency / target)
+  };
+}
+
+function resetTunerReading(message = "Iniciar microfone") {
+  if (dom.tunerNote) dom.tunerNote.textContent = "A";
+  if (dom.tunerFrequency) dom.tunerFrequency.textContent = "440 Hz";
+  if (dom.tunerCents) dom.tunerCents.textContent = message;
+  if (dom.tunerNeedle) dom.tunerNeedle.style.left = "50%";
+}
+
+function setTunerStatus(message) {
+  if (dom.tunerCents) dom.tunerCents.textContent = message;
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
 function startService() {
   const first = state.play[0];
   if (!first) return toast("Adicione músicas ao culto primeiro");
@@ -770,9 +1952,9 @@ async function sharePlay() {
 
   if (!songs.length) return toast("Nenhuma música no culto");
 
-  const text = `Culto de Domingo - MDL Monte Sião\n\n${songs.join("\n")}`;
+  const text = `Play do ensaio - MDL Monte Sião\n\n${songs.join("\n")}`;
   if (navigator.share) {
-    await navigator.share({ title: "Culto de Domingo", text });
+    await navigator.share({ title: "Play do ensaio", text });
   } else if (navigator.clipboard) {
     await navigator.clipboard.writeText(text);
     toast("Lista copiada");
@@ -782,6 +1964,7 @@ async function sharePlay() {
 }
 
 function togglePlayEditing() {
+  if (!isLeader()) return requireLeader();
   state.playEditing = !state.playEditing;
   renderPlay();
 }
@@ -799,6 +1982,7 @@ async function adminRefresh() {
 function updateStats() {
   const total = state.songs.length;
   const artists = new Set(state.songs.map((song) => song.artist)).size;
+  const audioCount = Array.from(state.songMedia.values()).filter((media) => media.audioBlob).length;
   dom.libraryStats.textContent = `${total} ${total === 1 ? "música" : "músicas"} · ${artists} ${artists === 1 ? "artista" : "artistas"}`;
   dom.favoriteStats.textContent = `${state.favorites.size} ${state.favorites.size === 1 ? "música" : "músicas"}`;
   if (dom.playStats) dom.playStats.textContent = `${state.play.length} ${state.play.length === 1 ? "música separada" : "músicas separadas"}`;
@@ -808,11 +1992,18 @@ function updateStats() {
   dom.artistStats.textContent = `${artists} ${artists === 1 ? "artista" : "artistas"}`;
   if (dom.adminSongCount) dom.adminSongCount.textContent = formatNumber(total);
   if (dom.adminArtistCount) dom.adminArtistCount.textContent = formatNumber(artists);
+  if (dom.dashboardSongCount) dom.dashboardSongCount.textContent = formatNumber(total);
+  if (dom.dashboardArtistCount) dom.dashboardArtistCount.textContent = formatNumber(artists);
+  if (dom.dashboardAudioCount) dom.dashboardAudioCount.textContent = formatNumber(audioCount);
+  if (dom.dashboardFavoriteCount) dom.dashboardFavoriteCount.textContent = formatNumber(state.favorites.size);
+  if (dom.dashboardPlayCount) dom.dashboardPlayCount.textContent = formatNumber(state.play.length);
+  if (dom.dashboardArtistShortcutCount) dom.dashboardArtistShortcutCount.textContent = formatNumber(artists);
   if (dom.adminUpdatedAt) dom.adminUpdatedAt.textContent = state.generatedAt ? `Atualizada hoje às ${formatTime(state.generatedAt)}` : "Atualizada automaticamente";
 }
 
 function savePlay() {
   localStorage.setItem("mdl.playEnsaio", JSON.stringify(state.play));
+  renderDashboard();
   updateStats();
 }
 
@@ -1169,6 +2360,9 @@ function openOfflineDb() {
       if (!db.objectStoreNames.contains("meta")) {
         db.createObjectStore("meta", { keyPath: "key" });
       }
+      if (!db.objectStoreNames.contains("media")) {
+        db.createObjectStore("media", { keyPath: "key" });
+      }
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
@@ -1197,6 +2391,55 @@ async function idbGetAllSongs() {
   const songs = await idbRequest(db.transaction("songs", "readonly").objectStore("songs").getAll());
   db.close();
   return songs || [];
+}
+
+async function idbPutMedia(record) {
+  if (!record?.key) return;
+  const db = await openOfflineDb();
+  await idbRequest(db.transaction("media", "readwrite").objectStore("media").put(record));
+  db.close();
+}
+
+async function idbDeleteMedia(key) {
+  if (!key) return;
+  const db = await openOfflineDb();
+  await idbRequest(db.transaction("media", "readwrite").objectStore("media").delete(key));
+  db.close();
+}
+
+async function idbGetAllMedia() {
+  const db = await openOfflineDb();
+  const media = await idbRequest(db.transaction("media", "readonly").objectStore("media").getAll());
+  db.close();
+  return media || [];
+}
+
+async function loadLocalMedia() {
+  state.songMedia = new Map();
+  state.artistThumbs = new Map();
+  const records = await idbGetAllMedia().catch(() => []);
+  const userId = getCurrentUserId();
+
+  for (const record of records) {
+    if (record.userId !== userId) continue;
+    if (record.type === "song-cover" && record.songId && record.dataUrl) {
+      const media = getSongMedia(record.songId);
+      media.cover = record.dataUrl;
+      media.coverName = record.name || "";
+      state.songMedia.set(record.songId, media);
+    }
+    if (record.type === "song-audio" && record.songId && record.blob) {
+      const media = getSongMedia(record.songId);
+      media.audioBlob = record.blob;
+      media.audioName = record.name || "MP3 local";
+      media.audioSize = record.size || record.blob.size || 0;
+      media.audioMime = record.mime || record.blob.type || "audio/mpeg";
+      state.songMedia.set(record.songId, media);
+    }
+    if (record.type === "artist-thumb" && record.artist && record.dataUrl) {
+      state.artistThumbs.set(normalizeArtistName(record.artist), record.dataUrl);
+    }
+  }
 }
 
 async function idbSetMeta(key, value) {
@@ -1231,6 +2474,31 @@ function decorateChordHtml(html) {
     node.innerHTML = wrapChordNodeTokens(node.textContent || "");
   });
   return template.innerHTML;
+}
+
+function stripChordsToLyrics(html) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  template.content.querySelectorAll("i").forEach((node) => node.remove());
+
+  const lines = (template.content.textContent || "")
+    .replace(/\r/g, "")
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trim());
+
+  const cleaned = [];
+  for (const line of lines) {
+    if (!line) {
+      if (cleaned.length && cleaned[cleaned.length - 1]) cleaned.push("");
+      continue;
+    }
+    cleaned.push(line);
+  }
+
+  while (cleaned.length && !cleaned[0]) cleaned.shift();
+  while (cleaned.length && !cleaned[cleaned.length - 1]) cleaned.pop();
+
+  return escapeHtml(cleaned.join("\n"));
 }
 
 function splitChordSegments(text) {

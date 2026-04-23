@@ -1,6 +1,6 @@
-# Acervo Musical MDL Monte Siao
+# Acervo Musical MDL Monte Sião
 
-Sistema separado para leitura de musicas cifradas da MDL Monte Siao.
+Sistema separado para leitura de musicas cifradas da MDL Monte Sião.
 
 ## Como iniciar
 
@@ -13,7 +13,7 @@ iniciar.bat
 O sistema abre em:
 
 ```text
-http://localhost:3030
+http://localhost:3031
 ```
 
 ## Onde colocar novas cifras
@@ -21,7 +21,7 @@ http://localhost:3030
 Coloque novas pastas e arquivos dentro de:
 
 ```text
-C:\Users\Pixel Midia 3D\Cifras MDL\acervo\cifras_multi
+acervo\cifras_multi
 ```
 
 Formato recomendado:
@@ -59,26 +59,31 @@ atualizar-acervo.bat
 Cada musico pode adicionar musicas ao `Play ensaio` no proprio aparelho.
 A lista fica salva no navegador daquele aparelho e permite remover musicas adicionadas por engano.
 
+## Thumbs dos artistas
+
+Entre como `lider`, abra a aba `Artistas` e toque na foto do artista para escolher uma imagem.
+No sistema online, a thumb e salva no disco persistente do Render e passa a aparecer para todos os aparelhos.
+
 ## Base online do acervo
 
 O importador gera uma base do acervo em:
 
 ```text
-C:\Users\Pixel Midia 3D\Cifras MDL\data\acervo-db.json
+data\acervo-db.json
 ```
 
 E salva cada cifra indexada em:
 
 ```text
-C:\Users\Pixel Midia 3D\Cifras MDL\data\songs
+data\songs
 ```
 
 O servidor usa essa base para entregar o catalogo online pelas APIs:
 
 ```text
-http://localhost:3030/api/catalog
-http://localhost:3030/api/songs/ID_DA_MUSICA
-http://localhost:3030/api/offline-bundle
+http://localhost:3031/api/catalog
+http://localhost:3031/api/songs/ID_DA_MUSICA
+http://localhost:3031/api/offline-bundle
 ```
 
 ## Offline automatico
@@ -104,7 +109,7 @@ Resumo do fluxo:
 3. Se preferir criar manualmente em `New > Web Service`, use:
 
 ```text
-Name: acervo-musical-mdl
+Name: acervo-musical-mdl-monte-siao
 Language: Node
 Branch: main
 Root Directory: (deixe vazio)

@@ -9,6 +9,8 @@ const CONFIG_PATH = path.join(APP_DATA_DIR, "pastas.json");
 const DB_PATH = path.join(DATA_DIR, "acervo-db.json");
 const SONGS_DIR = path.join(DATA_DIR, "songs");
 const INDEX_PATH = path.join(DATA_DIR, "index.json");
+const ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const FALLBACK_ARTIST_THUMBS_PATH = path.join(APP_DATA_DIR, "artist-thumbs.json");
 
 const supportedExtensions = new Set([".html", ".htm", ".txt"]);
 
@@ -44,14 +46,17 @@ function main() {
   });
 
   const artists = Array.from(new Set(songs.map((song) => song.artist))).sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const artistThumbs = readArtistThumbs();
   const database = {
     name: "Acervo Musical MDL Monte Sião",
     generatedAt: new Date().toISOString(),
     totalSongs: songs.length,
     totalArtists: artists.length,
     artists,
+    artistThumbs,
     songs: songs.map((song) => ({
       ...song,
+      ...(getArtistThumbFor(song.artist, artistThumbs) ? { artistThumb: getArtistThumbFor(song.artist, artistThumbs) } : {}),
       apiUrl: `/api/songs/${song.id}`,
       offlineKey: `mdl-song-${song.id}`
     }))
@@ -79,6 +84,61 @@ function resetOutput() {
     fs.rmSync(SONGS_DIR, { recursive: true, force: true });
   }
   fs.mkdirSync(SONGS_DIR, { recursive: true });
+}
+
+function readArtistThumbs() {
+  return {
+    ...readArtistThumbFile(FALLBACK_ARTIST_THUMBS_PATH),
+    ...readArtistThumbFile(ARTIST_THUMBS_PATH)
+  };
+}
+
+function readArtistThumbFile(filePath) {
+  if (!fs.existsSync(filePath)) return {};
+  const raw = safeJsonParse(fs.readFileSync(filePath, "utf8"), {});
+  const source = raw?.artistThumbs && typeof raw.artistThumbs === "object"
+    ? raw.artistThumbs
+    : raw?.thumbs && typeof raw.thumbs === "object"
+      ? raw.thumbs
+      : raw;
+  if (!source || typeof source !== "object" || Array.isArray(source)) return {};
+
+  const thumbs = {};
+  for (const [rawArtist, rawUrl] of Object.entries(source)) {
+    const artist = normalizeArtistName(rawArtist);
+    const url = sanitizeArtistThumbUrl(rawUrl);
+    if (artist && url) thumbs[artist] = url;
+  }
+  return thumbs;
+}
+
+function getArtistThumbFor(artist, artistThumbs) {
+  const name = normalizeArtistName(artist);
+  if (!name) return "";
+  if (artistThumbs[name]) return artistThumbs[name];
+
+  const key = slugify(name);
+  const match = Object.entries(artistThumbs).find(([candidate]) => slugify(candidate) === key);
+  return match?.[1] || "";
+}
+
+function normalizeArtistName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 120);
+}
+
+function sanitizeArtistThumbUrl(value) {
+  const url = String(value || "").trim();
+  if (/^\/artist-thumbs\/[a-z0-9_-]+\.(?:jpg|jpeg|png|webp)(?:\?v=\d+)?$/i.test(url)) return url;
+  if (/^\/assets\/artists\/[a-z0-9_./-]+\.(?:jpg|jpeg|png|webp|svg)(?:\?v=\d+)?$/i.test(url)) return url;
+  return "";
+}
+
+function safeJsonParse(value, fallback) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return fallback;
+  }
 }
 
 function listFiles(folder) {
