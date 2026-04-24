@@ -146,6 +146,7 @@ const state = {
   chordGuideOpen: false,
   theme: localStorage.getItem("mdl.theme") || "light",
   generatedAt: null,
+  catalogReady: false,
   playEditing: false,
   autoScrollTimer: null,
   singerMode: localStorage.getItem("mdl.singerMode") === "true",
@@ -169,7 +170,9 @@ const state = {
   pendingArtistThumb: null,
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
   favorites: new Set(JSON.parse(localStorage.getItem("mdl.favorites") || "[]")),
-  play: migratePlay(JSON.parse(localStorage.getItem("mdl.playEnsaio") || "[]"))
+  playUpdatedAt: localStorage.getItem("mdl.playEnsaioUpdatedAt") || "",
+  playDirty: localStorage.getItem("mdl.playEnsaioDirty") === "true",
+  play: normalizePlayEntries(JSON.parse(localStorage.getItem("mdl.playEnsaio") || "[]"), null)
 };
 
 const sampleSongs = [
@@ -314,17 +317,19 @@ async function init() {
 }
 
 async function startAuthenticatedApp() {
+  showAuthenticatedApp();
   if (state.appStarted) {
-    showAuthenticatedApp();
+    await loadSongs();
+    await syncSharedPlay({ allowLeaderSeed: true, silent: true });
+    filterSongs();
     renderAll();
     return;
   }
 
   state.appStarted = true;
-  showAuthenticatedApp();
   initInstallPrompt();
-  savePlay();
   await loadSongs();
+  await syncSharedPlay({ allowLeaderSeed: true, silent: true });
   await refreshOfflineSongIds();
   await loadLocalMedia();
   applyPreviewState();
@@ -800,12 +805,14 @@ function applyPreviewState() {
 }
 
 async function loadSongs() {
+  let hasCatalog = false;
   try {
     const response = await fetch(`/api/catalog?limit=10000&v=${Date.now()}`);
     if (!response.ok) throw new Error("index-not-found");
     const data = await response.json();
     state.generatedAt = data.generatedAt || null;
-    state.songs = Array.isArray(data.songs) && data.songs.length ? data.songs : sampleSongs;
+    hasCatalog = Array.isArray(data.songs) && data.songs.length > 0;
+    state.songs = hasCatalog ? data.songs : sampleSongs;
     setPublicArtistThumbs(data.artistThumbs, state.songs);
     idbSetMeta("catalog", {
       generatedAt: state.generatedAt,
@@ -815,10 +822,16 @@ async function loadSongs() {
   } catch {
     const offlineCatalog = await idbGetMeta("catalog").catch(() => null);
     state.generatedAt = offlineCatalog?.generatedAt || null;
-    state.songs = Array.isArray(offlineCatalog?.songs) && offlineCatalog.songs.length
-      ? offlineCatalog.songs
-      : sampleSongs;
+    hasCatalog = Array.isArray(offlineCatalog?.songs) && offlineCatalog.songs.length > 0;
+    state.songs = hasCatalog ? offlineCatalog.songs : sampleSongs;
     setPublicArtistThumbs(offlineCatalog?.artistThumbs, state.songs);
+  }
+
+  state.catalogReady = hasCatalog;
+  const normalizedPlay = normalizePlayEntries(state.play);
+  if (getPlaySignature(normalizedPlay) !== getPlaySignature(state.play)) {
+    state.play = normalizedPlay;
+    savePlay();
   }
 }
 
@@ -851,7 +864,7 @@ function bindEvents() {
   dom.localAudioInput?.addEventListener("change", handleLocalAudioSelected);
 }
 
-function handleClick(event) {
+async function handleClick(event) {
   const chord = event.target.closest("[data-chord]");
   if (chord?.dataset.chord) {
     event.preventDefault();
@@ -1265,7 +1278,7 @@ function closeChordGuide(preserveBase = false) {
   document.body.classList.remove("chord-guide-open");
 }
 
-function addToPlay(id, selectedKey = null) {
+async function addToPlay(id, selectedKey = null) {
   if (!isLeader()) return requireLeader();
   if (!id) return;
   const song = findSong(id);
@@ -1278,23 +1291,30 @@ function addToPlay(id, selectedKey = null) {
     state.play.push({ id, key: selectedKey || song.key || null });
   }
 
+  state.play = normalizePlayEntries(state.play);
+  state.playDirty = true;
   savePlay();
+  await pushSharedPlay();
   renderPlay();
   toast("Adicionada ao Play do ensaio");
   downloadSongForOffline(id);
 }
 
-function removeFromPlay(id) {
+async function removeFromPlay(id) {
   if (!isLeader()) return requireLeader();
-  state.play = state.play.filter((entry) => entry.id !== id);
+  state.play = normalizePlayEntries(state.play.filter((entry) => entry.id !== id));
+  state.playDirty = true;
   savePlay();
+  await pushSharedPlay();
   renderPlay();
 }
 
-function clearPlay() {
+async function clearPlay() {
   if (!isLeader()) return requireLeader();
   state.play = [];
+  state.playDirty = true;
   savePlay();
+  await pushSharedPlay();
   renderPlay();
 }
 
@@ -1631,17 +1651,24 @@ function formatBytes(value) {
 
 async function refreshLibrary() {
   await loadSongs();
+  const playChanged = await syncSharedPlay({ silent: true });
   filterSongs();
   renderAll();
+  if (playChanged) downloadPlayForOffline();
 }
 
 async function autoRefreshLibrary() {
   if (state.currentView === "reader") return;
-  const before = getLibraryRefreshSignature();
+  const beforeLibrary = getLibraryRefreshSignature();
+  const beforePlay = getPlaySignature(state.play);
   await loadSongs();
-  if (getLibraryRefreshSignature() !== before) {
+  const playChanged = await syncSharedPlay({ silent: true });
+  if (getLibraryRefreshSignature() !== beforeLibrary || getPlaySignature(state.play) !== beforePlay || playChanged) {
     filterSongs();
     renderAll();
+    if (getPlaySignature(state.play) !== beforePlay || playChanged) {
+      downloadPlayForOffline();
+    }
   }
 }
 
@@ -2003,8 +2030,97 @@ function updateStats() {
 
 function savePlay() {
   localStorage.setItem("mdl.playEnsaio", JSON.stringify(state.play));
+  if (state.playUpdatedAt) localStorage.setItem("mdl.playEnsaioUpdatedAt", state.playUpdatedAt);
+  else localStorage.removeItem("mdl.playEnsaioUpdatedAt");
+  if (state.playDirty) localStorage.setItem("mdl.playEnsaioDirty", "true");
+  else localStorage.removeItem("mdl.playEnsaioDirty");
   renderDashboard();
   updateStats();
+}
+
+function getPlayableSongIdSet() {
+  if (!state.catalogReady) return null;
+  return new Set(state.songs.map((song) => song.id).filter(Boolean));
+}
+
+function getPlaySignature(items = state.play) {
+  return JSON.stringify(normalizePlayEntries(items, null).map((entry) => `${entry.id}:${entry.key || ""}`));
+}
+
+async function pushSharedPlay({ silent = false } = {}) {
+  if (!isLeader() || !state.auth?.token || !state.catalogReady) return false;
+
+  try {
+    const response = await fetch("/api/play", {
+      method: "PUT",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ items: state.play })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || "play-sync-failed");
+
+    state.play = normalizePlayEntries(data.play);
+    state.playUpdatedAt = data.updatedAt || "";
+    state.playDirty = false;
+    savePlay();
+    return true;
+  } catch {
+    state.playDirty = true;
+    savePlay();
+    if (!silent) toast("Play salvo neste aparelho e sera sincronizado quando a conexao voltar");
+    return false;
+  }
+}
+
+async function syncSharedPlay({ allowLeaderSeed = false, silent = true } = {}) {
+  if (!state.auth?.token || !state.catalogReady) return false;
+
+  const localPlay = normalizePlayEntries(state.play);
+  if (getPlaySignature(localPlay) !== getPlaySignature(state.play)) {
+    state.play = localPlay;
+    savePlay();
+  }
+
+  try {
+    const response = await fetch(`/api/play?v=${Date.now()}`, {
+      headers: authHeaders()
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || "play-fetch-failed");
+
+    const remotePlay = normalizePlayEntries(data.play);
+    const remoteUpdatedAt = data.updatedAt || "";
+    const localSignature = getPlaySignature(localPlay);
+    const remoteSignature = getPlaySignature(remotePlay);
+
+    if (allowLeaderSeed && isLeader() && localSignature && !remoteSignature && !remoteUpdatedAt) {
+      return pushSharedPlay({ silent });
+    }
+
+    if (state.playDirty && isLeader()) {
+      const canPublishLocal = !state.playUpdatedAt || state.playUpdatedAt === remoteUpdatedAt || remoteSignature === localSignature;
+      if (canPublishLocal) {
+        return pushSharedPlay({ silent: true });
+      }
+    }
+
+    if (remoteSignature !== localSignature || remoteUpdatedAt !== state.playUpdatedAt) {
+      state.play = remotePlay;
+      state.playUpdatedAt = remoteUpdatedAt;
+      state.playDirty = false;
+      savePlay();
+      return true;
+    }
+
+    if (state.playDirty) {
+      state.playDirty = false;
+      savePlay();
+    }
+    return false;
+  } catch {
+    if (!silent && state.playDirty) toast("Sem conexao para atualizar o Play compartilhado");
+    return false;
+  }
 }
 
 function findSong(id) {
@@ -2021,15 +2137,29 @@ function getArtistOfflineInfo(artist) {
   return { songs, saved, total: songs.length };
 }
 
-function migratePlay(items) {
+function normalizePlayEntries(items, validSongIds = getPlayableSongIdSet()) {
   if (!Array.isArray(items)) return [];
-  return items
-    .map((item) => {
-      if (typeof item === "string") return { id: item, key: null };
-      if (item && typeof item.id === "string") return { id: item.id, key: item.key || null };
-      return null;
-    })
-    .filter(Boolean);
+
+  const normalized = [];
+  const seen = new Set();
+  for (const item of items) {
+    const rawId = typeof item === "string" ? item : item?.id;
+    const id = typeof rawId === "string" ? rawId.trim() : "";
+    if (!id || seen.has(id)) continue;
+    if (validSongIds && !validSongIds.has(id)) continue;
+
+    const key = typeof item === "object" && item && typeof item.key === "string"
+      ? item.key.trim() || null
+      : null;
+
+    normalized.push({ id, key });
+    seen.add(id);
+  }
+  return normalized;
+}
+
+function migratePlay(items) {
+  return normalizePlayEntries(items, null);
 }
 
 async function downloadSongForOffline(id) {

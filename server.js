@@ -32,6 +32,8 @@ const PREFERRED_ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
 const IMPORT_SCRIPT = path.join(__dirname, "scripts", "importar-acervo.js");
 const AUTH_PATH = path.join(RUNTIME_DATA_DIR, "auth.json");
 const PREFERRED_AUTH_PATH = path.join(DATA_DIR, "auth.json");
+const PLAY_PATH = path.join(RUNTIME_DATA_DIR, "play.json");
+const PREFERRED_PLAY_PATH = path.join(DATA_DIR, "play.json");
 const DEVICE_HEADER = "x-device-id";
 const TOKEN_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 30;
 const RESET_CODE_TTL_MS = 1000 * 60 * 15;
@@ -50,6 +52,7 @@ const AUTH_USERS = {
   musico: { label: "Musico", role: "musician", defaultPassword: "1234" }
 };
 const AUTH_READ_PATHS = Array.from(new Set([AUTH_PATH, PREFERRED_AUTH_PATH, path.join(APP_DATA_DIR, "auth.json")]));
+const PLAY_READ_PATHS = Array.from(new Set([PLAY_PATH, PREFERRED_PLAY_PATH, path.join(APP_DATA_DIR, "play.json")]));
 const ARTIST_THUMBS_READ_PATHS = Array.from(new Set([
   ARTIST_THUMBS_PATH,
   PREFERRED_ARTIST_THUMBS_PATH,
@@ -503,6 +506,82 @@ function normalizeResetRequest(input) {
 
 function writeAuthStore(store) {
   fs.writeFileSync(AUTH_PATH, JSON.stringify(store, null, 2), "utf8");
+}
+
+function getCatalogSongIdSet() {
+  const db = readCatalogDb();
+  if (!Array.isArray(db?.songs)) return null;
+  return new Set(db.songs.map((song) => String(song?.id || "").trim()).filter(Boolean));
+}
+
+function readRawPlayItems(store) {
+  if (Array.isArray(store?.items)) return store.items;
+  if (Array.isArray(store?.play)) return store.play;
+  if (Array.isArray(store?.entries)) return store.entries;
+  return [];
+}
+
+function normalizePlayEntry(input, validSongIds = getCatalogSongIdSet()) {
+  const entry = typeof input === "string"
+    ? { id: input, key: null }
+    : input && typeof input === "object"
+      ? input
+      : null;
+
+  const id = repairPossibleMojibake(entry?.id || "").trim();
+  if (!id) return null;
+  if (validSongIds instanceof Set && !validSongIds.has(id)) return null;
+
+  const key = entry?.key == null
+    ? null
+    : repairPossibleMojibake(entry.key).trim() || null;
+
+  return { id, key };
+}
+
+function normalizePlayItems(items, validSongIds = getCatalogSongIdSet()) {
+  if (!Array.isArray(items)) return [];
+
+  const normalized = [];
+  const seen = new Set();
+  for (const item of items) {
+    const entry = normalizePlayEntry(item, validSongIds);
+    if (!entry || seen.has(entry.id)) continue;
+    normalized.push(entry);
+    seen.add(entry.id);
+  }
+  return normalized;
+}
+
+function normalizePlayStore(input, validSongIds = getCatalogSongIdSet()) {
+  const store = input && typeof input === "object" ? input : {};
+  return {
+    updatedAt: typeof store.updatedAt === "string" ? store.updatedAt : "",
+    items: normalizePlayItems(readRawPlayItems(store), validSongIds)
+  };
+}
+
+function writePlayStore(store) {
+  fs.mkdirSync(path.dirname(PLAY_PATH), { recursive: true });
+  fs.writeFileSync(PLAY_PATH, JSON.stringify(store, null, 2), "utf8");
+}
+
+function ensurePlayStore() {
+  const validSongIds = getCatalogSongIdSet();
+  const store = normalizePlayStore(readFirstExistingJson(PLAY_READ_PATHS, {}), validSongIds);
+  const next = JSON.stringify(store, null, 2);
+  const current = fs.existsSync(PLAY_PATH) ? fs.readFileSync(PLAY_PATH, "utf8") : "";
+  if (current !== next) writePlayStore(store);
+  return store;
+}
+
+function updatePlayStore(items) {
+  const store = {
+    updatedAt: new Date().toISOString(),
+    items: normalizePlayItems(items, getCatalogSongIdSet())
+  };
+  writePlayStore(store);
+  return store;
 }
 
 function createPasswordRecord(password, config, options = {}) {
@@ -1128,6 +1207,40 @@ const server = http.createServer(async (req, res) => {
     } catch (error) {
       const status = error.code === "image-too-large" ? 413 : 400;
       return sendJson(res, status, { ok: false, error: error.code || error.message });
+    }
+  }
+
+  if (url.pathname === "/api/play" && req.method === "GET") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+
+    try {
+      const store = ensurePlayStore();
+      return sendJson(res, 200, {
+        ok: true,
+        play: store.items,
+        updatedAt: store.updatedAt || null
+      });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, error: error.code || error.message });
+    }
+  }
+
+  if (url.pathname === "/api/play" && req.method === "PUT") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+    if (session.user.role !== "leader") return sendJson(res, 403, { ok: false, error: "leader-only" });
+
+    try {
+      const body = await parseJsonBody(req);
+      const store = updatePlayStore(body.items ?? body.play);
+      return sendJson(res, 200, {
+        ok: true,
+        play: store.items,
+        updatedAt: store.updatedAt
+      });
+    } catch (error) {
+      return sendJson(res, 400, { ok: false, error: error.code || error.message });
     }
   }
 
