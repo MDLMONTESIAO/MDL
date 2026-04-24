@@ -13,13 +13,16 @@ const ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
 const FALLBACK_ARTIST_THUMBS_PATH = path.join(APP_DATA_DIR, "artist-thumbs.json");
 
 const supportedExtensions = new Set([".html", ".htm", ".txt"]);
+const CHORD_SUFFIX_PATTERN = "[0-9A-Za-z\\u00BA\\u00B0+\\-#b()]";
+const CHORD_TOKEN_RE = new RegExp(`^[A-G](?:#|b)?(?:${CHORD_SUFFIX_PATTERN})*(?:\\/[A-G](?:#|b)?)?$`);
+const KEY_RE = new RegExp(`\\b([A-G](?:#|b)?)(?:${CHORD_SUFFIX_PATTERN})*(?:\\/[A-G](?:#|b)?)?\\b`);
 
 function main() {
   const sources = readSources();
   const validSources = sources.filter((source) => source.path && fs.existsSync(source.path));
 
   if (!validSources.length) {
-    console.warn("Nenhuma fonte local valida encontrada. Mantendo o acervo publicado atual.");
+    console.warn("Nenhuma fonte local válida encontrada. Mantendo o acervo publicado atual.");
     return;
   }
 
@@ -32,8 +35,8 @@ function main() {
       const ext = path.extname(filePath).toLowerCase();
       if (!supportedExtensions.has(ext)) continue;
 
-      const html = readSongHtml(filePath, ext);
-      const song = buildSong(source, filePath, ext, html);
+      const html = repairPossibleMojibake(readSongHtml(filePath, ext));
+      const song = normalizeSong(buildSong(source, filePath, ext, html));
       const record = { ...song, html };
       fs.writeFileSync(path.join(SONGS_DIR, `${song.id}.json`), JSON.stringify(record, null, 2), "utf8");
       songs.push(song);
@@ -123,7 +126,7 @@ function getArtistThumbFor(artist, artistThumbs) {
 }
 
 function normalizeArtistName(value) {
-  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 120);
+  return repairPossibleMojibake(String(value || "")).trim().replace(/\s+/g, " ").slice(0, 120);
 }
 
 function sanitizeArtistThumbUrl(value) {
@@ -161,7 +164,7 @@ function listFiles(folder) {
 }
 
 function buildSong(source, filePath, ext, html) {
-  const artist = source.artist || artistFromPath(source.path, filePath);
+  const artist = normalizeArtistName(source.artist || artistFromPath(source.path, filePath));
   const title = cleanTitle(path.basename(filePath, ext));
   const hash = crypto.createHash("sha1").update(filePath).digest("hex").slice(0, 10);
   const id = `${slugify(`${artist}-${title}`).slice(0, 58)}-${hash}`;
@@ -171,7 +174,7 @@ function buildSong(source, filePath, ext, html) {
     id,
     title,
     artist,
-    collection: source.name || path.basename(source.path),
+    collection: repairPossibleMojibake(source.name || path.basename(source.path)),
     fileType: ext.replace(".", ""),
     key: inferKeyFromHtml(html),
     updatedAt: stats.mtime.toISOString()
@@ -188,14 +191,14 @@ function artistFromPath(rootPath, filePath) {
 }
 
 function cleanTitle(name) {
-  return name
-    .replace(/^\s*\d+\s*[-–]\s*/, "")
+  return repairPossibleMojibake(name)
+    .replace(/^\s*\d+\s*[-\u2013]\s*/, "")
     .replace(/\s+/g, " ")
     .trim();
 }
 
 function formatName(name) {
-  const preserved = name.replace(/_/g, "-").split("-").filter(Boolean);
+  const preserved = repairPossibleMojibake(name).replace(/_/g, "-").split("-").filter(Boolean);
   return preserved
     .map((part) => {
       if (/^[A-Z]{2,}$/.test(part)) return part;
@@ -205,7 +208,7 @@ function formatName(name) {
 }
 
 function readSongHtml(filePath, ext) {
-  const raw = fs.readFileSync(filePath, "utf8");
+  const raw = repairPossibleMojibake(fs.readFileSync(filePath, "utf8"));
   if (ext === ".txt") {
     return convertBracketChords(escapeHtml(raw));
   }
@@ -217,7 +220,7 @@ function readSongHtml(filePath, ext) {
 }
 
 function sanitizePre(html) {
-  return html
+  return String(html || "")
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/\son\w+="[^"]*"/gi, "")
     .replace(/\son\w+='[^']*'/gi, "")
@@ -225,7 +228,7 @@ function sanitizePre(html) {
 }
 
 function stripTags(html) {
-  return html
+  return String(html || "")
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<\/p>/gi, "\n")
     .replace(/<[^>]+>/g, "");
@@ -234,7 +237,7 @@ function stripTags(html) {
 function inferKeyFromHtml(html) {
   const chordTag = String(html || "").match(/<i[^>]*>([\s\S]*?)<\/i>/i);
   const text = chordTag ? stripTags(chordTag[1]) : stripTags(html);
-  const match = text.match(/\b([A-G](?:#|b)?)(?:[0-9A-Za-zº°+\-#b()]*)?(?:\/[A-G](?:#|b)?)?\b/);
+  const match = text.match(KEY_RE);
   return match ? match[1] : null;
 }
 
@@ -250,11 +253,11 @@ function isChordGroup(value) {
   return String(value || "")
     .split(/\s+/)
     .filter(Boolean)
-    .every((token) => /^[A-G](?:#|b)?(?:[0-9A-Za-zÂºÂ°+\-#b()]*)?(?:\/[A-G](?:#|b)?)?$/.test(token));
+    .every((token) => CHORD_TOKEN_RE.test(token));
 }
 
 function slugify(value) {
-  return String(value || "")
+  return repairPossibleMojibake(String(value || ""))
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -269,6 +272,45 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function normalizeSong(song) {
+  return {
+    ...song,
+    title: repairPossibleMojibake(song.title),
+    artist: normalizeArtistName(song.artist),
+    collection: repairPossibleMojibake(song.collection),
+    key: song.key == null ? null : repairPossibleMojibake(song.key)
+  };
+}
+
+function repairPossibleMojibake(value) {
+  const input = typeof value === "string" ? value : String(value || "");
+  if (!input) return "";
+
+  const candidates = [input];
+  let current = input;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const next = Buffer.from(current, "latin1").toString("utf8");
+    if (!next || next === current) break;
+    candidates.push(next);
+    current = next;
+  }
+
+  return candidates.reduce((best, candidate) => {
+    return scoreTextQuality(candidate) < scoreTextQuality(best) ? candidate : best;
+  }, input);
+}
+
+function scoreTextQuality(text) {
+  let score = 0;
+  for (const char of String(text || "")) {
+    const code = char.charCodeAt(0);
+    if (code === 0xfffd) score += 12;
+    else if (code >= 0x80 && code <= 0x9f) score += 8;
+    else if (code === 0x00c2 || code === 0x00c3 || code === 0x00c5 || code === 0x00d0 || code === 0x00cc) score += 6;
+  }
+  return score;
 }
 
 main();

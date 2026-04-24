@@ -108,6 +108,104 @@ function sendJson(res, statusCode, payload) {
   res.end(JSON.stringify(payload));
 }
 
+function repairPossibleMojibake(value) {
+  const input = typeof value === "string" ? value : String(value || "");
+  if (!input) return "";
+
+  const candidates = [input];
+  let current = input;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const next = Buffer.from(current, "latin1").toString("utf8");
+    if (!next || next === current) break;
+    candidates.push(next);
+    current = next;
+  }
+
+  return candidates.reduce((best, candidate) => {
+    return scoreTextQuality(candidate) < scoreTextQuality(best) ? candidate : best;
+  }, input);
+}
+
+function scoreTextQuality(text) {
+  let score = 0;
+  for (const char of String(text || "")) {
+    const code = char.charCodeAt(0);
+    if (code === 0xfffd) score += 12;
+    else if (code >= 0x80 && code <= 0x9f) score += 8;
+    else if (code === 0x00c2 || code === 0x00c3 || code === 0x00c5 || code === 0x00d0 || code === 0x00cc) score += 6;
+  }
+  return score;
+}
+
+function normalizeCatalogSong(input) {
+  const song = input && typeof input === "object" ? input : {};
+  const id = String(song.id || "").trim();
+  if (!id) return null;
+
+  const normalized = {
+    id,
+    title: repairPossibleMojibake(song.title),
+    artist: repairPossibleMojibake(song.artist),
+    collection: repairPossibleMojibake(song.collection),
+    fileType: String(song.fileType || "").trim().toLowerCase(),
+    key: song.key == null ? null : repairPossibleMojibake(song.key),
+    updatedAt: typeof song.updatedAt === "string" ? song.updatedAt : "",
+    apiUrl: `/api/songs/${id}`,
+    offlineKey: `mdl-song-${id}`
+  };
+
+  const artistThumb = sanitizeArtistThumbUrl(song.artistThumb);
+  if (artistThumb) normalized.artistThumb = artistThumb;
+  return normalized;
+}
+
+function normalizeSongRecordData(input) {
+  const song = normalizeCatalogSong(input);
+  if (!song) return null;
+  return {
+    ...song,
+    html: repairPossibleMojibake(input?.html || "")
+  };
+}
+
+function normalizeCatalogData(input) {
+  const data = input && typeof input === "object" ? input : {};
+  const songs = Array.isArray(data.songs)
+    ? data.songs.map(normalizeCatalogSong).filter(Boolean)
+    : [];
+
+  songs.sort((left, right) => {
+    const artistCompare = left.artist.localeCompare(right.artist, "pt-BR");
+    return artistCompare || left.title.localeCompare(right.title, "pt-BR");
+  });
+
+  const artists = Array.from(new Set(songs.map((song) => song.artist).filter(Boolean)))
+    .sort((left, right) => left.localeCompare(right, "pt-BR"));
+
+  return {
+    name: repairPossibleMojibake(data.name) || "Acervo Musical MDL Monte Sião",
+    generatedAt: typeof data.generatedAt === "string" && data.generatedAt ? data.generatedAt : new Date().toISOString(),
+    artistThumbsUpdatedAt: typeof data.artistThumbsUpdatedAt === "string" ? data.artistThumbsUpdatedAt : null,
+    totalSongs: songs.length,
+    totalArtists: artists.length,
+    artists,
+    artistThumbs: normalizeArtistThumbs(data.artistThumbs),
+    songs
+  };
+}
+
+function writeJsonIfChanged(filePath, data) {
+  try {
+    const next = JSON.stringify(data, null, 2);
+    const current = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+    if (current === next) return;
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, next, "utf8");
+  } catch {
+    // Melhor esforço: a API segue funcionando mesmo se o disco estiver somente leitura.
+  }
+}
+
 function getCatalogDbPath() {
   return fs.existsSync(DB_PATH) ? DB_PATH : FALLBACK_DB_PATH;
 }
@@ -119,7 +217,13 @@ function getCatalogIndexPath() {
 function readCatalogDb() {
   const dbPath = getCatalogDbPath();
   if (!fs.existsSync(dbPath)) return null;
-  return JSON.parse(fs.readFileSync(dbPath, "utf8"));
+  const raw = safeJsonParse(fs.readFileSync(dbPath, "utf8"), null);
+  if (!raw) return null;
+
+  const normalized = normalizeCatalogData(raw);
+  writeJsonIfChanged(DB_PATH, normalized);
+  writeJsonIfChanged(INDEX_PATH, normalized);
+  return normalized;
 }
 
 function readSongRecord(id) {
@@ -129,7 +233,13 @@ function readSongRecord(id) {
   const fallbackSongPath = path.join(FALLBACK_SONGS_DIR, `${safeId}.json`);
   const songPath = fs.existsSync(primarySongPath) ? primarySongPath : fallbackSongPath;
   if (!fs.existsSync(songPath)) return null;
-  return JSON.parse(fs.readFileSync(songPath, "utf8"));
+  const raw = safeJsonParse(fs.readFileSync(songPath, "utf8"), null);
+  if (!raw) return null;
+
+  const normalized = normalizeSongRecordData(raw);
+  if (!normalized) return null;
+  writeJsonIfChanged(songPath, normalized);
+  return normalized;
 }
 
 function readArtistThumbs() {
@@ -261,7 +371,7 @@ function isValidImageBuffer(mime, buffer) {
 }
 
 function normalizeArtistName(value) {
-  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 120);
+  return repairPossibleMojibake(String(value || "")).trim().replace(/\s+/g, " ").slice(0, 120);
 }
 
 function slugifyArtist(value) {
@@ -542,7 +652,7 @@ function getOrCreateDeviceContext(req, body = null) {
 }
 
 function normalizeText(value) {
-  return String(value || "")
+  return repairPossibleMojibake(String(value || ""))
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
