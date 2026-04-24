@@ -9,8 +9,8 @@ services:
     healthCheckPath: /api/status
     envVars:
       - key: DATA_DIR
-        value: /opt/render/project/src/storage
+        value: /var/data/acervo-musical-mdl-monte-siao
     disk:
       name: acervo-monte-siao-data
-      mountPath: /opt/render/project/src/storage
+      mountPath: /var/data/acervo-musical-mdl-monte-siao
       sizeGB: 5

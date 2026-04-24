@@ -4,12 +4,18 @@ const path = require("path");
 const crypto = require("crypto");
 const net = require("net");
 const tls = require("tls");
+const os = require("os");
 const { spawn } = require("child_process");
 
 const PORT = Number(process.env.PORT || 3031);
 const PUBLIC_DIR = path.join(__dirname, "public");
 const APP_DATA_DIR = path.join(__dirname, "data");
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : APP_DATA_DIR;
+const RUNTIME_DATA_DIR = resolveWritableDataDir([
+  DATA_DIR,
+  APP_DATA_DIR,
+  path.join(os.tmpdir(), "acervo-musical-mdl-monte-siao")
+]);
 const CONFIG_PATH = path.join(APP_DATA_DIR, "pastas.json");
 const DB_PATH = path.join(DATA_DIR, "acervo-db.json");
 const FALLBACK_DB_PATH = path.join(APP_DATA_DIR, "acervo-db.json");
@@ -17,12 +23,15 @@ const INDEX_PATH = path.join(DATA_DIR, "index.json");
 const FALLBACK_INDEX_PATH = path.join(APP_DATA_DIR, "index.json");
 const SONGS_DIR = path.join(DATA_DIR, "songs");
 const FALLBACK_SONGS_DIR = path.join(APP_DATA_DIR, "songs");
-const ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const ARTIST_THUMBS_PATH = path.join(RUNTIME_DATA_DIR, "artist-thumbs.json");
 const FALLBACK_ARTIST_THUMBS_PATH = path.join(APP_DATA_DIR, "artist-thumbs.json");
-const ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
+const PREFERRED_ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const ARTIST_THUMBS_DIR = path.join(RUNTIME_DATA_DIR, "artist-thumbs");
 const FALLBACK_ARTIST_THUMBS_DIR = path.join(APP_DATA_DIR, "artist-thumbs");
+const PREFERRED_ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
 const IMPORT_SCRIPT = path.join(__dirname, "scripts", "importar-acervo.js");
-const AUTH_PATH = path.join(DATA_DIR, "auth.json");
+const AUTH_PATH = path.join(RUNTIME_DATA_DIR, "auth.json");
+const PREFERRED_AUTH_PATH = path.join(DATA_DIR, "auth.json");
 const DEVICE_HEADER = "x-device-id";
 const TOKEN_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 30;
 const RESET_CODE_TTL_MS = 1000 * 60 * 15;
@@ -40,10 +49,25 @@ const AUTH_USERS = {
   lider: { label: "Lider", role: "leader", defaultPassword: "1234" },
   musico: { label: "Musico", role: "musician", defaultPassword: "1234" }
 };
+const AUTH_READ_PATHS = Array.from(new Set([AUTH_PATH, PREFERRED_AUTH_PATH, path.join(APP_DATA_DIR, "auth.json")]));
+const ARTIST_THUMBS_READ_PATHS = Array.from(new Set([
+  ARTIST_THUMBS_PATH,
+  PREFERRED_ARTIST_THUMBS_PATH,
+  FALLBACK_ARTIST_THUMBS_PATH
+]));
+const ARTIST_THUMBS_SEARCH_DIRS = Array.from(new Set([
+  ARTIST_THUMBS_DIR,
+  PREFERRED_ARTIST_THUMBS_DIR,
+  FALLBACK_ARTIST_THUMBS_DIR
+]));
 
 let importRunning = false;
 let importQueued = false;
 let importTimer = null;
+
+if (RUNTIME_DATA_DIR !== DATA_DIR) {
+  console.warn(`[storage] ${DATA_DIR} sem escrita. Auth e thumbs usarao ${RUNTIME_DATA_DIR}.`);
+}
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -57,6 +81,24 @@ const mimeTypes = {
   ".svg": "image/svg+xml",
   ".webmanifest": "application/manifest+json; charset=utf-8"
 };
+
+function resolveWritableDataDir(candidates) {
+  let lastError = null;
+  for (const candidate of candidates) {
+    const dirPath = path.resolve(candidate);
+    try {
+      fs.mkdirSync(dirPath, { recursive: true });
+      const probePath = path.join(dirPath, `.write-test-${process.pid}`);
+      fs.writeFileSync(probePath, "ok", "utf8");
+      fs.unlinkSync(probePath);
+      return dirPath;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError || new Error("no-writable-data-dir");
+}
 
 function sendJson(res, statusCode, payload) {
   res.writeHead(statusCode, {
@@ -91,10 +133,11 @@ function readSongRecord(id) {
 }
 
 function readArtistThumbs() {
-  return {
-    ...readArtistThumbFile(FALLBACK_ARTIST_THUMBS_PATH),
-    ...readArtistThumbFile(ARTIST_THUMBS_PATH)
-  };
+  const merged = {};
+  for (const filePath of ARTIST_THUMBS_READ_PATHS) {
+    Object.assign(merged, readArtistThumbFile(filePath));
+  }
+  return merged;
 }
 
 function readArtistThumbFile(filePath) {
@@ -121,7 +164,7 @@ function normalizeArtistThumbs(source) {
 }
 
 function writeArtistThumbs(artistThumbs) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.mkdirSync(RUNTIME_DATA_DIR, { recursive: true });
   fs.writeFileSync(ARTIST_THUMBS_PATH, JSON.stringify({
     updatedAt: new Date().toISOString(),
     artistThumbs
@@ -139,24 +182,28 @@ function syncArtistThumbToCatalogFiles(artist, urlPath) {
   const syncedAt = new Date().toISOString();
 
   for (const filePath of filePaths) {
-    const catalog = safeJsonParse(fs.readFileSync(filePath, "utf8"), null);
-    if (!catalog || typeof catalog !== "object") continue;
+    try {
+      const catalog = safeJsonParse(fs.readFileSync(filePath, "utf8"), null);
+      if (!catalog || typeof catalog !== "object") continue;
 
-    const artistThumbs = normalizeArtistThumbs(catalog.artistThumbs);
-    const existingArtist = Object.keys(artistThumbs)
-      .find((candidate) => normalizeText(candidate) === artistKey);
-    artistThumbs[existingArtist || artistName] = sanitizedUrl;
-    catalog.artistThumbs = artistThumbs;
-    catalog.artistThumbsUpdatedAt = syncedAt;
+      const artistThumbs = normalizeArtistThumbs(catalog.artistThumbs);
+      const existingArtist = Object.keys(artistThumbs)
+        .find((candidate) => normalizeText(candidate) === artistKey);
+      artistThumbs[existingArtist || artistName] = sanitizedUrl;
+      catalog.artistThumbs = artistThumbs;
+      catalog.artistThumbsUpdatedAt = syncedAt;
 
-    if (Array.isArray(catalog.songs)) {
-      catalog.songs = catalog.songs.map((song) => {
-        if (normalizeText(song?.artist) !== artistKey) return song;
-        return { ...song, artistThumb: sanitizedUrl };
-      });
+      if (Array.isArray(catalog.songs)) {
+        catalog.songs = catalog.songs.map((song) => {
+          if (normalizeText(song?.artist) !== artistKey) return song;
+          return { ...song, artistThumb: sanitizedUrl };
+        });
+      }
+
+      fs.writeFileSync(filePath, JSON.stringify(catalog, null, 2), "utf8");
+    } catch {
+      continue;
     }
-
-    fs.writeFileSync(filePath, JSON.stringify(catalog, null, 2), "utf8");
   }
 }
 
@@ -234,25 +281,33 @@ function safeArtistThumbPath(urlPath) {
   const fileName = decodeURIComponent(String(urlPath || "").replace(/^\/artist-thumbs\//, ""));
   if (!/^[a-z0-9_-]+\.(?:jpg|jpeg|png|webp)$/i.test(fileName)) return null;
 
-  const primary = path.join(ARTIST_THUMBS_DIR, fileName);
-  if (fs.existsSync(primary)) return primary;
-
-  const fallback = path.join(FALLBACK_ARTIST_THUMBS_DIR, fileName);
-  if (fs.existsSync(fallback)) return fallback;
+  for (const baseDir of ARTIST_THUMBS_SEARCH_DIRS) {
+    const candidate = path.join(baseDir, fileName);
+    if (fs.existsSync(candidate)) return candidate;
+  }
 
   return null;
 }
 
 function ensureAuthStore() {
   fs.mkdirSync(path.dirname(AUTH_PATH), { recursive: true });
-  const rawStore = fs.existsSync(AUTH_PATH)
-    ? safeJsonParse(fs.readFileSync(AUTH_PATH, "utf8"), {})
-    : {};
+  const rawStore = readFirstExistingJson(AUTH_READ_PATHS, {});
   const store = normalizeAuthStore(rawStore);
-  if (JSON.stringify(rawStore) !== JSON.stringify(store)) {
+  const currentWritableStore = fs.existsSync(AUTH_PATH)
+    ? safeJsonParse(fs.readFileSync(AUTH_PATH, "utf8"), {})
+    : null;
+  if (!currentWritableStore || JSON.stringify(currentWritableStore) !== JSON.stringify(store)) {
     writeAuthStore(store);
   }
   return store;
+}
+
+function readFirstExistingJson(filePaths, fallback) {
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) continue;
+    return safeJsonParse(fs.readFileSync(filePath, "utf8"), fallback);
+  }
+  return fallback;
 }
 
 function normalizeAuthStore(input) {
