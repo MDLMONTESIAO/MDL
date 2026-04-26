@@ -4,25 +4,42 @@ const path = require("path");
 const crypto = require("crypto");
 const net = require("net");
 const tls = require("tls");
+const os = require("os");
 const { spawn } = require("child_process");
 
 const PORT = Number(process.env.PORT || 3030);
 const PUBLIC_DIR = path.join(__dirname, "public");
 const APP_DATA_DIR = path.join(__dirname, "data");
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : APP_DATA_DIR;
+const RUNTIME_DATA_DIR = resolveWritableDataDir([
+  DATA_DIR,
+  APP_DATA_DIR,
+  path.join(os.tmpdir(), "acervo-musical-mdl-monte-siao")
+]);
 const CONFIG_PATH = path.join(APP_DATA_DIR, "pastas.json");
+const RUNTIME_DB_PATH = path.join(RUNTIME_DATA_DIR, "acervo-db.json");
 const DB_PATH = path.join(DATA_DIR, "acervo-db.json");
 const FALLBACK_DB_PATH = path.join(APP_DATA_DIR, "acervo-db.json");
+const RUNTIME_INDEX_PATH = path.join(RUNTIME_DATA_DIR, "index.json");
 const INDEX_PATH = path.join(DATA_DIR, "index.json");
 const FALLBACK_INDEX_PATH = path.join(APP_DATA_DIR, "index.json");
+const RUNTIME_SONGS_DIR = path.join(RUNTIME_DATA_DIR, "songs");
 const SONGS_DIR = path.join(DATA_DIR, "songs");
 const FALLBACK_SONGS_DIR = path.join(APP_DATA_DIR, "songs");
-const ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const ARTIST_THUMBS_PATH = path.join(RUNTIME_DATA_DIR, "artist-thumbs.json");
 const FALLBACK_ARTIST_THUMBS_PATH = path.join(APP_DATA_DIR, "artist-thumbs.json");
-const ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
+const PREFERRED_ARTIST_THUMBS_PATH = path.join(DATA_DIR, "artist-thumbs.json");
+const ARTIST_THUMBS_DIR = path.join(RUNTIME_DATA_DIR, "artist-thumbs");
 const FALLBACK_ARTIST_THUMBS_DIR = path.join(APP_DATA_DIR, "artist-thumbs");
+const PREFERRED_ARTIST_THUMBS_DIR = path.join(DATA_DIR, "artist-thumbs");
 const IMPORT_SCRIPT = path.join(__dirname, "scripts", "importar-acervo.js");
-const AUTH_PATH = path.join(DATA_DIR, "auth.json");
+const AUTH_PATH = path.join(RUNTIME_DATA_DIR, "auth.json");
+const PREFERRED_AUTH_PATH = path.join(DATA_DIR, "auth.json");
+const PLAY_PATH = path.join(RUNTIME_DATA_DIR, "play.json");
+const PREFERRED_PLAY_PATH = path.join(DATA_DIR, "play.json");
+const CUSTOM_CHORDS_PATH = path.join(RUNTIME_DATA_DIR, "custom-chords.json");
+const PREFERRED_CUSTOM_CHORDS_PATH = path.join(DATA_DIR, "custom-chords.json");
+const SONG_VERSIONS_DIR = path.join(RUNTIME_DATA_DIR, "versions", "songs");
 const DEVICE_HEADER = "x-device-id";
 const TOKEN_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 30;
 const RESET_CODE_TTL_MS = 1000 * 60 * 15;
@@ -35,15 +52,33 @@ const SMTP_PORT = Number(process.env.SMTP_PORT || (SMTP_SECURE ? 465 : 587));
 const SMTP_USER = String(process.env.SMTP_USER || "").trim();
 const SMTP_PASS = String(process.env.SMTP_PASS || "");
 const SMTP_FROM = String(process.env.SMTP_FROM || SMTP_USER || "").trim();
-const SMTP_HELO = String(process.env.SMTP_HELO || "mdl-inova.local").trim();
+const SMTP_HELO = String(process.env.SMTP_HELO || "mdl-monte-siao.local").trim();
+const DEV_PASSWORD = String(process.env.DEV_PASSWORD || "Salmo92");
+const DEV_TOKEN_TTL_MS = 1000 * 60 * 60 * 8;
 const AUTH_USERS = {
-  lider: { label: "Lider", role: "leader", defaultPassword: "1234" },
-  musico: { label: "Musico", role: "musician", defaultPassword: "1234" }
+  lider: { label: "Lider", role: "leader", defaultPassword: "1234", defaultName: "Lider" },
+  musico: { label: "Musico", role: "musician", defaultPassword: "1234", defaultName: "Musico" }
 };
+const AUTH_READ_PATHS = Array.from(new Set([AUTH_PATH, PREFERRED_AUTH_PATH, path.join(APP_DATA_DIR, "auth.json")]));
+const PLAY_READ_PATHS = Array.from(new Set([PLAY_PATH, PREFERRED_PLAY_PATH, path.join(APP_DATA_DIR, "play.json")]));
+const ARTIST_THUMBS_READ_PATHS = Array.from(new Set([
+  ARTIST_THUMBS_PATH,
+  PREFERRED_ARTIST_THUMBS_PATH,
+  FALLBACK_ARTIST_THUMBS_PATH
+]));
+const ARTIST_THUMBS_SEARCH_DIRS = Array.from(new Set([
+  ARTIST_THUMBS_DIR,
+  PREFERRED_ARTIST_THUMBS_DIR,
+  FALLBACK_ARTIST_THUMBS_DIR
+]));
 
 let importRunning = false;
 let importQueued = false;
 let importTimer = null;
+
+if (RUNTIME_DATA_DIR !== DATA_DIR) {
+  console.warn(`[storage] ${DATA_DIR} sem escrita. Auth, thumbs e cifras usarao ${RUNTIME_DATA_DIR}.`);
+}
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -58,6 +93,24 @@ const mimeTypes = {
   ".webmanifest": "application/manifest+json; charset=utf-8"
 };
 
+function resolveWritableDataDir(candidates) {
+  let lastError = null;
+  for (const candidate of candidates) {
+    const dirPath = path.resolve(candidate);
+    try {
+      fs.mkdirSync(dirPath, { recursive: true });
+      const probePath = path.join(dirPath, `.write-test-${process.pid}`);
+      fs.writeFileSync(probePath, "ok", "utf8");
+      fs.unlinkSync(probePath);
+      return dirPath;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError || new Error("no-writable-data-dir");
+}
+
 function sendJson(res, statusCode, payload) {
   res.writeHead(statusCode, {
     "Content-Type": "application/json; charset=utf-8",
@@ -66,35 +119,171 @@ function sendJson(res, statusCode, payload) {
   res.end(JSON.stringify(payload));
 }
 
+function repairPossibleMojibake(value) {
+  const input = typeof value === "string" ? value : String(value || "");
+  if (!input) return "";
+
+  const candidates = [input];
+  let current = input;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const next = Buffer.from(current, "latin1").toString("utf8");
+    if (!next || next === current) break;
+    candidates.push(next);
+    current = next;
+  }
+
+  return candidates.reduce((best, candidate) => {
+    return scoreTextQuality(candidate) < scoreTextQuality(best) ? candidate : best;
+  }, input);
+}
+
+function scoreTextQuality(text) {
+  let score = 0;
+  for (const char of String(text || "")) {
+    const code = char.charCodeAt(0);
+    if (code === 0xfffd) score += 12;
+    else if (code >= 0x80 && code <= 0x9f) score += 8;
+    else if (code === 0x00c2 || code === 0x00c3 || code === 0x00c5 || code === 0x00d0 || code === 0x00cc) score += 6;
+  }
+  return score;
+}
+
+function normalizeCatalogSong(input) {
+  const song = input && typeof input === "object" ? input : {};
+  const id = String(song.id || "").trim();
+  if (!id) return null;
+
+  const normalized = {
+    id,
+    title: repairPossibleMojibake(song.title),
+    artist: repairPossibleMojibake(song.artist),
+    collection: repairPossibleMojibake(song.collection),
+    fileType: String(song.fileType || "").trim().toLowerCase(),
+    key: song.key == null ? null : repairPossibleMojibake(song.key),
+    updatedAt: typeof song.updatedAt === "string" ? song.updatedAt : "",
+    apiUrl: `/api/songs/${id}`,
+    offlineKey: `mdl-song-${id}`
+  };
+
+  const artistThumb = sanitizeArtistThumbUrl(song.artistThumb);
+  if (artistThumb) normalized.artistThumb = artistThumb;
+  return normalized;
+}
+
+function normalizeSongRecordData(input) {
+  const song = normalizeCatalogSong(input);
+  if (!song) return null;
+  return {
+    ...song,
+    html: repairPossibleMojibake(input?.html || "")
+  };
+}
+
+function normalizeCatalogData(input) {
+  const data = input && typeof input === "object" ? input : {};
+  const songs = Array.isArray(data.songs)
+    ? data.songs.map(normalizeCatalogSong).filter(Boolean)
+    : [];
+
+  songs.sort((left, right) => {
+    const artistCompare = left.artist.localeCompare(right.artist, "pt-BR");
+    return artistCompare || left.title.localeCompare(right.title, "pt-BR");
+  });
+
+  const artists = Array.from(new Set(songs.map((song) => song.artist).filter(Boolean)))
+    .sort((left, right) => left.localeCompare(right, "pt-BR"));
+
+  return {
+    name: repairPossibleMojibake(data.name) || "Acervo Musical",
+    generatedAt: typeof data.generatedAt === "string" && data.generatedAt ? data.generatedAt : new Date().toISOString(),
+    artistThumbsUpdatedAt: typeof data.artistThumbsUpdatedAt === "string" ? data.artistThumbsUpdatedAt : null,
+    totalSongs: songs.length,
+    totalArtists: artists.length,
+    artists,
+    artistThumbs: normalizeArtistThumbs(data.artistThumbs),
+    songs
+  };
+}
+
+function writeJsonIfChanged(filePath, data) {
+  try {
+    const next = JSON.stringify(data, null, 2);
+    const current = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+    if (current === next) return;
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, next, "utf8");
+  } catch {
+    // Melhor esforço: a API segue funcionando mesmo se o disco estiver somente leitura.
+  }
+}
+
 function getCatalogDbPath() {
-  return fs.existsSync(DB_PATH) ? DB_PATH : FALLBACK_DB_PATH;
+  return firstExistingPath([RUNTIME_DB_PATH, DB_PATH, FALLBACK_DB_PATH]) || FALLBACK_DB_PATH;
 }
 
 function getCatalogIndexPath() {
-  return fs.existsSync(INDEX_PATH) ? INDEX_PATH : FALLBACK_INDEX_PATH;
+  return firstExistingPath([RUNTIME_INDEX_PATH, INDEX_PATH, FALLBACK_INDEX_PATH]) || FALLBACK_INDEX_PATH;
+}
+
+function getCatalogWritablePaths() {
+  return Array.from(new Set([
+    RUNTIME_DB_PATH,
+    RUNTIME_INDEX_PATH,
+    DB_PATH,
+    INDEX_PATH,
+    getCatalogDbPath(),
+    getCatalogIndexPath()
+  ]));
+}
+
+function firstExistingPath(filePaths) {
+  return filePaths.find((filePath) => fs.existsSync(filePath)) || null;
+}
+
+function getSongReadPaths(id) {
+  const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, "");
+  if (!safeId) return [];
+  return [
+    path.join(RUNTIME_SONGS_DIR, `${safeId}.json`),
+    path.join(SONGS_DIR, `${safeId}.json`),
+    path.join(FALLBACK_SONGS_DIR, `${safeId}.json`)
+  ];
 }
 
 function readCatalogDb() {
   const dbPath = getCatalogDbPath();
   if (!fs.existsSync(dbPath)) return null;
-  return JSON.parse(fs.readFileSync(dbPath, "utf8"));
+  const raw = safeJsonParse(fs.readFileSync(dbPath, "utf8"), null);
+  if (!raw) return null;
+
+  const normalized = normalizeCatalogData(raw);
+  writeJsonIfChanged(RUNTIME_DB_PATH, normalized);
+  writeJsonIfChanged(RUNTIME_INDEX_PATH, normalized);
+  writeJsonIfChanged(DB_PATH, normalized);
+  writeJsonIfChanged(INDEX_PATH, normalized);
+  return normalized;
 }
 
 function readSongRecord(id) {
   const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, "");
   if (!safeId) return null;
-  const primarySongPath = path.join(SONGS_DIR, `${safeId}.json`);
-  const fallbackSongPath = path.join(FALLBACK_SONGS_DIR, `${safeId}.json`);
-  const songPath = fs.existsSync(primarySongPath) ? primarySongPath : fallbackSongPath;
+  const songPath = firstExistingPath(getSongReadPaths(safeId));
   if (!fs.existsSync(songPath)) return null;
-  return JSON.parse(fs.readFileSync(songPath, "utf8"));
+  const raw = safeJsonParse(fs.readFileSync(songPath, "utf8"), null);
+  if (!raw) return null;
+
+  const normalized = normalizeSongRecordData(raw);
+  if (!normalized) return null;
+  writeJsonIfChanged(songPath, normalized);
+  return normalized;
 }
 
 function readArtistThumbs() {
-  return {
-    ...readArtistThumbFile(FALLBACK_ARTIST_THUMBS_PATH),
-    ...readArtistThumbFile(ARTIST_THUMBS_PATH)
-  };
+  const merged = {};
+  for (const filePath of ARTIST_THUMBS_READ_PATHS) {
+    Object.assign(merged, readArtistThumbFile(filePath));
+  }
+  return merged;
 }
 
 function readArtistThumbFile(filePath) {
@@ -121,7 +310,7 @@ function normalizeArtistThumbs(source) {
 }
 
 function writeArtistThumbs(artistThumbs) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.mkdirSync(RUNTIME_DATA_DIR, { recursive: true });
   fs.writeFileSync(ARTIST_THUMBS_PATH, JSON.stringify({
     updatedAt: new Date().toISOString(),
     artistThumbs
@@ -139,24 +328,28 @@ function syncArtistThumbToCatalogFiles(artist, urlPath) {
   const syncedAt = new Date().toISOString();
 
   for (const filePath of filePaths) {
-    const catalog = safeJsonParse(fs.readFileSync(filePath, "utf8"), null);
-    if (!catalog || typeof catalog !== "object") continue;
+    try {
+      const catalog = safeJsonParse(fs.readFileSync(filePath, "utf8"), null);
+      if (!catalog || typeof catalog !== "object") continue;
 
-    const artistThumbs = normalizeArtistThumbs(catalog.artistThumbs);
-    const existingArtist = Object.keys(artistThumbs)
-      .find((candidate) => normalizeText(candidate) === artistKey);
-    artistThumbs[existingArtist || artistName] = sanitizedUrl;
-    catalog.artistThumbs = artistThumbs;
-    catalog.artistThumbsUpdatedAt = syncedAt;
+      const artistThumbs = normalizeArtistThumbs(catalog.artistThumbs);
+      const existingArtist = Object.keys(artistThumbs)
+        .find((candidate) => normalizeText(candidate) === artistKey);
+      artistThumbs[existingArtist || artistName] = sanitizedUrl;
+      catalog.artistThumbs = artistThumbs;
+      catalog.artistThumbsUpdatedAt = syncedAt;
 
-    if (Array.isArray(catalog.songs)) {
-      catalog.songs = catalog.songs.map((song) => {
-        if (normalizeText(song?.artist) !== artistKey) return song;
-        return { ...song, artistThumb: sanitizedUrl };
-      });
+      if (Array.isArray(catalog.songs)) {
+        catalog.songs = catalog.songs.map((song) => {
+          if (normalizeText(song?.artist) !== artistKey) return song;
+          return { ...song, artistThumb: sanitizedUrl };
+        });
+      }
+
+      fs.writeFileSync(filePath, JSON.stringify(catalog, null, 2), "utf8");
+    } catch {
+      continue;
     }
-
-    fs.writeFileSync(filePath, JSON.stringify(catalog, null, 2), "utf8");
   }
 }
 
@@ -214,7 +407,7 @@ function isValidImageBuffer(mime, buffer) {
 }
 
 function normalizeArtistName(value) {
-  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 120);
+  return repairPossibleMojibake(String(value || "")).trim().replace(/\s+/g, " ").slice(0, 120);
 }
 
 function slugifyArtist(value) {
@@ -234,25 +427,33 @@ function safeArtistThumbPath(urlPath) {
   const fileName = decodeURIComponent(String(urlPath || "").replace(/^\/artist-thumbs\//, ""));
   if (!/^[a-z0-9_-]+\.(?:jpg|jpeg|png|webp)$/i.test(fileName)) return null;
 
-  const primary = path.join(ARTIST_THUMBS_DIR, fileName);
-  if (fs.existsSync(primary)) return primary;
-
-  const fallback = path.join(FALLBACK_ARTIST_THUMBS_DIR, fileName);
-  if (fs.existsSync(fallback)) return fallback;
+  for (const baseDir of ARTIST_THUMBS_SEARCH_DIRS) {
+    const candidate = path.join(baseDir, fileName);
+    if (fs.existsSync(candidate)) return candidate;
+  }
 
   return null;
 }
 
 function ensureAuthStore() {
   fs.mkdirSync(path.dirname(AUTH_PATH), { recursive: true });
-  const rawStore = fs.existsSync(AUTH_PATH)
-    ? safeJsonParse(fs.readFileSync(AUTH_PATH, "utf8"), {})
-    : {};
+  const rawStore = readFirstExistingJson(AUTH_READ_PATHS, {});
   const store = normalizeAuthStore(rawStore);
-  if (JSON.stringify(rawStore) !== JSON.stringify(store)) {
+  const currentWritableStore = fs.existsSync(AUTH_PATH)
+    ? safeJsonParse(fs.readFileSync(AUTH_PATH, "utf8"), {})
+    : null;
+  if (!currentWritableStore || JSON.stringify(currentWritableStore) !== JSON.stringify(store)) {
     writeAuthStore(store);
   }
   return store;
+}
+
+function readFirstExistingJson(filePaths, fallback) {
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) continue;
+    return safeJsonParse(fs.readFileSync(filePath, "utf8"), fallback);
+  }
+  return fallback;
 }
 
 function normalizeAuthStore(input) {
@@ -312,12 +513,18 @@ function normalizeUserRecord(input, config) {
   const user = input && typeof input === "object" ? input : {};
   const email = normalizeEmail(user.email);
   if (!user.passwordHash || !user.salt || !user.iterations) {
-    return createPasswordRecord(config.defaultPassword, config, { email });
+    return createPasswordRecord(config.defaultPassword, config, {
+      email,
+      displayName: user.displayName || user.name || config.defaultName || config.label,
+      avatarUrl: user.avatarUrl || user.avatar || ""
+    });
   }
 
   return {
     label: typeof user.label === "string" && user.label.trim() ? user.label.trim() : config.label,
     role: typeof user.role === "string" && user.role.trim() ? user.role.trim() : config.role,
+    displayName: normalizeDisplayName(user.displayName || user.name, config.defaultName || config.label),
+    avatarUrl: normalizeAvatarDataUrl(user.avatarUrl || user.avatar),
     email,
     salt: String(user.salt),
     iterations: Math.max(1000, Number(user.iterations) || 120000),
@@ -340,12 +547,90 @@ function writeAuthStore(store) {
   fs.writeFileSync(AUTH_PATH, JSON.stringify(store, null, 2), "utf8");
 }
 
+function getCatalogSongIdSet() {
+  const db = readCatalogDb();
+  if (!Array.isArray(db?.songs)) return null;
+  return new Set(db.songs.map((song) => String(song?.id || "").trim()).filter(Boolean));
+}
+
+function readRawPlayItems(store) {
+  if (Array.isArray(store?.items)) return store.items;
+  if (Array.isArray(store?.play)) return store.play;
+  if (Array.isArray(store?.entries)) return store.entries;
+  return [];
+}
+
+function normalizePlayEntry(input, validSongIds = getCatalogSongIdSet()) {
+  const entry = typeof input === "string"
+    ? { id: input, key: null }
+    : input && typeof input === "object"
+      ? input
+      : null;
+
+  const id = repairPossibleMojibake(entry?.id || "").trim();
+  if (!id) return null;
+  if (validSongIds instanceof Set && !validSongIds.has(id)) return null;
+
+  const key = entry?.key == null
+    ? null
+    : repairPossibleMojibake(entry.key).trim() || null;
+
+  return { id, key };
+}
+
+function normalizePlayItems(items, validSongIds = getCatalogSongIdSet()) {
+  if (!Array.isArray(items)) return [];
+
+  const normalized = [];
+  const seen = new Set();
+  for (const item of items) {
+    const entry = normalizePlayEntry(item, validSongIds);
+    if (!entry || seen.has(entry.id)) continue;
+    normalized.push(entry);
+    seen.add(entry.id);
+  }
+  return normalized;
+}
+
+function normalizePlayStore(input, validSongIds = getCatalogSongIdSet()) {
+  const store = input && typeof input === "object" ? input : {};
+  return {
+    updatedAt: typeof store.updatedAt === "string" ? store.updatedAt : "",
+    items: normalizePlayItems(readRawPlayItems(store), validSongIds)
+  };
+}
+
+function writePlayStore(store) {
+  fs.mkdirSync(path.dirname(PLAY_PATH), { recursive: true });
+  fs.writeFileSync(PLAY_PATH, JSON.stringify(store, null, 2), "utf8");
+}
+
+function ensurePlayStore() {
+  const validSongIds = getCatalogSongIdSet();
+  const store = normalizePlayStore(readFirstExistingJson(PLAY_READ_PATHS, {}), validSongIds);
+  const next = JSON.stringify(store, null, 2);
+  const current = fs.existsSync(PLAY_PATH) ? fs.readFileSync(PLAY_PATH, "utf8") : "";
+  if (current !== next) writePlayStore(store);
+  return store;
+}
+
+function updatePlayStore(items) {
+  const store = {
+    updatedAt: new Date().toISOString(),
+    items: normalizePlayItems(items, getCatalogSongIdSet())
+  };
+  writePlayStore(store);
+  return store;
+}
+
 function createPasswordRecord(password, config, options = {}) {
   const salt = crypto.randomBytes(16).toString("hex");
   const iterations = 120000;
   return {
     label: config.label,
     role: config.role,
+    displayName: normalizeDisplayName(options.displayName, config.defaultName || config.label),
+    avatarUrl: normalizeAvatarDataUrl(options.avatarUrl),
     email: normalizeEmail(options.email),
     salt,
     iterations,
@@ -375,6 +660,8 @@ function publicUser(id, user) {
     id,
     label: user.label,
     role: user.role,
+    displayName: normalizeDisplayName(user.displayName, user.label),
+    avatarUrl: normalizeAvatarDataUrl(user.avatarUrl),
     email: user.email || ""
   };
 }
@@ -487,7 +774,7 @@ function getOrCreateDeviceContext(req, body = null) {
 }
 
 function normalizeText(value) {
-  return String(value || "")
+  return repairPossibleMojibake(String(value || ""))
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -507,6 +794,17 @@ function normalizeDeviceId(value) {
 function normalizeDeviceLabel(value) {
   const label = String(value || "").trim().replace(/\s+/g, " ");
   return label ? label.slice(0, 120) : "";
+}
+
+function normalizeDisplayName(value, fallback = "Perfil") {
+  const label = String(value || "").trim().replace(/\s+/g, " ");
+  if (!label) return String(fallback || "Perfil").trim();
+  return label.slice(0, 60);
+}
+
+function normalizeAvatarDataUrl(value) {
+  const raw = String(value || "").trim();
+  return /^data:image\/(?:jpeg|png|webp);base64,[a-z0-9+/=\r\n]+$/i.test(raw) ? raw : "";
 }
 
 function normalizeEmail(value) {
@@ -547,9 +845,9 @@ function makeResponseError(code, message) {
 }
 
 async function sendResetCodeEmail(email, userLabel, code) {
-  const subject = "Recuperacao de senha - MDL Inova";
+  const subject = "Recuperacao de senha - Acervo Musical";
   const text = [
-    "Acervo Musical MDL Inova",
+    "Acervo Musical",
     "",
     `Perfil: ${userLabel}`,
     `Codigo de recuperacao: ${code}`,
@@ -747,13 +1045,43 @@ class SmtpConnection {
   }
 }
 
+
+function signDevToken(secret, deviceId) { const payload = { role: "developer", did: deviceId || "dev", exp: Date.now() + DEV_TOKEN_TTL_MS }; const encodedPayload = base64UrlEncode(JSON.stringify(payload)); const signature = crypto.createHmac("sha256", secret).update(encodedPayload).digest("base64url"); return `${encodedPayload}.${signature}`; }
+function verifyDevToken(req) { const token = String(req.headers["x-dev-token"] || "").trim(); if (!token) return false; const [encodedPayload, signature] = token.split("."); if (!encodedPayload || !signature) return false; const store = ensureAuthStore(); const expected = crypto.createHmac("sha256", store.secret).update(encodedPayload).digest("base64url"); if (!safeTokenEqual(signature, expected)) return false; try { const payload = JSON.parse(Buffer.from(encodedPayload, "base64url").toString("utf8")); if (payload.role !== "developer" || payload.exp < Date.now()) return false; const requestDeviceId = getRequestDeviceId(req); return !payload.did || !requestDeviceId || payload.did === requestDeviceId; } catch { return false; } }
+function requireDev(req, res) { if (verifyDevToken(req)) return true; sendJson(res, 403, { ok: false, error: "dev-only" }); return false; }
+function getWritableSongPath(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; return path.join(RUNTIME_SONGS_DIR, `${safeId}.json`); }
+function saveSongVersion(id, currentRecord) { if (!currentRecord) return null; const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; fs.mkdirSync(path.join(SONG_VERSIONS_DIR, safeId), { recursive: true }); const filePath = path.join(SONG_VERSIONS_DIR, safeId, `${Date.now()}.json`); fs.writeFileSync(filePath, JSON.stringify({ savedAt: new Date().toISOString(), song: currentRecord }, null, 2), "utf8"); return filePath; }
+function getLatestSongVersion(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; const dir = path.join(SONG_VERSIONS_DIR, safeId); if (!fs.existsSync(dir)) return null; const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json")).sort().reverse(); for (const fileName of files) { const raw = safeJsonParse(fs.readFileSync(path.join(dir, fileName), "utf8"), null); if (raw?.song) return raw.song; } return null; }
+function updateCatalogSongMetadata(updatedSong) { const sourceCatalogPath = getCatalogDbPath(); const sourceCatalog = fs.existsSync(sourceCatalogPath) ? safeJsonParse(fs.readFileSync(sourceCatalogPath, "utf8"), null) : null; if (!sourceCatalog || !Array.isArray(sourceCatalog.songs)) return; sourceCatalog.songs = sourceCatalog.songs.map((song) => String(song?.id || "") !== updatedSong.id ? song : { ...song, title: updatedSong.title, artist: updatedSong.artist, collection: updatedSong.collection, key: updatedSong.key, updatedAt: updatedSong.updatedAt }); sourceCatalog.generatedAt = new Date().toISOString(); const normalizedCatalog = normalizeCatalogData(sourceCatalog); for (const filePath of getCatalogWritablePaths()) { writeJsonIfChanged(filePath, normalizedCatalog); } }
+function readCustomChords() { const source = readFirstExistingJson([CUSTOM_CHORDS_PATH, PREFERRED_CUSTOM_CHORDS_PATH], {}); return source && typeof source === "object" && !Array.isArray(source) ? source : {}; }
+function writeCustomChords(chords) { fs.mkdirSync(path.dirname(CUSTOM_CHORDS_PATH), { recursive: true }); fs.writeFileSync(CUSTOM_CHORDS_PATH, JSON.stringify(chords, null, 2), "utf8"); }
+function normalizeChordShapePayload(input) { const shape = input && typeof input === "object" ? input : {}; const frets = Array.isArray(shape.frets) ? shape.frets.slice(0, 6).map((value) => { if (value === "x" || value === "X") return "x"; const number = Number(value); return Number.isInteger(number) && number >= 0 && number <= 24 ? number : "x"; }) : ["x", "x", "x", "x", "x", "x"]; while (frets.length < 6) frets.push("x"); const baseFret = Math.max(1, Math.min(15, Number(shape.baseFret) || 1)); const barres = Array.isArray(shape.barres) ? shape.barres.map((barre) => ({ fret: Math.max(1, Math.min(24, Number(barre.fret) || baseFret)), fromString: Math.max(0, Math.min(5, Number(barre.fromString) || 0)), toString: Math.max(0, Math.min(5, Number(barre.toString) || 5)) })) : []; return { frets, baseFret, barres, label: String(shape.label || "Forma personalizada").slice(0, 80), notes: Array.isArray(shape.notes) ? shape.notes.map((note) => String(note).trim()).filter(Boolean).slice(0, 12) : [] }; }
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+
+  if (url.pathname === "/api/dev-login" && req.method === "POST") {
+    try { const body = await parseJsonBody(req); const deviceId = getRequestDeviceId(req, body) || "dev"; if (String(body.password || "") !== DEV_PASSWORD) return sendJson(res, 403, { ok: false, error: "invalid-dev-password" }); const store = ensureAuthStore(); return sendJson(res, 200, { ok: true, role: "developer", token: signDevToken(store.secret, deviceId) }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); }
+  }
+  if (url.pathname === "/api/dev/chords" && req.method === "GET") { if (!requireDev(req, res)) return; return sendJson(res, 200, { ok: true, chords: readCustomChords() }); }
+  if (url.pathname === "/api/dev/save-chord" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req); const name = repairPossibleMojibake(body.name || "").trim().replace(/\s+/g, "").slice(0, 40); if (!/^[A-G](?:#|b)?[0-9A-Za-zº°+\-#b()]*?(?:\/[A-G](?:#|b)?)?$/.test(name)) return sendJson(res, 400, { ok: false, error: "invalid-chord-name" }); const chords = readCustomChords(); chords[name] = normalizeChordShapePayload(body.shape); writeCustomChords(chords); return sendJson(res, 200, { ok: true, name, shape: chords[name] }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/save-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const current = readSongRecord(id); if (!current) return sendJson(res, 404, { ok: false, error: "song-not-found" }); saveSongVersion(id, current); const updated = normalizeSongRecordData({ ...current, title: repairPossibleMojibake(body.title || current.title), artist: repairPossibleMojibake(body.artist || current.artist), collection: repairPossibleMojibake(body.collection || current.collection), key: body.key == null ? current.key : repairPossibleMojibake(body.key), html: repairPossibleMojibake(body.html || ""), updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(updated, null, 2), "utf8"); updateCatalogSongMetadata(updated); return sendJson(res, 200, { ok: true, song: updated }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/restore-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const previous = getLatestSongVersion(id); if (!previous) return sendJson(res, 404, { ok: false, error: "version-not-found" }); const current = readSongRecord(id); if (current) saveSongVersion(id, current); const restored = normalizeSongRecordData({ ...previous, updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(restored, null, 2), "utf8"); updateCatalogSongMetadata(restored); return sendJson(res, 200, { ok: true, song: restored }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+
 
   if (url.pathname === "/api/auth/session" && req.method === "GET") {
     const session = verifyToken(req);
     if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
     return sendJson(res, 200, { ok: true, user: publicUser(session.userId, session.user) });
+  }
+
+  if (url.pathname === "/api/auth/device-users" && req.method === "GET") {
+    const deviceContext = getOrCreateDeviceContext(req);
+    if (!deviceContext) return sendJson(res, 400, { ok: false, error: "invalid-device" });
+    const users = Object.fromEntries(
+      Object.entries(deviceContext.device.users || {}).map(([userId, user]) => [userId, publicUser(userId, user)])
+    );
+    return sendJson(res, 200, { ok: true, users });
   }
 
   if (url.pathname === "/api/auth/login" && req.method === "POST") {
@@ -800,6 +1128,29 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (url.pathname === "/api/auth/update-profile" && req.method === "POST") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+
+    try {
+      const body = await parseJsonBody(req, 2 * 1024 * 1024);
+      const displayName = normalizeDisplayName(body.displayName, session.user.displayName || session.user.label);
+      let avatarUrl = session.user.avatarUrl || "";
+      if (body.avatarDataUrl != null) {
+        if (String(body.avatarDataUrl || "").trim()) parseArtistThumbDataUrl(body.avatarDataUrl);
+        avatarUrl = normalizeAvatarDataUrl(body.avatarDataUrl);
+      }
+
+      session.device.users[session.userId].displayName = displayName;
+      session.device.users[session.userId].avatarUrl = avatarUrl;
+      session.device.users[session.userId].updatedAt = new Date().toISOString();
+      writeAuthStore(session.store);
+      return sendJson(res, 200, { ok: true, user: publicUser(session.userId, session.device.users[session.userId]) });
+    } catch (error) {
+      return sendJson(res, 400, { ok: false, error: error.code || error.message });
+    }
+  }
+
   if (url.pathname === "/api/auth/change-password" && req.method === "POST") {
     const session = verifyToken(req);
     if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
@@ -817,7 +1168,11 @@ const server = http.createServer(async (req, res) => {
       session.device.users[session.userId] = createPasswordRecord(
         newPassword,
         AUTH_USERS[session.userId] || session.user,
-        { email: session.user.email }
+        {
+          email: session.user.email,
+          displayName: session.user.displayName || session.user.label,
+          avatarUrl: session.user.avatarUrl || ""
+        }
       );
       delete session.device.resetRequests[session.userId];
       writeAuthStore(session.store);
@@ -923,7 +1278,11 @@ const server = http.createServer(async (req, res) => {
       deviceContext.device.users[userId] = createPasswordRecord(
         newPassword,
         AUTH_USERS[userId] || user,
-        { email: user.email }
+        {
+          email: user.email,
+          displayName: user.displayName || user.label,
+          avatarUrl: user.avatarUrl || ""
+        }
       );
       delete deviceContext.device.resetRequests[userId];
       writeAuthStore(deviceContext.store);
@@ -963,6 +1322,40 @@ const server = http.createServer(async (req, res) => {
     } catch (error) {
       const status = error.code === "image-too-large" ? 413 : 400;
       return sendJson(res, status, { ok: false, error: error.code || error.message });
+    }
+  }
+
+  if (url.pathname === "/api/play" && req.method === "GET") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+
+    try {
+      const store = ensurePlayStore();
+      return sendJson(res, 200, {
+        ok: true,
+        play: store.items,
+        updatedAt: store.updatedAt || null
+      });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, error: error.code || error.message });
+    }
+  }
+
+  if (url.pathname === "/api/play" && req.method === "PUT") {
+    const session = verifyToken(req);
+    if (!session) return sendJson(res, 401, { ok: false, error: "unauthorized" });
+    if (session.user.role !== "leader") return sendJson(res, 403, { ok: false, error: "leader-only" });
+
+    try {
+      const body = await parseJsonBody(req);
+      const store = updatePlayStore(body.items ?? body.play);
+      return sendJson(res, 200, {
+        ok: true,
+        play: store.items,
+        updatedAt: store.updatedAt
+      });
+    } catch (error) {
+      return sendJson(res, 400, { ok: false, error: error.code || error.message });
     }
   }
 
@@ -1103,7 +1496,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, "0.0.0.0", () => {
-  console.log(`Acervo Musical MDL Inova em http://localhost:${PORT}`);
+  console.log(`Acervo Musical em http://localhost:${PORT}`);
   scheduleImport("inicio");
   watchCatalogFolders();
 });
@@ -1122,8 +1515,11 @@ function runImport(reason) {
   importRunning = true;
   const child = spawn(process.execPath, [IMPORT_SCRIPT], {
     cwd: __dirname,
-    stdio: "inherit"
+    stdio: ["ignore", "pipe", "pipe"]
   });
+
+  child.stdout?.on("data", (chunk) => process.stdout.write(chunk));
+  child.stderr?.on("data", (chunk) => process.stderr.write(chunk));
 
   child.on("exit", (code) => {
     importRunning = false;
