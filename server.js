@@ -34,6 +34,9 @@ const AUTH_PATH = path.join(RUNTIME_DATA_DIR, "auth.json");
 const PREFERRED_AUTH_PATH = path.join(DATA_DIR, "auth.json");
 const PLAY_PATH = path.join(RUNTIME_DATA_DIR, "play.json");
 const PREFERRED_PLAY_PATH = path.join(DATA_DIR, "play.json");
+const CUSTOM_CHORDS_PATH = path.join(RUNTIME_DATA_DIR, "custom-chords.json");
+const PREFERRED_CUSTOM_CHORDS_PATH = path.join(DATA_DIR, "custom-chords.json");
+const SONG_VERSIONS_DIR = path.join(RUNTIME_DATA_DIR, "versions", "songs");
 const DEVICE_HEADER = "x-device-id";
 const TOKEN_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 30;
 const RESET_CODE_TTL_MS = 1000 * 60 * 15;
@@ -47,6 +50,8 @@ const SMTP_USER = String(process.env.SMTP_USER || "").trim();
 const SMTP_PASS = String(process.env.SMTP_PASS || "");
 const SMTP_FROM = String(process.env.SMTP_FROM || SMTP_USER || "").trim();
 const SMTP_HELO = String(process.env.SMTP_HELO || "mdl-monte-siao.local").trim();
+const DEV_PASSWORD = String(process.env.DEV_PASSWORD || "Salmo92");
+const DEV_TOKEN_TTL_MS = 1000 * 60 * 60 * 8;
 const AUTH_USERS = {
   lider: { label: "Lider", role: "leader", defaultPassword: "1234" },
   musico: { label: "Musico", role: "musician", defaultPassword: "1234" }
@@ -991,8 +996,29 @@ class SmtpConnection {
   }
 }
 
+
+function signDevToken(secret, deviceId) { const payload = { role: "developer", did: deviceId || "dev", exp: Date.now() + DEV_TOKEN_TTL_MS }; const encodedPayload = base64UrlEncode(JSON.stringify(payload)); const signature = crypto.createHmac("sha256", secret).update(encodedPayload).digest("base64url"); return `${encodedPayload}.${signature}`; }
+function verifyDevToken(req) { const token = String(req.headers["x-dev-token"] || "").trim(); if (!token) return false; const [encodedPayload, signature] = token.split("."); if (!encodedPayload || !signature) return false; const store = ensureAuthStore(); const expected = crypto.createHmac("sha256", store.secret).update(encodedPayload).digest("base64url"); if (!safeTokenEqual(signature, expected)) return false; try { const payload = JSON.parse(Buffer.from(encodedPayload, "base64url").toString("utf8")); if (payload.role !== "developer" || payload.exp < Date.now()) return false; const requestDeviceId = getRequestDeviceId(req); return !payload.did || !requestDeviceId || payload.did === requestDeviceId; } catch { return false; } }
+function requireDev(req, res) { if (verifyDevToken(req)) return true; sendJson(res, 403, { ok: false, error: "dev-only" }); return false; }
+function getWritableSongPath(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; return path.join(SONGS_DIR, `${safeId}.json`); }
+function saveSongVersion(id, currentRecord) { if (!currentRecord) return null; const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; fs.mkdirSync(path.join(SONG_VERSIONS_DIR, safeId), { recursive: true }); const filePath = path.join(SONG_VERSIONS_DIR, safeId, `${Date.now()}.json`); fs.writeFileSync(filePath, JSON.stringify({ savedAt: new Date().toISOString(), song: currentRecord }, null, 2), "utf8"); return filePath; }
+function getLatestSongVersion(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; const dir = path.join(SONG_VERSIONS_DIR, safeId); if (!fs.existsSync(dir)) return null; const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json")).sort().reverse(); for (const fileName of files) { const raw = safeJsonParse(fs.readFileSync(path.join(dir, fileName), "utf8"), null); if (raw?.song) return raw.song; } return null; }
+function updateCatalogSongMetadata(updatedSong) { const filePaths = Array.from(new Set([getCatalogDbPath(), getCatalogIndexPath()])).filter((filePath) => fs.existsSync(filePath)); for (const filePath of filePaths) { try { const catalog = safeJsonParse(fs.readFileSync(filePath, "utf8"), null); if (!catalog || !Array.isArray(catalog.songs)) continue; catalog.songs = catalog.songs.map((song) => String(song?.id || "") !== updatedSong.id ? song : { ...song, title: updatedSong.title, artist: updatedSong.artist, collection: updatedSong.collection, key: updatedSong.key, updatedAt: updatedSong.updatedAt }); catalog.generatedAt = new Date().toISOString(); fs.writeFileSync(filePath, JSON.stringify(normalizeCatalogData(catalog), null, 2), "utf8"); } catch {} } }
+function readCustomChords() { const source = readFirstExistingJson([CUSTOM_CHORDS_PATH, PREFERRED_CUSTOM_CHORDS_PATH], {}); return source && typeof source === "object" && !Array.isArray(source) ? source : {}; }
+function writeCustomChords(chords) { fs.mkdirSync(path.dirname(CUSTOM_CHORDS_PATH), { recursive: true }); fs.writeFileSync(CUSTOM_CHORDS_PATH, JSON.stringify(chords, null, 2), "utf8"); }
+function normalizeChordShapePayload(input) { const shape = input && typeof input === "object" ? input : {}; const frets = Array.isArray(shape.frets) ? shape.frets.slice(0, 6).map((value) => { if (value === "x" || value === "X") return "x"; const number = Number(value); return Number.isInteger(number) && number >= 0 && number <= 24 ? number : "x"; }) : ["x", "x", "x", "x", "x", "x"]; while (frets.length < 6) frets.push("x"); const baseFret = Math.max(1, Math.min(15, Number(shape.baseFret) || 1)); const barres = Array.isArray(shape.barres) ? shape.barres.map((barre) => ({ fret: Math.max(1, Math.min(24, Number(barre.fret) || baseFret)), fromString: Math.max(0, Math.min(5, Number(barre.fromString) || 0)), toString: Math.max(0, Math.min(5, Number(barre.toString) || 5)) })) : []; return { frets, baseFret, barres, label: String(shape.label || "Forma personalizada").slice(0, 80), notes: Array.isArray(shape.notes) ? shape.notes.map((note) => String(note).trim()).filter(Boolean).slice(0, 12) : [] }; }
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+
+  if (url.pathname === "/api/dev-login" && req.method === "POST") {
+    try { const body = await parseJsonBody(req); const deviceId = getRequestDeviceId(req, body) || "dev"; if (String(body.password || "") !== DEV_PASSWORD) return sendJson(res, 403, { ok: false, error: "invalid-dev-password" }); const store = ensureAuthStore(); return sendJson(res, 200, { ok: true, role: "developer", token: signDevToken(store.secret, deviceId) }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); }
+  }
+  if (url.pathname === "/api/dev/chords" && req.method === "GET") { if (!requireDev(req, res)) return; return sendJson(res, 200, { ok: true, chords: readCustomChords() }); }
+  if (url.pathname === "/api/dev/save-chord" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req); const name = repairPossibleMojibake(body.name || "").trim().replace(/\s+/g, "").slice(0, 40); if (!/^[A-G](?:#|b)?[0-9A-Za-zº°+\-#b()]*?(?:\/[A-G](?:#|b)?)?$/.test(name)) return sendJson(res, 400, { ok: false, error: "invalid-chord-name" }); const chords = readCustomChords(); chords[name] = normalizeChordShapePayload(body.shape); writeCustomChords(chords); return sendJson(res, 200, { ok: true, name, shape: chords[name] }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/save-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const current = readSongRecord(id); if (!current) return sendJson(res, 404, { ok: false, error: "song-not-found" }); saveSongVersion(id, current); const updated = normalizeSongRecordData({ ...current, title: repairPossibleMojibake(body.title || current.title), artist: repairPossibleMojibake(body.artist || current.artist), collection: repairPossibleMojibake(body.collection || current.collection), key: body.key == null ? current.key : repairPossibleMojibake(body.key), html: repairPossibleMojibake(body.html || ""), updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(updated, null, 2), "utf8"); updateCatalogSongMetadata(updated); return sendJson(res, 200, { ok: true, song: updated }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/restore-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const previous = getLatestSongVersion(id); if (!previous) return sendJson(res, 404, { ok: false, error: "version-not-found" }); const current = readSongRecord(id); if (current) saveSongVersion(id, current); const restored = normalizeSongRecordData({ ...previous, updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(restored, null, 2), "utf8"); updateCatalogSongMetadata(restored); return sendJson(res, 200, { ok: true, song: restored }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+
 
   if (url.pathname === "/api/auth/session" && req.method === "GET") {
     const session = verifyToken(req);
