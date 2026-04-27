@@ -105,7 +105,7 @@
         <img src="/assets/logo-inova.jpg" alt="Acervo Musical" class="sidebar-brand-logo">
         <div>
           <span>Acervo Musical</span>
-          <strong>Painel de Ensaios</strong>
+          <strong>MDL Inova</strong>
         </div>
       </div>
 
@@ -157,7 +157,9 @@
               <strong>Ensaio de Hoje</strong>
               <span id="sidebarPlaySummary">4 musicas no repertorio</span>
             </div>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3"></path><path d="M8 8v8"></path><path d="M13 5v14"></path><path d="M18 8v8"></path></svg>
+            <span class="sidebar-live-wave" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+            </span>
           </div>
           <strong class="sidebar-live-time" id="sidebarTimer">00:15:30</strong>
           <div class="sidebar-live-controls">
@@ -255,24 +257,20 @@
                 <h2>Acervo</h2>
                 <p id="libraryStats">Carregando musicas...</p>
               </div>
-              <button class="icon-button" type="button" data-action="refresh" title="Atualizar">
+              <button class="icon-button library-refresh-button" type="button" data-action="refresh" title="Atualizar">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"></path><path d="M21 3v6h-6"></path></svg>
               </button>
             </div>
 
             <div class="library-toolbar">
               <div class="library-tabs" role="tablist" aria-label="Filtros do acervo">
-                <button class="active" type="button">Todas</button>
-                <button type="button">Mais tocadas</button>
-                <button type="button">Recentes</button>
-                <button type="button">Por tom</button>
-                <button type="button">Por artista</button>
+                <button class="active" type="button" data-action="set-library-filter" data-filter="all" aria-pressed="true">Todas</button>
+                <button type="button" data-action="set-library-filter" data-filter="popular" aria-pressed="false">Mais tocadas</button>
+                <button type="button" data-action="set-library-filter" data-filter="recent" aria-pressed="false">Recentes</button>
+                <button type="button" data-action="set-library-filter" data-filter="artist" aria-pressed="false">Por artista</button>
               </div>
               <div class="library-view-tools">
-                <button type="button" class="library-sort-chip">Ordenar</button>
-                <button type="button" class="library-view-chip" aria-label="Modo grade">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><rect x="14" y="14" width="6" height="6"></rect></svg>
-                </button>
+                <button type="button" class="library-sort-chip" data-action="toggle-library-sort" id="librarySortButton">Ordenar A-Z</button>
               </div>
             </div>
 

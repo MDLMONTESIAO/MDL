@@ -131,6 +131,8 @@ let installPromptAutoHideTimer = null;
 const state = {
   songs: [],
   filtered: [],
+  libraryFilter: "all",
+  librarySort: "title",
   currentView: "acervo",
   currentSongId: null,
   previousView: "acervo",
@@ -170,6 +172,7 @@ const state = {
   pendingAudioSongId: null,
   pendingArtistThumb: null,
   pendingAccountAvatar: null,
+  songMetrics: readSongMetrics(),
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
   favorites: new Set(JSON.parse(localStorage.getItem("mdl.favorites") || "[]")),
   playUpdatedAt: localStorage.getItem("mdl.playEnsaioUpdatedAt") || "",
@@ -250,6 +253,7 @@ const dom = {
   dashboardArtistShortcutCount: document.getElementById("dashboardArtistShortcutCount"),
   dashboardTimer: document.getElementById("dashboardTimer"),
   sidebarTimer: document.getElementById("sidebarTimer"),
+  librarySortButton: document.getElementById("librarySortButton"),
   heroProgressBar: document.getElementById("heroProgressBar"),
   heroProgressLabel: document.getElementById("heroProgressLabel"),
   libraryStats: document.getElementById("libraryStats"),
@@ -1066,6 +1070,106 @@ function bindEvents() {
   dom.localAudioInput?.addEventListener("change", handleLocalAudioSelected);
 }
 
+function readSongMetrics() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem("mdl.songMetrics") || "{}");
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveSongMetrics() {
+  localStorage.setItem("mdl.songMetrics", JSON.stringify(state.songMetrics || {}));
+}
+
+function getSongMetric(songId) {
+  return state.songMetrics?.[songId] || { opened: 0, lastOpenedAt: "" };
+}
+
+function recordSongOpen(songId) {
+  if (!songId) return;
+  const current = getSongMetric(songId);
+  state.songMetrics[songId] = {
+    opened: Number(current.opened || 0) + 1,
+    lastOpenedAt: new Date().toISOString()
+  };
+  saveSongMetrics();
+}
+
+function getSongRecentAt(song) {
+  const metric = getSongMetric(song.id);
+  return metric.lastOpenedAt || song.updatedAt || "";
+}
+
+function getSongPopularScore(song) {
+  const metric = getSongMetric(song.id);
+  let score = Number(metric.opened || 0);
+  if (state.favorites.has(song.id)) score += 6;
+  if (state.play.some((entry) => entry.id === song.id)) score += 10;
+  return score;
+}
+
+function compareSongsAlphabetically(left, right, mode = state.librarySort) {
+  if (mode === "artist") {
+    const artistCompare = left.artist.localeCompare(right.artist, "pt-BR");
+    return artistCompare || left.title.localeCompare(right.title, "pt-BR");
+  }
+  return left.title.localeCompare(right.title, "pt-BR") || left.artist.localeCompare(right.artist, "pt-BR");
+}
+
+function applyLibraryFilterAndSort(songs) {
+  const list = songs.slice();
+
+  if (state.libraryFilter === "popular") {
+    return list.sort((left, right) => {
+      const scoreCompare = getSongPopularScore(right) - getSongPopularScore(left);
+      return scoreCompare || compareSongsAlphabetically(left, right);
+    });
+  }
+
+  if (state.libraryFilter === "recent") {
+    return list.sort((left, right) => {
+      const recentCompare = String(getSongRecentAt(right)).localeCompare(String(getSongRecentAt(left)), "pt-BR");
+      return recentCompare || compareSongsAlphabetically(left, right);
+    });
+  }
+
+  if (state.libraryFilter === "artist") {
+    return list.sort((left, right) => {
+      const artistCompare = left.artist.localeCompare(right.artist, "pt-BR");
+      return artistCompare || left.title.localeCompare(right.title, "pt-BR");
+    });
+  }
+
+  return list.sort((left, right) => compareSongsAlphabetically(left, right));
+}
+
+function renderLibraryToolbar() {
+  document.querySelectorAll("[data-action='set-library-filter']").forEach((button) => {
+    const active = button.dataset.filter === state.libraryFilter;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  if (dom.librarySortButton) {
+    dom.librarySortButton.textContent = state.librarySort === "artist" ? "Artista A-Z" : "Titulo A-Z";
+  }
+}
+
+function setLibraryFilter(filter) {
+  const next = ["all", "popular", "recent", "artist"].includes(filter) ? filter : "all";
+  state.libraryFilter = next;
+  filterSongs();
+  renderCatalog();
+}
+
+function toggleLibrarySort() {
+  state.librarySort = state.librarySort === "title" ? "artist" : "title";
+  filterSongs();
+  renderCatalog();
+}
+
 async function handleClick(event) {
   const chord = event.target.closest("[data-chord]");
   if (chord?.dataset.chord) {
@@ -1115,6 +1219,8 @@ async function handleClick(event) {
     if (action === "play-audio") return playLocalAudio(id);
     if (action === "download-artist") return downloadArtistForOffline(artist);
     if (action === "toggle-theme") return toggleTheme();
+    if (action === "set-library-filter") return setLibraryFilter(button.dataset.filter);
+    if (action === "toggle-library-sort") return toggleLibrarySort();
     if (action === "install-app") return installApp();
     if (action === "dismiss-install") return hideInstallPrompt();
     if (action === "clear-play") return requireLeader() && clearPlay();
@@ -1188,14 +1294,11 @@ function handleKeyDown(event) {
 
 function filterSongs() {
   const query = normalize(dom.search.value);
-  if (!query) {
-    state.filtered = state.songs.slice(0, 80);
-    return;
-  }
+  const matchingSongs = query
+    ? state.songs.filter((song) => normalize(`${song.title} ${song.artist} ${song.collection || ""}`).includes(query))
+    : state.songs.slice();
 
-  state.filtered = state.songs
-    .filter((song) => normalize(`${song.title} ${song.artist} ${song.collection || ""}`).includes(query))
-    .slice(0, 100);
+  state.filtered = applyLibraryFilterAndSort(matchingSongs).slice(0, 240);
 }
 
 function renderAll() {
@@ -1246,6 +1349,7 @@ function renderTopArtist(artist, songs) {
 }
 
 function renderCatalog() {
+  renderLibraryToolbar();
   dom.songList.innerHTML = state.filtered.length
     ? state.filtered.map(renderSongCard).join("")
     : emptyState("Nenhuma m\u00FAsica encontrada.");
@@ -1355,6 +1459,7 @@ function renderArtistCard(artist, songs) {
 
 function renderArtistSongs(artist) {
   dom.search.value = artist;
+  state.libraryFilter = "artist";
   state.filtered = getArtistSongs(artist);
   showView("acervo");
   renderCatalog();
@@ -1491,6 +1596,7 @@ async function openSong(id) {
   syncFavoriteControls();
   closeChordGuide(true);
   showView("reader");
+  recordSongOpen(id);
 
   try {
     const response = await fetch(`/api/songs/${encodeURIComponent(id)}?v=${Date.now()}`);
@@ -2523,7 +2629,9 @@ function findSong(id) {
 }
 
 function getArtistSongs(artist) {
-  return state.songs.filter((song) => song.artist === artist);
+  return state.songs
+    .filter((song) => song.artist === artist)
+    .sort((left, right) => left.title.localeCompare(right.title, "pt-BR"));
 }
 
 function getArtistOfflineInfo(artist) {

@@ -4054,11 +4054,50 @@ body.screen-dev .dev-view.active {
     gap: 16px;
   }
 
+  .sidebar-live-card {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(139, 92, 246, .22), transparent 28%),
+      linear-gradient(180deg, rgba(20, 28, 48, .98), rgba(17, 23, 40, .96));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 16px 42px rgba(0, 0, 0, .18);
+  }
+
   .sidebar-live-head {
     display: flex;
     justify-content: space-between;
     gap: 12px;
     align-items: start;
+  }
+
+  .sidebar-live-wave {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 4px;
+  }
+
+  .sidebar-live-wave i {
+    display: block;
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #c084fc, #8b5cf6);
+    box-shadow: 0 0 12px rgba(139, 92, 246, .32);
+  }
+
+  .sidebar-live-wave i:nth-child(1),
+  .sidebar-live-wave i:nth-child(5) {
+    height: 10px;
+    opacity: .8;
+  }
+
+  .sidebar-live-wave i:nth-child(2),
+  .sidebar-live-wave i:nth-child(4) {
+    height: 18px;
+  }
+
+  .sidebar-live-wave i:nth-child(3) {
+    height: 26px;
   }
 
   .sidebar-live-head strong,
@@ -4105,6 +4144,7 @@ body.screen-dev .dev-view.active {
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #f4d990;
   }
 
   .sidebar-live-controls button {
@@ -4223,6 +4263,7 @@ body.screen-dev .dev-view.active {
     justify-content: space-between;
     align-items: center;
     gap: 18px;
+    flex-wrap: wrap;
     margin-bottom: 18px;
   }
 
@@ -4247,6 +4288,11 @@ body.screen-dev .dev-view.active {
   .library-tabs button.active {
     background: linear-gradient(135deg, rgba(99, 47, 201, .9), rgba(76, 29, 149, .82));
     color: #fff;
+  }
+
+  .library-sort-chip {
+    min-width: 156px;
+    justify-content: center;
   }
 
   .library-view-tools {
@@ -4483,5 +4529,228 @@ body {
   .quick-card {
     min-height: 68px;
     padding: 8px 4px;
+  }
+}
+
+@media (min-width: 960px) and (hover: none), (min-width: 960px) and (pointer: coarse) {
+  .app-shell {
+    width: min(100%, 1280px);
+    max-width: 1280px;
+    min-height: calc(100vh - 48px);
+    min-height: calc(100dvh - 48px);
+    height: calc(100vh - 48px);
+    height: calc(100dvh - 48px);
+    display: grid;
+    grid-template-columns: 286px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "cover cover"
+      "nav main"
+      "footer footer";
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .14);
+  }
+
+  .cover {
+    min-height: 104px;
+    padding: 18px 28px;
+    display: grid;
+    grid-template-columns: minmax(240px, auto) minmax(280px, 1fr) auto;
+    align-items: center;
+    align-content: center;
+    gap: 18px;
+  }
+
+  .brand {
+    grid-template-columns: 54px auto;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .brand-logo {
+    width: 54px;
+    height: 54px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .cover-actions {
+    justify-content: flex-end;
+  }
+
+  .developer-signature {
+    display: none;
+  }
+
+  .quick-cards {
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 18px;
+    padding: 20px 16px 24px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(96, 45, 184, .18), transparent 28%),
+      linear-gradient(180deg, rgba(6, 9, 18, .99), rgba(9, 12, 24, .97));
+    border-right: 1px solid rgba(255, 255, 255, .09);
+  }
+
+  .sidebar-brand,
+  .sidebar-block,
+  .sidebar-install-card,
+  .sidebar-profile-card {
+    display: grid !important;
+  }
+
+  .sidebar-brand {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .sidebar-brand-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sidebar-brand span {
+    font-size: 11px;
+    color: rgba(255, 255, 255, .62);
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  .sidebar-brand strong {
+    font-size: 17px;
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .quick-card {
+    min-height: 54px;
+    padding: 0 16px;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    justify-content: start;
+    gap: 14px;
+    border-radius: 14px;
+    background: transparent;
+    border: 1px solid transparent;
+  }
+
+  .quick-card span,
+  .play-card b {
+    display: block;
+  }
+
+  .quick-card svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quick-card span {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.15;
+    font-weight: 800;
+  }
+
+  .quick-card.active {
+    background: linear-gradient(135deg, rgba(72, 32, 138, .88), rgba(48, 23, 102, .72));
+    border-color: rgba(139, 92, 246, .42);
+  }
+
+  .play-card b {
+    min-width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .sidebar-block h3 {
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .sidebar-live-card {
+    padding: 18px 16px 16px;
+  }
+
+  .sidebar-live-head strong {
+    font-size: 15px;
+  }
+
+  .sidebar-live-head span {
+    display: block;
+    margin-top: 6px;
+    line-height: 1.35;
+  }
+
+  .sidebar-live-time {
+    font-size: 22px;
+  }
+
+  .sidebar-live-controls {
+    gap: 14px;
+  }
+
+  .sidebar-live-controls button {
+    width: 42px;
+    min-width: 42px;
+    min-height: 42px;
+  }
+
+  .sidebar-live-play {
+    width: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+  }
+
+  .sidebar-live-link {
+    width: 100%;
+  }
+
+  .sidebar-install-card {
+    background:
+      linear-gradient(135deg, rgba(37, 25, 74, .96), rgba(18, 23, 44, .95));
+  }
+
+  .sidebar-profile-card {
+    min-height: 78px;
+  }
+
+  .dashboard-hero {
+    display: block;
+  }
+
+  .today-card {
+    width: 100%;
+    min-height: 188px;
+    grid-template-columns: minmax(0, 1fr) 144px;
+    padding: 24px 26px;
+  }
+
+  .hero-progress {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero-progress-bar {
+    width: 100%;
   }
 }
