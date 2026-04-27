@@ -10,7 +10,7 @@
   <title>Acervo Musical</title>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/logo-inova.jpg">
-  <link rel="stylesheet" href="/styles.css?v=20260427-text-editor-piano">
+  <link rel="stylesheet" href="/styles.css?v=20260427-reader-buttons-fix">
   <script>
     (() => {
       const savedTheme = localStorage.getItem("mdl.theme");
@@ -402,6 +402,7 @@
           <button type="button" data-action="reset-tone" id="toneButton">Tom</button>
           <button type="button" data-action="transpose-up">+1</button>
           <button type="button" data-action="toggle-singer-mode" id="singerModeButton" aria-pressed="false">Cantor</button>
+          <button class="instrument-toggle" type="button" data-action="toggle-chord-instrument" id="chordInstrumentButton" aria-pressed="false" title="Alternar desenho do acorde entre violão e teclado"><span>🎸</span><strong>Violão</strong></button>
           <button type="button" data-action="font-down">A-</button>
           <button type="button" data-action="font-up">A+</button>
           <button type="button" data-action="toggle-autoscroll" id="autoButton">Auto</button>
@@ -689,6 +690,6 @@
     </form>
   </section>
 
-  <script src="/app.js?v=20260427-text-editor-piano"></script>
+  <script src="/app.js?v=20260427-reader-buttons-fix"></script>
 </body>
 </html>

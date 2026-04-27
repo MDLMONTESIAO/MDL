@@ -923,6 +923,42 @@ h1 {
   border-bottom: 1px solid #302c27;
 }
 
+
+.reader-tools .instrument-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  min-width: 118px;
+}
+
+.reader-tools .instrument-toggle span {
+  color: rgba(244, 217, 144, .72);
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.reader-tools .instrument-toggle strong {
+  color: inherit;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.reader-tools .instrument-toggle.active span {
+  color: rgba(20, 15, 6, .62);
+}
+
+.brand-logo,
+.login-logo,
+.sidebar-brand-logo {
+  cursor: pointer;
+  user-select: none;
+}
+
 .reader-tools button {
   min-height: 38px;
   border-radius: 8px;
@@ -2586,6 +2622,34 @@ body.screen-reader .main-area {
   background: rgba(8, 8, 20, .66);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
   backdrop-filter: blur(18px);
+}
+
+
+#view-reader .reader-tools .instrument-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  min-width: 118px;
+}
+
+#view-reader .reader-tools .instrument-toggle span {
+  color: rgba(214, 251, 255, .72);
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+#view-reader .reader-tools .instrument-toggle strong {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+#view-reader .reader-tools .instrument-toggle.active span {
+  color: rgba(20, 15, 6, .62);
 }
 
 #view-reader .reader-tools button {
@@ -4784,50 +4848,65 @@ body {
   }
 }
 
-/* Editor de cifras em texto + layout teclado/piano */
-.dev-editor-mode-row {
-  display: inline-flex;
-  gap: 6px;
-  padding: 4px;
-  border-radius: 999px;
-  background: var(--soft-button);
-  border: 1px solid var(--line);
-  margin: 4px 0 8px;
+
+/* Ajuste final dos botões do leitor: evita sobreposição no PC e deixa Violão/Teclado claro */
+.reader-tools,
+#view-reader .reader-tools {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  align-items: stretch !important;
 }
 
-.dev-editor-mode-row button {
-  min-height: 34px;
-  border-radius: 999px;
-  padding: 0 12px;
-  background: transparent;
-  color: var(--soft-button-text);
-  font-size: 12px;
-  font-weight: 950;
+.reader-tools button,
+#view-reader .reader-tools button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 42px !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 12px !important;
 }
 
-.dev-editor-mode-row button.active {
-  background: linear-gradient(135deg, var(--gold), var(--gold-2));
-  color: #17120c;
+.reader-tools .instrument-toggle,
+#view-reader .reader-tools .instrument-toggle {
+  min-width: 0 !important;
+  width: 100% !important;
+  gap: 5px !important;
+  padding: 0 6px !important;
 }
 
-.dev-editor-help {
-  margin-top: -4px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.4;
-  font-weight: 750;
+.reader-tools .instrument-toggle span,
+#view-reader .reader-tools .instrument-toggle span {
+  flex: 0 0 auto !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  color: inherit !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
 }
 
-.dev-field-editor textarea {
-  font-family: Consolas, "Courier New", monospace;
-  line-height: 1.55;
-  tab-size: 4;
+.reader-tools .instrument-toggle strong,
+#view-reader .reader-tools .instrument-toggle strong {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
 }
 
-.dev-field-editor textarea:not(.is-html-mode) {
-  white-space: pre;
+@media (max-width: 420px) {
+  .reader-tools,
+  #view-reader .reader-tools {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
 }
 
+/* Correção do layout do teclado/piano no guia de acordes */
 .chord-layout-stack {
   width: 100%;
   display: grid;
@@ -4835,34 +4914,35 @@ body {
   gap: 12px;
 }
 
+.piano-card {
+  width: min(100%, 520px);
+  display: grid;
+  gap: 12px;
+  padding: 14px 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .055);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
+}
+
 .chord-layout-label {
-  color: #f1d08b;
-  font-size: 11px;
+  color: #f4ece1;
+  font-size: 13px;
   line-height: 1.2;
   font-weight: 950;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-}
-
-.piano-card {
-  width: 100%;
-  max-width: 340px;
-  display: grid;
-  gap: 10px;
-  padding: 14px 12px 12px;
-  border-radius: 8px;
-  border: 1px solid #3a3329;
-  background: #181511;
 }
 
 .piano-keyboard {
   position: relative;
   width: 100%;
-  height: 104px;
+  min-height: 150px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: stretch;
+  overflow: visible;
+  padding-top: 0;
+  border-radius: 10px;
 }
 
 .piano-key {
@@ -4870,182 +4950,168 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  border-radius: 0 0 8px 8px;
-  font-size: 10px;
-  font-weight: 950;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .piano-key b {
   position: relative;
   z-index: 2;
-  margin-bottom: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  min-height: 24px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.02em;
 }
 
 .piano-key.white {
-  height: 104px;
-  background: #f8f1e8;
-  color: #201913;
-  border: 1px solid rgba(0, 0, 0, .18);
-  grid-column: span 1;
+  height: 150px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4efe7 100%);
+  border: 1px solid #c9c0b3;
+  border-left-width: 0;
+  color: #211d18;
+  box-shadow: inset 0 -10px 18px rgba(0, 0, 0, .08);
+}
+
+.piano-key.white:first-child {
+  border-left-width: 1px;
+  border-radius: 10px 0 0 10px;
+}
+
+.piano-key.white:nth-last-of-type(1) {
+  border-radius: 0 10px 10px 0;
 }
 
 .piano-key.black {
   position: absolute;
+  z-index: 4;
   top: 0;
-  left: calc((var(--key) + .68) * (100% / 7));
-  width: calc(100% / 7 * .56);
-  height: 62px;
-  z-index: 3;
-  background: #100f0d;
-  color: #f8f1e8;
-  border: 1px solid rgba(255, 255, 255, .12);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, .4);
+  left: calc(((var(--key) + 1) * (100% / 7)) - 18px);
+  width: clamp(26px, 7.5vw, 36px);
+  height: 92px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(180deg, #161616 0%, #050505 100%);
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: #ffffff;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, .5);
 }
 
-.piano-key.active.white {
-  background: linear-gradient(180deg, #fff8ea, var(--gold-2));
-  color: #17120c;
-  box-shadow: inset 0 -4px 0 var(--gold);
+.piano-key.black b {
+  margin-bottom: 7px;
+  min-width: 24px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, .08);
 }
 
-.piano-key.active.black {
-  background: linear-gradient(180deg, #46361d, var(--gold));
-  color: #17120c;
+.piano-key.white.active {
+  background: linear-gradient(180deg, #ffe7a3 0%, #e4b95f 100%);
+  border-color: #f4d990;
+  box-shadow: 0 0 0 2px rgba(244, 217, 144, .25), inset 0 -10px 18px rgba(0, 0, 0, .12);
+}
+
+.piano-key.black.active {
+  background: linear-gradient(180deg, #ffd36a 0%, #a855f7 100%);
+  border-color: #f4d990;
+  box-shadow: 0 0 0 2px rgba(244, 217, 144, .35), 0 12px 22px rgba(0, 0, 0, .55);
+}
+
+.piano-key.active b {
+  background: rgba(18, 16, 13, .88);
+  color: #fff8e8;
 }
 
 .piano-hint {
   color: #c9b8a2;
   font-size: 12px;
-  line-height: 1.35;
+  line-height: 1.4;
+  font-weight: 800;
   text-align: center;
-  font-weight: 750;
 }
 
+@media (max-width: 480px) {
+  .piano-card {
+    padding: 12px 8px 10px;
+  }
 
-/* Correção: rolagem do leitor e escolha clara do layout dos acordes */
-body.screen-reader {
+  .piano-keyboard {
+    min-height: 126px;
+  }
+
+  .piano-key.white {
+    height: 126px;
+  }
+
+  .piano-key.black {
+    left: calc(((var(--key) + 1) * (100% / 7)) - 14px);
+    width: 28px;
+    height: 78px;
+  }
+
+  .piano-key b {
+    min-width: 22px;
+    min-height: 21px;
+    font-size: 10px;
+  }
+}
+
+/* Correção: rolagem do guia de acordes/teclado */
+.chord-guide {
   overflow: hidden;
 }
 
-body.screen-reader .app-shell {
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
+.chord-guide.open {
+  display: block;
 }
 
-body.screen-reader .main-area {
-  height: 100%;
-  min-height: 0;
-  overflow: hidden;
-}
-
-body.screen-reader .reader-view.active {
-  height: 100%;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  overflow: hidden;
-}
-
-body.screen-reader .reader-top,
-body.screen-reader .reader-media,
-body.screen-reader .reader-tools,
-body.screen-reader .tuner-panel {
-  flex: 0 0 auto;
-}
-
-body.screen-reader .chord-sheet {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+.chord-guide-sheet {
+  max-height: calc(100dvh - 18px) !important;
+  height: auto;
+  overflow-y: auto !important;
+  overflow-x: hidden;
   overscroll-behavior: contain;
-  scrollbar-gutter: stable;
-  padding-bottom: max(44px, env(safe-area-inset-bottom));
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: calc(28px + env(safe-area-inset-bottom)) !important;
 }
 
-body.screen-reader .chord-sheet::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.chord-guide-body {
+  min-height: 0;
+  padding-bottom: 18px;
 }
 
-body.screen-reader .chord-sheet::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, .04);
+.chord-guide-diagram {
+  min-height: 0;
 }
 
-body.screen-reader .chord-sheet::-webkit-scrollbar-thumb {
-  background: rgba(239, 211, 147, .5);
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-.reader-tools .chord-layout-picker {
-  grid-column: span 2;
+.chord-guide-section,
+.chord-guide-hint {
   width: 100%;
-  min-height: 38px;
-  border-radius: 8px;
-  background: #211d18;
-  border: 1px solid #4b4033;
-  color: var(--white);
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 10px;
-  padding: 0 10px 0 12px;
-  box-shadow: inset 0 0 0 1px rgba(239, 211, 147, .08);
 }
 
-.reader-tools .chord-layout-picker span {
-  color: var(--gold-2);
-  font-size: 10px;
-  line-height: 1.1;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-  white-space: nowrap;
-}
+@media (min-width: 760px) {
+  .chord-guide-sheet {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 18px !important;
+    width: min(94vw, 760px);
+    max-height: calc(100dvh - 56px) !important;
+    border-radius: 18px !important;
+    transform: translate(-50%, calc(100% + 32px));
+  }
 
-.reader-tools .chord-layout-picker select {
-  width: 100%;
-  min-width: 0;
-  min-height: 30px;
-  border: 0;
-  outline: 0;
-  border-radius: 6px;
-  background: #0f0e0d;
-  color: #f8efe2;
-  padding: 0 28px 0 10px;
-  font-size: 12px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.reader-tools .chord-layout-picker select:focus {
-  box-shadow: 0 0 0 3px rgba(239, 211, 147, .28);
+  .chord-guide.open .chord-guide-sheet {
+    transform: translate(-50%, 0);
+  }
 }
 
 @media (max-width: 520px) {
-  .reader-tools .chord-layout-picker {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 380px) {
-  .reader-tools {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .reader-tools .chord-layout-picker {
-    grid-template-columns: 1fr;
-    gap: 5px;
-    padding: 8px 10px;
-  }
-
-  .reader-tools .chord-layout-picker span {
-    text-align: center;
+  .chord-guide-sheet {
+    max-height: calc(100dvh - 8px) !important;
   }
 }

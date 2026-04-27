@@ -147,6 +147,7 @@ const state = {
   baseKey: null,
   activeChordBase: null,
   chordGuideOpen: false,
+  chordInstrument: localStorage.getItem("mdl.chordInstrument") || "guitar",
   theme: localStorage.getItem("mdl.theme") || "light",
   generatedAt: null,
   catalogReady: false,
@@ -274,6 +275,7 @@ const dom = {
   toneButton: document.getElementById("toneButton"),
   autoButton: document.getElementById("autoButton"),
   singerModeButton: document.getElementById("singerModeButton"),
+  chordInstrumentButton: document.getElementById("chordInstrumentButton"),
   tunerButton: document.getElementById("tunerButton"),
   tunerPanel: document.getElementById("tunerPanel"),
   tunerNote: document.getElementById("tunerNote"),
@@ -1062,8 +1064,15 @@ function bindEvents() {
     renderCatalog();
     if (state.currentView !== "acervo") showView("acervo");
   });
-  document.querySelector(".brand-logo")?.addEventListener("click", handleDevLogoTap);
-  document.querySelector(".login-logo")?.addEventListener("click", handleDevLogoTap);
+  document.querySelectorAll(".brand-logo, .login-logo, .sidebar-brand-logo").forEach((logo) => {
+    logo.style.cursor = "pointer";
+    logo.tabIndex = 0;
+    logo.title = "Toque 5 vezes para acessar o modo desenvolvedor";
+    logo.addEventListener("pointerdown", handleDevLogoTap);
+    logo.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") handleDevLogoTap(event);
+    });
+  });
   dom.devSongSearch?.addEventListener("input", renderDevSongList);
   dom.devSongHtml?.addEventListener("input", renderDevPreview);
   [dom.devSongTitle, dom.devSongArtist, dom.devSongKey, dom.devSongCollection].forEach((input) => input?.addEventListener("input", renderDevPreview));
@@ -1238,6 +1247,7 @@ async function handleClick(event) {
     if (action === "font-down") return setReaderFont(state.readerFont - 1);
     if (action === "font-up") return setReaderFont(state.readerFont + 1);
     if (action === "toggle-singer-mode") return toggleSingerMode();
+    if (action === "toggle-chord-instrument") return toggleChordInstrument();
     if (action === "toggle-tuner") return toggleTunerPanel();
     if (action === "shortcut-add-song") return openAddSongShortcut();
     if (action === "shortcut-import-audio") return openImportAudioShortcut();
@@ -2130,7 +2140,29 @@ function applyReaderPreferences() {
     dom.singerModeButton.classList.toggle("active", state.singerMode);
     dom.singerModeButton.setAttribute("aria-pressed", String(state.singerMode));
   }
+  syncChordInstrumentControls();
   syncTunerControls();
+}
+
+function syncChordInstrumentControls() {
+  const mode = state.chordInstrument === "keyboard" ? "keyboard" : "guitar";
+  state.chordInstrument = mode;
+  if (!dom.chordInstrumentButton) return;
+  const isKeyboard = mode === "keyboard";
+  dom.chordInstrumentButton.classList.toggle("active", isKeyboard);
+  dom.chordInstrumentButton.setAttribute("aria-pressed", String(isKeyboard));
+  dom.chordInstrumentButton.innerHTML = `<span>${isKeyboard ? "🎹" : "🎸"}</span><strong>${isKeyboard ? "Teclado" : "Violão"}</strong>`;
+  dom.chordInstrumentButton.title = isKeyboard
+    ? "Ao clicar no acorde, mostrar layout de teclado"
+    : "Ao clicar no acorde, mostrar layout de violão";
+}
+
+function toggleChordInstrument() {
+  state.chordInstrument = state.chordInstrument === "keyboard" ? "guitar" : "keyboard";
+  localStorage.setItem("mdl.chordInstrument", state.chordInstrument);
+  syncChordInstrumentControls();
+  if (state.chordGuideOpen && state.activeChordBase) refreshChordGuide();
+  toast(state.chordInstrument === "keyboard" ? "Acordes em teclado" : "Acordes em violão");
 }
 
 function transposeCurrentSong(direction) {
@@ -2421,7 +2453,8 @@ function togglePlayEditing() {
 
 
 function isDevMode() { return Boolean(state.devMode && state.devToken); }
-async function handleDevLogoTap() {
+async function handleDevLogoTap(event) {
+  event?.preventDefault?.();
   clearTimeout(state.devTapTimer);
   state.devTapCount += 1;
   state.devTapTimer = setTimeout(() => { state.devTapCount = 0; }, 2600);
@@ -3307,9 +3340,15 @@ function buildChordGuide(chordName) {
 }
 
 function renderChordGuideDiagram(guide) {
+  const mode = state.chordInstrument === "keyboard" ? "keyboard" : "guitar";
+  if (mode === "keyboard") {
+    const keyboard = Array.isArray(guide.notes) && guide.notes.length ? renderPianoKeyboard(guide.notes) : "";
+    return `<div class="chord-layout-stack single-layout">${keyboard || `<div class="chord-guide-empty">Não foi possível montar o teclado desse acorde.</div>`}</div>`;
+  }
+
   const guitarDiagram = guide.shape ? `
     <div class="chord-diagram-card">
-      <div class="chord-layout-label">Viol\u00E3o / guitarra</div>
+      <div class="chord-layout-label">Violão / guitarra</div>
       <div class="chord-diagram-top">${renderChordMarkers(guide.shape.frets)}</div>
       <div class="chord-diagram-body${guide.shape.baseFret === 1 ? " is-open" : ""}">
         ${guide.shape.baseFret > 1 ? `<span class="chord-base-fret">${guide.shape.baseFret}</span>` : ""}
@@ -3320,12 +3359,10 @@ function renderChordGuideDiagram(guide) {
       </div>
       <div class="chord-string-labels">${STRING_LABELS.map((label) => `<span>${label}</span>`).join("")}</div>
     </div>
-  ` : `<div class="chord-guide-empty">Diagrama ainda n\u00E3o dispon\u00EDvel para esse tipo de acorde.</div>`;
+  ` : `<div class="chord-guide-empty">Diagrama ainda não disponível para esse tipo de acorde.</div>`;
 
-  const keyboard = Array.isArray(guide.notes) && guide.notes.length ? renderPianoKeyboard(guide.notes) : "";
-  return `<div class="chord-layout-stack">${guitarDiagram}${keyboard}</div>`;
+  return `<div class="chord-layout-stack single-layout">${guitarDiagram}</div>`;
 }
-
 function renderPianoKeyboard(notes = []) {
   const activeIndexes = new Set(notes.map((note) => NOTE_INDEX[note]).filter((index) => index !== undefined));
   const keys = [
