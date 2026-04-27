@@ -4754,3 +4754,32 @@ body {
     width: 100%;
   }
 }
+
+@media (min-width: 1180px) and (hover: none) and (orientation: landscape), (min-width: 1180px) and (pointer: coarse) and (orientation: landscape) {
+  .home-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .home-main {
+    min-width: 0;
+  }
+
+  .home-rail {
+    display: grid !important;
+    gap: 16px;
+    align-content: start;
+    position: sticky;
+    top: 0;
+  }
+
+  .rail-card {
+    padding: 18px;
+  }
+
+  .rail-card-head h3 {
+    font-size: 17px;
+  }
+}

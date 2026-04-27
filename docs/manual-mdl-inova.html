@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de Instruções - Acervo Musical MDL Inova</title>
+  <style>
+    :root {
+      --bg: #070711;
+      --panel: rgba(20, 18, 38, .86);
+      --line: rgba(255, 255, 255, .14);
+      --text: #f7f5ff;
+      --muted: #a7a2bc;
+      --cyan: #4de6ff;
+      --purple: #a855f7;
+      --amber: #ffad1f;
+      --green: #6feba8;
+      --danger: #ef8da2;
+      --ink: #171524;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .sheet {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 18mm;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(168, 85, 247, .20), rgba(77, 230, 255, .08) 44%, rgba(7, 7, 17, .98)),
+        var(--bg);
+      page-break-after: always;
+    }
+
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, .36), transparent 78%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .cover {
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 0 0 28px rgba(168, 85, 247, .42);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero {
+      display: grid;
+      gap: 20px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(168, 85, 247, .38), rgba(77, 230, 255, .18) 48%, rgba(10, 9, 22, .92)),
+        #111024;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 22px 54px rgba(0, 0, 0, .26);
+    }
+
+    .eyebrow {
+      color: #dcd6ff;
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 640px;
+      font-size: 52px;
+      line-height: .96;
+      font-weight: 950;
+    }
+
+    h2 {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 1.15;
+      font-weight: 950;
+    }
+
+    .lead {
+      color: #d9d5ea;
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 750;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill,
+    .tag {
+      min-height: 30px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background: rgba(255, 255, 255, .08);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .tag.amber {
+      color: #140f06;
+      border-color: transparent;
+      background: linear-gradient(135deg, #ffd05a, #ff9515);
+    }
+
+    .tag.cyan {
+      color: #d6fbff;
+      border-color: rgba(77, 230, 255, .24);
+      background: rgba(77, 230, 255, .14);
+    }
+
+    .tag.green {
+      color: #b8ffd7;
+      border-color: rgba(111, 235, 168, .24);
+      background: rgba(111, 235, 168, .13);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      min-height: 118px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .032)),
+        var(--panel);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 16px 38px rgba(0, 0, 0, .22);
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .card .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 173, 31, .16);
+      color: #ffd05a;
+      border: 1px solid rgba(255, 173, 31, .24);
+      font-weight: 950;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+      counter-reset: item;
+    }
+
+    .step {
+      position: relative;
+      min-height: 54px;
+      padding: 12px 14px 12px 56px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .06);
+      color: #e9e6f7;
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 720;
+    }
+
+    .step::before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ffd05a, #ff9515);
+      color: #140f06;
+      font-weight: 950;
+    }
+
+    .note {
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(77, 230, 255, .22);
+      background: rgba(77, 230, 255, .10);
+      color: #d6fbff;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 750;
+    }
+
+    .warning {
+      border-color: rgba(255, 173, 31, .26);
+      background: rgba(255, 173, 31, .12);
+      color: #ffe3a8;
+    }
+
+    .mock {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .035)),
+        rgba(18, 16, 36, .86);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 18px 46px rgba(0, 0, 0, .28);
+      overflow: hidden;
+    }
+
+    .mock-header {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(8, 8, 20, .58);
+    }
+
+    .mock-title {
+      display: grid;
+      gap: 4px;
+    }
+
+    .mock-title b {
+      font-size: 13px;
+    }
+
+    .mock-title span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .28);
+    }
+
+    .mock-body {
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-card {
+      min-height: 128px;
+      padding: 18px;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(168, 85, 247, .46), rgba(77, 230, 255, .18) 48%, rgba(10, 9, 22, .92));
+      display: grid;
+      grid-template-columns: 1fr 82px;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-card h3 {
+      font-size: 25px;
+    }
+
+    .timer {
+      margin-top: 8px;
+      display: block;
+      color: var(--amber);
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .play-button {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ffd05a, #ff9515);
+      color: #fff;
+      font-size: 30px;
+      box-shadow: 0 0 34px rgba(255, 173, 31, .42);
+    }
+
+    .artist-stack {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      margin-right: -8px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, .7);
+      background: linear-gradient(135deg, rgba(168, 85, 247, .9), rgba(77, 230, 255, .64));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .song-mini,
+    .play-row {
+      min-height: 58px;
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 9px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    .cover-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(168, 85, 247, .86), rgba(77, 230, 255, .56));
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .song-mini b,
+    .play-row b {
+      display: block;
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    .song-mini span,
+    .play-row span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .mini-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .square {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .square.gold {
+      background: linear-gradient(135deg, #ffd05a, #ff9515);
+      color: #140f06;
+    }
+
+    .reader-shell {
+      display: grid;
+      gap: 10px;
+    }
+
+    .reader-top {
+      min-height: 74px;
+      display: grid;
+      grid-template-columns: 36px 1fr 36px;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(168, 85, 247, .34), rgba(77, 230, 255, .14) 52%, rgba(7, 7, 17, .92));
+    }
+
+    .round {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: var(--text);
+      font-weight: 950;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(8, 8, 20, .66);
+    }
+
+    .toolbar span {
+      min-height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .sheet-preview {
+      min-height: 190px;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(9, 10, 22, .88);
+      color: #f2efff;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .chord {
+      color: #ffd05a;
+      font-weight: 950;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 38px 1fr 38px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .flow-card {
+      min-height: 112px;
+      display: grid;
+      gap: 7px;
+      place-items: center;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .flow-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(77, 230, 255, .14);
+      color: #d6fbff;
+      font-weight: 950;
+      font-size: 18px;
+    }
+
+    .arrow {
+      color: var(--amber);
+      text-align: center;
+      font-size: 28px;
+      font-weight: 950;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 9px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 11px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .10);
+      font-size: 13px;
+      line-height: 1.42;
+      font-weight: 720;
+    }
+
+    .check b {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(111, 235, 168, .13);
+      color: #b8ffd7;
+      border: 1px solid rgba(111, 235, 168, .22);
+    }
+
+    .footer {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 10mm;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(247, 245, 255, .42);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .footer::before {
+      content: "Desenvolvido por Odiman Ramalho (21)97095-5634";
+    }
+
+    .footer::after {
+      content: "Manual MDL Inova";
+    }
+
+    .tight {
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section class="sheet cover">
+    <div class="brand">
+      <img src="../public/assets/logo-inova.jpg" alt="">
+      <div>
+        <strong>Acervo Musical MDL Inova</strong>
+        <span>Manual de instruções ilustrado</span>
+      </div>
+    </div>
+
+    <div class="hero">
+      <span class="eyebrow">Guia rápido para líderes e músicos</span>
+      <h1>Como usar o acervo, cifras, Play do ensaio e recursos offline</h1>
+      <p class="lead">Este manual explica o fluxo do sistema MDL Inova: consultar cifras, montar repertórios, alimentar thumbs/capas, carregar MP3 local e trabalhar online ou offline com segurança.</p>
+      <div class="pill-row">
+        <span class="tag amber">Tela inicial</span>
+        <span class="tag cyan">MP3 local</span>
+        <span class="tag green">Offline</span>
+        <span class="pill">Play do ensaio</span>
+        <span class="pill">Afinador</span>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>Responsável alimenta o visual</h3>
+        <p class="muted">Thumbs e capas deixam o acervo com identidade visual e ajudam a encontrar repertórios rapidamente.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>Usuário carrega MP3 local</h3>
+        <p class="muted">O áudio fica no dispositivo do usuário e não é enviado para o sistema principal.</p>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>Cifras baixadas ficam offline</h3>
+        <p class="muted">O que não for baixado continua acessível normalmente quando houver internet.</p>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Visão geral</span>
+      <h2>Mapa rápido do sistema</h2>
+      <p class="lead">O app foi pensado para o ensaio: entrar, encontrar a cifra, separar no Play, baixar o que precisa ficar offline e usar recursos de apoio durante a execução.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="num">A</span>
+          <h3>Acervo</h3>
+          <p class="muted">Lista principal de músicas. Use busca, favoritos, artistas e capas para localizar a cifra rapidamente.</p>
+        </div>
+        <div class="card">
+          <span class="num">B</span>
+          <h3>Play do ensaio</h3>
+          <p class="muted">Repertório separado para o ensaio. O líder adiciona, ordena e inicia a sequência.</p>
+        </div>
+        <div class="card">
+          <span class="num">C</span>
+          <h3>Tela da cifra</h3>
+          <p class="muted">Leitura com tom, transposição, modo cantor, rolagem automática, favorito, MP3 local e guia de acordes.</p>
+        </div>
+        <div class="card">
+          <span class="num">D</span>
+          <h3>Offline</h3>
+          <p class="muted">Bibliotecas baixadas ficam no dispositivo. Músicas não baixadas precisam de internet para abrir.</p>
+        </div>
+      </div>
+
+      <div class="mock">
+        <div class="mock-header">
+          <div class="mock-title">
+            <b>Fluxo principal</b>
+            <span>Do acervo até a execução</span>
+          </div>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="mock-body">
+          <div class="flow">
+            <div class="flow-card">
+              <div class="flow-icon">01</div>
+              <h3>Buscar</h3>
+              <p class="muted">Encontre por música, artista ou coleção.</p>
+            </div>
+            <div class="arrow">></div>
+            <div class="flow-card">
+              <div class="flow-icon">02</div>
+              <h3>Separar</h3>
+              <p class="muted">Adicione ao Play do ensaio.</p>
+            </div>
+            <div class="arrow">></div>
+            <div class="flow-card">
+              <div class="flow-icon">03</div>
+              <h3>Tocar</h3>
+              <p class="muted">Abra a cifra e use os recursos de apoio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">Regra importante: MP3 e arquivos locais do usuário não sobem para o servidor. Cada aparelho tem seus próprios áudios.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Tela inicial</span>
+      <h2>Como começar pelo dashboard</h2>
+      <p class="lead">A tela inicial concentra o que a equipe precisa ver antes do ensaio: resumo, artistas principais, atalhos e lista do acervo.</p>
+
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">Entre no app com o perfil liberado para você. O líder tem permissões para montar o Play do ensaio.</div>
+          <div class="step">Use a busca para achar uma música ou artista. A lista filtra o acervo em tempo real.</div>
+          <div class="step">Clique na capa do card para alterar a capa local da música quando estiver alimentando o visual.</div>
+          <div class="step">Use o botão + para adicionar a música ao Play do ensaio.</div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-header">
+            <div class="mock-title">
+              <b>Acervo Musical</b>
+              <span>Dashboard inicial</span>
+            </div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-body">
+            <div class="hero-card">
+              <div>
+                <span class="eyebrow">Acervo Musical</span>
+                <h3>Ensaio de Hoje</h3>
+                <strong class="timer">00:15:30</strong>
+              </div>
+              <div class="play-button">▶</div>
+            </div>
+            <div class="card">
+              <h3>Top Artistas</h3>
+              <div class="artist-stack">
+                <div class="avatar">AB</div>
+                <div class="avatar">TR</div>
+                <div class="avatar">RP</div>
+              </div>
+              <div class="pill-row">
+                <span class="tag amber">245 músicas</span>
+                <span class="tag cyan">12 MP3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Favoritas</h3>
+          <p class="muted">Guarde músicas de uso frequente para encontrar mais rápido.</p>
+        </div>
+        <div class="card">
+          <h3>Repertório</h3>
+          <p class="muted">Abre o Play do ensaio com as músicas separadas.</p>
+        </div>
+        <div class="card">
+          <h3>Afinador</h3>
+          <p class="muted">Acesso rápido ao afinador sem sair do app.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Thumbs, capas e MP3</span>
+      <h2>Quem alimenta o que</h2>
+      <p class="lead">O visual do acervo e os áudios locais seguem responsabilidades diferentes para manter o sistema leve e organizado.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="num">T</span>
+          <h3>Thumbs e capas</h3>
+          <p class="muted">São usadas para dar identidade aos artistas e músicas. O responsável pelo acervo alimenta esse visual para manter o padrão.</p>
+          <div class="song-mini">
+            <div class="cover-mini">C</div>
+            <div>
+              <b>Consagração</b>
+              <span>Aline Barros · capa definida</span>
+            </div>
+            <div class="square">IMG</div>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">M</span>
+          <h3>MP3 local</h3>
+          <p class="muted">Cada usuário adiciona seu próprio MP3. O arquivo fica no navegador ou app instalado daquele aparelho.</p>
+          <div class="song-mini">
+            <div class="cover-mini">A</div>
+            <div>
+              <b>Águas Purificadoras</b>
+              <span>MP3 salvo somente neste aparelho</span>
+            </div>
+            <div class="square gold">MP3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">Para adicionar uma thumb de artista, clique no avatar do artista no Top Artistas ou na tela Artistas.</div>
+        <div class="step">Para adicionar capa de uma música, clique na capa do card da música e escolha uma imagem.</div>
+        <div class="step">Para adicionar MP3, clique no botão de áudio da música e escolha o arquivo do dispositivo.</div>
+        <div class="step">Depois de salvo, o app mostra o badge MP3 e libera o player na tela da cifra.</div>
+      </div>
+
+      <div class="note warning">Se o usuário limpar os dados do navegador, trocar de celular ou desinstalar o app, os MP3 locais podem precisar ser adicionados novamente.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Offline</span>
+      <h2>Como funciona o uso offline</h2>
+      <p class="lead">O sistema permite trabalhar com dois modos ao mesmo tempo: cifras baixadas ficam offline, e cifras não baixadas continuam abrindo online quando houver internet.</p>
+
+      <div class="flow">
+        <div class="flow-card">
+          <div class="flow-icon">ON</div>
+          <h3>Online</h3>
+          <p class="muted">O acervo completo pode ser consultado pela internet.</p>
+        </div>
+        <div class="arrow">></div>
+        <div class="flow-card">
+          <div class="flow-icon">↓</div>
+          <h3>Baixar</h3>
+          <p class="muted">Baixe uma cifra ou biblioteca de artista para o aparelho.</p>
+        </div>
+        <div class="arrow">></div>
+        <div class="flow-card">
+          <div class="flow-icon">OK</div>
+          <h3>Offline</h3>
+          <p class="muted">A cifra baixada abre mesmo sem internet.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>O que fica offline</h3>
+          <div class="checklist">
+            <div class="check"><b>✓</b><span>Cifras baixadas no aparelho.</span></div>
+            <div class="check"><b>✓</b><span>MP3 local salvo no aparelho.</span></div>
+            <div class="check"><b>✓</b><span>Favoritos e preferências locais.</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>O que precisa de internet</h3>
+          <div class="checklist">
+            <div class="check"><b>!</b><span>Cifras que não foram baixadas antes.</span></div>
+            <div class="check"><b>!</b><span>Atualizações novas do acervo principal.</span></div>
+            <div class="check"><b>!</b><span>Primeiro carregamento em um aparelho novo.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">Boa prática para ensaio: antes de sair de casa ou da igreja, abra o Play do ensaio e baixe as músicas que serão usadas.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Play do ensaio</span>
+      <h2>Montando o repertório</h2>
+      <p class="lead">O Play do ensaio organiza a ordem das músicas e deixa a execução mais direta. A tela mostra capa, tom, status offline e MP3 local quando existir.</p>
+
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">No acervo, clique no botão + da música para adicionar ao Play.</div>
+          <div class="step">Entre em Repertório para revisar a lista separada.</div>
+          <div class="step">Use Editar para remover músicas que não serão usadas.</div>
+          <div class="step">Clique em Iniciar para abrir a primeira cifra do ensaio.</div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-header">
+            <div class="mock-title">
+              <b>Play do ensaio</b>
+              <span>Repertório separado</span>
+            </div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-body">
+            <div class="hero-card">
+              <div>
+                <span class="eyebrow">MDL Inova</span>
+                <h3>Play do ensaio</h3>
+                <strong class="timer">06 músicas</strong>
+              </div>
+              <div class="play-button">▶</div>
+            </div>
+            <div class="play-row">
+              <div class="cover-mini">1</div>
+              <div>
+                <b>Eu Navegarei</b>
+                <span>Offline · MP3 local</span>
+              </div>
+              <span class="tag amber">Em</span>
+            </div>
+            <div class="play-row">
+              <div class="cover-mini">2</div>
+              <div>
+                <b>A Bênção</b>
+                <span>Online</span>
+              </div>
+              <span class="tag amber">G</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note warning">A montagem do Play é feita pelo líder. Músicos consultam e executam o repertório sem alterar a lista principal, conforme permissões do app.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Tela da cifra</span>
+      <h2>Lendo, transpondo e tocando</h2>
+      <p class="lead">A tela da cifra usa o mesmo tema visual da inicial, mas com foco em leitura: contraste alto, acordes destacados e controles rápidos.</p>
+
+      <div class="grid-2">
+        <div class="reader-shell">
+          <div class="reader-top">
+            <div class="round"><</div>
+            <div class="mock-title">
+              <b>Grandioso És Tu</b>
+              <span>MDL Inova · Tom G</span>
+            </div>
+            <div class="round">★</div>
+          </div>
+          <div class="toolbar">
+            <span>-1</span>
+            <span>Tom</span>
+            <span>+1</span>
+            <span>Aa</span>
+            <span>Auto</span>
+          </div>
+          <div class="sheet-preview"><span class="chord">G</span>          <span class="chord">D/F#</span>
+Grandioso es Tu
+<span class="chord">Em</span>         <span class="chord">C</span>
+Senhor, meu Deus
+
+<span class="chord">G</span>           <span class="chord">D</span>
+Quão grande és Tu</div>
+        </div>
+
+        <div class="steps">
+          <div class="step">Use -1 e +1 para transpor a cifra sem editar o arquivo original.</div>
+          <div class="step">Clique no tom para voltar ao tom base da música.</div>
+          <div class="step">Use o modo cantor quando quiser reduzir acordes e focar na letra.</div>
+          <div class="step">Ative a rolagem automática para acompanhar a música sem tocar na tela.</div>
+          <div class="step">Se houver MP3 local, o player aparece acima das ferramentas.</div>
+        </div>
+      </div>
+
+      <div class="note">Dica: tocar em um acorde abre o guia visual do acorde, quando disponível, para ajudar no estudo.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content">
+      <span class="eyebrow">Apoio ao músico</span>
+      <h2>Afinador e guia de acordes</h2>
+      <p class="lead">Os recursos de apoio ficam no app para diminuir a troca de ferramentas durante ensaio ou estudo.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Afinador</h3>
+          <div class="mock">
+            <div class="mock-body">
+              <div class="hero-card">
+                <div>
+                  <span class="eyebrow">Tuner</span>
+                  <h3>A</h3>
+                  <strong class="timer">440 Hz</strong>
+                </div>
+                <div class="play-button">✓</div>
+              </div>
+            </div>
+          </div>
+          <p class="muted">Abra pelo atalho da tela inicial. Ao iniciar, permita o microfone no navegador.</p>
+        </div>
+
+        <div class="card">
+          <h3>Guia de acordes</h3>
+          <div class="mock">
+            <div class="mock-body">
+              <div class="song-mini">
+                <div class="cover-mini">Dm</div>
+                <div>
+                  <b>Desenho do acorde</b>
+                  <span>Toque no acorde dentro da cifra</span>
+                </div>
+                <div class="square gold">+</div>
+              </div>
+              <div class="toolbar">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+            </div>
+          </div>
+          <p class="muted">Use para conferir posições e estudar a harmonia diretamente na cifra.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Permissão</h3>
+          <p class="muted">O afinador precisa de acesso ao microfone do dispositivo.</p>
+        </div>
+        <div class="card">
+          <h3>Ambiente</h3>
+          <p class="muted">Afine em local mais silencioso para uma leitura mais estável.</p>
+        </div>
+        <div class="card">
+          <h3>Referência</h3>
+          <p class="muted">O padrão visual considera A 440 Hz.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="content tight">
+      <span class="eyebrow">Boas práticas</span>
+      <h2>Checklist antes do ensaio</h2>
+      <p class="lead">Use esta lista para evitar surpresa de internet, cache, áudio ou repertório em cima da hora.</p>
+
+      <div class="checklist">
+        <div class="check"><b>✓</b><span>Abra o app com internet pelo menos uma vez antes do ensaio para receber atualizações.</span></div>
+        <div class="check"><b>✓</b><span>Monte o Play do ensaio com todas as músicas em ordem.</span></div>
+        <div class="check"><b>✓</b><span>Baixe as cifras que precisam funcionar offline.</span></div>
+        <div class="check"><b>✓</b><span>Confira se os MP3 locais aparecem com badge MP3 no aparelho de cada usuário.</span></div>
+        <div class="check"><b>✓</b><span>Teste a primeira cifra do Play antes de começar.</span></div>
+        <div class="check"><b>✓</b><span>Se o visual novo não aparecer, feche e abra o app novamente ou recarregue duas vezes.</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Quando algo não abrir offline</h3>
+          <p class="muted">Provavelmente aquela cifra ainda não foi baixada no aparelho. Conecte na internet, abra a música e baixe para uso offline.</p>
+        </div>
+        <div class="card">
+          <h3>Quando o MP3 sumir</h3>
+          <p class="muted">O arquivo pode ter sido removido junto com dados do navegador/app. Adicione o MP3 novamente naquele dispositivo.</p>
+        </div>
+      </div>
+
+      <div class="hero">
+        <span class="eyebrow">Resumo final</span>
+        <h2>Acervo bonito, leve e pronto para o ensaio</h2>
+        <p class="lead">O responsável mantém o visual do acervo organizado; cada usuário guarda seus MP3s localmente; e a equipe baixa as cifras importantes para tocar mesmo sem internet.</p>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+</body>
+</html>
