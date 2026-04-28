@@ -1,0 +1,186 @@
+/* Modos de visualização das músicas: tablet e PC */
+.mdl-view-mode-toolbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mdl-view-mode-toolbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 10px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper-2);
+  }
+
+  .library-toolbar .mdl-view-mode-toolbar {
+    flex-basis: 100%;
+  }
+
+  .mdl-view-mode-label {
+    margin-right: auto;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .mdl-view-mode-button {
+    min-height: 34px;
+    border-radius: 999px;
+    padding: 0 12px;
+    background: var(--soft-button);
+    color: var(--soft-button-text);
+    border: 1px solid rgba(0, 0, 0, .06);
+    font-size: 12px;
+    font-weight: 950;
+    white-space: nowrap;
+  }
+
+  .mdl-view-mode-button.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-2));
+    color: #17120c;
+  }
+
+  /* LISTA: prioriza leitura do nome da música */
+  .song-list.mdl-mode-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .song-list.mdl-mode-list .song-card {
+    min-height: 72px !important;
+    aspect-ratio: auto !important;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background-image: none !important;
+    background-color: var(--paper-2) !important;
+  }
+
+  .song-list.mdl-mode-list .song-card::before,
+  .song-list.mdl-mode-list .song-card::after {
+    display: none !important;
+  }
+
+  .song-list.mdl-mode-list .song-main {
+    min-width: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .song-list.mdl-mode-list .song-title {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: block !important;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    color: var(--text) !important;
+  }
+
+  .song-list.mdl-mode-list .song-meta {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    color: var(--muted) !important;
+  }
+
+  .song-list.mdl-mode-list .song-cover,
+  .song-list.mdl-mode-list .artist-thumb,
+  .song-list.mdl-mode-list .song-card-cover,
+  .song-list.mdl-mode-list [class*="cover-image"] {
+    display: none !important;
+  }
+
+  /* ÍCONES PEQUENOS: mantém capa, mas cabe mais música na tela */
+  .song-list.mdl-mode-compact {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .song-list.mdl-mode-compact .song-card {
+    min-height: 132px !important;
+    aspect-ratio: auto !important;
+    border-radius: 16px !important;
+    padding: 10px !important;
+    align-items: end !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .song-list.mdl-mode-compact .song-title {
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 13px !important;
+    line-height: 1.12 !important;
+  }
+
+  .song-list.mdl-mode-compact .song-meta {
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 11px !important;
+    line-height: 1.14 !important;
+  }
+
+  .song-list.mdl-mode-compact .song-actions {
+    gap: 4px !important;
+  }
+
+  .song-list.mdl-mode-compact .mini-action {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+  }
+
+  /* ÍCONES GRANDES: visual bonito, mas com título em até 2 linhas */
+  .song-list.mdl-mode-large {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .song-list.mdl-mode-large .song-card {
+    min-height: 280px !important;
+    border-radius: 18px !important;
+    align-items: end !important;
+    padding: 12px !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .song-list.mdl-mode-large .song-title {
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 16px !important;
+    line-height: 1.16 !important;
+  }
+
+  .song-list.mdl-mode-large .song-meta {
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
