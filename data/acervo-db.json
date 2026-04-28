@@ -1,7 +1,7 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-04-28T01:49:20.955Z",
-  "totalSongs": 6232,
+  "generatedAt": "2026-04-28T15:21:55.154Z",
+  "totalSongs": 6231,
   "totalArtists": 62,
   "artists": [
     "3 Palavrinhas",
@@ -79,17 +79,6 @@
     "Anderson Freire": "/artist-thumbs/anderson-freire.jpg?v=1777232669260"
   },
   "songs": [
-    {
-      "id": "3-palavrinhas-relatorio-cifras-c83c0327e9",
-      "title": "_relatorio_cifras",
-      "artist": "3 Palavrinhas",
-      "collection": "cifras_multi",
-      "fileType": "txt",
-      "key": "A",
-      "updatedAt": "2026-04-28T01:47:47.313Z",
-      "apiUrl": "/api/songs/3-palavrinhas-relatorio-cifras-c83c0327e9",
-      "offlineKey": "mdl-song-3-palavrinhas-relatorio-cifras-c83c0327e9"
-    },
     {
       "id": "3-palavrinhas-3-palavrinhas-919b85ebc1",
       "title": "3 palavrinhas",
