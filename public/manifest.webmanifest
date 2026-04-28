@@ -1,17 +1,24 @@
 {
-  "name": "Acervo Musical MDL Inova",
+  "name": "Plataforma Musical MDL Inova",
   "short_name": "MDL Inova",
-  "description": "Aplicativo de cifras e repertorios do MDL Inova.",
+  "description": "Aplicativo de cifras e repertórios do MDL Inova.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "background_color": "#111111",
   "theme_color": "#111111",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
-  "categories": ["music", "productivity", "utilities"],
+  "categories": [
+    "music",
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "/assets/logo-inova.jpg",
