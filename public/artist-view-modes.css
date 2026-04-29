@@ -207,3 +207,90 @@
     /* no celular, o layout original manda */
   }
 }
+
+/* === Correção de contraste do modo lista - MDL === */
+
+/*
+  Corrige a leitura dos nomes das músicas no modo Lista.
+  Mantém o modo escuro elegante e garante contraste correto no modo claro.
+*/
+
+@media (min-width: 700px) {
+  html[data-theme="light"] body[data-artist-view-mode="list"] #songList .song-card,
+  html[data-theme="light"] body[data-artist-view-mode="list"] .song-list .song-card,
+  html[data-theme="light"] .artist-view-mode-list #songList .song-card,
+  html[data-theme="light"] .artist-view-mode-list .song-list .song-card {
+    background: #fffaf2 !important;
+    border-color: rgba(21, 18, 15, .16) !important;
+    color: #15120f !important;
+    box-shadow: 0 10px 26px rgba(30, 20, 8, .08) !important;
+  }
+
+  html[data-theme="light"] body[data-artist-view-mode="list"] #songList .song-title,
+  html[data-theme="light"] body[data-artist-view-mode="list"] .song-list .song-title,
+  html[data-theme="light"] body[data-artist-view-mode="list"] #songList .song-main,
+  html[data-theme="light"] body[data-artist-view-mode="list"] .song-list .song-main,
+  html[data-theme="light"] .artist-view-mode-list #songList .song-title,
+  html[data-theme="light"] .artist-view-mode-list .song-list .song-title,
+  html[data-theme="light"] .artist-view-mode-list #songList .song-main,
+  html[data-theme="light"] .artist-view-mode-list .song-list .song-main {
+    color: #15120f !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  html[data-theme="light"] body[data-artist-view-mode="list"] #songList .song-meta,
+  html[data-theme="light"] body[data-artist-view-mode="list"] .song-list .song-meta,
+  html[data-theme="light"] .artist-view-mode-list #songList .song-meta,
+  html[data-theme="light"] .artist-view-mode-list .song-list .song-meta {
+    color: #5f5447 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  html[data-theme="dark"] body[data-artist-view-mode="list"] #songList .song-card,
+  html[data-theme="dark"] body[data-artist-view-mode="list"] .song-list .song-card,
+  html[data-theme="dark"] .artist-view-mode-list #songList .song-card,
+  html[data-theme="dark"] .artist-view-mode-list .song-list .song-card {
+    background: #101a2b !important;
+    border-color: rgba(255, 255, 255, .09) !important;
+    color: #ffffff !important;
+  }
+
+  html[data-theme="dark"] body[data-artist-view-mode="list"] #songList .song-title,
+  html[data-theme="dark"] body[data-artist-view-mode="list"] .song-list .song-title,
+  html[data-theme="dark"] body[data-artist-view-mode="list"] #songList .song-main,
+  html[data-theme="dark"] body[data-artist-view-mode="list"] .song-list .song-main,
+  html[data-theme="dark"] .artist-view-mode-list #songList .song-title,
+  html[data-theme="dark"] .artist-view-mode-list .song-list .song-title,
+  html[data-theme="dark"] .artist-view-mode-list #songList .song-main,
+  html[data-theme="dark"] .artist-view-mode-list .song-list .song-main {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  html[data-theme="dark"] body[data-artist-view-mode="list"] #songList .song-meta,
+  html[data-theme="dark"] body[data-artist-view-mode="list"] .song-list .song-meta,
+  html[data-theme="dark"] .artist-view-mode-list #songList .song-meta,
+  html[data-theme="dark"] .artist-view-mode-list .song-list .song-meta {
+    color: #c7d2e3 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  body[data-artist-view-mode="list"] #songList .song-card::before,
+  body[data-artist-view-mode="list"] .song-list .song-card::before,
+  .artist-view-mode-list #songList .song-card::before,
+  .artist-view-mode-list .song-list .song-card::before {
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  body[data-artist-view-mode="list"] #songList .song-card *,
+  body[data-artist-view-mode="list"] .song-list .song-card *,
+  .artist-view-mode-list #songList .song-card *,
+  .artist-view-mode-list .song-list .song-card * {
+    text-shadow: none !important;
+  }
+}
