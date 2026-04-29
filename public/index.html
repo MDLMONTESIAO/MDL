@@ -10,7 +10,7 @@
   <title>Plataforma Musical</title>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/logo-inova.jpg">
-  <link rel="stylesheet" href="/styles.css?v=20260427-reader-buttons-fix">
+  <link rel="stylesheet" href="/styles.css?v=20260428-cache-refresh-1">
   <script>
     (() => {
       const savedTheme = localStorage.getItem("mdl.theme");
@@ -19,7 +19,7 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="/artist-view-modes.css?v=20260428-login-safe">
+  <link rel="stylesheet" href="/artist-view-modes.css?v=20260428-cache-refresh-1">
 </head>
 <body>
   <section class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
@@ -165,11 +165,14 @@
           </div>
           <strong class="sidebar-live-time" id="sidebarTimer">00:15:30</strong>
           <div class="sidebar-live-controls">
-            <button type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 19-9-7 9-7v14Z"></path><path d="m22 5-9 7 9 7V5Z"></path></svg></button>
-            <button type="button" class="sidebar-live-play" data-action="start-service" aria-label="Iniciar ensaio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
-            <button type="button" aria-label="Proximo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 19 9-7-9-7v14Z"></path><path d="M2 5 11 12 2 19V5Z"></path></svg></button>
+            <button type="button" data-action="live-previous" aria-label="Música anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 19-9-7 9-7v14Z"></path><path d="m22 5-9 7 9 7V5Z"></path></svg></button>
+            <div class="sidebar-live-center">
+              <button type="button" class="sidebar-live-play" data-action="start-service" id="sidebarLivePlayButton" aria-label="Iniciar ensaio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
+              <button class="sidebar-live-link" type="button" data-view="play">Ver repertório</button>
+            </div>
+            <button type="button" data-action="live-next" aria-label="Próxima música"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 19 9-7-9-7v14Z"></path><path d="M2 5 11 12 2 19V5Z"></path></svg></button>
           </div>
-          <button class="sidebar-live-link" type="button" data-view="play">Ver repertorio</button>
+          <button class="sidebar-live-reset" type="button" data-action="live-reset-timer">Reiniciar cronômetro</button>
         </article>
       </section>
 
@@ -691,8 +694,8 @@
     </form>
   </section>
 
-  <script src="/app.js?v=20260427-reader-buttons-fix"></script>
+  <script src="/app.js?v=20260428-cache-refresh-1"></script>
 
-  <script src="/artist-view-modes.js?v=20260428-login-safe" defer></script>
+  <script src="/artist-view-modes.js?v=20260428-cache-refresh-1" defer></script>
 </body>
 </html>

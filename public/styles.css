@@ -4201,8 +4201,15 @@ body.screen-dev .dev-view.active {
     gap: 16px;
   }
 
+  .sidebar-live-center {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+  }
+
   .sidebar-live-controls button,
   .sidebar-live-link,
+  .sidebar-live-reset,
   .sidebar-install-card button {
     min-height: 44px;
     border-radius: 14px;
@@ -4218,6 +4225,14 @@ body.screen-dev .dev-view.active {
     justify-content: center;
     text-align: center;
     color: #f4d990;
+    min-width: 148px;
+    padding: 0 16px;
+  }
+
+  .sidebar-live-reset {
+    width: 100%;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, .82);
   }
 
   .sidebar-live-controls button {

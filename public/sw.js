@@ -1,12 +1,14 @@
-const CACHE_NAME = "acervo-mdl-inova-shell-v11";
-const API_CACHE = "acervo-mdl-inova-api-v11";
+const CACHE_NAME = "acervo-mdl-inova-shell-v12";
+const API_CACHE = "acervo-mdl-inova-api-v12";
 
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=20260425-dev-editor",
-  "/app.js?v=20260425-dev-editor",
-  "/dev-editor.js?v=20260425-dev-editor",
+  "/styles.css?v=20260428-cache-refresh-1",
+  "/app.js?v=20260428-cache-refresh-1",
+  "/artist-view-modes.css?v=20260428-cache-refresh-1",
+  "/artist-view-modes.js?v=20260428-cache-refresh-1",
+  "/dev-editor.js?v=20260428-cache-refresh-1",
   "/manifest.webmanifest",
   "/assets/logo-inova.jpg"
 ];
@@ -81,6 +83,8 @@ async function networkFirst(request, cacheName) {
 function isAppShellAsset(url) {
   return [
     "/app.js",
+    "/artist-view-modes.css",
+    "/artist-view-modes.js",
     "/dev-editor.js",
     "/styles.css",
     "/manifest.webmanifest"

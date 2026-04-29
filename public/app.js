@@ -127,6 +127,7 @@ const LOGIN_USERS = {
 };
 let deferredInstallPrompt = null;
 let installPromptAutoHideTimer = null;
+let liveSessionTickTimer = null;
 
 const state = {
   songs: [],
@@ -179,6 +180,7 @@ const state = {
   playUpdatedAt: localStorage.getItem("mdl.playEnsaioUpdatedAt") || "",
   playDirty: localStorage.getItem("mdl.playEnsaioDirty") === "true",
   play: normalizePlayEntries(JSON.parse(localStorage.getItem("mdl.playEnsaio") || "[]"), null),
+  liveSession: readLiveSession(),
   devMode: false,
   devToken: sessionStorage.getItem("mdl.devToken") || "",
   devTapCount: 0,
@@ -255,6 +257,7 @@ const dom = {
   dashboardArtistShortcutCount: document.getElementById("dashboardArtistShortcutCount"),
   dashboardTimer: document.getElementById("dashboardTimer"),
   sidebarTimer: document.getElementById("sidebarTimer"),
+  sidebarLivePlayButton: document.getElementById("sidebarLivePlayButton"),
   librarySortButton: document.getElementById("librarySortButton"),
   heroProgressBar: document.getElementById("heroProgressBar"),
   heroProgressLabel: document.getElementById("heroProgressLabel"),
@@ -389,6 +392,7 @@ async function startAuthenticatedApp() {
   if (state.appStarted) {
     if (state.devMode) await loadDevChordLibrary();
     syncAuthUi();
+    ensureLiveSessionTicking();
     await loadSongs();
     await syncSharedPlay({ allowLeaderSeed: true, silent: true });
     filterSongs();
@@ -406,6 +410,7 @@ async function startAuthenticatedApp() {
   applyPreviewState();
   applyReaderPreferences();
   syncAuthUi();
+  ensureLiveSessionTicking();
   filterSongs();
   renderAll();
   downloadPlayForOffline();
@@ -956,6 +961,7 @@ function describeResetConfirmError(error) {
 function logout() {
   stopAutoScroll();
   stopTuner(true);
+  stopLiveSessionTicking();
   closeChordGuide(true);
   closeAccountModal(true);
   closeResetModal(true);
@@ -1269,6 +1275,9 @@ async function handleClick(event) {
     if (action === "reset-tone") return resetTone();
     if (action === "toggle-autoscroll") return toggleAutoScroll();
     if (action === "start-service") return startService();
+    if (action === "live-previous") return goLiveToPreviousSong();
+    if (action === "live-next") return goLiveToNextSong();
+    if (action === "live-reset-timer") return resetLiveSessionTimer();
     if (action === "share-play") return sharePlay();
     if (action === "toggle-edit-play") return requireLeader() && togglePlayEditing();
     if (action === "admin-refresh") return adminRefresh();
@@ -2428,9 +2437,20 @@ function clamp(value, min, max) {
 }
 
 function startService() {
-  const first = state.play[0];
-  if (!first) return toast("Adicione m\u00FAsicas ao culto primeiro");
-  openSong(first.id);
+  if (!state.play.length) return toast("Adicione músicas ao repertório primeiro");
+
+  if (state.liveSession.running) {
+    pauseLiveSession();
+    toast("Ensaio pausado");
+    return;
+  }
+
+  const index = resolveLiveSessionIndex();
+  if (!state.currentSongId || state.play[index]?.id !== state.currentSongId) {
+    openSong(state.play[index].id);
+  }
+  resumeLiveSession(index);
+  toast("Ensaio em andamento");
 }
 
 async function sharePlay() {
@@ -2672,8 +2692,7 @@ function updateStats() {
   if (dom.dashboardFavoriteCount) dom.dashboardFavoriteCount.textContent = formatNumber(state.favorites.size);
   if (dom.dashboardPlayCount) dom.dashboardPlayCount.textContent = formatNumber(state.play.length);
   if (dom.dashboardArtistShortcutCount) dom.dashboardArtistShortcutCount.textContent = formatNumber(artists);
-  if (dom.dashboardTimer) dom.dashboardTimer.textContent = "00:15:30";
-  if (dom.sidebarTimer) dom.sidebarTimer.textContent = "00:15:30";
+  updateLiveSessionUi();
   if (dom.heroProgressBar) dom.heroProgressBar.style.width = `${playProgress}%`;
   if (dom.heroProgressLabel) dom.heroProgressLabel.textContent = `${playProgress}%`;
   if (dom.adminUpdatedAt) dom.adminUpdatedAt.textContent = state.generatedAt ? `Atualizada hoje \u00E0s ${formatTime(state.generatedAt)}` : "Atualizada automaticamente";
@@ -2685,8 +2704,153 @@ function savePlay() {
   else localStorage.removeItem("mdl.playEnsaioUpdatedAt");
   if (state.playDirty) localStorage.setItem("mdl.playEnsaioDirty", "true");
   else localStorage.removeItem("mdl.playEnsaioDirty");
+  clampLiveSessionIndex();
   renderDashboard();
   updateStats();
+}
+
+function readLiveSession() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem("mdl.liveSession") || "null");
+    return {
+      currentIndex: Math.max(0, Number(parsed?.currentIndex || 0)),
+      elapsedMs: Math.max(0, Number(parsed?.elapsedMs || 0)),
+      startedAt: parsed?.startedAt || null,
+      running: Boolean(parsed?.running && parsed?.startedAt)
+    };
+  } catch {
+    return { currentIndex: 0, elapsedMs: 0, startedAt: null, running: false };
+  }
+}
+
+function saveLiveSession() {
+  localStorage.setItem("mdl.liveSession", JSON.stringify(state.liveSession));
+}
+
+function getLiveSessionElapsedMs() {
+  const base = Math.max(0, Number(state.liveSession.elapsedMs || 0));
+  if (!state.liveSession.running || !state.liveSession.startedAt) return base;
+  return base + Math.max(0, Date.now() - Number(state.liveSession.startedAt));
+}
+
+function formatElapsedTime(ms) {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+  const seconds = String(totalSeconds % 60).padStart(2, "0");
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+function resolveLiveSessionIndex() {
+  const playIds = state.play.map((entry) => entry.id);
+  if (!playIds.length) return 0;
+  const currentSongIndex = state.currentSongId ? playIds.indexOf(state.currentSongId) : -1;
+  if (currentSongIndex >= 0) return currentSongIndex;
+  return Math.max(0, Math.min(state.liveSession.currentIndex || 0, playIds.length - 1));
+}
+
+function clampLiveSessionIndex() {
+  if (!state.play.length) {
+    state.liveSession.currentIndex = 0;
+    return saveLiveSession();
+  }
+  state.liveSession.currentIndex = Math.max(0, Math.min(resolveLiveSessionIndex(), state.play.length - 1));
+  saveLiveSession();
+}
+
+function ensureLiveSessionTicking() {
+  if (liveSessionTickTimer) clearInterval(liveSessionTickTimer);
+  if (!state.liveSession.running) return;
+  liveSessionTickTimer = setInterval(() => updateLiveSessionUi(), 1000);
+}
+
+function stopLiveSessionTicking() {
+  if (!liveSessionTickTimer) return;
+  clearInterval(liveSessionTickTimer);
+  liveSessionTickTimer = null;
+}
+
+function resumeLiveSession(index = resolveLiveSessionIndex()) {
+  state.liveSession.currentIndex = index;
+  state.liveSession.startedAt = Date.now();
+  state.liveSession.running = true;
+  saveLiveSession();
+  ensureLiveSessionTicking();
+  updateLiveSessionUi();
+}
+
+function pauseLiveSession() {
+  state.liveSession.elapsedMs = getLiveSessionElapsedMs();
+  state.liveSession.startedAt = null;
+  state.liveSession.running = false;
+  saveLiveSession();
+  stopLiveSessionTicking();
+  updateLiveSessionUi();
+}
+
+function goLiveToSong(index) {
+  if (!state.play.length) return toast("Adicione músicas ao repertório primeiro");
+  const boundedIndex = Math.max(0, Math.min(index, state.play.length - 1));
+  state.liveSession.currentIndex = boundedIndex;
+  saveLiveSession();
+  openSong(state.play[boundedIndex].id);
+  if (state.liveSession.running) {
+    state.liveSession.startedAt = Date.now();
+    saveLiveSession();
+    ensureLiveSessionTicking();
+  }
+  updateLiveSessionUi();
+}
+
+function goLiveToPreviousSong() {
+  if (!state.play.length) return toast("Adicione músicas ao repertório primeiro");
+  goLiveToSong(resolveLiveSessionIndex() - 1);
+}
+
+function goLiveToNextSong() {
+  if (!state.play.length) return toast("Adicione músicas ao repertório primeiro");
+  goLiveToSong(resolveLiveSessionIndex() + 1);
+}
+
+function resetLiveSessionTimer() {
+  state.liveSession.elapsedMs = 0;
+  state.liveSession.startedAt = state.liveSession.running ? Date.now() : null;
+  saveLiveSession();
+  updateLiveSessionUi();
+  toast("Cronômetro reiniciado");
+}
+
+function updateLiveSessionUi() {
+  const elapsed = getLiveSessionElapsedMs();
+  const timerLabel = formatElapsedTime(elapsed);
+  if (dom.dashboardTimer) dom.dashboardTimer.textContent = timerLabel;
+  if (dom.sidebarTimer) dom.sidebarTimer.textContent = timerLabel;
+
+  const currentIndex = resolveLiveSessionIndex();
+  const currentEntry = state.play[currentIndex] || null;
+  const currentSong = currentEntry ? findSong(currentEntry.id) : null;
+  const baseSummary = state.play.length
+    ? `${state.play.length} música${state.play.length === 1 ? "" : "s"} no repertório`
+    : "Monte um repertório para este aparelho";
+  const activeSummary = currentSong
+    ? `${currentIndex + 1}/${state.play.length} · ${currentSong.title}`
+    : baseSummary;
+
+  if (dom.sidebarPlaySummary) {
+    dom.sidebarPlaySummary.textContent = state.liveSession.running ? activeSummary : baseSummary;
+  }
+  if (dom.dashboardPlaySummary) {
+    dom.dashboardPlaySummary.textContent = state.liveSession.running ? activeSummary : (state.play.length
+      ? `${state.play.length} música${state.play.length === 1 ? "" : "s"} no repertório`
+      : "Monte o repertório para começar");
+  }
+  if (dom.sidebarLivePlayButton) {
+    dom.sidebarLivePlayButton.innerHTML = state.liveSession.running
+      ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8z"></path><path d="M13 5h3v14h-3z"></path></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>';
+    dom.sidebarLivePlayButton.setAttribute("aria-label", state.liveSession.running ? "Pausar ensaio" : "Iniciar ensaio");
+    dom.sidebarLivePlayButton.classList.toggle("active", state.liveSession.running);
+  }
 }
 
 function getPlayableSongIdSet() {
@@ -2967,7 +3131,9 @@ async function refreshOfflineSongIds() {
 
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
-  navigator.serviceWorker.register("/sw.js").catch(() => {});
+  navigator.serviceWorker.register("/sw.js?v=20260428-cache-refresh-1", {
+    updateViaCache: "none"
+  }).catch(() => {});
 }
 
 function initTheme() {
