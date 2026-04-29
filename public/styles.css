@@ -5189,123 +5189,144 @@ body.screen-reader .main-area {
     height: calc(100vh - 48px);
     max-height: calc(100vh - 48px);
   }
-  /* 
-   =========================================
-   CORREÇÕES - COLAR NO FINAL DO STYLE.CSS
-   =========================================
+}
+
+/* === ROLLBACK MDL: restaura cards originais === */
+
+/*
+  Desfaz os efeitos visuais dos modos Lista / Ícones pequenos / Ícones grandes.
+  Mantém o sistema estável e remove a bolinha do tom nos cards/thumbs.
 */
 
-/* 1. CORREÇÃO: FORÇAR THUMBNAILS NO TABLET RETRATO (PORTRAIT) */
-@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-    .song-card,
-    .song-card .song-card-cover,
-    .song-card .cover-image,
-    .artist-thumb {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        min-height: 180px !important;
-        height: auto !important;
-        background-size: cover !important;
-        background-position: center !important;
-    }
-    
-    /* Força o grid a renderizar no tablet retrato */
-    .song-list,
-    #view-acervo .song-list {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-    }
+.artist-view-mode-toolbar,
+.artist-view-modes,
+.view-mode-toolbar,
+.view-modes-toolbar,
+.library-view-mode-toolbar,
+#artistViewModeToolbar,
+#viewModeToolbar {
+  display: none !important;
 }
 
-/* 2. CORREÇÃO: REMOVER O TOM (KEY BADGE) DE TODOS OS CARDS */
-.song-key,
-.key-badge,
-.tone-indicator,
-[data-key],
-.card-key,
-.song-card .key,
-.song-card [class*="key"],
-.song-card [class*="tom"],
-.song-card [class*="tone"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    position: absolute !important;
-    left: -9999px !important;
+body[data-artist-view-mode],
+body[data-library-view-mode],
+body[data-view-mode] {
+  --mdl-view-mode-reset: 1;
 }
 
-/* 3. CORREÇÃO: BOTÃO DE REDIMENSIONAMENTO (RESIZE) NO TABLET */
-.mdl-view-mode-button,
-.resize-btn,
-.btn-resize {
-    pointer-events: auto !important;
-    touch-action: manipulation !important;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer !important;
+.song-list {
+  display: grid !important;
+  gap: 9px !important;
 }
 
-/* Garante que o toolbar não suma no tablet */
-@media (min-width: 768px) {
-    .mdl-view-mode-toolbar {
-        display: flex !important;
-        pointer-events: auto !important;
-    }
-    /* Remove a bolinha do tom nas thumbs/cards de músicas */
+.song-card,
+.artist-card {
+  min-height: 70px !important;
+  border-radius: 8px !important;
+  background: var(--paper-2) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--text) !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 8px !important;
+  align-items: center !important;
+  padding: 10px !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+.song-card::before,
+.song-card::after,
+.artist-card::before,
+.artist-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+.song-main,
+.artist-main {
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 4px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  text-align: left !important;
+  justify-items: start !important;
+  align-items: center !important;
+}
+
+.song-title,
+.artist-title {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 15px !important;
+  line-height: 1.18 !important;
+  font-weight: 950 !important;
+  color: var(--text) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.song-meta,
+.artist-meta {
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  font-weight: 750 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.song-actions,
+.artist-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  position: static !important;
+  transform: none !important;
+}
+
+/* Remove bolinha/letra do tom nas thumbs/cards, mantendo o tom no leitor da cifra */
 .song-card > b,
+.song-card > strong:first-child,
+.song-card > span:first-child,
 .song-card .song-key,
 .song-card .key-badge,
 .song-card .tone-badge,
+.song-card .tom-badge,
+.song-card .song-tone,
+.song-card .music-key,
 .song-card [data-key],
 .song-card [data-tone],
+.song-card [data-tom],
 .artist-song-card > b,
+.artist-song-card > strong:first-child,
+.artist-song-card > span:first-child,
 .artist-song-card .song-key,
 .artist-song-card .key-badge,
-.artist-song-card .tone-badge {
-  display: none !important;
-}
-}
-}
-
-/* === MDL: remover indicação de tom nas thumbs - início === */
-/*
-  Remove a bolinha/letra do tom que aparece sobre as capas/thumbs.
-  Não remove o tom da cifra, nem do leitor; apenas esconde nos cards visuais.
-*/
-.song-card > b,
-.song-card > .song-key,
-.song-card > .key-badge,
-.song-card > .tone-badge,
-.song-card > [data-key],
-.song-card > [data-tone],
-.artist-song-card > b,
-.artist-song-card > .song-key,
-.artist-song-card > .key-badge,
-.artist-song-card > .tone-badge,
-.artist-song-card > [data-key],
-.artist-song-card > [data-tone],
-.library-song-card > b,
-.library-song-card > .song-key,
-.library-song-card > .key-badge,
-.library-song-card > .tone-badge,
-.library-song-card > [data-key],
-.library-song-card > [data-tone],
-.song-cover-badge,
-.song-tone,
-.song-key-badge,
-.tone-chip,
-.key-chip {
+.artist-song-card .tone-badge,
+.artist-song-card .tom-badge,
+.artist-song-card .song-tone,
+.artist-song-card .music-key,
+.artist-song-card [data-key],
+.artist-song-card [data-tone],
+.artist-song-card [data-tom] {
   display: none !important;
 }
 
-/* Caso a indicação do tom seja o primeiro elemento absoluto dentro do card */
-.song-card > :is(span, strong, em):first-child,
-.artist-song-card > :is(span, strong, em):first-child,
-.library-song-card > :is(span, strong, em):first-child {
-  display: none !important;
+@media (min-width: 700px) {
+  .song-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .song-card,
+  .artist-card {
+    min-height: 72px !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
 }
-/* === MDL: remover indicação de tom nas thumbs - fim === */
