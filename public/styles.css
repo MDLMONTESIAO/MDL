@@ -3392,6 +3392,12 @@ body.screen-dev .main-area { min-height: 0; padding-bottom: 18px; }
 .dev-song-list button.active, .dev-chord-list button.active { border-color: rgba(255, 208, 90, .74); background: rgba(255, 173, 31, .16); }
 .dev-song-list strong, .dev-chord-list strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
 .dev-song-list span, .dev-chord-list span, .dev-status, .dev-empty { color: var(--neon-muted); font-size: 12px; font-weight: 800; }
+.dev-search-hint { margin: 8px 0 0; color: var(--neon-muted); font-size: 12px; line-height: 1.35; font-weight: 800; }
+.dev-song-search-results {
+  max-height: 240px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
 .dev-actions-row, .dev-preview-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .dev-actions-row button, .dev-preview-tools button { min-height: 38px; padding: 0 12px; font-size: 12px; font-weight: 950; }
 .dev-preview-head { margin-bottom: 10px; }
@@ -3410,7 +3416,7 @@ body.screen-dev .main-area { min-height: 0; padding-bottom: 18px; }
 .dev-chord-string-modes button.muted { background: rgba(239, 141, 162, .13); color: #ffc5d0; }
 .dev-chord-preview-diagram .chord-diagram-card { margin: 0 auto; }
 .chord-dev-edit { margin-left: 8px; min-height: 30px; border-radius: 999px; padding: 0 10px; background: linear-gradient(135deg, #ffd05a, #ff9515); color: #140f06; font-size: 11px; font-weight: 950; }
-@media (min-width: 960px) { body.screen-dev { padding: 24px; } body.screen-dev .app-shell { width: min(100%, 1180px); max-width: 1180px; min-height: calc(100vh - 48px); display: block; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; overflow: hidden; } .dev-editor-layout { grid-template-columns: 260px minmax(0, 1.1fr) minmax(280px, .9fr); } .dev-chord-layout { grid-template-columns: 240px minmax(0, 1fr) 320px; } }
+@media (min-width: 960px) { body.screen-dev { padding: 24px; } body.screen-dev .app-shell { width: min(100%, 1180px); max-width: 1180px; min-height: calc(100vh - 48px); display: block; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; overflow: hidden; } .dev-editor-layout { grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); } .dev-chord-layout { grid-template-columns: 240px minmax(0, 1fr) 320px; } }
 @media (max-width: 760px) { .dev-grid-2, .dev-cards, .dev-chord-string-modes { grid-template-columns: 1fr; } }
 
 /* Dev fixes: sair/conferir, preview scroll and clickable chord editing */
@@ -3522,10 +3528,13 @@ body.screen-dev .dev-view.active {
   display: block;
 }
 .dev-editor-layout {
-  grid-template-columns: 260px minmax(0, 1.1fr) minmax(320px, .9fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
 }
 .dev-chord-layout {
   grid-template-columns: 240px minmax(0, 1fr) 320px;
+}
+.dev-song-browser {
+  display: none !important;
 }
 .dev-song-browser, .dev-chord-browser, .dev-editor-card, .dev-preview-card {
   background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.035)), rgba(18,16,36,.86);

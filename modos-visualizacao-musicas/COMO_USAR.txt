@@ -1,0 +1,26 @@
+COMO USAR
+
+1. Extraia este ZIP na raiz do projeto:
+
+C:\Users\Pixel Midia 3D\Cifras MDL
+
+2. Rode:
+
+node scripts/aplicar-modos-visualizacao.js
+
+3. Teste o sistema. Em tablet e PC aparecerá a opção:
+
+- Lista
+- Ícones pequenos
+- Ícones grandes
+
+No celular, os botões ficam ocultos e o visual continua normal.
+
+4. Envie para o GitHub:
+
+git add public/index.html
+git add public/view-modes.css
+git add public/view-modes.js
+git add scripts/aplicar-modos-visualizacao.js
+git commit -m "Adiciona modos de visualizacao das musicas"
+git push

@@ -384,8 +384,11 @@ async function init() {
 }
 
 async function startAuthenticatedApp() {
+  state.devMode = Boolean(state.devToken);
   showAuthenticatedApp();
   if (state.appStarted) {
+    if (state.devMode) await loadDevChordLibrary();
+    syncAuthUi();
     await loadSongs();
     await syncSharedPlay({ allowLeaderSeed: true, silent: true });
     filterSongs();
@@ -395,12 +398,14 @@ async function startAuthenticatedApp() {
 
   state.appStarted = true;
   initInstallPrompt();
+  if (state.devMode) await loadDevChordLibrary();
   await loadSongs();
   await syncSharedPlay({ allowLeaderSeed: true, silent: true });
   await refreshOfflineSongIds();
   await loadLocalMedia();
   applyPreviewState();
   applyReaderPreferences();
+  syncAuthUi();
   filterSongs();
   renderAll();
   downloadPlayForOffline();
@@ -1074,6 +1079,11 @@ function bindEvents() {
     });
   });
   dom.devSongSearch?.addEventListener("input", renderDevSongList);
+  dom.devSongSearch?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    openFirstDevSongMatch();
+  });
   dom.devSongHtml?.addEventListener("input", renderDevPreview);
   [dom.devSongTitle, dom.devSongArtist, dom.devSongKey, dom.devSongCollection].forEach((input) => input?.addEventListener("input", renderDevPreview));
   dom.devChordSearch?.addEventListener("input", renderDevChordList);
@@ -1537,7 +1547,6 @@ function renderSongCard(song) {
       <button class="song-cover" type="button" data-action="set-cover" data-id="${escapeAttr(song.id)}" title="Trocar capa local" aria-label="Trocar capa local de ${escapeAttr(song.title)}">
         ${cover ? `<img src="${escapeAttr(cover)}" alt="">` : `<span>${escapeHtml(song.key || getInitials(song.title))}</span>`}
       </button>
-      <span class="song-key-badge">${escapeHtml(song.key || "Tom")}</span>
       <button class="song-main" type="button" data-action="open" data-id="${escapeAttr(song.id)}">
         <span class="song-title">${escapeHtml(song.title)}</span>
         <span class="song-meta">${escapeHtml(songMeta)}${hasAudio ? " - MP3 local" : ""}</span>
@@ -2118,8 +2127,7 @@ function showView(viewName) {
   if (viewName === "dev") {
     // O modo desenvolvedor deve manter o dashboard normal visÒ­vel e
     // anexar os editores abaixo dele, como na tela premium de referÒªncia.
-    document.getElementById("view-acervo")?.classList.add("active");
-    document.querySelector(`[data-view="acervo"]`)?.classList.add("active");
+    document.querySelector(`[data-view="dev"]`)?.classList.add("active");
     renderDevWorkspace();
   } else {
     const quick = document.querySelector(`[data-view="${viewName}"]`);
@@ -2520,7 +2528,79 @@ function syncDevEditorModeUi() {
       : "<span class=\"part\">Intro</span>\n<i>F#m     E     D     Bm7</i>";
   }
 }
-function renderDevSongList() { if (!dom.devSongList || !state.devMode) return; const query = normalize(dom.devSongSearch?.value || ""); const songs = state.songs.filter((song) => !query || normalize(`${song.title} ${song.artist} ${song.collection || ""}`).includes(query)).slice(0, 120); dom.devSongList.innerHTML = songs.length ? songs.map((song) => `<button type="button" data-action="dev-open-song" data-id="${escapeAttr(song.id)}" class="${song.id === state.devCurrentSongId ? "active" : ""}"><strong>${escapeHtml(song.title)}</strong><span>${escapeHtml(song.artist)}</span></button>`).join("") : `<div class="dev-empty">Nenhuma m\u00FAsica encontrada.</div>`; }
+function findDevSongMatches(query) {
+  const normalizedQuery = normalize(query || "");
+  if (!normalizedQuery) return [];
+  const queryTokens = normalizedQuery.split(/\s+/).filter(Boolean);
+  return state.songs
+    .map((song) => {
+      const title = normalize(song.title);
+      const artist = normalize(song.artist);
+      const collection = normalize(song.collection || "");
+      const haystack = `${title} ${artist} ${collection}`.trim();
+      const allTokensMatch = queryTokens.every((token) =>
+        title.includes(token) || artist.includes(token) || collection.includes(token)
+      );
+      if (!allTokensMatch && !haystack.includes(normalizedQuery)) return null;
+      const score = (title === normalizedQuery ? 12 : 0)
+        + (artist === normalizedQuery ? 10 : 0)
+        + (collection === normalizedQuery ? 8 : 0)
+        + (title.startsWith(normalizedQuery) ? 6 : 0)
+        + (artist.startsWith(normalizedQuery) ? 5 : 0)
+        + (collection.startsWith(normalizedQuery) ? 4 : 0)
+        + (title.includes(normalizedQuery) ? 3 : 0)
+        + (artist.includes(normalizedQuery) ? 2 : 0)
+        + (collection.includes(normalizedQuery) ? 1 : 0)
+        + queryTokens.reduce((total, token) => total
+          + (title.startsWith(token) ? 2 : 0)
+          + (artist.startsWith(token) ? 2 : 0)
+          + (title.includes(token) ? 1 : 0)
+          + (artist.includes(token) ? 1 : 0), 0);
+      return { song, score };
+    })
+    .filter(Boolean)
+    .sort((left, right) =>
+      right.score - left.score
+      || left.song.artist.localeCompare(right.song.artist, "pt-BR")
+      || left.song.title.localeCompare(right.song.title, "pt-BR")
+    )
+    .map((entry) => entry.song);
+}
+
+function openFirstDevSongMatch() {
+  if (!state.devMode) return;
+  const query = String(dom.devSongSearch?.value || "").trim();
+  if (!query) {
+    if (dom.devSongStatus) dom.devSongStatus.textContent = "Digite um título, artista ou coleção para abrir uma música.";
+    return;
+  }
+  const matches = findDevSongMatches(query);
+  if (!matches.length) {
+    if (dom.devSongStatus) dom.devSongStatus.textContent = "Nenhuma música encontrada para essa busca.";
+    toast("Nenhuma música encontrada");
+    return;
+  }
+  if (dom.devSongStatus) dom.devSongStatus.textContent = `${matches.length} resultado(s). Abrindo a primeira música.`;
+  openDevSong(matches[0].id);
+}
+
+function renderDevSongList() {
+  if (!dom.devSongList || !state.devMode) return;
+  const query = String(dom.devSongSearch?.value || "").trim();
+  if (!query) {
+    dom.devSongList.innerHTML = `<div class="dev-empty">Busque por título, artista ou coleção.</div>`;
+    return;
+  }
+  const matches = findDevSongMatches(query).slice(0, 10);
+  dom.devSongList.innerHTML = matches.length
+    ? matches.map((song) => `
+      <button type="button" data-action="dev-open-song" data-id="${escapeAttr(song.id)}" class="${song.id === state.devCurrentSongId ? "active" : ""}">
+        <strong>${escapeHtml(song.title)}</strong>
+        <span>${escapeHtml([song.artist, getVisibleCollection(song.collection)].filter(Boolean).join(" · "))}</span>
+      </button>
+    `).join("")
+    : `<div class="dev-empty">Nenhuma música encontrada para essa busca.</div>`;
+}
 async function openDevEditorFromReader() { if (!state.currentSongId) return; await openDevSong(state.currentSongId, true); }
 async function openDevSong(id, goToDev = false) { if (!state.devMode) return; const song = findSong(id); if (!song) return; state.devCurrentSongId = id; state.devPreviewTranspose = 0; syncDevEditorModeUi(); if (dom.devSongStatus) dom.devSongStatus.textContent = "Carregando m\u00FAsica..."; try { const response = await fetch(`/api/songs/${encodeURIComponent(id)}?v=${Date.now()}`); const data = response.ok ? await response.json() : {}; const rawSheet = normalizeSheetContent(data.html || sampleSheets[id] || ""); if (dom.devSongTitle) dom.devSongTitle.value = data.title || song.title || ""; if (dom.devSongArtist) dom.devSongArtist.value = data.artist || song.artist || ""; if (dom.devSongKey) dom.devSongKey.value = data.key || song.key || ""; if (dom.devSongCollection) dom.devSongCollection.value = data.collection || song.collection || ""; if (dom.devSongHtml) dom.devSongHtml.value = state.devEditorMode === "html" ? rawSheet : htmlToEditableSheetText(rawSheet); if (dom.devSongStatus) dom.devSongStatus.textContent = ""; } catch { const fallbackSheet = sampleSheets[id] || ""; if (dom.devSongHtml) dom.devSongHtml.value = state.devEditorMode === "html" ? fallbackSheet : htmlToEditableSheetText(fallbackSheet); if (dom.devSongStatus) dom.devSongStatus.textContent = "Usando vers\u00E3o local/offline."; } renderDevSongList(); renderDevPreview(); showDevTab("cifras"); if (goToDev) showView("dev"); }
 function getDevSongHtmlForPreview() {

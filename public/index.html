@@ -116,7 +116,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5"></path><path d="M6.5 10.5V19h11v-8.5"></path></svg>
           <span>Inicio</span>
         </button>
-        <button class="quick-card" type="button" title="Acervo">
+        <button class="quick-card" type="button" data-view="acervo" title="Acervo">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
           <span>Acervo</span>
         </button>
@@ -133,11 +133,11 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="10" cy="7" r="4"></circle><path d="M20 8v6"></path><path d="M23 11h-6"></path></svg>
           <span>Artistas</span>
         </button>
-        <button class="quick-card" type="button" title="Playlists">
+        <button class="quick-card" type="button" data-view="play" title="Playlists">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M3 6h.01"></path><path d="M3 12h.01"></path><path d="M3 18h.01"></path></svg>
           <span>Playlists</span>
         </button>
-        <button class="quick-card" type="button" title="Musicas Locais">
+        <button class="quick-card" type="button" data-action="shortcut-local-audio" title="Musicas Locais">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M14 3h7v7"></path><path d="M10 14 21 3"></path></svg>
           <span>Musicas Locais</span>
         </button>
@@ -409,7 +409,7 @@
           <button type="button" data-action="font-up">A+</button>
           <button type="button" data-action="toggle-autoscroll" id="autoButton">Auto</button>
           <button type="button" data-action="toggle-tuner" id="tunerButton" aria-pressed="false">Afinador</button>
-          <button class="dev-only" type="button" data-action="dev-edit-current" id="devEditCurrentButton">Editar</button>
+          <button class="dev-only" type="button" data-action="open-dev-current" id="devEditCurrentButton">Editar</button>
         </div>
 
         <article class="chord-sheet" id="chordSheet">
@@ -476,11 +476,10 @@
 
           <section class="dev-tab active" id="devTabCifras">
             <div class="dev-editor-layout">
-              <aside class="dev-song-browser">
-                <label class="dev-field"><span>Buscar música</span><input id="devSongSearch" type="search" placeholder="Título, artista ou coleção"></label>
-                <div class="dev-song-list" id="devSongList"></div>
-              </aside>
               <section class="dev-editor-card">
+                <label class="dev-field"><span>Buscar música</span><input id="devSongSearch" type="search" placeholder="Título, artista ou coleção"></label>
+                <p class="dev-search-hint">Digite e pressione Enter para abrir a primeira música encontrada.</p>
+                <div class="dev-song-list dev-song-search-results" id="devSongList"></div>
                 <div class="dev-grid-2">
                   <label class="dev-field"><span>Título</span><input id="devSongTitle" type="text"></label>
                   <label class="dev-field"><span>Artista</span><input id="devSongArtist" type="text"></label>

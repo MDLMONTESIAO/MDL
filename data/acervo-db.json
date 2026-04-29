@@ -1,6 +1,6 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-04-28T21:08:44.791Z",
+  "generatedAt": "2026-04-29T01:40:07.301Z",
   "artistThumbsUpdatedAt": null,
   "totalSongs": 6231,
   "totalArtists": 62,
@@ -73,7 +73,7 @@
     "Alexsander Lucio": "/artist-thumbs/alexsander-lucio.jpg?v=1777392790443",
     "Diante Do Trono": "/artist-thumbs/diante-do-trono.jpg?v=1777392886673",
     "Aline Barros": "/artist-thumbs/aline-barros.jpg?v=1777392816221",
-    "Renascer Praise": "/assets/artists/renascer-praise.jpg",
+    "Renascer Praise": "/artist-thumbs/renascer-praise.jpg?v=1777415908466",
     "Asaph Borba": "/artist-thumbs/asaph-borba.webp?v=1777392862280",
     "Be One Music": "/artist-thumbs/be-one-music.jpg?v=1777392871053",
     "Central 3": "/artist-thumbs/central-3.jpg?v=1777392878475",
@@ -33773,7 +33773,7 @@
       "fileType": "html",
       "key": "B",
       "youtubeUrl": "",
-      "updatedAt": "2026-04-19T21:26:40.602Z",
+      "updatedAt": "2026-04-29T01:38:19.726Z",
       "apiUrl": "/api/songs/fhop-music-tu-es-434098b20a",
       "offlineKey": "mdl-song-fhop-music-tu-es-434098b20a",
       "artistThumb": "/assets/artists/fhop-music.jpg"
@@ -65444,7 +65444,7 @@
       "updatedAt": "2026-04-19T20:51:51.833Z",
       "apiUrl": "/api/songs/renascer-praise-1000-graus-a6a680c926",
       "offlineKey": "mdl-song-renascer-praise-1000-graus-a6a680c926",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-100graus-72a53f5761",
@@ -65457,7 +65457,7 @@
       "updatedAt": "2026-04-19T20:53:37.659Z",
       "apiUrl": "/api/songs/renascer-praise-100graus-72a53f5761",
       "offlineKey": "mdl-song-renascer-praise-100graus-72a53f5761",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-alegria-do-senhor-17e1ff8819",
@@ -65470,7 +65470,7 @@
       "updatedAt": "2026-04-19T20:52:28.532Z",
       "apiUrl": "/api/songs/renascer-praise-a-alegria-do-senhor-17e1ff8819",
       "offlineKey": "mdl-song-renascer-praise-a-alegria-do-senhor-17e1ff8819",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-arca-4447a964d5",
@@ -65483,7 +65483,7 @@
       "updatedAt": "2026-04-19T20:52:10.351Z",
       "apiUrl": "/api/songs/renascer-praise-a-arca-4447a964d5",
       "offlineKey": "mdl-song-renascer-praise-a-arca-4447a964d5",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-guerra-ganha-esta-3d056003ad",
@@ -65496,7 +65496,7 @@
       "updatedAt": "2026-04-19T20:52:39.334Z",
       "apiUrl": "/api/songs/renascer-praise-a-guerra-ganha-esta-3d056003ad",
       "offlineKey": "mdl-song-renascer-praise-a-guerra-ganha-esta-3d056003ad",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-melodia-que-vem-do-ceu-cf010ad003",
@@ -65509,7 +65509,7 @@
       "updatedAt": "2026-04-19T20:52:46.568Z",
       "apiUrl": "/api/songs/renascer-praise-a-melodia-que-vem-do-ceu-cf010ad003",
       "offlineKey": "mdl-song-renascer-praise-a-melodia-que-vem-do-ceu-cf010ad003",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-minha-inspiracao-2e14e430e8",
@@ -65522,7 +65522,7 @@
       "updatedAt": "2026-04-19T20:53:23.196Z",
       "apiUrl": "/api/songs/renascer-praise-a-minha-inspiracao-2e14e430e8",
       "offlineKey": "mdl-song-renascer-praise-a-minha-inspiracao-2e14e430e8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-minha-vida-e-um-milagre-320b826abf",
@@ -65535,7 +65535,7 @@
       "updatedAt": "2026-04-19T20:53:57.094Z",
       "apiUrl": "/api/songs/renascer-praise-a-minha-vida-e-um-milagre-320b826abf",
       "offlineKey": "mdl-song-renascer-praise-a-minha-vida-e-um-milagre-320b826abf",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-minha-vontade-e-um-milagre-4616159866",
@@ -65548,7 +65548,7 @@
       "updatedAt": "2026-04-19T20:53:15.918Z",
       "apiUrl": "/api/songs/renascer-praise-a-minha-vontade-e-um-milagre-4616159866",
       "offlineKey": "mdl-song-renascer-praise-a-minha-vontade-e-um-milagre-4616159866",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-resposta-027123c5ef",
@@ -65561,7 +65561,7 @@
       "updatedAt": "2026-04-19T20:51:55.550Z",
       "apiUrl": "/api/songs/renascer-praise-a-resposta-027123c5ef",
       "offlineKey": "mdl-song-renascer-praise-a-resposta-027123c5ef",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-semente-da-promessa-2a0bef06fd",
@@ -65574,7 +65574,7 @@
       "updatedAt": "2026-04-19T20:52:42.944Z",
       "apiUrl": "/api/songs/renascer-praise-a-semente-da-promessa-2a0bef06fd",
       "offlineKey": "mdl-song-renascer-praise-a-semente-da-promessa-2a0bef06fd",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-a-ti-a-honra-001867926c",
@@ -65587,7 +65587,7 @@
       "updatedAt": "2026-04-19T20:52:24.933Z",
       "apiUrl": "/api/songs/renascer-praise-a-ti-a-honra-001867926c",
       "offlineKey": "mdl-song-renascer-praise-a-ti-a-honra-001867926c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-acordar-todo-dia-d4e24e70d1",
@@ -65600,7 +65600,7 @@
       "updatedAt": "2026-04-19T20:53:04.947Z",
       "apiUrl": "/api/songs/renascer-praise-acordar-todo-dia-d4e24e70d1",
       "offlineKey": "mdl-song-renascer-praise-acordar-todo-dia-d4e24e70d1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-adorador-238bfdefdf",
@@ -65613,7 +65613,7 @@
       "updatedAt": "2026-04-19T20:53:44.923Z",
       "apiUrl": "/api/songs/renascer-praise-adorador-238bfdefdf",
       "offlineKey": "mdl-song-renascer-praise-adorador-238bfdefdf",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-adorador-praise-xii-025819e63c",
@@ -65626,7 +65626,7 @@
       "updatedAt": "2026-04-19T20:54:07.973Z",
       "apiUrl": "/api/songs/renascer-praise-adorador-praise-xii-025819e63c",
       "offlineKey": "mdl-song-renascer-praise-adorador-praise-xii-025819e63c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-alegria-do-senhor-77f8333d33",
@@ -65639,7 +65639,7 @@
       "updatedAt": "2026-04-19T20:54:00.714Z",
       "apiUrl": "/api/songs/renascer-praise-alegria-do-senhor-77f8333d33",
       "offlineKey": "mdl-song-renascer-praise-alegria-do-senhor-77f8333d33",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-aleluia-efc63347e9",
@@ -65652,7 +65652,7 @@
       "updatedAt": "2026-04-19T20:52:17.634Z",
       "apiUrl": "/api/songs/renascer-praise-aleluia-efc63347e9",
       "offlineKey": "mdl-song-renascer-praise-aleluia-efc63347e9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-aleluia-renascer-praise-19-2adf16c6c1",
@@ -65665,7 +65665,7 @@
       "updatedAt": "2026-04-19T20:52:53.836Z",
       "apiUrl": "/api/songs/renascer-praise-aleluia-renascer-praise-19-2adf16c6c1",
       "offlineKey": "mdl-song-renascer-praise-aleluia-renascer-praise-19-2adf16c6c1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-aleluia-rp19-bd34a743c1",
@@ -65678,7 +65678,7 @@
       "updatedAt": "2026-04-19T20:53:48.781Z",
       "apiUrl": "/api/songs/renascer-praise-aleluia-rp19-bd34a743c1",
       "offlineKey": "mdl-song-renascer-praise-aleluia-rp19-bd34a743c1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-alianca-com-deus-7f90a10cc3",
@@ -65691,7 +65691,7 @@
       "updatedAt": "2026-04-19T20:52:32.140Z",
       "apiUrl": "/api/songs/renascer-praise-alianca-com-deus-7f90a10cc3",
       "offlineKey": "mdl-song-renascer-praise-alianca-com-deus-7f90a10cc3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-alvo-mais-que-a-neve-cbce9cb28d",
@@ -65704,7 +65704,7 @@
       "updatedAt": "2026-04-19T20:52:57.507Z",
       "apiUrl": "/api/songs/renascer-praise-alvo-mais-que-a-neve-cbce9cb28d",
       "offlineKey": "mdl-song-renascer-praise-alvo-mais-que-a-neve-cbce9cb28d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-amor-de-deus-e2b88ba695",
@@ -65717,7 +65717,7 @@
       "updatedAt": "2026-04-19T20:54:04.349Z",
       "apiUrl": "/api/songs/renascer-praise-amor-de-deus-e2b88ba695",
       "offlineKey": "mdl-song-renascer-praise-amor-de-deus-e2b88ba695",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-amor-do-pai-5cc55c9c9f",
@@ -65730,7 +65730,7 @@
       "updatedAt": "2026-04-19T20:52:02.763Z",
       "apiUrl": "/api/songs/renascer-praise-amor-do-pai-5cc55c9c9f",
       "offlineKey": "mdl-song-renascer-praise-amor-do-pai-5cc55c9c9f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-anadando-com-deus-ed9a8ab173",
@@ -65743,7 +65743,7 @@
       "updatedAt": "2026-04-19T20:53:12.223Z",
       "apiUrl": "/api/songs/renascer-praise-anadando-com-deus-ed9a8ab173",
       "offlineKey": "mdl-song-renascer-praise-anadando-com-deus-ed9a8ab173",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-andando-com-deus-17804bf735",
@@ -65756,7 +65756,7 @@
       "updatedAt": "2026-04-19T20:53:26.801Z",
       "apiUrl": "/api/songs/renascer-praise-andando-com-deus-17804bf735",
       "offlineKey": "mdl-song-renascer-praise-andando-com-deus-17804bf735",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-andando-sobre-as-aguas-7bcfd770a7",
@@ -65769,7 +65769,7 @@
       "updatedAt": "2026-04-19T20:51:59.146Z",
       "apiUrl": "/api/songs/renascer-praise-andando-sobre-as-aguas-7bcfd770a7",
       "offlineKey": "mdl-song-renascer-praise-andando-sobre-as-aguas-7bcfd770a7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-apenas-uma-ordem-4c5fc107b2",
@@ -65782,7 +65782,7 @@
       "updatedAt": "2026-04-19T20:52:35.737Z",
       "apiUrl": "/api/songs/renascer-praise-apenas-uma-ordem-4c5fc107b2",
       "offlineKey": "mdl-song-renascer-praise-apenas-uma-ordem-4c5fc107b2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-aquele-358c8ebb03",
@@ -65795,7 +65795,7 @@
       "updatedAt": "2026-04-19T20:52:21.276Z",
       "apiUrl": "/api/songs/renascer-praise-aquele-358c8ebb03",
       "offlineKey": "mdl-song-renascer-praise-aquele-358c8ebb03",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-as-nossas-armas-89254709cc",
@@ -65808,7 +65808,7 @@
       "updatedAt": "2026-04-19T20:53:52.428Z",
       "apiUrl": "/api/songs/renascer-praise-as-nossas-armas-89254709cc",
       "offlineKey": "mdl-song-renascer-praise-as-nossas-armas-89254709cc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ate-chegar-em-siao-dadffb5b41",
@@ -65821,7 +65821,7 @@
       "updatedAt": "2026-04-19T20:52:06.381Z",
       "apiUrl": "/api/songs/renascer-praise-ate-chegar-em-siao-dadffb5b41",
       "offlineKey": "mdl-song-renascer-praise-ate-chegar-em-siao-dadffb5b41",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-avanco-219f72aa22",
@@ -65834,7 +65834,7 @@
       "updatedAt": "2026-04-19T20:53:19.563Z",
       "apiUrl": "/api/songs/renascer-praise-avanco-219f72aa22",
       "offlineKey": "mdl-song-renascer-praise-avanco-219f72aa22",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendito-e6ca410c2b",
@@ -65847,7 +65847,7 @@
       "updatedAt": "2026-04-19T20:53:01.273Z",
       "apiUrl": "/api/songs/renascer-praise-bendito-e6ca410c2b",
       "offlineKey": "mdl-song-renascer-praise-bendito-e6ca410c2b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendito-2-346918a18f",
@@ -65860,7 +65860,7 @@
       "updatedAt": "2026-04-19T20:54:11.588Z",
       "apiUrl": "/api/songs/renascer-praise-bendito-2-346918a18f",
       "offlineKey": "mdl-song-renascer-praise-bendito-2-346918a18f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendize-oh-minh-alma-3042ce78d4",
@@ -65873,7 +65873,7 @@
       "updatedAt": "2026-04-19T20:54:18.912Z",
       "apiUrl": "/api/songs/renascer-praise-bendize-oh-minh-alma-3042ce78d4",
       "offlineKey": "mdl-song-renascer-praise-bendize-oh-minh-alma-3042ce78d4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendize-oh-minh-alma-95be70381a",
@@ -65886,7 +65886,7 @@
       "updatedAt": "2026-04-19T20:54:15.233Z",
       "apiUrl": "/api/songs/renascer-praise-bendize-oh-minh-alma-95be70381a",
       "offlineKey": "mdl-song-renascer-praise-bendize-oh-minh-alma-95be70381a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendize-oh-minha-alma-3c35d27792",
@@ -65899,7 +65899,7 @@
       "updatedAt": "2026-04-19T20:52:50.187Z",
       "apiUrl": "/api/songs/renascer-praise-bendize-oh-minha-alma-3c35d27792",
       "offlineKey": "mdl-song-renascer-praise-bendize-oh-minha-alma-3c35d27792",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bendizei-addd365127",
@@ -65912,7 +65912,7 @@
       "updatedAt": "2026-04-19T20:53:30.439Z",
       "apiUrl": "/api/songs/renascer-praise-bendizei-addd365127",
       "offlineKey": "mdl-song-renascer-praise-bendizei-addd365127",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bom-estarmos-aqui-7f2bb454e2",
@@ -65925,7 +65925,7 @@
       "updatedAt": "2026-04-19T20:52:13.980Z",
       "apiUrl": "/api/songs/renascer-praise-bom-estarmos-aqui-7f2bb454e2",
       "offlineKey": "mdl-song-renascer-praise-bom-estarmos-aqui-7f2bb454e2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-bondade-de-deus-96f2236791",
@@ -65938,7 +65938,7 @@
       "updatedAt": "2026-04-19T20:54:22.547Z",
       "apiUrl": "/api/songs/renascer-praise-bondade-de-deus-96f2236791",
       "offlineKey": "mdl-song-renascer-praise-bondade-de-deus-96f2236791",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-buscar-me-eis-801980805d",
@@ -65951,7 +65951,7 @@
       "updatedAt": "2026-04-19T20:53:41.276Z",
       "apiUrl": "/api/songs/renascer-praise-buscar-me-eis-801980805d",
       "offlineKey": "mdl-song-renascer-praise-buscar-me-eis-801980805d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-caiu-a-babilonia-1a6504c9ca",
@@ -65964,7 +65964,7 @@
       "updatedAt": "2026-04-19T20:53:34.050Z",
       "apiUrl": "/api/songs/renascer-praise-caiu-a-babilonia-1a6504c9ca",
       "offlineKey": "mdl-song-renascer-praise-caiu-a-babilonia-1a6504c9ca",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-caminho-44e4995181",
@@ -65977,7 +65977,7 @@
       "updatedAt": "2026-04-19T20:54:27.292Z",
       "apiUrl": "/api/songs/renascer-praise-caminho-44e4995181",
       "offlineKey": "mdl-song-renascer-praise-caminho-44e4995181",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-caminho-de-paz-3134b42083",
@@ -65990,7 +65990,7 @@
       "updatedAt": "2026-04-19T20:54:31.097Z",
       "apiUrl": "/api/songs/renascer-praise-caminho-de-paz-3134b42083",
       "offlineKey": "mdl-song-renascer-praise-caminho-de-paz-3134b42083",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-cante-aleluia-494dd35485",
@@ -66003,7 +66003,7 @@
       "updatedAt": "2026-04-19T20:54:34.743Z",
       "apiUrl": "/api/songs/renascer-praise-cante-aleluia-494dd35485",
       "offlineKey": "mdl-song-renascer-praise-cante-aleluia-494dd35485",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-cantico-de-adoracao-9c8fc68db2",
@@ -66016,7 +66016,7 @@
       "updatedAt": "2026-04-19T20:56:51.657Z",
       "apiUrl": "/api/songs/renascer-praise-cantico-de-adoracao-9c8fc68db2",
       "offlineKey": "mdl-song-renascer-praise-cantico-de-adoracao-9c8fc68db2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-canto-de-siao-8e750b0465",
@@ -66029,7 +66029,7 @@
       "updatedAt": "2026-04-19T20:53:08.582Z",
       "apiUrl": "/api/songs/renascer-praise-canto-de-siao-8e750b0465",
       "offlineKey": "mdl-song-renascer-praise-canto-de-siao-8e750b0465",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-celebracao-3a71569a16",
@@ -66042,7 +66042,7 @@
       "updatedAt": "2026-04-19T20:56:11.316Z",
       "apiUrl": "/api/songs/renascer-praise-celebracao-3a71569a16",
       "offlineKey": "mdl-song-renascer-praise-celebracao-3a71569a16",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-celebrai-d81e7da79d",
@@ -66055,7 +66055,7 @@
       "updatedAt": "2026-04-19T20:55:49.068Z",
       "apiUrl": "/api/songs/renascer-praise-celebrai-d81e7da79d",
       "offlineKey": "mdl-song-renascer-praise-celebrai-d81e7da79d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-como-e-bom-ce16713955",
@@ -66068,7 +66068,7 @@
       "updatedAt": "2026-04-19T20:55:08.678Z",
       "apiUrl": "/api/songs/renascer-praise-como-e-bom-ce16713955",
       "offlineKey": "mdl-song-renascer-praise-como-e-bom-ce16713955",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-como-quem-sonha-f05f94ff75",
@@ -66081,7 +66081,7 @@
       "updatedAt": "2026-04-19T20:56:40.801Z",
       "apiUrl": "/api/songs/renascer-praise-como-quem-sonha-f05f94ff75",
       "offlineKey": "mdl-song-renascer-praise-como-quem-sonha-f05f94ff75",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-comunhao-1dda438224",
@@ -66094,7 +66094,7 @@
       "updatedAt": "2026-04-19T20:55:34.442Z",
       "apiUrl": "/api/songs/renascer-praise-comunhao-1dda438224",
       "offlineKey": "mdl-song-renascer-praise-comunhao-1dda438224",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-comunhao-rp11-838afab0ad",
@@ -66107,7 +66107,7 @@
       "updatedAt": "2026-04-19T20:56:18.814Z",
       "apiUrl": "/api/songs/renascer-praise-comunhao-rp11-838afab0ad",
       "offlineKey": "mdl-song-renascer-praise-comunhao-rp11-838afab0ad",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-comunhao-praise-xii-4ca20a3c9b",
@@ -66120,7 +66120,7 @@
       "updatedAt": "2026-04-19T20:56:48.054Z",
       "apiUrl": "/api/songs/renascer-praise-comunhao-praise-xii-4ca20a3c9b",
       "offlineKey": "mdl-song-renascer-praise-comunhao-praise-xii-4ca20a3c9b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-consolador-4774b9e21e",
@@ -66133,7 +66133,7 @@
       "updatedAt": "2026-04-19T20:54:57.586Z",
       "apiUrl": "/api/songs/renascer-praise-consolador-4774b9e21e",
       "offlineKey": "mdl-song-renascer-praise-consolador-4774b9e21e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-coracao-de-crianca-ef0dfa7745",
@@ -66146,7 +66146,7 @@
       "updatedAt": "2026-04-19T20:55:52.878Z",
       "apiUrl": "/api/songs/renascer-praise-coracao-de-crianca-ef0dfa7745",
       "offlineKey": "mdl-song-renascer-praise-coracao-de-crianca-ef0dfa7745",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-cordeiro-de-amor-87d7a5364b",
@@ -66159,7 +66159,7 @@
       "updatedAt": "2026-04-19T20:56:55.272Z",
       "apiUrl": "/api/songs/renascer-praise-cordeiro-de-amor-87d7a5364b",
       "offlineKey": "mdl-song-renascer-praise-cordeiro-de-amor-87d7a5364b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-corro-a-ti-ef49ec4d23",
@@ -66172,7 +66172,7 @@
       "updatedAt": "2026-04-19T20:56:58.970Z",
       "apiUrl": "/api/songs/renascer-praise-corro-a-ti-ef49ec4d23",
       "offlineKey": "mdl-song-renascer-praise-corro-a-ti-ef49ec4d23",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-corro-a-ti-praise-xii-ef4948a42b",
@@ -66185,7 +66185,7 @@
       "updatedAt": "2026-04-19T20:55:26.938Z",
       "apiUrl": "/api/songs/renascer-praise-corro-a-ti-praise-xii-ef4948a42b",
       "offlineKey": "mdl-song-renascer-praise-corro-a-ti-praise-xii-ef4948a42b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-cria-em-mim-8fe74c4570",
@@ -66198,7 +66198,7 @@
       "updatedAt": "2026-04-19T20:54:42.294Z",
       "apiUrl": "/api/songs/renascer-praise-cria-em-mim-8fe74c4570",
       "offlineKey": "mdl-song-renascer-praise-cria-em-mim-8fe74c4570",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-cristo-vencedor-4f3f22f1c5",
@@ -66211,7 +66211,7 @@
       "updatedAt": "2026-04-19T20:56:00.251Z",
       "apiUrl": "/api/songs/renascer-praise-cristo-vencedor-4f3f22f1c5",
       "offlineKey": "mdl-song-renascer-praise-cristo-vencedor-4f3f22f1c5",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-de-volta-a-vida-20b066fd9f",
@@ -66224,7 +66224,7 @@
       "updatedAt": "2026-04-19T20:56:44.451Z",
       "apiUrl": "/api/songs/renascer-praise-de-volta-a-vida-20b066fd9f",
       "offlineKey": "mdl-song-renascer-praise-de-volta-a-vida-20b066fd9f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-debaixo-dos-meus-pes-84e94f927b",
@@ -66237,7 +66237,7 @@
       "updatedAt": "2026-04-19T20:55:56.511Z",
       "apiUrl": "/api/songs/renascer-praise-debaixo-dos-meus-pes-84e94f927b",
       "offlineKey": "mdl-song-renascer-praise-debaixo-dos-meus-pes-84e94f927b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deixa-o-ceu-descer-6e73c1fc20",
@@ -66250,7 +66250,7 @@
       "updatedAt": "2026-04-19T20:56:26.222Z",
       "apiUrl": "/api/songs/renascer-praise-deixa-o-ceu-descer-6e73c1fc20",
       "offlineKey": "mdl-song-renascer-praise-deixa-o-ceu-descer-6e73c1fc20",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-dependo-de-ti-d65f8aedd8",
@@ -66263,7 +66263,7 @@
       "updatedAt": "2026-04-19T20:56:14.957Z",
       "apiUrl": "/api/songs/renascer-praise-dependo-de-ti-d65f8aedd8",
       "offlineKey": "mdl-song-renascer-praise-dependo-de-ti-d65f8aedd8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-desejamos-af1a615435",
@@ -66276,7 +66276,7 @@
       "updatedAt": "2026-04-19T20:56:22.523Z",
       "apiUrl": "/api/songs/renascer-praise-desejamos-af1a615435",
       "offlineKey": "mdl-song-renascer-praise-desejamos-af1a615435",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-agiu-em-meu-favor-ced5932e64",
@@ -66289,7 +66289,7 @@
       "updatedAt": "2026-04-19T20:56:37.162Z",
       "apiUrl": "/api/songs/renascer-praise-deus-agiu-em-meu-favor-ced5932e64",
       "offlineKey": "mdl-song-renascer-praise-deus-agiu-em-meu-favor-ced5932e64",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-da-familia-3760457f52",
@@ -66302,7 +66302,7 @@
       "updatedAt": "2026-04-19T20:55:38.082Z",
       "apiUrl": "/api/songs/renascer-praise-deus-da-familia-3760457f52",
       "offlineKey": "mdl-song-renascer-praise-deus-da-familia-3760457f52",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-de-abraao-eb80f077fc",
@@ -66315,7 +66315,7 @@
       "updatedAt": "2026-04-19T20:57:02.567Z",
       "apiUrl": "/api/songs/renascer-praise-deus-de-abraao-eb80f077fc",
       "offlineKey": "mdl-song-renascer-praise-deus-de-abraao-eb80f077fc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-de-amor-bd748f65b4",
@@ -66328,7 +66328,7 @@
       "updatedAt": "2026-04-19T20:55:19.587Z",
       "apiUrl": "/api/songs/renascer-praise-deus-de-amor-bd748f65b4",
       "offlineKey": "mdl-song-renascer-praise-deus-de-amor-bd748f65b4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-de-daniel-e28c6589b3",
@@ -66341,7 +66341,7 @@
       "updatedAt": "2026-04-19T20:55:23.227Z",
       "apiUrl": "/api/songs/renascer-praise-deus-de-daniel-e28c6589b3",
       "offlineKey": "mdl-song-renascer-praise-deus-de-daniel-e28c6589b3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-do-impossivel-294f334f0e",
@@ -66354,7 +66354,7 @@
       "updatedAt": "2026-04-19T20:55:41.725Z",
       "apiUrl": "/api/songs/renascer-praise-deus-do-impossivel-294f334f0e",
       "offlineKey": "mdl-song-renascer-praise-deus-do-impossivel-294f334f0e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-e-fiel-e08ee1bb38",
@@ -66367,7 +66367,7 @@
       "updatedAt": "2026-04-19T20:56:03.892Z",
       "apiUrl": "/api/songs/renascer-praise-deus-e-fiel-e08ee1bb38",
       "offlineKey": "mdl-song-renascer-praise-deus-e-fiel-e08ee1bb38",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-e-fiel-corrigida-245bd4bd70",
@@ -66380,7 +66380,7 @@
       "updatedAt": "2026-04-19T20:57:06.231Z",
       "apiUrl": "/api/songs/renascer-praise-deus-e-fiel-corrigida-245bd4bd70",
       "offlineKey": "mdl-song-renascer-praise-deus-e-fiel-corrigida-245bd4bd70",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-e-fiel-praise-3-4db27cbbcf",
@@ -66393,7 +66393,7 @@
       "updatedAt": "2026-04-19T20:57:09.848Z",
       "apiUrl": "/api/songs/renascer-praise-deus-e-fiel-praise-3-4db27cbbcf",
       "offlineKey": "mdl-song-renascer-praise-deus-e-fiel-praise-3-4db27cbbcf",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-e-por-nos-6411fbbd3b",
@@ -66406,7 +66406,7 @@
       "updatedAt": "2026-04-19T20:57:13.552Z",
       "apiUrl": "/api/songs/renascer-praise-deus-e-por-nos-6411fbbd3b",
       "offlineKey": "mdl-song-renascer-praise-deus-e-por-nos-6411fbbd3b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-onipotente-1cb433678b",
@@ -66419,7 +66419,7 @@
       "updatedAt": "2026-04-19T20:55:12.286Z",
       "apiUrl": "/api/songs/renascer-praise-deus-onipotente-1cb433678b",
       "offlineKey": "mdl-song-renascer-praise-deus-onipotente-1cb433678b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-deus-pode-a06d5f50d4",
@@ -66432,7 +66432,7 @@
       "updatedAt": "2026-04-19T20:54:49.975Z",
       "apiUrl": "/api/songs/renascer-praise-deus-pode-a06d5f50d4",
       "offlineKey": "mdl-song-renascer-praise-deus-pode-a06d5f50d4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-digno-9a7d0e741a",
@@ -66445,7 +66445,7 @@
       "updatedAt": "2026-04-19T20:54:53.822Z",
       "apiUrl": "/api/songs/renascer-praise-digno-9a7d0e741a",
       "offlineKey": "mdl-song-renascer-praise-digno-9a7d0e741a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-digno-de-louvor-15d26896ff",
@@ -66458,7 +66458,7 @@
       "updatedAt": "2026-04-19T20:55:15.893Z",
       "apiUrl": "/api/songs/renascer-praise-digno-de-louvor-15d26896ff",
       "offlineKey": "mdl-song-renascer-praise-digno-de-louvor-15d26896ff",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-digno-es-9de4cd03fe",
@@ -66471,7 +66471,7 @@
       "updatedAt": "2026-04-19T20:56:07.683Z",
       "apiUrl": "/api/songs/renascer-praise-digno-es-9de4cd03fe",
       "offlineKey": "mdl-song-renascer-praise-digno-es-9de4cd03fe",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-digno-original-b2f731904c",
@@ -66484,7 +66484,7 @@
       "updatedAt": "2026-04-19T20:56:29.868Z",
       "apiUrl": "/api/songs/renascer-praise-digno-original-b2f731904c",
       "offlineKey": "mdl-song-renascer-praise-digno-original-b2f731904c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-direito-de-lutar-7e27e1aad4",
@@ -66497,7 +66497,7 @@
       "updatedAt": "2026-04-19T20:57:17.279Z",
       "apiUrl": "/api/songs/renascer-praise-direito-de-lutar-7e27e1aad4",
       "offlineKey": "mdl-song-renascer-praise-direito-de-lutar-7e27e1aad4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-dom-da-fe-c12e566714",
@@ -66510,7 +66510,7 @@
       "updatedAt": "2026-04-19T20:55:30.711Z",
       "apiUrl": "/api/songs/renascer-praise-dom-da-fe-c12e566714",
       "offlineKey": "mdl-song-renascer-praise-dom-da-fe-c12e566714",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-dupla-honra-f1c36dc10b",
@@ -66523,7 +66523,7 @@
       "updatedAt": "2026-04-19T20:55:04.993Z",
       "apiUrl": "/api/songs/renascer-praise-dupla-honra-f1c36dc10b",
       "offlineKey": "mdl-song-renascer-praise-dupla-honra-f1c36dc10b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-dupla-honra-simplificada-23c39a393a",
@@ -66536,7 +66536,7 @@
       "updatedAt": "2026-04-19T20:55:01.260Z",
       "apiUrl": "/api/songs/renascer-praise-dupla-honra-simplificada-23c39a393a",
       "offlineKey": "mdl-song-renascer-praise-dupla-honra-simplificada-23c39a393a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-dupla-honra-ver-2-07ed8b158f",
@@ -66549,7 +66549,7 @@
       "updatedAt": "2026-04-19T20:57:20.993Z",
       "apiUrl": "/api/songs/renascer-praise-dupla-honra-ver-2-07ed8b158f",
       "offlineKey": "mdl-song-renascer-praise-dupla-honra-ver-2-07ed8b158f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-e-a-gente-vai-louvando-30b2d1e161",
@@ -66562,7 +66562,7 @@
       "updatedAt": "2026-04-19T20:55:45.437Z",
       "apiUrl": "/api/songs/renascer-praise-e-a-gente-vai-louvando-30b2d1e161",
       "offlineKey": "mdl-song-renascer-praise-e-a-gente-vai-louvando-30b2d1e161",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-edifica-b6c5fdda8f",
@@ -66575,7 +66575,7 @@
       "updatedAt": "2026-04-19T20:54:46.080Z",
       "apiUrl": "/api/songs/renascer-praise-edifica-b6c5fdda8f",
       "offlineKey": "mdl-song-renascer-praise-edifica-b6c5fdda8f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eis-me-aqui-87434ec905",
@@ -66588,7 +66588,7 @@
       "updatedAt": "2026-04-19T20:54:38.440Z",
       "apiUrl": "/api/songs/renascer-praise-eis-me-aqui-87434ec905",
       "offlineKey": "mdl-song-renascer-praise-eis-me-aqui-87434ec905",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-enche-a-casa-dd9b53c02a",
@@ -66601,7 +66601,7 @@
       "updatedAt": "2026-04-19T20:57:24.596Z",
       "apiUrl": "/api/songs/renascer-praise-enche-a-casa-dd9b53c02a",
       "offlineKey": "mdl-song-renascer-praise-enche-a-casa-dd9b53c02a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-enche-me-a2f026f778",
@@ -66614,7 +66614,7 @@
       "updatedAt": "2026-04-19T20:57:28.371Z",
       "apiUrl": "/api/songs/renascer-praise-enche-me-a2f026f778",
       "offlineKey": "mdl-song-renascer-praise-enche-me-a2f026f778",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-encontrei-o-meu-lugar-40747b0bec",
@@ -66627,7 +66627,7 @@
       "updatedAt": "2026-04-19T20:56:33.495Z",
       "apiUrl": "/api/songs/renascer-praise-encontrei-o-meu-lugar-40747b0bec",
       "offlineKey": "mdl-song-renascer-praise-encontrei-o-meu-lugar-40747b0bec",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ensina-me-a1e650f72d",
@@ -66640,7 +66640,7 @@
       "updatedAt": "2026-04-19T20:58:24.311Z",
       "apiUrl": "/api/songs/renascer-praise-ensina-me-a1e650f72d",
       "offlineKey": "mdl-song-renascer-praise-ensina-me-a1e650f72d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-entramos-neste-lugar-9624a2c970",
@@ -66653,7 +66653,7 @@
       "updatedAt": "2026-04-19T20:59:02.049Z",
       "apiUrl": "/api/songs/renascer-praise-entramos-neste-lugar-9624a2c970",
       "offlineKey": "mdl-song-renascer-praise-entramos-neste-lugar-9624a2c970",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-entrega-ae8b2bb164",
@@ -66666,7 +66666,7 @@
       "updatedAt": "2026-04-19T20:59:29.114Z",
       "apiUrl": "/api/songs/renascer-praise-entrega-ae8b2bb164",
       "offlineKey": "mdl-song-renascer-praise-entrega-ae8b2bb164",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-es-grande-es-forte-f8d6296965",
@@ -66679,7 +66679,7 @@
       "updatedAt": "2026-04-19T20:59:32.929Z",
       "apiUrl": "/api/songs/renascer-praise-es-grande-es-forte-f8d6296965",
       "offlineKey": "mdl-song-renascer-praise-es-grande-es-forte-f8d6296965",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-escape-51d8208718",
@@ -66692,7 +66692,7 @@
       "updatedAt": "2026-04-19T20:58:58.283Z",
       "apiUrl": "/api/songs/renascer-praise-escape-51d8208718",
       "offlineKey": "mdl-song-renascer-praise-escape-51d8208718",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-escape-oficial-5984461d35",
@@ -66705,7 +66705,7 @@
       "updatedAt": "2026-04-19T20:59:40.398Z",
       "apiUrl": "/api/songs/renascer-praise-escape-oficial-5984461d35",
       "offlineKey": "mdl-song-renascer-praise-escape-oficial-5984461d35",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-escape-nunca-pare-de-lutar-2487c3f82c",
@@ -66718,7 +66718,7 @@
       "updatedAt": "2026-04-19T20:59:36.535Z",
       "apiUrl": "/api/songs/renascer-praise-escape-nunca-pare-de-lutar-2487c3f82c",
       "offlineKey": "mdl-song-renascer-praise-escape-nunca-pare-de-lutar-2487c3f82c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-escape-renascer-praise-536cafc7a6",
@@ -66731,7 +66731,7 @@
       "updatedAt": "2026-04-19T20:59:44.148Z",
       "apiUrl": "/api/songs/renascer-praise-escape-renascer-praise-536cafc7a6",
       "offlineKey": "mdl-song-renascer-praise-escape-renascer-praise-536cafc7a6",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-esperanca-0ed8832406",
@@ -66744,7 +66744,7 @@
       "updatedAt": "2026-04-19T20:58:13.086Z",
       "apiUrl": "/api/songs/renascer-praise-esperanca-0ed8832406",
       "offlineKey": "mdl-song-renascer-praise-esperanca-0ed8832406",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-esperanca-ver-2-98e9fa8e34",
@@ -66757,7 +66757,7 @@
       "updatedAt": "2026-04-19T20:59:21.455Z",
       "apiUrl": "/api/songs/renascer-praise-esperanca-ver-2-98e9fa8e34",
       "offlineKey": "mdl-song-renascer-praise-esperanca-ver-2-98e9fa8e34",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-espero-em-ti-bb0c34c0a0",
@@ -66770,7 +66770,7 @@
       "updatedAt": "2026-04-19T20:58:09.223Z",
       "apiUrl": "/api/songs/renascer-praise-espero-em-ti-bb0c34c0a0",
       "offlineKey": "mdl-song-renascer-praise-espero-em-ti-bb0c34c0a0",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-espirito-ama-tua-voz-f86e3f2294",
@@ -66783,7 +66783,7 @@
       "updatedAt": "2026-04-19T20:58:27.915Z",
       "apiUrl": "/api/songs/renascer-praise-espirito-ama-tua-voz-f86e3f2294",
       "offlineKey": "mdl-song-renascer-praise-espirito-ama-tua-voz-f86e3f2294",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-espirito-amo-tua-voz-30b97656d2",
@@ -66796,7 +66796,7 @@
       "updatedAt": "2026-04-19T20:58:39.248Z",
       "apiUrl": "/api/songs/renascer-praise-espirito-amo-tua-voz-30b97656d2",
       "offlineKey": "mdl-song-renascer-praise-espirito-amo-tua-voz-30b97656d2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-espirito-santo-27036f145a",
@@ -66809,7 +66809,7 @@
       "updatedAt": "2026-04-19T20:57:39.291Z",
       "apiUrl": "/api/songs/renascer-praise-espirito-santo-27036f145a",
       "offlineKey": "mdl-song-renascer-praise-espirito-santo-27036f145a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-espirito-espirito-6dfec46dd1",
@@ -66822,7 +66822,7 @@
       "updatedAt": "2026-04-19T20:58:35.423Z",
       "apiUrl": "/api/songs/renascer-praise-espirito-espirito-6dfec46dd1",
       "offlineKey": "mdl-song-renascer-praise-espirito-espirito-6dfec46dd1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-estamos-de-pe-93a55abf2f",
@@ -66835,7 +66835,7 @@
       "updatedAt": "2026-04-19T20:59:47.892Z",
       "apiUrl": "/api/songs/renascer-praise-estamos-de-pe-93a55abf2f",
       "offlineKey": "mdl-song-renascer-praise-estamos-de-pe-93a55abf2f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-estamos-todos-congregados-28404de357",
@@ -66848,7 +66848,7 @@
       "updatedAt": "2026-04-19T20:57:35.597Z",
       "apiUrl": "/api/songs/renascer-praise-estamos-todos-congregados-28404de357",
       "offlineKey": "mdl-song-renascer-praise-estamos-todos-congregados-28404de357",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-estamos-todos-congregados-aqui-2abd0dce06",
@@ -66861,7 +66861,7 @@
       "updatedAt": "2026-04-19T20:59:05.958Z",
       "apiUrl": "/api/songs/renascer-praise-estamos-todos-congregados-aqui-2abd0dce06",
       "offlineKey": "mdl-song-renascer-praise-estamos-todos-congregados-aqui-2abd0dce06",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ester-ae3a297a4e",
@@ -66874,7 +66874,7 @@
       "updatedAt": "2026-04-19T20:59:51.786Z",
       "apiUrl": "/api/songs/renascer-praise-ester-ae3a297a4e",
       "offlineKey": "mdl-song-renascer-praise-ester-ae3a297a4e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-estevao-f4c5080d14",
@@ -66887,7 +66887,7 @@
       "updatedAt": "2026-04-19T20:59:55.598Z",
       "apiUrl": "/api/songs/renascer-praise-estevao-f4c5080d14",
       "offlineKey": "mdl-song-renascer-praise-estevao-f4c5080d14",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-amo-te-amar-dcbcaa0fc1",
@@ -66900,7 +66900,7 @@
       "updatedAt": "2026-04-19T20:57:54.355Z",
       "apiUrl": "/api/songs/renascer-praise-eu-amo-te-amar-dcbcaa0fc1",
       "offlineKey": "mdl-song-renascer-praise-eu-amo-te-amar-dcbcaa0fc1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-amo-te-amar-senhor-09f9d338f6",
@@ -66913,7 +66913,7 @@
       "updatedAt": "2026-04-19T20:58:16.886Z",
       "apiUrl": "/api/songs/renascer-praise-eu-amo-te-amar-senhor-09f9d338f6",
       "offlineKey": "mdl-song-renascer-praise-eu-amo-te-amar-senhor-09f9d338f6",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-estou-determinado-289f4f3fba",
@@ -66926,7 +66926,7 @@
       "updatedAt": "2026-04-19T20:59:25.276Z",
       "apiUrl": "/api/songs/renascer-praise-eu-estou-determinado-289f4f3fba",
       "offlineKey": "mdl-song-renascer-praise-eu-estou-determinado-289f4f3fba",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-me-prosto-86e5483549",
@@ -66939,7 +66939,7 @@
       "updatedAt": "2026-04-19T20:59:17.581Z",
       "apiUrl": "/api/songs/renascer-praise-eu-me-prosto-86e5483549",
       "offlineKey": "mdl-song-renascer-praise-eu-me-prosto-86e5483549",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-me-rendo-9be7f2a8d4",
@@ -66952,7 +66952,7 @@
       "updatedAt": "2026-04-19T20:57:31.980Z",
       "apiUrl": "/api/songs/renascer-praise-eu-me-rendo-9be7f2a8d4",
       "offlineKey": "mdl-song-renascer-praise-eu-me-rendo-9be7f2a8d4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-me-rendo-correta-8c33c7f052",
@@ -66965,7 +66965,7 @@
       "updatedAt": "2026-04-19T20:59:09.996Z",
       "apiUrl": "/api/songs/renascer-praise-eu-me-rendo-correta-8c33c7f052",
       "offlineKey": "mdl-song-renascer-praise-eu-me-rendo-correta-8c33c7f052",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-sei-quando-estas-comigo-0729d4d9d7",
@@ -66978,7 +66978,7 @@
       "updatedAt": "2026-04-19T20:59:59.446Z",
       "apiUrl": "/api/songs/renascer-praise-eu-sei-quando-estas-comigo-0729d4d9d7",
       "offlineKey": "mdl-song-renascer-praise-eu-sei-quando-estas-comigo-0729d4d9d7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-sei-que-estas-comigo-5d92aafb0e",
@@ -66991,7 +66991,7 @@
       "updatedAt": "2026-04-19T20:57:57.959Z",
       "apiUrl": "/api/songs/renascer-praise-eu-sei-que-estas-comigo-5d92aafb0e",
       "offlineKey": "mdl-song-renascer-praise-eu-sei-que-estas-comigo-5d92aafb0e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-sou-de-jesus-f0e2bcf1ca",
@@ -67004,7 +67004,7 @@
       "updatedAt": "2026-04-19T20:58:54.527Z",
       "apiUrl": "/api/songs/renascer-praise-eu-sou-de-jesus-f0e2bcf1ca",
       "offlineKey": "mdl-song-renascer-praise-eu-sou-de-jesus-f0e2bcf1ca",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-tenho-alianca-com-deus-f37ad7a3fc",
@@ -67017,7 +67017,7 @@
       "updatedAt": "2026-04-19T20:58:20.507Z",
       "apiUrl": "/api/songs/renascer-praise-eu-tenho-alianca-com-deus-f37ad7a3fc",
       "offlineKey": "mdl-song-renascer-praise-eu-tenho-alianca-com-deus-f37ad7a3fc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-vou-clamar-b4fa36b273",
@@ -67030,7 +67030,7 @@
       "updatedAt": "2026-04-19T21:00:03.054Z",
       "apiUrl": "/api/songs/renascer-praise-eu-vou-clamar-b4fa36b273",
       "offlineKey": "mdl-song-renascer-praise-eu-vou-clamar-b4fa36b273",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-vou-clamar-versao-ao-vivo-9a050724a6",
@@ -67043,7 +67043,7 @@
       "updatedAt": "2026-04-19T21:00:06.938Z",
       "apiUrl": "/api/songs/renascer-praise-eu-vou-clamar-versao-ao-vivo-9a050724a6",
       "offlineKey": "mdl-song-renascer-praise-eu-vou-clamar-versao-ao-vivo-9a050724a6",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-vou-fazer-milagres-1fb74f0c78",
@@ -67056,7 +67056,7 @@
       "updatedAt": "2026-04-19T21:00:10.837Z",
       "apiUrl": "/api/songs/renascer-praise-eu-vou-fazer-milagres-1fb74f0c78",
       "offlineKey": "mdl-song-renascer-praise-eu-vou-fazer-milagres-1fb74f0c78",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-vou-viver-milagres-1c4d3a96a2",
@@ -67069,7 +67069,7 @@
       "updatedAt": "2026-04-19T20:58:50.631Z",
       "apiUrl": "/api/songs/renascer-praise-eu-vou-viver-milagres-1c4d3a96a2",
       "offlineKey": "mdl-song-renascer-praise-eu-vou-viver-milagres-1c4d3a96a2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-eu-vou-viver-o-meu-milagre-359b0f510b",
@@ -67082,7 +67082,7 @@
       "updatedAt": "2026-04-19T20:57:43.116Z",
       "apiUrl": "/api/songs/renascer-praise-eu-vou-viver-o-meu-milagre-359b0f510b",
       "offlineKey": "mdl-song-renascer-praise-eu-vou-viver-o-meu-milagre-359b0f510b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-falando-em-misterio-59107e2958",
@@ -67095,7 +67095,7 @@
       "updatedAt": "2026-04-19T20:58:01.805Z",
       "apiUrl": "/api/songs/renascer-praise-falando-em-misterio-59107e2958",
       "offlineKey": "mdl-song-renascer-praise-falando-em-misterio-59107e2958",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-faz-chover-f447a7509a",
@@ -67108,7 +67108,7 @@
       "updatedAt": "2026-04-19T20:57:50.647Z",
       "apiUrl": "/api/songs/renascer-praise-faz-chover-f447a7509a",
       "offlineKey": "mdl-song-renascer-praise-faz-chover-f447a7509a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-fazer-morada-aa90ad7745",
@@ -67121,7 +67121,7 @@
       "updatedAt": "2026-04-19T20:59:13.733Z",
       "apiUrl": "/api/songs/renascer-praise-fazer-morada-aa90ad7745",
       "offlineKey": "mdl-song-renascer-praise-fazer-morada-aa90ad7745",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-festa-e59b68e1cc",
@@ -67134,7 +67134,7 @@
       "updatedAt": "2026-04-19T20:58:05.406Z",
       "apiUrl": "/api/songs/renascer-praise-festa-e59b68e1cc",
       "offlineKey": "mdl-song-renascer-praise-festa-e59b68e1cc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-filho-a7034855c8",
@@ -67147,7 +67147,7 @@
       "updatedAt": "2026-04-19T21:00:14.625Z",
       "apiUrl": "/api/songs/renascer-praise-filho-a7034855c8",
       "offlineKey": "mdl-song-renascer-praise-filho-a7034855c8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-filho-da-luz-b83bd39dbf",
@@ -67160,7 +67160,7 @@
       "updatedAt": "2026-04-19T20:58:42.928Z",
       "apiUrl": "/api/songs/renascer-praise-filho-da-luz-b83bd39dbf",
       "offlineKey": "mdl-song-renascer-praise-filho-da-luz-b83bd39dbf",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-flua-em-mim-7d39a1f0c3",
@@ -67173,7 +67173,7 @@
       "updatedAt": "2026-04-19T20:58:31.662Z",
       "apiUrl": "/api/songs/renascer-praise-flua-em-mim-7d39a1f0c3",
       "offlineKey": "mdl-song-renascer-praise-flua-em-mim-7d39a1f0c3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-flui-em-mim-821e44bcb1",
@@ -67186,7 +67186,7 @@
       "updatedAt": "2026-04-19T20:58:46.787Z",
       "apiUrl": "/api/songs/renascer-praise-flui-em-mim-821e44bcb1",
       "offlineKey": "mdl-song-renascer-praise-flui-em-mim-821e44bcb1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-fogo-cai-2da0716383",
@@ -67199,7 +67199,7 @@
       "updatedAt": "2026-04-19T20:57:46.814Z",
       "apiUrl": "/api/songs/renascer-praise-fogo-cai-2da0716383",
       "offlineKey": "mdl-song-renascer-praise-fogo-cai-2da0716383",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-fogo-santo-5e9e4f48df",
@@ -67212,7 +67212,7 @@
       "updatedAt": "2026-04-19T21:00:18.566Z",
       "apiUrl": "/api/songs/renascer-praise-fogo-santo-5e9e4f48df",
       "offlineKey": "mdl-song-renascer-praise-fogo-santo-5e9e4f48df",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-foi-graca-6d04ee81b9",
@@ -67225,7 +67225,7 @@
       "updatedAt": "2026-04-19T21:00:22.436Z",
       "apiUrl": "/api/songs/renascer-praise-foi-graca-6d04ee81b9",
       "offlineKey": "mdl-song-renascer-praise-foi-graca-6d04ee81b9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-genesis-01d300de05",
@@ -67238,7 +67238,7 @@
       "updatedAt": "2026-04-19T21:01:22.130Z",
       "apiUrl": "/api/songs/renascer-praise-genesis-01d300de05",
       "offlineKey": "mdl-song-renascer-praise-genesis-01d300de05",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-glorificado-70bf890c1a",
@@ -67251,7 +67251,7 @@
       "updatedAt": "2026-04-19T21:01:40.331Z",
       "apiUrl": "/api/songs/renascer-praise-glorificado-70bf890c1a",
       "offlineKey": "mdl-song-renascer-praise-glorificado-70bf890c1a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-glorificamos-5a8cbbe882",
@@ -67264,7 +67264,7 @@
       "updatedAt": "2026-04-19T21:01:18.417Z",
       "apiUrl": "/api/songs/renascer-praise-glorificamos-5a8cbbe882",
       "offlineKey": "mdl-song-renascer-praise-glorificamos-5a8cbbe882",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-graca-53f3e498fe",
@@ -67277,7 +67277,7 @@
       "updatedAt": "2026-04-19T21:00:59.593Z",
       "apiUrl": "/api/songs/renascer-praise-graca-53f3e498fe",
       "offlineKey": "mdl-song-renascer-praise-graca-53f3e498fe",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-graca-vercao-2-0877813306",
@@ -67290,7 +67290,7 @@
       "updatedAt": "2026-04-19T21:02:24.699Z",
       "apiUrl": "/api/songs/renascer-praise-graca-vercao-2-0877813306",
       "offlineKey": "mdl-song-renascer-praise-graca-vercao-2-0877813306",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-gracas-te-damos-cee0fbec61",
@@ -67303,7 +67303,7 @@
       "updatedAt": "2026-04-19T21:00:36.994Z",
       "apiUrl": "/api/songs/renascer-praise-gracas-te-damos-cee0fbec61",
       "offlineKey": "mdl-song-renascer-praise-gracas-te-damos-cee0fbec61",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-gracas-te-damos-ver-2-ecceeb22fb",
@@ -67316,7 +67316,7 @@
       "updatedAt": "2026-04-19T21:02:13.806Z",
       "apiUrl": "/api/songs/renascer-praise-gracas-te-damos-ver-2-ecceeb22fb",
       "offlineKey": "mdl-song-renascer-praise-gracas-te-damos-ver-2-ecceeb22fb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-grandes-coisas-4dac30489b",
@@ -67329,7 +67329,7 @@
       "updatedAt": "2026-04-19T21:01:29.429Z",
       "apiUrl": "/api/songs/renascer-praise-grandes-coisas-4dac30489b",
       "offlineKey": "mdl-song-renascer-praise-grandes-coisas-4dac30489b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-grandioso-es-tu-4a461caf07",
@@ -67342,7 +67342,7 @@
       "updatedAt": "2026-04-19T21:01:54.916Z",
       "apiUrl": "/api/songs/renascer-praise-grandioso-es-tu-4a461caf07",
       "offlineKey": "mdl-song-renascer-praise-grandioso-es-tu-4a461caf07",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-grito-de-alegria-b64c7ba302",
@@ -67355,7 +67355,7 @@
       "updatedAt": "2026-04-19T21:01:33.033Z",
       "apiUrl": "/api/songs/renascer-praise-grito-de-alegria-b64c7ba302",
       "offlineKey": "mdl-song-renascer-praise-grito-de-alegria-b64c7ba302",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-grito-de-alerta-a601ae0b67",
@@ -67368,7 +67368,7 @@
       "updatedAt": "2026-04-19T21:02:28.345Z",
       "apiUrl": "/api/songs/renascer-praise-grito-de-alerta-a601ae0b67",
       "offlineKey": "mdl-song-renascer-praise-grito-de-alerta-a601ae0b67",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ha-um-lugar-22cd829306",
@@ -67381,7 +67381,7 @@
       "updatedAt": "2026-04-19T21:00:26.115Z",
       "apiUrl": "/api/songs/renascer-praise-ha-um-lugar-22cd829306",
       "offlineKey": "mdl-song-renascer-praise-ha-um-lugar-22cd829306",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ha-uma-uncao-7330e24161",
@@ -67394,7 +67394,7 @@
       "updatedAt": "2026-04-19T21:01:14.812Z",
       "apiUrl": "/api/songs/renascer-praise-ha-uma-uncao-7330e24161",
       "offlineKey": "mdl-song-renascer-praise-ha-uma-uncao-7330e24161",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-havera-um-bom-futuro-ce4c6b964b",
@@ -67407,7 +67407,7 @@
       "updatedAt": "2026-04-19T21:00:33.385Z",
       "apiUrl": "/api/songs/renascer-praise-havera-um-bom-futuro-ce4c6b964b",
       "offlineKey": "mdl-song-renascer-praise-havera-um-bom-futuro-ce4c6b964b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-hosana-d9122ad075",
@@ -67420,7 +67420,7 @@
       "updatedAt": "2026-04-19T21:00:40.704Z",
       "apiUrl": "/api/songs/renascer-praise-hosana-d9122ad075",
       "offlineKey": "mdl-song-renascer-praise-hosana-d9122ad075",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-hosanna-853b7dfea7",
@@ -67433,7 +67433,7 @@
       "updatedAt": "2026-04-19T21:02:17.459Z",
       "apiUrl": "/api/songs/renascer-praise-hosanna-853b7dfea7",
       "offlineKey": "mdl-song-renascer-praise-hosanna-853b7dfea7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-hosanna-rp21-515f0f2c1d",
@@ -67446,7 +67446,7 @@
       "updatedAt": "2026-04-19T21:02:06.228Z",
       "apiUrl": "/api/songs/renascer-praise-hosanna-rp21-515f0f2c1d",
       "offlineKey": "mdl-song-renascer-praise-hosanna-rp21-515f0f2c1d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-igreja-d1c4e5127c",
@@ -67459,7 +67459,7 @@
       "updatedAt": "2026-04-19T21:00:44.324Z",
       "apiUrl": "/api/songs/renascer-praise-igreja-d1c4e5127c",
       "offlineKey": "mdl-song-renascer-praise-igreja-d1c4e5127c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-imcomparavel-deus-51005ab7b7",
@@ -67472,7 +67472,7 @@
       "updatedAt": "2026-04-19T21:00:55.726Z",
       "apiUrl": "/api/songs/renascer-praise-imcomparavel-deus-51005ab7b7",
       "offlineKey": "mdl-song-renascer-praise-imcomparavel-deus-51005ab7b7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-incomparavel-deus-717a752fb6",
@@ -67485,7 +67485,7 @@
       "updatedAt": "2026-04-19T21:02:21.080Z",
       "apiUrl": "/api/songs/renascer-praise-incomparavel-deus-717a752fb6",
       "offlineKey": "mdl-song-renascer-praise-incomparavel-deus-717a752fb6",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-invoca-me-9e7e4fd176",
@@ -67498,7 +67498,7 @@
       "updatedAt": "2026-04-19T21:02:32.164Z",
       "apiUrl": "/api/songs/renascer-praise-invoca-me-9e7e4fd176",
       "offlineKey": "mdl-song-renascer-praise-invoca-me-9e7e4fd176",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-invoquei-1b225345f5",
@@ -67511,7 +67511,7 @@
       "updatedAt": "2026-04-19T21:01:51.260Z",
       "apiUrl": "/api/songs/renascer-praise-invoquei-1b225345f5",
       "offlineKey": "mdl-song-renascer-praise-invoquei-1b225345f5",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-isaias-41-83230623cb",
@@ -67524,7 +67524,7 @@
       "updatedAt": "2026-04-19T21:01:25.766Z",
       "apiUrl": "/api/songs/renascer-praise-isaias-41-83230623cb",
       "offlineKey": "mdl-song-renascer-praise-isaias-41-83230623cb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-israel-de-deus-5fe6e148eb",
@@ -67537,7 +67537,7 @@
       "updatedAt": "2026-04-19T21:01:43.996Z",
       "apiUrl": "/api/songs/renascer-praise-israel-de-deus-5fe6e148eb",
       "offlineKey": "mdl-song-renascer-praise-israel-de-deus-5fe6e148eb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ja-esta-consumado-6ceb0a8733",
@@ -67550,7 +67550,7 @@
       "updatedAt": "2026-04-19T21:00:51.792Z",
       "apiUrl": "/api/songs/renascer-praise-ja-esta-consumado-6ceb0a8733",
       "offlineKey": "mdl-song-renascer-praise-ja-esta-consumado-6ceb0a8733",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ja-esta-consumado-ver-2-ff44ee840d",
@@ -67563,7 +67563,7 @@
       "updatedAt": "2026-04-19T21:02:10.173Z",
       "apiUrl": "/api/songs/renascer-praise-ja-esta-consumado-ver-2-ff44ee840d",
       "offlineKey": "mdl-song-renascer-praise-ja-esta-consumado-ver-2-ff44ee840d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jeova-nissi-2e5043e512",
@@ -67576,7 +67576,7 @@
       "updatedAt": "2026-04-19T21:02:35.817Z",
       "apiUrl": "/api/songs/renascer-praise-jeova-nissi-2e5043e512",
       "offlineKey": "mdl-song-renascer-praise-jeova-nissi-2e5043e512",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-154dba67c8",
@@ -67589,7 +67589,7 @@
       "updatedAt": "2026-04-19T21:02:39.453Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-154dba67c8",
       "offlineKey": "mdl-song-renascer-praise-jesus-154dba67c8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-ver-3-e34cfb1f25",
@@ -67602,7 +67602,7 @@
       "updatedAt": "2026-04-19T21:13:05.273Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-ver-3-e34cfb1f25",
       "offlineKey": "mdl-song-renascer-praise-jesus-ver-3-e34cfb1f25",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-ver-2-a5b3d15957",
@@ -67615,7 +67615,7 @@
       "updatedAt": "2026-04-19T21:13:08.907Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-ver-2-a5b3d15957",
       "offlineKey": "mdl-song-renascer-praise-jesus-ver-2-a5b3d15957",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-de-nazare-fc6a03ee8b",
@@ -67628,7 +67628,7 @@
       "updatedAt": "2026-04-19T21:02:43.050Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-de-nazare-fc6a03ee8b",
       "offlineKey": "mdl-song-renascer-praise-jesus-de-nazare-fc6a03ee8b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-esta-aqui-c9d203bbd3",
@@ -67641,7 +67641,7 @@
       "updatedAt": "2026-04-19T21:01:36.690Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-esta-aqui-c9d203bbd3",
       "offlineKey": "mdl-song-renascer-praise-jesus-esta-aqui-c9d203bbd3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-plano-perfeito-f57102e6b7",
@@ -67654,7 +67654,7 @@
       "updatedAt": "2026-04-19T21:02:46.714Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-plano-perfeito-f57102e6b7",
       "offlineKey": "mdl-song-renascer-praise-jesus-plano-perfeito-f57102e6b7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-o-plano-perfeito-6f078bbc5b",
@@ -67667,7 +67667,7 @@
       "updatedAt": "2026-04-19T21:01:58.558Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-o-plano-perfeito-6f078bbc5b",
       "offlineKey": "mdl-song-renascer-praise-jesus-o-plano-perfeito-6f078bbc5b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-jesus-plano-melhor-5d01296c8c",
@@ -67680,7 +67680,7 @@
       "updatedAt": "2026-04-19T21:02:02.518Z",
       "apiUrl": "/api/songs/renascer-praise-jesus-plano-melhor-5d01296c8c",
       "offlineKey": "mdl-song-renascer-praise-jesus-plano-melhor-5d01296c8c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-justica-de-deus-11ac486fd2",
@@ -67693,7 +67693,7 @@
       "updatedAt": "2026-04-19T21:13:12.640Z",
       "apiUrl": "/api/songs/renascer-praise-justica-de-deus-11ac486fd2",
       "offlineKey": "mdl-song-renascer-praise-justica-de-deus-11ac486fd2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-levantai-25d4a0ff5a",
@@ -67706,7 +67706,7 @@
       "updatedAt": "2026-04-19T21:01:11.072Z",
       "apiUrl": "/api/songs/renascer-praise-levantai-25d4a0ff5a",
       "offlineKey": "mdl-song-renascer-praise-levantai-25d4a0ff5a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-leve-e-momentanea-e4fef185ca",
@@ -67719,7 +67719,7 @@
       "updatedAt": "2026-04-19T21:01:03.214Z",
       "apiUrl": "/api/songs/renascer-praise-leve-e-momentanea-e4fef185ca",
       "offlineKey": "mdl-song-renascer-praise-leve-e-momentanea-e4fef185ca",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-leve-e-momentanea-ao-vivo-6861214214",
@@ -67732,7 +67732,7 @@
       "updatedAt": "2026-04-19T21:13:16.258Z",
       "apiUrl": "/api/songs/renascer-praise-leve-e-momentanea-ao-vivo-6861214214",
       "offlineKey": "mdl-song-renascer-praise-leve-e-momentanea-ao-vivo-6861214214",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-lindo-momento-escape-c55c1dc169",
@@ -67745,7 +67745,7 @@
       "updatedAt": "2026-04-19T21:13:19.979Z",
       "apiUrl": "/api/songs/renascer-praise-lindo-momento-escape-c55c1dc169",
       "offlineKey": "mdl-song-renascer-praise-lindo-momento-escape-c55c1dc169",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-livre-45d51d376c",
@@ -67758,7 +67758,7 @@
       "updatedAt": "2026-04-19T21:13:23.612Z",
       "apiUrl": "/api/songs/renascer-praise-livre-45d51d376c",
       "offlineKey": "mdl-song-renascer-praise-livre-45d51d376c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-lugar-de-adoracao-87871c4a5e",
@@ -67771,7 +67771,7 @@
       "updatedAt": "2026-04-19T21:01:07.121Z",
       "apiUrl": "/api/songs/renascer-praise-lugar-de-adoracao-87871c4a5e",
       "offlineKey": "mdl-song-renascer-praise-lugar-de-adoracao-87871c4a5e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-lugares-alto-a8c981770e",
@@ -67784,7 +67784,7 @@
       "updatedAt": "2026-04-19T21:00:48.104Z",
       "apiUrl": "/api/songs/renascer-praise-lugares-alto-a8c981770e",
       "offlineKey": "mdl-song-renascer-praise-lugares-alto-a8c981770e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-lugares-altos-01ee2c8b7c",
@@ -67797,7 +67797,7 @@
       "updatedAt": "2026-04-19T21:00:29.755Z",
       "apiUrl": "/api/songs/renascer-praise-lugares-altos-01ee2c8b7c",
       "offlineKey": "mdl-song-renascer-praise-lugares-altos-01ee2c8b7c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-lugares-altos-vem-e-toma-o-teu-lugar-62786fdce1",
@@ -67810,7 +67810,7 @@
       "updatedAt": "2026-04-19T21:01:47.629Z",
       "apiUrl": "/api/songs/renascer-praise-lugares-altos-vem-e-toma-o-teu-lugar-62786fdce1",
       "offlineKey": "mdl-song-renascer-praise-lugares-altos-vem-e-toma-o-teu-lugar-62786fdce1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mais-da-tua-essencia-e609756ec3",
@@ -67823,7 +67823,7 @@
       "updatedAt": "2026-04-19T21:03:48.760Z",
       "apiUrl": "/api/songs/renascer-praise-mais-da-tua-essencia-e609756ec3",
       "offlineKey": "mdl-song-renascer-praise-mais-da-tua-essencia-e609756ec3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mais-de-ti-364993ea10",
@@ -67836,7 +67836,7 @@
       "updatedAt": "2026-04-19T21:03:55.992Z",
       "apiUrl": "/api/songs/renascer-praise-mais-de-ti-364993ea10",
       "offlineKey": "mdl-song-renascer-praise-mais-de-ti-364993ea10",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mais-de-ti-rp-5-bdd1b1b473",
@@ -67849,7 +67849,7 @@
       "updatedAt": "2026-04-19T21:05:53.402Z",
       "apiUrl": "/api/songs/renascer-praise-mais-de-ti-rp-5-bdd1b1b473",
       "offlineKey": "mdl-song-renascer-praise-mais-de-ti-rp-5-bdd1b1b473",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mais-de-ti-ver-2-3de84e5f7f",
@@ -67862,7 +67862,7 @@
       "updatedAt": "2026-04-19T21:07:21.646Z",
       "apiUrl": "/api/songs/renascer-praise-mais-de-ti-ver-2-3de84e5f7f",
       "offlineKey": "mdl-song-renascer-praise-mais-de-ti-ver-2-3de84e5f7f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mais-que-vencedor-bcecf81375",
@@ -67875,7 +67875,7 @@
       "updatedAt": "2026-04-19T21:04:29.389Z",
       "apiUrl": "/api/songs/renascer-praise-mais-que-vencedor-bcecf81375",
       "offlineKey": "mdl-song-renascer-praise-mais-que-vencedor-bcecf81375",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-marcado-ba86096288",
@@ -67888,7 +67888,7 @@
       "updatedAt": "2026-04-19T21:04:03.273Z",
       "apiUrl": "/api/songs/renascer-praise-marcado-ba86096288",
       "offlineKey": "mdl-song-renascer-praise-marcado-ba86096288",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-me-abraca-bd81c7e303",
@@ -67901,7 +67901,7 @@
       "updatedAt": "2026-04-19T21:04:47.775Z",
       "apiUrl": "/api/songs/renascer-praise-me-abraca-bd81c7e303",
       "offlineKey": "mdl-song-renascer-praise-me-abraca-bd81c7e303",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-me-derramar-e5551be0be",
@@ -67914,7 +67914,7 @@
       "updatedAt": "2026-04-19T21:04:07.072Z",
       "apiUrl": "/api/songs/renascer-praise-me-derramar-e5551be0be",
       "offlineKey": "mdl-song-renascer-praise-me-derramar-e5551be0be",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-me-incendeia-cc1751d3be",
@@ -67927,7 +67927,7 @@
       "updatedAt": "2026-04-19T21:07:32.710Z",
       "apiUrl": "/api/songs/renascer-praise-me-incendeia-cc1751d3be",
       "offlineKey": "mdl-song-renascer-praise-me-incendeia-cc1751d3be",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-messias-3bab2888e7",
@@ -67940,7 +67940,7 @@
       "updatedAt": "2026-04-19T21:05:24.189Z",
       "apiUrl": "/api/songs/renascer-praise-messias-3bab2888e7",
       "offlineKey": "mdl-song-renascer-praise-messias-3bab2888e7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mil-graus-c71ae00d19",
@@ -67953,7 +67953,7 @@
       "updatedAt": "2026-04-19T21:02:50.334Z",
       "apiUrl": "/api/songs/renascer-praise-mil-graus-c71ae00d19",
       "offlineKey": "mdl-song-renascer-praise-mil-graus-c71ae00d19",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-milagre-de-natal-d096960d9e",
@@ -67966,7 +67966,7 @@
       "updatedAt": "2026-04-19T21:03:45.026Z",
       "apiUrl": "/api/songs/renascer-praise-milagre-de-natal-d096960d9e",
       "offlineKey": "mdl-song-renascer-praise-milagre-de-natal-d096960d9e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-milagre-no-altar-ba967d4742",
@@ -67979,7 +67979,7 @@
       "updatedAt": "2026-04-19T21:03:30.368Z",
       "apiUrl": "/api/songs/renascer-praise-milagre-no-altar-ba967d4742",
       "offlineKey": "mdl-song-renascer-praise-milagre-no-altar-ba967d4742",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-milagres-d730b1873d",
@@ -67992,7 +67992,7 @@
       "updatedAt": "2026-04-19T21:06:30.190Z",
       "apiUrl": "/api/songs/renascer-praise-milagres-d730b1873d",
       "offlineKey": "mdl-song-renascer-praise-milagres-d730b1873d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-minha-vida-e-um-milagre-e74afe0fe4",
@@ -68005,7 +68005,7 @@
       "updatedAt": "2026-04-19T21:06:48.479Z",
       "apiUrl": "/api/songs/renascer-praise-minha-vida-e-um-milagre-e74afe0fe4",
       "offlineKey": "mdl-song-renascer-praise-minha-vida-e-um-milagre-e74afe0fe4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-moria-adbfd524e0",
@@ -68018,7 +68018,7 @@
       "updatedAt": "2026-04-19T21:06:26.575Z",
       "apiUrl": "/api/songs/renascer-praise-moria-adbfd524e0",
       "offlineKey": "mdl-song-renascer-praise-moria-adbfd524e0",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mostra-me-sua-gloria-af69a9d9e9",
@@ -68031,7 +68031,7 @@
       "updatedAt": "2026-04-19T21:07:36.396Z",
       "apiUrl": "/api/songs/renascer-praise-mostra-me-sua-gloria-af69a9d9e9",
       "offlineKey": "mdl-song-renascer-praise-mostra-me-sua-gloria-af69a9d9e9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-mostra-me-tua-gloria-e997514779",
@@ -68044,7 +68044,7 @@
       "updatedAt": "2026-04-19T21:03:15.816Z",
       "apiUrl": "/api/songs/renascer-praise-mostra-me-tua-gloria-e997514779",
       "offlineKey": "mdl-song-renascer-praise-mostra-me-tua-gloria-e997514779",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-move-303363a122",
@@ -68057,7 +68057,7 @@
       "updatedAt": "2026-04-19T21:05:02.272Z",
       "apiUrl": "/api/songs/renascer-praise-move-303363a122",
       "offlineKey": "mdl-song-renascer-praise-move-303363a122",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-move-teu-espirito-e2df9b84b4",
@@ -68070,7 +68070,7 @@
       "updatedAt": "2026-04-19T21:07:40.169Z",
       "apiUrl": "/api/songs/renascer-praise-move-teu-espirito-e2df9b84b4",
       "offlineKey": "mdl-song-renascer-praise-move-teu-espirito-e2df9b84b4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-na-forca-do-louvor-2b5e8700be",
@@ -68083,7 +68083,7 @@
       "updatedAt": "2026-04-19T21:03:19.475Z",
       "apiUrl": "/api/songs/renascer-praise-na-forca-do-louvor-2b5e8700be",
       "offlineKey": "mdl-song-renascer-praise-na-forca-do-louvor-2b5e8700be",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-na-forca-do-louvor-praise-xii-909ba89f8c",
@@ -68096,7 +68096,7 @@
       "updatedAt": "2026-04-19T21:07:17.981Z",
       "apiUrl": "/api/songs/renascer-praise-na-forca-do-louvor-praise-xii-909ba89f8c",
       "offlineKey": "mdl-song-renascer-praise-na-forca-do-louvor-praise-xii-909ba89f8c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-na-paz-do-senhor-a81b7f2e6a",
@@ -68109,7 +68109,7 @@
       "updatedAt": "2026-04-19T21:07:43.814Z",
       "apiUrl": "/api/songs/renascer-praise-na-paz-do-senhor-a81b7f2e6a",
       "offlineKey": "mdl-song-renascer-praise-na-paz-do-senhor-a81b7f2e6a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-na-tua-presenca-62fe633efb",
@@ -68122,7 +68122,7 @@
       "updatedAt": "2026-04-19T21:03:41.282Z",
       "apiUrl": "/api/songs/renascer-praise-na-tua-presenca-62fe633efb",
       "offlineKey": "mdl-song-renascer-praise-na-tua-presenca-62fe633efb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-na-tua-presenca-praise-xii-ae8fa32bab",
@@ -68135,7 +68135,7 @@
       "updatedAt": "2026-04-19T21:07:47.413Z",
       "apiUrl": "/api/songs/renascer-praise-na-tua-presenca-praise-xii-ae8fa32bab",
       "offlineKey": "mdl-song-renascer-praise-na-tua-presenca-praise-xii-ae8fa32bab",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nada-do-que-eu-tiver-43c702404c",
@@ -68148,7 +68148,7 @@
       "updatedAt": "2026-04-19T21:05:35.160Z",
       "apiUrl": "/api/songs/renascer-praise-nada-do-que-eu-tiver-43c702404c",
       "offlineKey": "mdl-song-renascer-praise-nada-do-que-eu-tiver-43c702404c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nada-e-igual-fb09a21f44",
@@ -68161,7 +68161,7 @@
       "updatedAt": "2026-04-19T21:06:00.837Z",
       "apiUrl": "/api/songs/renascer-praise-nada-e-igual-fb09a21f44",
       "offlineKey": "mdl-song-renascer-praise-nada-e-igual-fb09a21f44",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nada-se-compara-7734712457",
@@ -68174,7 +68174,7 @@
       "updatedAt": "2026-04-19T21:03:04.888Z",
       "apiUrl": "/api/songs/renascer-praise-nada-se-compara-7734712457",
       "offlineKey": "mdl-song-renascer-praise-nada-se-compara-7734712457",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nao-aceito-ser-mais-um-53e30784b4",
@@ -68187,7 +68187,7 @@
       "updatedAt": "2026-04-19T21:05:16.951Z",
       "apiUrl": "/api/songs/renascer-praise-nao-aceito-ser-mais-um-53e30784b4",
       "offlineKey": "mdl-song-renascer-praise-nao-aceito-ser-mais-um-53e30784b4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nao-havera-impossiveis-bc98b994c7",
@@ -68200,7 +68200,7 @@
       "updatedAt": "2026-04-19T21:06:11.811Z",
       "apiUrl": "/api/songs/renascer-praise-nao-havera-impossiveis-bc98b994c7",
       "offlineKey": "mdl-song-renascer-praise-nao-havera-impossiveis-bc98b994c7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nao-havera-ipossiveis-10cd6f04a1",
@@ -68213,7 +68213,7 @@
       "updatedAt": "2026-04-19T21:07:51.093Z",
       "apiUrl": "/api/songs/renascer-praise-nao-havera-ipossiveis-10cd6f04a1",
       "offlineKey": "mdl-song-renascer-praise-nao-havera-ipossiveis-10cd6f04a1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nao-tem-limites-5d354727ea",
@@ -68226,7 +68226,7 @@
       "updatedAt": "2026-04-19T21:05:05.900Z",
       "apiUrl": "/api/songs/renascer-praise-nao-tem-limites-5d354727ea",
       "offlineKey": "mdl-song-renascer-praise-nao-tem-limites-5d354727ea",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nasci-pra-vencer-4f742b3967",
@@ -68239,7 +68239,7 @@
       "updatedAt": "2026-04-19T21:07:25.292Z",
       "apiUrl": "/api/songs/renascer-praise-nasci-pra-vencer-4f742b3967",
       "offlineKey": "mdl-song-renascer-praise-nasci-pra-vencer-4f742b3967",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nasci-pra-vencer-praise-xii-f235ac0b85",
@@ -68252,7 +68252,7 @@
       "updatedAt": "2026-04-19T21:04:40.472Z",
       "apiUrl": "/api/songs/renascer-praise-nasci-pra-vencer-praise-xii-f235ac0b85",
       "offlineKey": "mdl-song-renascer-praise-nasci-pra-vencer-praise-xii-f235ac0b85",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-natal-0b97c381ec",
@@ -68265,7 +68265,7 @@
       "updatedAt": "2026-04-19T21:07:54.705Z",
       "apiUrl": "/api/songs/renascer-praise-natal-0b97c381ec",
       "offlineKey": "mdl-song-renascer-praise-natal-0b97c381ec",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nissi-b88de54f12",
@@ -68278,7 +68278,7 @@
       "updatedAt": "2026-04-19T21:07:58.409Z",
       "apiUrl": "/api/songs/renascer-praise-nissi-b88de54f12",
       "offlineKey": "mdl-song-renascer-praise-nissi-b88de54f12",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-no-mover-das-tuas-aguas-bd3743887a",
@@ -68291,7 +68291,7 @@
       "updatedAt": "2026-04-19T21:04:25.736Z",
       "apiUrl": "/api/songs/renascer-praise-no-mover-das-tuas-aguas-bd3743887a",
       "offlineKey": "mdl-song-renascer-praise-no-mover-das-tuas-aguas-bd3743887a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-norte-e-sul-leste-oeste-90b4d652b9",
@@ -68304,7 +68304,7 @@
       "updatedAt": "2026-04-19T21:08:02.104Z",
       "apiUrl": "/api/songs/renascer-praise-norte-e-sul-leste-oeste-90b4d652b9",
       "offlineKey": "mdl-song-renascer-praise-norte-e-sul-leste-oeste-90b4d652b9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-norte-sul-leste-e-oeste-40d3699cde",
@@ -68317,7 +68317,7 @@
       "updatedAt": "2026-04-19T21:05:46.146Z",
       "apiUrl": "/api/songs/renascer-praise-norte-sul-leste-e-oeste-40d3699cde",
       "offlineKey": "mdl-song-renascer-praise-norte-sul-leste-e-oeste-40d3699cde",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nossa-festa-326aaab6d2",
@@ -68330,7 +68330,7 @@
       "updatedAt": "2026-04-19T21:04:36.848Z",
       "apiUrl": "/api/songs/renascer-praise-nossa-festa-326aaab6d2",
       "offlineKey": "mdl-song-renascer-praise-nossa-festa-326aaab6d2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-nossas-armas-2749fa5422",
@@ -68343,7 +68343,7 @@
       "updatedAt": "2026-04-19T21:05:38.812Z",
       "apiUrl": "/api/songs/renascer-praise-nossas-armas-2749fa5422",
       "offlineKey": "mdl-song-renascer-praise-nossas-armas-2749fa5422",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-novo-dia-novo-tempo-6d79a92af8",
@@ -68356,7 +68356,7 @@
       "updatedAt": "2026-04-19T21:03:08.529Z",
       "apiUrl": "/api/songs/renascer-praise-novo-dia-novo-tempo-6d79a92af8",
       "offlineKey": "mdl-song-renascer-praise-novo-dia-novo-tempo-6d79a92af8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-amor-de-jesus-4f3695caaa",
@@ -68369,7 +68369,7 @@
       "updatedAt": "2026-04-19T21:06:52.166Z",
       "apiUrl": "/api/songs/renascer-praise-o-amor-de-jesus-4f3695caaa",
       "offlineKey": "mdl-song-renascer-praise-o-amor-de-jesus-4f3695caaa",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-dono-da-casa-18cd9b0db8",
@@ -68382,7 +68382,7 @@
       "updatedAt": "2026-04-19T21:06:41.172Z",
       "apiUrl": "/api/songs/renascer-praise-o-dono-da-casa-18cd9b0db8",
       "offlineKey": "mdl-song-renascer-praise-o-dono-da-casa-18cd9b0db8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-leao-te-chamou-b233bfdaf2",
@@ -68395,7 +68395,7 @@
       "updatedAt": "2026-04-19T21:08:05.740Z",
       "apiUrl": "/api/songs/renascer-praise-o-leao-te-chamou-b233bfdaf2",
       "offlineKey": "mdl-song-renascer-praise-o-leao-te-chamou-b233bfdaf2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-melhor-esta-por-vir-7d8b8bf3f7",
@@ -68408,7 +68408,7 @@
       "updatedAt": "2026-04-19T21:05:49.778Z",
       "apiUrl": "/api/songs/renascer-praise-o-melhor-esta-por-vir-7d8b8bf3f7",
       "offlineKey": "mdl-song-renascer-praise-o-melhor-esta-por-vir-7d8b8bf3f7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-mesmo-sentimento-745fb51af8",
@@ -68421,7 +68421,7 @@
       "updatedAt": "2026-04-19T21:06:55.799Z",
       "apiUrl": "/api/songs/renascer-praise-o-mesmo-sentimento-745fb51af8",
       "offlineKey": "mdl-song-renascer-praise-o-mesmo-sentimento-745fb51af8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-milagre-da-espera-6bbe846a23",
@@ -68434,7 +68434,7 @@
       "updatedAt": "2026-04-19T21:04:14.601Z",
       "apiUrl": "/api/songs/renascer-praise-o-milagre-da-espera-6bbe846a23",
       "offlineKey": "mdl-song-renascer-praise-o-milagre-da-espera-6bbe846a23",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-que-darei-ao-senhor-d4a023e9ce",
@@ -68447,7 +68447,7 @@
       "updatedAt": "2026-04-19T21:05:31.522Z",
       "apiUrl": "/api/songs/renascer-praise-o-que-darei-ao-senhor-d4a023e9ce",
       "offlineKey": "mdl-song-renascer-praise-o-que-darei-ao-senhor-d4a023e9ce",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-sangue-de-jesus-3cb28a9605",
@@ -68460,7 +68460,7 @@
       "updatedAt": "2026-04-19T21:03:33.985Z",
       "apiUrl": "/api/songs/renascer-praise-o-sangue-de-jesus-3cb28a9605",
       "offlineKey": "mdl-song-renascer-praise-o-sangue-de-jesus-3cb28a9605",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-segredo-de-dar-fc80fbe3ba",
@@ -68473,7 +68473,7 @@
       "updatedAt": "2026-04-19T21:03:23.080Z",
       "apiUrl": "/api/songs/renascer-praise-o-segredo-de-dar-fc80fbe3ba",
       "offlineKey": "mdl-song-renascer-praise-o-segredo-de-dar-fc80fbe3ba",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-senhor-e-a-minha-forca-8d9b856f27",
@@ -68486,7 +68486,7 @@
       "updatedAt": "2026-04-19T21:06:04.603Z",
       "apiUrl": "/api/songs/renascer-praise-o-senhor-e-a-minha-forca-8d9b856f27",
       "offlineKey": "mdl-song-renascer-praise-o-senhor-e-a-minha-forca-8d9b856f27",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-senhor-e-a-minha-luz-9cdcb32e1e",
@@ -68499,7 +68499,7 @@
       "updatedAt": "2026-04-19T21:05:42.501Z",
       "apiUrl": "/api/songs/renascer-praise-o-senhor-e-a-minha-luz-9cdcb32e1e",
       "offlineKey": "mdl-song-renascer-praise-o-senhor-e-a-minha-luz-9cdcb32e1e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-o-senhor-e-a-minha-luz-ver-2-c6e679b10d",
@@ -68512,7 +68512,7 @@
       "updatedAt": "2026-04-19T21:08:09.391Z",
       "apiUrl": "/api/songs/renascer-praise-o-senhor-e-a-minha-luz-ver-2-c6e679b10d",
       "offlineKey": "mdl-song-renascer-praise-o-senhor-e-a-minha-luz-ver-2-c6e679b10d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-oracao-de-neemias-aa9681f34b",
@@ -68525,7 +68525,7 @@
       "updatedAt": "2026-04-19T21:05:57.099Z",
       "apiUrl": "/api/songs/renascer-praise-oracao-de-neemias-aa9681f34b",
       "offlineKey": "mdl-song-renascer-praise-oracao-de-neemias-aa9681f34b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-os-filhos-de-deus-d52cf2934d",
@@ -68538,7 +68538,7 @@
       "updatedAt": "2026-04-19T21:05:13.357Z",
       "apiUrl": "/api/songs/renascer-praise-os-filhos-de-deus-d52cf2934d",
       "offlineKey": "mdl-song-renascer-praise-os-filhos-de-deus-d52cf2934d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-os-guerreiros-se-preparam-c5837e0442",
@@ -68551,7 +68551,7 @@
       "updatedAt": "2026-04-19T21:06:59.496Z",
       "apiUrl": "/api/songs/renascer-praise-os-guerreiros-se-preparam-c5837e0442",
       "offlineKey": "mdl-song-renascer-praise-os-guerreiros-se-preparam-c5837e0442",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pacto-de-amor-9c5d6e1fd8",
@@ -68564,7 +68564,7 @@
       "updatedAt": "2026-04-19T21:06:33.848Z",
       "apiUrl": "/api/songs/renascer-praise-pacto-de-amor-9c5d6e1fd8",
       "offlineKey": "mdl-song-renascer-praise-pacto-de-amor-9c5d6e1fd8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pelo-sangue-9abc21114b",
@@ -68577,7 +68577,7 @@
       "updatedAt": "2026-04-19T21:02:57.589Z",
       "apiUrl": "/api/songs/renascer-praise-pelo-sangue-9abc21114b",
       "offlineKey": "mdl-song-renascer-praise-pelo-sangue-9abc21114b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pentecoste-de-amor-54e1fc2c98",
@@ -68590,7 +68590,7 @@
       "updatedAt": "2026-04-19T21:07:28.947Z",
       "apiUrl": "/api/songs/renascer-praise-pentecoste-de-amor-54e1fc2c98",
       "offlineKey": "mdl-song-renascer-praise-pentecoste-de-amor-54e1fc2c98",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pes-apostolicos-f175ea9bd5",
@@ -68603,7 +68603,7 @@
       "updatedAt": "2026-04-19T21:04:58.664Z",
       "apiUrl": "/api/songs/renascer-praise-pes-apostolicos-f175ea9bd5",
       "offlineKey": "mdl-song-renascer-praise-pes-apostolicos-f175ea9bd5",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pes-apostolicos-praise-xii-993aa3488e",
@@ -68616,7 +68616,7 @@
       "updatedAt": "2026-04-19T21:08:13.086Z",
       "apiUrl": "/api/songs/renascer-praise-pes-apostolicos-praise-xii-993aa3488e",
       "offlineKey": "mdl-song-renascer-praise-pes-apostolicos-praise-xii-993aa3488e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-plano-melhor-52d45d7b5c",
@@ -68629,7 +68629,7 @@
       "updatedAt": "2026-04-19T21:03:12.147Z",
       "apiUrl": "/api/songs/renascer-praise-plano-melhor-52d45d7b5c",
       "offlineKey": "mdl-song-renascer-praise-plano-melhor-52d45d7b5c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-plano-melhor-ver-2-bafb24b99c",
@@ -68642,7 +68642,7 @@
       "updatedAt": "2026-04-19T21:07:06.906Z",
       "apiUrl": "/api/songs/renascer-praise-plano-melhor-ver-2-bafb24b99c",
       "offlineKey": "mdl-song-renascer-praise-plano-melhor-ver-2-bafb24b99c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-plano-perfeito-189bc5e70d",
@@ -68655,7 +68655,7 @@
       "updatedAt": "2026-04-19T21:02:53.952Z",
       "apiUrl": "/api/songs/renascer-praise-plano-perfeito-189bc5e70d",
       "offlineKey": "mdl-song-renascer-praise-plano-perfeito-189bc5e70d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pode-parar-967999a73e",
@@ -68668,7 +68668,7 @@
       "updatedAt": "2026-04-19T21:06:37.512Z",
       "apiUrl": "/api/songs/renascer-praise-pode-parar-967999a73e",
       "offlineKey": "mdl-song-renascer-praise-pode-parar-967999a73e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-poder-da-oracao-fccf746994",
@@ -68681,7 +68681,7 @@
       "updatedAt": "2026-04-19T21:04:22.107Z",
       "apiUrl": "/api/songs/renascer-praise-poder-da-oracao-fccf746994",
       "offlineKey": "mdl-song-renascer-praise-poder-da-oracao-fccf746994",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-poderoso-592d68da67",
@@ -68694,7 +68694,7 @@
       "updatedAt": "2026-04-19T21:05:27.790Z",
       "apiUrl": "/api/songs/renascer-praise-poderoso-592d68da67",
       "offlineKey": "mdl-song-renascer-praise-poderoso-592d68da67",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-poderoso-deus-91348e34bc",
@@ -68707,7 +68707,7 @@
       "updatedAt": "2026-04-19T21:03:52.372Z",
       "apiUrl": "/api/songs/renascer-praise-poderoso-deus-91348e34bc",
       "offlineKey": "mdl-song-renascer-praise-poderoso-deus-91348e34bc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-poderoso-nas-batalhas-d249fb6394",
@@ -68720,7 +68720,7 @@
       "updatedAt": "2026-04-19T21:03:37.641Z",
       "apiUrl": "/api/songs/renascer-praise-poderoso-nas-batalhas-d249fb6394",
       "offlineKey": "mdl-song-renascer-praise-poderoso-nas-batalhas-d249fb6394",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-poeta-006a66abf4",
@@ -68733,7 +68733,7 @@
       "updatedAt": "2026-04-19T21:05:09.613Z",
       "apiUrl": "/api/songs/renascer-praise-poeta-006a66abf4",
       "offlineKey": "mdl-song-renascer-praise-poeta-006a66abf4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-povo-apostolico-0704e77a86",
@@ -68746,7 +68746,7 @@
       "updatedAt": "2026-04-19T21:08:16.746Z",
       "apiUrl": "/api/songs/renascer-praise-povo-apostolico-0704e77a86",
       "offlineKey": "mdl-song-renascer-praise-povo-apostolico-0704e77a86",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pra-sempre-9d117b3de5",
@@ -68759,7 +68759,7 @@
       "updatedAt": "2026-04-19T21:06:19.264Z",
       "apiUrl": "/api/songs/renascer-praise-pra-sempre-9d117b3de5",
       "offlineKey": "mdl-song-renascer-praise-pra-sempre-9d117b3de5",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pra-sempre-vou-louvar-c15ca9eeda",
@@ -68772,7 +68772,7 @@
       "updatedAt": "2026-04-19T21:04:55.018Z",
       "apiUrl": "/api/songs/renascer-praise-pra-sempre-vou-louvar-c15ca9eeda",
       "offlineKey": "mdl-song-renascer-praise-pra-sempre-vou-louvar-c15ca9eeda",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-pra-te-honrar-868a5320cc",
@@ -68785,7 +68785,7 @@
       "updatedAt": "2026-04-19T21:06:44.826Z",
       "apiUrl": "/api/songs/renascer-praise-pra-te-honrar-868a5320cc",
       "offlineKey": "mdl-song-renascer-praise-pra-te-honrar-868a5320cc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-profetiza-ee0f8a8fd0",
@@ -68798,7 +68798,7 @@
       "updatedAt": "2026-04-19T21:04:33.060Z",
       "apiUrl": "/api/songs/renascer-praise-profetiza-ee0f8a8fd0",
       "offlineKey": "mdl-song-renascer-praise-profetiza-ee0f8a8fd0",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-promessa-7a9243b51c",
@@ -68811,7 +68811,7 @@
       "updatedAt": "2026-04-19T21:03:01.239Z",
       "apiUrl": "/api/songs/renascer-praise-promessa-7a9243b51c",
       "offlineKey": "mdl-song-renascer-praise-promessa-7a9243b51c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-promessa-ver-2-3d20cdeb86",
@@ -68824,7 +68824,7 @@
       "updatedAt": "2026-04-19T21:07:10.566Z",
       "apiUrl": "/api/songs/renascer-praise-promessa-ver-2-3d20cdeb86",
       "offlineKey": "mdl-song-renascer-praise-promessa-ver-2-3d20cdeb86",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-promessa-viva-3d29fc59b2",
@@ -68837,7 +68837,7 @@
       "updatedAt": "2026-04-19T21:08:20.407Z",
       "apiUrl": "/api/songs/renascer-praise-promessa-viva-3d29fc59b2",
       "offlineKey": "mdl-song-renascer-praise-promessa-viva-3d29fc59b2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-promessas-e0858ed1b9",
@@ -68850,7 +68850,7 @@
       "updatedAt": "2026-04-19T21:07:14.224Z",
       "apiUrl": "/api/songs/renascer-praise-promessas-e0858ed1b9",
       "offlineKey": "mdl-song-renascer-praise-promessas-e0858ed1b9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-proposito-330b08c306",
@@ -68863,7 +68863,7 @@
       "updatedAt": "2026-04-19T21:06:22.892Z",
       "apiUrl": "/api/songs/renascer-praise-proposito-330b08c306",
       "offlineKey": "mdl-song-renascer-praise-proposito-330b08c306",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-prosperarei-97bf722541",
@@ -68876,7 +68876,7 @@
       "updatedAt": "2026-04-19T21:06:15.462Z",
       "apiUrl": "/api/songs/renascer-praise-prosperarei-97bf722541",
       "offlineKey": "mdl-song-renascer-praise-prosperarei-97bf722541",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-purifica-me-0084b19569",
@@ -68889,7 +68889,7 @@
       "updatedAt": "2026-04-19T21:04:18.268Z",
       "apiUrl": "/api/songs/renascer-praise-purifica-me-0084b19569",
       "offlineKey": "mdl-song-renascer-praise-purifica-me-0084b19569",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-quero-louvar-te-56f6af19a4",
@@ -68902,7 +68902,7 @@
       "updatedAt": "2026-04-19T21:05:20.564Z",
       "apiUrl": "/api/songs/renascer-praise-quero-louvar-te-56f6af19a4",
       "offlineKey": "mdl-song-renascer-praise-quero-louvar-te-56f6af19a4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-quero-me-apresentar-2dcd038d58",
@@ -68915,7 +68915,7 @@
       "updatedAt": "2026-04-19T21:03:59.634Z",
       "apiUrl": "/api/songs/renascer-praise-quero-me-apresentar-2dcd038d58",
       "offlineKey": "mdl-song-renascer-praise-quero-me-apresentar-2dcd038d58",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-receba-poder-64d86de253",
@@ -68928,7 +68928,7 @@
       "updatedAt": "2026-04-19T21:04:51.400Z",
       "apiUrl": "/api/songs/renascer-praise-receba-poder-64d86de253",
       "offlineKey": "mdl-song-renascer-praise-receba-poder-64d86de253",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-receba-senhor-5cc793b0d1",
@@ -68941,7 +68941,7 @@
       "updatedAt": "2026-04-19T21:06:08.204Z",
       "apiUrl": "/api/songs/renascer-praise-receba-senhor-5cc793b0d1",
       "offlineKey": "mdl-song-renascer-praise-receba-senhor-5cc793b0d1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-recebe-minha-adoracao-97ae9b466d",
@@ -68954,7 +68954,7 @@
       "updatedAt": "2026-04-19T21:03:26.709Z",
       "apiUrl": "/api/songs/renascer-praise-recebe-minha-adoracao-97ae9b466d",
       "offlineKey": "mdl-song-renascer-praise-recebe-minha-adoracao-97ae9b466d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-recebo-este-poder-e612b9bafb",
@@ -68967,7 +68967,7 @@
       "updatedAt": "2026-04-19T21:13:27.251Z",
       "apiUrl": "/api/songs/renascer-praise-recebo-este-poder-e612b9bafb",
       "offlineKey": "mdl-song-renascer-praise-recebo-este-poder-e612b9bafb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-reconciliacao-c60ea74810",
@@ -68980,7 +68980,7 @@
       "updatedAt": "2026-04-19T21:04:44.147Z",
       "apiUrl": "/api/songs/renascer-praise-reconciliacao-c60ea74810",
       "offlineKey": "mdl-song-renascer-praise-reconciliacao-c60ea74810",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-rendemos-gloria-a24f5d53d0",
@@ -68993,7 +68993,7 @@
       "updatedAt": "2026-04-19T21:04:10.733Z",
       "apiUrl": "/api/songs/renascer-praise-rendemos-gloria-a24f5d53d0",
       "offlineKey": "mdl-song-renascer-praise-rendemos-gloria-a24f5d53d0",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-renovo-b6beb6fdad",
@@ -69006,7 +69006,7 @@
       "updatedAt": "2026-04-19T21:07:03.158Z",
       "apiUrl": "/api/songs/renascer-praise-renovo-b6beb6fdad",
       "offlineKey": "mdl-song-renascer-praise-renovo-b6beb6fdad",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ressureicao-ba779ee1f9",
@@ -69019,7 +69019,7 @@
       "updatedAt": "2026-04-19T21:10:17.027Z",
       "apiUrl": "/api/songs/renascer-praise-ressureicao-ba779ee1f9",
       "offlineKey": "mdl-song-renascer-praise-ressureicao-ba779ee1f9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ressurreicao-6989f9692e",
@@ -69032,7 +69032,7 @@
       "updatedAt": "2026-04-19T21:10:31.829Z",
       "apiUrl": "/api/songs/renascer-praise-ressurreicao-6989f9692e",
       "offlineKey": "mdl-song-renascer-praise-ressurreicao-6989f9692e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-restaura-75b0a34230",
@@ -69045,7 +69045,7 @@
       "updatedAt": "2026-04-19T21:10:35.479Z",
       "apiUrl": "/api/songs/renascer-praise-restaura-75b0a34230",
       "offlineKey": "mdl-song-renascer-praise-restaura-75b0a34230",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-restitui-9afe82fcfc",
@@ -69058,7 +69058,7 @@
       "updatedAt": "2026-04-19T21:08:49.789Z",
       "apiUrl": "/api/songs/renascer-praise-restitui-9afe82fcfc",
       "offlineKey": "mdl-song-renascer-praise-restitui-9afe82fcfc",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-restitui-renascer-praise-18-371fec6d4a",
@@ -69071,7 +69071,7 @@
       "updatedAt": "2026-04-19T21:08:27.651Z",
       "apiUrl": "/api/songs/renascer-praise-restitui-renascer-praise-18-371fec6d4a",
       "offlineKey": "mdl-song-renascer-praise-restitui-renascer-praise-18-371fec6d4a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-restituicao-f771a174eb",
@@ -69084,7 +69084,7 @@
       "updatedAt": "2026-04-19T21:10:02.546Z",
       "apiUrl": "/api/songs/renascer-praise-restituicao-f771a174eb",
       "offlineKey": "mdl-song-renascer-praise-restituicao-f771a174eb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-samba-rock-182ce685ef",
@@ -69097,7 +69097,7 @@
       "updatedAt": "2026-04-19T21:09:40.661Z",
       "apiUrl": "/api/songs/renascer-praise-samba-rock-182ce685ef",
       "offlineKey": "mdl-song-renascer-praise-samba-rock-182ce685ef",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-deus-41ed14fd39",
@@ -69110,7 +69110,7 @@
       "updatedAt": "2026-04-19T21:09:58.909Z",
       "apiUrl": "/api/songs/renascer-praise-santo-deus-41ed14fd39",
       "offlineKey": "mdl-song-renascer-praise-santo-deus-41ed14fd39",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-e-o-cordeiro-fdb20846a0",
@@ -69123,7 +69123,7 @@
       "updatedAt": "2026-04-19T21:09:26.129Z",
       "apiUrl": "/api/songs/renascer-praise-santo-e-o-cordeiro-fdb20846a0",
       "offlineKey": "mdl-song-renascer-praise-santo-e-o-cordeiro-fdb20846a0",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-e-o-senhor-e357af8d83",
@@ -69136,7 +69136,7 @@
       "updatedAt": "2026-04-19T21:09:11.591Z",
       "apiUrl": "/api/songs/renascer-praise-santo-e-o-senhor-e357af8d83",
       "offlineKey": "mdl-song-renascer-praise-santo-e-o-senhor-e357af8d83",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-lugar-d4f75e082e",
@@ -69149,7 +69149,7 @@
       "updatedAt": "2026-04-19T21:08:42.414Z",
       "apiUrl": "/api/songs/renascer-praise-santo-lugar-d4f75e082e",
       "offlineKey": "mdl-song-renascer-praise-santo-lugar-d4f75e082e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-santo-75c10e8089",
@@ -69162,7 +69162,7 @@
       "updatedAt": "2026-04-19T21:10:13.434Z",
       "apiUrl": "/api/songs/renascer-praise-santo-santo-75c10e8089",
       "offlineKey": "mdl-song-renascer-praise-santo-santo-75c10e8089",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-santo-santo-cccc176ba3",
@@ -69175,7 +69175,7 @@
       "updatedAt": "2026-04-19T21:08:31.256Z",
       "apiUrl": "/api/songs/renascer-praise-santo-santo-santo-cccc176ba3",
       "offlineKey": "mdl-song-renascer-praise-santo-santo-santo-cccc176ba3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-santo-santo-vers-2-8cc49617bd",
@@ -69188,7 +69188,7 @@
       "updatedAt": "2026-04-19T21:10:28.217Z",
       "apiUrl": "/api/songs/renascer-praise-santo-santo-santo-vers-2-8cc49617bd",
       "offlineKey": "mdl-song-renascer-praise-santo-santo-santo-vers-2-8cc49617bd",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-santo-114bc08e0d",
@@ -69201,7 +69201,7 @@
       "updatedAt": "2026-04-19T21:08:38.795Z",
       "apiUrl": "/api/songs/renascer-praise-santo-114bc08e0d",
       "offlineKey": "mdl-song-renascer-praise-santo-114bc08e0d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-se-eu-nao-tivesse-a-ti-4c1e21c784",
@@ -69214,7 +69214,7 @@
       "updatedAt": "2026-04-19T21:09:15.212Z",
       "apiUrl": "/api/songs/renascer-praise-se-eu-nao-tivesse-a-ti-4c1e21c784",
       "offlineKey": "mdl-song-renascer-praise-se-eu-nao-tivesse-a-ti-4c1e21c784",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-se-nao-fora-o-senhor-b0af73338e",
@@ -69227,7 +69227,7 @@
       "updatedAt": "2026-04-19T21:09:55.280Z",
       "apiUrl": "/api/songs/renascer-praise-se-nao-fora-o-senhor-b0af73338e",
       "offlineKey": "mdl-song-renascer-praise-se-nao-fora-o-senhor-b0af73338e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-semente-da-promessa-796c5fd44c",
@@ -69240,7 +69240,7 @@
       "updatedAt": "2026-04-19T21:10:39.077Z",
       "apiUrl": "/api/songs/renascer-praise-semente-da-promessa-796c5fd44c",
       "offlineKey": "mdl-song-renascer-praise-semente-da-promessa-796c5fd44c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-senhor-e-minha-forca-945f3baed4",
@@ -69253,7 +69253,7 @@
       "updatedAt": "2026-04-19T21:10:42.719Z",
       "apiUrl": "/api/songs/renascer-praise-senhor-e-minha-forca-945f3baed4",
       "offlineKey": "mdl-song-renascer-praise-senhor-e-minha-forca-945f3baed4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-senhor-me-guarda-048a7227f4",
@@ -69266,7 +69266,7 @@
       "updatedAt": "2026-04-19T21:10:46.358Z",
       "apiUrl": "/api/songs/renascer-praise-senhor-me-guarda-048a7227f4",
       "offlineKey": "mdl-song-renascer-praise-senhor-me-guarda-048a7227f4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-senhor-quero-obedecer-d616692a90",
@@ -69279,7 +69279,7 @@
       "updatedAt": "2026-04-19T21:09:07.959Z",
       "apiUrl": "/api/songs/renascer-praise-senhor-quero-obedecer-d616692a90",
       "offlineKey": "mdl-song-renascer-praise-senhor-quero-obedecer-d616692a90",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sentimento-novo-ca809ce9cd",
@@ -69292,7 +69292,7 @@
       "updatedAt": "2026-04-19T21:10:06.160Z",
       "apiUrl": "/api/songs/renascer-praise-sentimento-novo-ca809ce9cd",
       "offlineKey": "mdl-song-renascer-praise-sentimento-novo-ca809ce9cd",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ser-conhecido-de-deus-c23b857741",
@@ -69305,7 +69305,7 @@
       "updatedAt": "2026-04-19T21:08:24.016Z",
       "apiUrl": "/api/songs/renascer-praise-ser-conhecido-de-deus-c23b857741",
       "offlineKey": "mdl-song-renascer-praise-ser-conhecido-de-deus-c23b857741",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ser-livre-0600a0a017",
@@ -69318,7 +69318,7 @@
       "updatedAt": "2026-04-19T21:09:00.751Z",
       "apiUrl": "/api/songs/renascer-praise-ser-livre-0600a0a017",
       "offlineKey": "mdl-song-renascer-praise-ser-livre-0600a0a017",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ser-reconhecido-de-deus-4eff431310",
@@ -69331,7 +69331,7 @@
       "updatedAt": "2026-04-19T21:10:20.635Z",
       "apiUrl": "/api/songs/renascer-praise-ser-reconhecido-de-deus-4eff431310",
       "offlineKey": "mdl-song-renascer-praise-ser-reconhecido-de-deus-4eff431310",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-ser-reconhecido-por-deus-eaa8fa1024",
@@ -69344,7 +69344,7 @@
       "updatedAt": "2026-04-19T21:10:24.285Z",
       "apiUrl": "/api/songs/renascer-praise-ser-reconhecido-por-deus-eaa8fa1024",
       "offlineKey": "mdl-song-renascer-praise-ser-reconhecido-por-deus-eaa8fa1024",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sete-vezes-mais-7a6ed8eca8",
@@ -69357,7 +69357,7 @@
       "updatedAt": "2026-04-19T21:10:49.980Z",
       "apiUrl": "/api/songs/renascer-praise-sete-vezes-mais-7a6ed8eca8",
       "offlineKey": "mdl-song-renascer-praise-sete-vezes-mais-7a6ed8eca8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sinfonia-58bde2e495",
@@ -69370,7 +69370,7 @@
       "updatedAt": "2026-04-19T21:08:35.147Z",
       "apiUrl": "/api/songs/renascer-praise-sinfonia-58bde2e495",
       "offlineKey": "mdl-song-renascer-praise-sinfonia-58bde2e495",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-so-a-ti-7f34f4b73c",
@@ -69383,7 +69383,7 @@
       "updatedAt": "2026-04-19T21:10:53.611Z",
       "apiUrl": "/api/songs/renascer-praise-so-a-ti-7f34f4b73c",
       "offlineKey": "mdl-song-renascer-praise-so-a-ti-7f34f4b73c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-so-ele-e-1e20a4145a",
@@ -69396,7 +69396,7 @@
       "updatedAt": "2026-04-19T21:10:57.246Z",
       "apiUrl": "/api/songs/renascer-praise-so-ele-e-1e20a4145a",
       "offlineKey": "mdl-song-renascer-praise-so-ele-e-1e20a4145a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sol-da-justica-523c463c4d",
@@ -69409,7 +69409,7 @@
       "updatedAt": "2026-04-19T21:09:44.275Z",
       "apiUrl": "/api/songs/renascer-praise-sol-da-justica-523c463c4d",
       "offlineKey": "mdl-song-renascer-praise-sol-da-justica-523c463c4d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-som-de-adorador-29de6f9e0c",
@@ -69422,7 +69422,7 @@
       "updatedAt": "2026-04-19T21:08:46.104Z",
       "apiUrl": "/api/songs/renascer-praise-som-de-adorador-29de6f9e0c",
       "offlineKey": "mdl-song-renascer-praise-som-de-adorador-29de6f9e0c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-som-do-louvor-770b88e50c",
@@ -69435,7 +69435,7 @@
       "updatedAt": "2026-04-19T21:09:33.365Z",
       "apiUrl": "/api/songs/renascer-praise-som-do-louvor-770b88e50c",
       "offlineKey": "mdl-song-renascer-praise-som-do-louvor-770b88e50c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-somos-teu-povo-c77a25b49b",
@@ -69448,7 +69448,7 @@
       "updatedAt": "2026-04-19T21:11:00.874Z",
       "apiUrl": "/api/songs/renascer-praise-somos-teu-povo-c77a25b49b",
       "offlineKey": "mdl-song-renascer-praise-somos-teu-povo-c77a25b49b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-somos-tua-igreja-1bb0455a2d",
@@ -69461,7 +69461,7 @@
       "updatedAt": "2026-04-19T21:09:51.604Z",
       "apiUrl": "/api/songs/renascer-praise-somos-tua-igreja-1bb0455a2d",
       "offlineKey": "mdl-song-renascer-praise-somos-tua-igreja-1bb0455a2d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sopra-5bab51dbfd",
@@ -69474,7 +69474,7 @@
       "updatedAt": "2026-04-19T21:09:29.729Z",
       "apiUrl": "/api/songs/renascer-praise-sopra-5bab51dbfd",
       "offlineKey": "mdl-song-renascer-praise-sopra-5bab51dbfd",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sopra-espirito-041e19da23",
@@ -69487,7 +69487,7 @@
       "updatedAt": "2026-04-19T21:11:04.504Z",
       "apiUrl": "/api/songs/renascer-praise-sopra-espirito-041e19da23",
       "offlineKey": "mdl-song-renascer-praise-sopra-espirito-041e19da23",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sopra-espirito-de-deus-fcc9e3e95a",
@@ -69500,7 +69500,7 @@
       "updatedAt": "2026-04-19T21:09:18.855Z",
       "apiUrl": "/api/songs/renascer-praise-sopra-espirito-de-deus-fcc9e3e95a",
       "offlineKey": "mdl-song-renascer-praise-sopra-espirito-de-deus-fcc9e3e95a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sou-apostolico-0b3b445b0d",
@@ -69513,7 +69513,7 @@
       "updatedAt": "2026-04-19T21:08:57.095Z",
       "apiUrl": "/api/songs/renascer-praise-sou-apostolico-0b3b445b0d",
       "offlineKey": "mdl-song-renascer-praise-sou-apostolico-0b3b445b0d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sou-de-jesus-39be4baf91",
@@ -69526,7 +69526,7 @@
       "updatedAt": "2026-04-19T21:09:47.991Z",
       "apiUrl": "/api/songs/renascer-praise-sou-de-jesus-39be4baf91",
       "offlineKey": "mdl-song-renascer-praise-sou-de-jesus-39be4baf91",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sou-livre-ce1b740f2b",
@@ -69539,7 +69539,7 @@
       "updatedAt": "2026-04-19T21:08:53.455Z",
       "apiUrl": "/api/songs/renascer-praise-sou-livre-ce1b740f2b",
       "offlineKey": "mdl-song-renascer-praise-sou-livre-ce1b740f2b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-sou-teu-541b56337c",
@@ -69552,7 +69552,7 @@
       "updatedAt": "2026-04-19T21:09:37.017Z",
       "apiUrl": "/api/songs/renascer-praise-sou-teu-541b56337c",
       "offlineKey": "mdl-song-renascer-praise-sou-teu-541b56337c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-te-adoramos-4b84c3e12b",
@@ -69565,7 +69565,7 @@
       "updatedAt": "2026-04-19T21:09:22.475Z",
       "apiUrl": "/api/songs/renascer-praise-te-adoramos-4b84c3e12b",
       "offlineKey": "mdl-song-renascer-praise-te-adoramos-4b84c3e12b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-te-adorarei-4ad3ad8c65",
@@ -69578,7 +69578,7 @@
       "updatedAt": "2026-04-19T21:10:09.766Z",
       "apiUrl": "/api/songs/renascer-praise-te-adorarei-4ad3ad8c65",
       "offlineKey": "mdl-song-renascer-praise-te-adorarei-4ad3ad8c65",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tem-mais-de-deus-e36aec5daf",
@@ -69591,7 +69591,7 @@
       "updatedAt": "2026-04-19T21:11:08.163Z",
       "apiUrl": "/api/songs/renascer-praise-tem-mais-de-deus-e36aec5daf",
       "offlineKey": "mdl-song-renascer-praise-tem-mais-de-deus-e36aec5daf",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tema-da-marcha-para-jesus-f4081eb2a3",
@@ -69604,7 +69604,7 @@
       "updatedAt": "2026-04-19T21:09:04.355Z",
       "apiUrl": "/api/songs/renascer-praise-tema-da-marcha-para-jesus-f4081eb2a3",
       "offlineKey": "mdl-song-renascer-praise-tema-da-marcha-para-jesus-f4081eb2a3",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tempo-de-cura-df4daed432",
@@ -69617,7 +69617,7 @@
       "updatedAt": "2026-04-19T21:11:11.781Z",
       "apiUrl": "/api/songs/renascer-praise-tempo-de-cura-df4daed432",
       "offlineKey": "mdl-song-renascer-praise-tempo-de-cura-df4daed432",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tenda-do-encontro-fc0f8d0794",
@@ -69630,7 +69630,7 @@
       "updatedAt": "2026-04-19T21:11:15.429Z",
       "apiUrl": "/api/songs/renascer-praise-tenda-do-encontro-fc0f8d0794",
       "offlineKey": "mdl-song-renascer-praise-tenda-do-encontro-fc0f8d0794",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tenho-fome-f58f1e416a",
@@ -69643,7 +69643,7 @@
       "updatedAt": "2026-04-19T21:12:06.734Z",
       "apiUrl": "/api/songs/renascer-praise-tenho-fome-f58f1e416a",
       "offlineKey": "mdl-song-renascer-praise-tenho-fome-f58f1e416a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tenho-fomo-praisexiii-84f7f8743f",
@@ -69656,7 +69656,7 @@
       "updatedAt": "2026-04-19T21:13:31.099Z",
       "apiUrl": "/api/songs/renascer-praise-tenho-fomo-praisexiii-84f7f8743f",
       "offlineKey": "mdl-song-renascer-praise-tenho-fomo-praisexiii-84f7f8743f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tenho-motivos-7d6e24f58d",
@@ -69669,7 +69669,7 @@
       "updatedAt": "2026-04-19T21:12:32.423Z",
       "apiUrl": "/api/songs/renascer-praise-tenho-motivos-7d6e24f58d",
       "offlineKey": "mdl-song-renascer-praise-tenho-motivos-7d6e24f58d",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tenho-uma-promessa-c4877beb10",
@@ -69682,7 +69682,7 @@
       "updatedAt": "2026-04-19T21:12:54.217Z",
       "apiUrl": "/api/songs/renascer-praise-tenho-uma-promessa-c4877beb10",
       "offlineKey": "mdl-song-renascer-praise-tenho-uma-promessa-c4877beb10",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-terra-arrasada-a057a76611",
@@ -69695,7 +69695,7 @@
       "updatedAt": "2026-04-19T21:13:34.758Z",
       "apiUrl": "/api/songs/renascer-praise-terra-arrasada-a057a76611",
       "offlineKey": "mdl-song-renascer-praise-terra-arrasada-a057a76611",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-teu-amor-me-faz-viver-1010e73c4b",
@@ -69708,7 +69708,7 @@
       "updatedAt": "2026-04-19T21:12:25.065Z",
       "apiUrl": "/api/songs/renascer-praise-teu-amor-me-faz-viver-1010e73c4b",
       "offlineKey": "mdl-song-renascer-praise-teu-amor-me-faz-viver-1010e73c4b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-teu-nome-20884fc1ab",
@@ -69721,7 +69721,7 @@
       "updatedAt": "2026-04-19T21:12:14.170Z",
       "apiUrl": "/api/songs/renascer-praise-teu-nome-20884fc1ab",
       "offlineKey": "mdl-song-renascer-praise-teu-nome-20884fc1ab",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-teu-povo-de1e60d28a",
@@ -69734,7 +69734,7 @@
       "updatedAt": "2026-04-19T21:12:36.033Z",
       "apiUrl": "/api/songs/renascer-praise-teu-povo-de1e60d28a",
       "offlineKey": "mdl-song-renascer-praise-teu-povo-de1e60d28a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-toca-em-mim-43c3bf834c",
@@ -69747,7 +69747,7 @@
       "updatedAt": "2026-04-19T21:11:26.341Z",
       "apiUrl": "/api/songs/renascer-praise-toca-em-mim-43c3bf834c",
       "offlineKey": "mdl-song-renascer-praise-toca-em-mim-43c3bf834c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-todos-na-paz-do-senhor-5f5b09f7ad",
@@ -69760,7 +69760,7 @@
       "updatedAt": "2026-04-19T21:13:38.362Z",
       "apiUrl": "/api/songs/renascer-praise-todos-na-paz-do-senhor-5f5b09f7ad",
       "offlineKey": "mdl-song-renascer-praise-todos-na-paz-do-senhor-5f5b09f7ad",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tributo-2b8285745a",
@@ -69773,7 +69773,7 @@
       "updatedAt": "2026-04-19T21:11:22.697Z",
       "apiUrl": "/api/songs/renascer-praise-tributo-2b8285745a",
       "offlineKey": "mdl-song-renascer-praise-tributo-2b8285745a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-trono-de-gloria-f3966e04ed",
@@ -69786,7 +69786,7 @@
       "updatedAt": "2026-04-19T21:12:46.973Z",
       "apiUrl": "/api/songs/renascer-praise-trono-de-gloria-f3966e04ed",
       "offlineKey": "mdl-song-renascer-praise-trono-de-gloria-f3966e04ed",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tu-es-fiel-1b078904e9",
@@ -69799,7 +69799,7 @@
       "updatedAt": "2026-04-19T21:12:57.954Z",
       "apiUrl": "/api/songs/renascer-praise-tu-es-fiel-1b078904e9",
       "offlineKey": "mdl-song-renascer-praise-tu-es-fiel-1b078904e9",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tu-es-o-motivo-ee92acafaa",
@@ -69812,7 +69812,7 @@
       "updatedAt": "2026-04-19T21:12:28.785Z",
       "apiUrl": "/api/songs/renascer-praise-tu-es-o-motivo-ee92acafaa",
       "offlineKey": "mdl-song-renascer-praise-tu-es-o-motivo-ee92acafaa",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tu-es-o-motivo-praise-xii-c8a210ebf8",
@@ -69825,7 +69825,7 @@
       "updatedAt": "2026-04-19T21:13:41.998Z",
       "apiUrl": "/api/songs/renascer-praise-tu-es-o-motivo-praise-xii-c8a210ebf8",
       "offlineKey": "mdl-song-renascer-praise-tu-es-o-motivo-praise-xii-c8a210ebf8",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tu-o-sabes-11846b3ee2",
@@ -69838,7 +69838,7 @@
       "updatedAt": "2026-04-19T21:11:48.521Z",
       "apiUrl": "/api/songs/renascer-praise-tu-o-sabes-11846b3ee2",
       "offlineKey": "mdl-song-renascer-praise-tu-o-sabes-11846b3ee2",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tua-gloria-8d8aa64814",
@@ -69851,7 +69851,7 @@
       "updatedAt": "2026-04-19T21:11:55.843Z",
       "apiUrl": "/api/songs/renascer-praise-tua-gloria-8d8aa64814",
       "offlineKey": "mdl-song-renascer-praise-tua-gloria-8d8aa64814",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tudo-posso-72eb7bc4fd",
@@ -69864,7 +69864,7 @@
       "updatedAt": "2026-04-19T21:11:19.076Z",
       "apiUrl": "/api/songs/renascer-praise-tudo-posso-72eb7bc4fd",
       "offlineKey": "mdl-song-renascer-praise-tudo-posso-72eb7bc4fd",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-tudo-posso-simplificada-26b10ac80f",
@@ -69877,7 +69877,7 @@
       "updatedAt": "2026-04-19T21:12:50.599Z",
       "apiUrl": "/api/songs/renascer-praise-tudo-posso-simplificada-26b10ac80f",
       "offlineKey": "mdl-song-renascer-praise-tudo-posso-simplificada-26b10ac80f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-um-adorador-55dcb37fc4",
@@ -69890,7 +69890,7 @@
       "updatedAt": "2026-04-19T21:11:37.301Z",
       "apiUrl": "/api/songs/renascer-praise-um-adorador-55dcb37fc4",
       "offlineKey": "mdl-song-renascer-praise-um-adorador-55dcb37fc4",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vem-espirito-35acd186fe",
@@ -69903,7 +69903,7 @@
       "updatedAt": "2026-04-19T21:11:33.597Z",
       "apiUrl": "/api/songs/renascer-praise-vem-espirito-35acd186fe",
       "offlineKey": "mdl-song-renascer-praise-vem-espirito-35acd186fe",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vem-espirito-praise-xii-16abf5922e",
@@ -69916,7 +69916,7 @@
       "updatedAt": "2026-04-19T21:13:45.632Z",
       "apiUrl": "/api/songs/renascer-praise-vem-espirito-praise-xii-16abf5922e",
       "offlineKey": "mdl-song-renascer-praise-vem-espirito-praise-xii-16abf5922e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vem-sobre-mim-bfd2b72962",
@@ -69929,7 +69929,7 @@
       "updatedAt": "2026-04-19T21:13:01.590Z",
       "apiUrl": "/api/songs/renascer-praise-vem-sobre-mim-bfd2b72962",
       "offlineKey": "mdl-song-renascer-praise-vem-sobre-mim-bfd2b72962",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vem-espirito-santo-6864f5b46f",
@@ -69942,7 +69942,7 @@
       "updatedAt": "2026-04-19T21:13:49.244Z",
       "apiUrl": "/api/songs/renascer-praise-vem-espirito-santo-6864f5b46f",
       "offlineKey": "mdl-song-renascer-praise-vem-espirito-santo-6864f5b46f",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vencedor-invicto-8153fbaa4b",
@@ -69955,7 +69955,7 @@
       "updatedAt": "2026-04-19T21:11:29.962Z",
       "apiUrl": "/api/songs/renascer-praise-vencedor-invicto-8153fbaa4b",
       "offlineKey": "mdl-song-renascer-praise-vencedor-invicto-8153fbaa4b",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vencendo-vem-jesus-8cb7b10fbb",
@@ -69968,7 +69968,7 @@
       "updatedAt": "2026-04-19T21:12:39.639Z",
       "apiUrl": "/api/songs/renascer-praise-vencendo-vem-jesus-8cb7b10fbb",
       "offlineKey": "mdl-song-renascer-praise-vencendo-vem-jesus-8cb7b10fbb",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-venceu-b67c458cd7",
@@ -69981,7 +69981,7 @@
       "updatedAt": "2026-04-19T21:12:17.808Z",
       "apiUrl": "/api/songs/renascer-praise-venceu-b67c458cd7",
       "offlineKey": "mdl-song-renascer-praise-venceu-b67c458cd7",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vento-de-deus-3779070ade",
@@ -69994,7 +69994,7 @@
       "updatedAt": "2026-04-19T21:12:10.414Z",
       "apiUrl": "/api/songs/renascer-praise-vento-de-deus-3779070ade",
       "offlineKey": "mdl-song-renascer-praise-vento-de-deus-3779070ade",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vento-impetuoso-b80196ea6c",
@@ -70007,7 +70007,7 @@
       "updatedAt": "2026-04-19T21:11:52.148Z",
       "apiUrl": "/api/songs/renascer-praise-vento-impetuoso-b80196ea6c",
       "offlineKey": "mdl-song-renascer-praise-vento-impetuoso-b80196ea6c",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vento-inpetuoso-simplificada-8b3cdb21ab",
@@ -70020,7 +70020,7 @@
       "updatedAt": "2026-04-19T21:13:52.876Z",
       "apiUrl": "/api/songs/renascer-praise-vento-inpetuoso-simplificada-8b3cdb21ab",
       "offlineKey": "mdl-song-renascer-praise-vento-inpetuoso-simplificada-8b3cdb21ab",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-veste-me-583b9bc7d1",
@@ -70033,7 +70033,7 @@
       "updatedAt": "2026-04-19T21:11:44.883Z",
       "apiUrl": "/api/songs/renascer-praise-veste-me-583b9bc7d1",
       "offlineKey": "mdl-song-renascer-praise-veste-me-583b9bc7d1",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-videira-verdadeira-6d58ca1384",
@@ -70046,7 +70046,7 @@
       "updatedAt": "2026-04-19T21:12:03.099Z",
       "apiUrl": "/api/songs/renascer-praise-videira-verdadeira-6d58ca1384",
       "offlineKey": "mdl-song-renascer-praise-videira-verdadeira-6d58ca1384",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vontade-9a9f7c79ee",
@@ -70059,7 +70059,7 @@
       "updatedAt": "2026-04-19T21:12:21.444Z",
       "apiUrl": "/api/songs/renascer-praise-vontade-9a9f7c79ee",
       "offlineKey": "mdl-song-renascer-praise-vontade-9a9f7c79ee",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vou-me-encher-beba4e9d35",
@@ -70072,7 +70072,7 @@
       "updatedAt": "2026-04-19T21:11:40.993Z",
       "apiUrl": "/api/songs/renascer-praise-vou-me-encher-beba4e9d35",
       "offlineKey": "mdl-song-renascer-praise-vou-me-encher-beba4e9d35",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vou-me-levantar-21c68c371a",
@@ -70085,7 +70085,7 @@
       "updatedAt": "2026-04-19T21:13:56.487Z",
       "apiUrl": "/api/songs/renascer-praise-vou-me-levantar-21c68c371a",
       "offlineKey": "mdl-song-renascer-praise-vou-me-levantar-21c68c371a",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-vou-viver-o-meu-milagre-2994724c4e",
@@ -70098,7 +70098,7 @@
       "updatedAt": "2026-04-19T21:14:00.105Z",
       "apiUrl": "/api/songs/renascer-praise-vou-viver-o-meu-milagre-2994724c4e",
       "offlineKey": "mdl-song-renascer-praise-vou-viver-o-meu-milagre-2994724c4e",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-voz-do-espirito-f20261ee94",
@@ -70111,7 +70111,7 @@
       "updatedAt": "2026-04-19T21:12:43.251Z",
       "apiUrl": "/api/songs/renascer-praise-voz-do-espirito-f20261ee94",
       "offlineKey": "mdl-song-renascer-praise-voz-do-espirito-f20261ee94",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "renascer-praise-yeshua-hamashia-3a84ee4e84",
@@ -70124,7 +70124,7 @@
       "updatedAt": "2026-04-19T21:11:59.457Z",
       "apiUrl": "/api/songs/renascer-praise-yeshua-hamashia-3a84ee4e84",
       "offlineKey": "mdl-song-renascer-praise-yeshua-hamashia-3a84ee4e84",
-      "artistThumb": "/assets/artists/renascer-praise.jpg"
+      "artistThumb": "/artist-thumbs/renascer-praise.jpg?v=1777415908466"
     },
     {
       "id": "rose-nascimento-deus-esta-contigo-793e04ab82",
@@ -76393,58 +76393,6 @@
       "artistThumb": "/assets/artists/valesca-mayssa.jpg"
     },
     {
-      "id": "vencedores-por-cristo-001-aleluia-3d77b9a898",
-      "title": "001 - Aleluia",
-      "artist": "Vencedores Por Cristo",
-      "collection": "cifras_multi",
-      "fileType": "html",
-      "key": "D",
-      "youtubeUrl": "",
-      "updatedAt": "2026-04-27T00:49:09.973Z",
-      "apiUrl": "/api/songs/vencedores-por-cristo-001-aleluia-3d77b9a898",
-      "offlineKey": "mdl-song-vencedores-por-cristo-001-aleluia-3d77b9a898",
-      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
-    },
-    {
-      "id": "vencedores-por-cristo-008-deus-e-real-35ba1f2904",
-      "title": "008 - Deus É Real",
-      "artist": "Vencedores Por Cristo",
-      "collection": "cifras_multi",
-      "fileType": "html",
-      "key": "D",
-      "youtubeUrl": "",
-      "updatedAt": "2026-04-27T00:49:13.570Z",
-      "apiUrl": "/api/songs/vencedores-por-cristo-008-deus-e-real-35ba1f2904",
-      "offlineKey": "mdl-song-vencedores-por-cristo-008-deus-e-real-35ba1f2904",
-      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
-    },
-    {
-      "id": "vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
-      "title": "014 - Lancemos Sobre Deus",
-      "artist": "Vencedores Por Cristo",
-      "collection": "cifras_multi",
-      "fileType": "html",
-      "key": "E",
-      "youtubeUrl": "",
-      "updatedAt": "2026-04-27T00:49:17.213Z",
-      "apiUrl": "/api/songs/vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
-      "offlineKey": "mdl-song-vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
-      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
-    },
-    {
-      "id": "vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
-      "title": "033 - Quero Transmitir",
-      "artist": "Vencedores Por Cristo",
-      "collection": "cifras_multi",
-      "fileType": "html",
-      "key": "C",
-      "youtubeUrl": "",
-      "updatedAt": "2026-04-27T00:49:20.807Z",
-      "apiUrl": "/api/songs/vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
-      "offlineKey": "mdl-song-vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
-      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
-    },
-    {
       "id": "vencedores-por-cristo-1-corintios-2-9-be9a3b142a",
       "title": "1 coríntios 2.9",
       "artist": "Vencedores Por Cristo",
@@ -76611,6 +76559,19 @@
       "updatedAt": "2026-04-27T00:50:07.779Z",
       "apiUrl": "/api/songs/vencedores-por-cristo-ajuntamento-fe5c621167",
       "offlineKey": "mdl-song-vencedores-por-cristo-ajuntamento-fe5c621167",
+      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
+    },
+    {
+      "id": "vencedores-por-cristo-001-aleluia-3d77b9a898",
+      "title": "Aleluia",
+      "artist": "Vencedores Por Cristo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "youtubeUrl": "",
+      "updatedAt": "2026-04-29T01:39:50.921Z",
+      "apiUrl": "/api/songs/vencedores-por-cristo-001-aleluia-3d77b9a898",
+      "offlineKey": "mdl-song-vencedores-por-cristo-001-aleluia-3d77b9a898",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
     },
     {
@@ -77329,6 +77290,19 @@
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
     },
     {
+      "id": "vencedores-por-cristo-008-deus-e-real-35ba1f2904",
+      "title": "Deus É Real",
+      "artist": "Vencedores Por Cristo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "youtubeUrl": "",
+      "updatedAt": "2026-04-29T01:39:56.209Z",
+      "apiUrl": "/api/songs/vencedores-por-cristo-008-deus-e-real-35ba1f2904",
+      "offlineKey": "mdl-song-vencedores-por-cristo-008-deus-e-real-35ba1f2904",
+      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
+    },
+    {
       "id": "vencedores-por-cristo-deus-esta-presente-2a49055ead",
       "title": "Deus está presente",
       "artist": "Vencedores Por Cristo",
@@ -77911,6 +77885,19 @@
       "updatedAt": "2026-04-27T00:56:10.106Z",
       "apiUrl": "/api/songs/vencedores-por-cristo-la-esta-o-meu-tesouro-3066dc0a92",
       "offlineKey": "mdl-song-vencedores-por-cristo-la-esta-o-meu-tesouro-3066dc0a92",
+      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
+    },
+    {
+      "id": "vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
+      "title": "Lancemos Sobre Deus",
+      "artist": "Vencedores Por Cristo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "youtubeUrl": "",
+      "updatedAt": "2026-04-29T01:40:01.489Z",
+      "apiUrl": "/api/songs/vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
+      "offlineKey": "mdl-song-vencedores-por-cristo-014-lancemos-sobre-deus-93d99067d9",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
     },
     {
@@ -78834,6 +78821,19 @@
       "updatedAt": "2026-04-27T01:00:28.047Z",
       "apiUrl": "/api/songs/vencedores-por-cristo-quero-louvar-te-4a5d22bc0a",
       "offlineKey": "mdl-song-vencedores-por-cristo-quero-louvar-te-4a5d22bc0a",
+      "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
+    },
+    {
+      "id": "vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
+      "title": "Quero Transmitir",
+      "artist": "Vencedores Por Cristo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "youtubeUrl": "",
+      "updatedAt": "2026-04-29T01:40:07.280Z",
+      "apiUrl": "/api/songs/vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
+      "offlineKey": "mdl-song-vencedores-por-cristo-033-quero-transmitir-5f4c72038c",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg"
     },
     {
