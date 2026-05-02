@@ -1,7 +1,6 @@
 node_modules/
 acervo/
 screenshots/
-public/data/
 data/auth.json
 *.log
 .DS_Store
