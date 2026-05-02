@@ -2831,7 +2831,7 @@ async function handleDevLogoTap(event) {
   if (state.devTapCount < 5) return;
   state.devTapCount = 0;
   if (state.devMode) { showView("dev"); return; }
-  const password = prompt("Senha do Modo Desenvolvedor:");
+  const password = await window.promptDevPassword();
   if (!password) return;
   await loginDevMode(password);
 }
