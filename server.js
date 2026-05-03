@@ -56,6 +56,9 @@ const SMTP_HELO = String(process.env.SMTP_HELO || "mdl-monte-siao.local").trim()
 const DEV_PASSWORD = String(process.env.DEV_PASSWORD || "Salmo92");
 const ZAPI_URL = String(process.env.ZAPI_URL || "").trim();
 const DEV_TOKEN_TTL_MS = 1000 * 60 * 60 * 8;
+const GITHUB_TOKEN = String(process.env.GITHUB_TOKEN || "").trim();
+const GITHUB_REPO = String(process.env.GITHUB_REPO || "").trim();
+const GITHUB_BRANCH = String(process.env.GITHUB_BRANCH || "main").trim();
 const AUTH_USERS = {
   lider: { label: "Lider", role: "leader", defaultPassword: "1234", defaultName: "Lider" },
   musico: { label: "Musico", role: "musician", defaultPassword: "1234", defaultName: "Musico" }
@@ -1069,6 +1072,42 @@ function signDevToken(secret, deviceId) { const payload = { role: "developer", d
 function verifyDevToken(req) { const token = String(req.headers["x-dev-token"] || "").trim(); if (!token) return false; const [encodedPayload, signature] = token.split("."); if (!encodedPayload || !signature) return false; const store = ensureAuthStore(); const expected = crypto.createHmac("sha256", store.secret).update(encodedPayload).digest("base64url"); if (!safeTokenEqual(signature, expected)) return false; try { const payload = JSON.parse(Buffer.from(encodedPayload, "base64url").toString("utf8")); if (payload.role !== "developer" || payload.exp < Date.now()) return false; const requestDeviceId = getRequestDeviceId(req); return !payload.did || !requestDeviceId || payload.did === requestDeviceId; } catch { return false; } }
 function requireDev(req, res) { if (verifyDevToken(req)) return true; sendJson(res, 403, { ok: false, error: "dev-only" }); return false; }
 function getWritableSongPath(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; return path.join(RUNTIME_SONGS_DIR, `${safeId}.json`); }
+
+// ── GitHub Auto-Commit ────────────────────────────────────────────────────
+async function githubCommitFile(filePath, content, message) {
+  if (!GITHUB_TOKEN || !GITHUB_REPO) return;
+  const https = require("https");
+  const relPath = filePath.startsWith(__dirname)
+    ? filePath.slice(__dirname.length + 1).replace(/\\/g, "/")
+    : filePath.replace(/\\/g, "/");
+  const apiPath = `/repos/${GITHUB_REPO}/contents/${relPath}`;
+  function ghRequest(method, p, body) {
+    return new Promise((resolve, reject) => {
+      const data = body ? JSON.stringify(body) : null;
+      const req = https.request({ hostname: "api.github.com", path: p, method, headers: { "Authorization": `Bearer ${GITHUB_TOKEN}`, "User-Agent": "mdl-server", "Content-Type": "application/json", "Accept": "application/vnd.github+json", ...(data ? { "Content-Length": Buffer.byteLength(data) } : {}) } }, (res) => {
+        let raw = ""; res.on("data", (c) => raw += c); res.on("end", () => { try { resolve({ status: res.statusCode, body: JSON.parse(raw) }); } catch { resolve({ status: res.statusCode, body: raw }); } });
+      }); req.on("error", reject); if (data) req.write(data); req.end();
+    });
+  }
+  try {
+    const get = await ghRequest("GET", apiPath);
+    const sha = get.body?.sha;
+    const encoded = Buffer.from(content, "utf8").toString("base64");
+    await ghRequest("PUT", apiPath, { message, content: encoded, branch: GITHUB_BRANCH, ...(sha ? { sha } : {}) });
+    console.log(`[github] commit: ${relPath}`);
+  } catch (err) {
+    console.warn(`[github] falha ao commitar ${relPath}:`, err.message);
+  }
+}
+async function githubCommitSong(song, songPath, catalogPath, catalogContent) {
+  if (!GITHUB_TOKEN || !GITHUB_REPO) return;
+  const songContent = JSON.stringify(song, null, 2);
+  const msg = `[auto] Cifra salva: ${song.title} - ${song.artist}`;
+  await githubCommitFile(songPath, songContent, msg);
+  if (catalogPath && catalogContent) {
+    await githubCommitFile(catalogPath, JSON.stringify(catalogContent, null, 2), `[auto] Catalogo atualizado: ${song.title}`);
+  }
+}
 function saveSongVersion(id, currentRecord) { if (!currentRecord) return null; const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; fs.mkdirSync(path.join(SONG_VERSIONS_DIR, safeId), { recursive: true }); const filePath = path.join(SONG_VERSIONS_DIR, safeId, `${Date.now()}.json`); fs.writeFileSync(filePath, JSON.stringify({ savedAt: new Date().toISOString(), song: currentRecord }, null, 2), "utf8"); return filePath; }
 function getLatestSongVersion(id) { const safeId = String(id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!safeId) return null; const dir = path.join(SONG_VERSIONS_DIR, safeId); if (!fs.existsSync(dir)) return null; const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json")).sort().reverse(); for (const fileName of files) { const raw = safeJsonParse(fs.readFileSync(path.join(dir, fileName), "utf8"), null); if (raw?.song) return raw.song; } return null; }
 function updateCatalogSongMetadata(updatedSong) { const sourceCatalogPath = getCatalogDbPath(); const sourceCatalog = fs.existsSync(sourceCatalogPath) ? safeJsonParse(fs.readFileSync(sourceCatalogPath, "utf8"), null) : null; if (!sourceCatalog || !Array.isArray(sourceCatalog.songs)) return; sourceCatalog.songs = sourceCatalog.songs.map((song) => String(song?.id || "") !== updatedSong.id ? song : { ...song, title: updatedSong.title, artist: updatedSong.artist, collection: updatedSong.collection, key: updatedSong.key, youtubeUrl: sanitizeYoutubeUrl(updatedSong.youtubeUrl || ""), updatedAt: updatedSong.updatedAt }); sourceCatalog.generatedAt = new Date().toISOString(); const normalizedCatalog = normalizeCatalogData(sourceCatalog); for (const filePath of getCatalogWritablePaths()) { writeJsonIfChanged(filePath, normalizedCatalog); } }
@@ -1256,8 +1295,8 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 400, { ok: false, error: error.code || error.message });
     }
   }
-  if (url.pathname === "/api/dev/create-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const created = createCatalogSongRecord(body); const songPath = getWritableSongPath(created.id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(created, null, 2), "utf8"); addCatalogSong(created); return sendJson(res, 200, { ok: true, song: created }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
-  if (url.pathname === "/api/dev/save-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const current = readSongRecord(id); if (!current) return sendJson(res, 404, { ok: false, error: "song-not-found" }); saveSongVersion(id, current); const updated = normalizeSongRecordData({ ...current, title: repairPossibleMojibake(body.title || current.title), artist: repairPossibleMojibake(body.artist || current.artist), collection: repairPossibleMojibake(body.collection || current.collection), key: body.key == null ? current.key : repairPossibleMojibake(body.key), html: repairPossibleMojibake(body.html || ""), youtubeUrl: sanitizeYoutubeUrl(body.youtubeUrl || body.youtube_url || current.youtubeUrl || ""), updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(updated, null, 2), "utf8"); updateCatalogSongMetadata(updated); return sendJson(res, 200, { ok: true, song: updated }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/create-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const created = createCatalogSongRecord(body); const songPath = getWritableSongPath(created.id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(created, null, 2), "utf8"); addCatalogSong(created); githubCommitSong(created, songPath, getCatalogDbPath(), safeJsonParse(fs.existsSync(getCatalogDbPath()) ? fs.readFileSync(getCatalogDbPath(), "utf8") : "{}", null)).catch(() => {}); return sendJson(res, 200, { ok: true, song: created }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
+  if (url.pathname === "/api/dev/save-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req, 3 * 1024 * 1024); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const current = readSongRecord(id); if (!current) return sendJson(res, 404, { ok: false, error: "song-not-found" }); saveSongVersion(id, current); const updated = normalizeSongRecordData({ ...current, title: repairPossibleMojibake(body.title || current.title), artist: repairPossibleMojibake(body.artist || current.artist), collection: repairPossibleMojibake(body.collection || current.collection), key: body.key == null ? current.key : repairPossibleMojibake(body.key), html: repairPossibleMojibake(body.html || ""), youtubeUrl: sanitizeYoutubeUrl(body.youtubeUrl || body.youtube_url || current.youtubeUrl || ""), updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(updated, null, 2), "utf8"); updateCatalogSongMetadata(updated); githubCommitSong(updated, songPath, getCatalogDbPath(), safeJsonParse(fs.existsSync(getCatalogDbPath()) ? fs.readFileSync(getCatalogDbPath(), "utf8") : "{}", null)).catch(() => {}); return sendJson(res, 200, { ok: true, song: updated }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
   if (url.pathname === "/api/dev/restore-song" && req.method === "POST") { if (!requireDev(req, res)) return; try { const body = await parseJsonBody(req); const id = String(body.id || "").replace(/[^a-zA-Z0-9_-]/g, ""); if (!id) return sendJson(res, 400, { ok: false, error: "invalid-song-id" }); const previous = getLatestSongVersion(id); if (!previous) return sendJson(res, 404, { ok: false, error: "version-not-found" }); const current = readSongRecord(id); if (current) saveSongVersion(id, current); const restored = normalizeSongRecordData({ ...previous, updatedAt: new Date().toISOString() }); const songPath = getWritableSongPath(id); fs.mkdirSync(path.dirname(songPath), { recursive: true }); fs.writeFileSync(songPath, JSON.stringify(restored, null, 2), "utf8"); updateCatalogSongMetadata(restored); return sendJson(res, 200, { ok: true, song: restored }); } catch (error) { return sendJson(res, 400, { ok: false, error: error.code || error.message }); } }
 
 
