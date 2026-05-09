@@ -28,7 +28,7 @@
       <div class="login-heading">
         <span>Plataforma de Ensaios</span>
         <h1 id="loginTitle">MDL Monte Sião</h1>
-        <p class="login-subtitle">Entre com seu perfil e personalize este aparelho com nome e foto.</p>
+        <p class="login-subtitle">Entre com seu perfil neste aparelho. Nome e foto locais podem ser ajustados em Minha conta.</p>
       </div>
 
       <div class="login-users" role="group" aria-label="Perfil de acesso">
@@ -37,27 +37,15 @@
       </div>
 
       <article class="login-profile-card login-profile-panel" id="loginProfileCard">
-        <button class="login-profile-avatar" type="button" data-action="choose-login-avatar" aria-label="Escolher foto deste perfil no aparelho">
+        <div class="login-profile-avatar" aria-hidden="true">
           <img id="loginAvatarImage" alt="" hidden>
           <span id="loginAvatarInitial" aria-hidden="true">L</span>
-        </button>
-        <div class="login-profile-meta">
-          <div class="login-profile-copy">
-            <strong id="loginProfileName">Perfil deste aparelho</strong>
-            <span id="loginProfileRole">A foto fica salva somente neste celular</span>
-          </div>
-          <button class="login-profile-change" type="button" data-action="choose-login-avatar">Trocar foto</button>
+        </div>
+        <div class="login-profile-copy">
+          <strong id="loginProfileName">Perfil deste aparelho</strong>
+          <span id="loginProfileRole">Nome e foto deste aparelho podem ser alterados em Minha conta.</span>
         </div>
       </article>
-
-      <input id="loginAvatarInput" type="file" accept="image/*" hidden>
-
-      <label class="login-local-field" for="loginDisplayName">
-        <span>Nome neste aparelho</span>
-        <input id="loginDisplayName" type="text" maxlength="40" autocomplete="nickname" placeholder="Ex.: Ana Paula Louvor">
-      </label>
-
-      <p class="login-local-hint">Essas personalizações ficam só neste aparelho para cada integrante do louvor.</p>
 
       <label class="login-password" for="loginPassword">
         <span>Senha</span>
@@ -633,6 +621,7 @@
   <input id="backupRestoreInput" type="file" accept="application/json,.json" hidden>
   <input id="localAudioInput" type="file" accept="audio/mpeg,audio/mp3,audio/*" hidden>
   <input id="accountAvatarInput" type="file" accept="image/*" hidden>
+  <input id="localAccountAvatarInput" type="file" accept="image/*" hidden>
 
   <section class="account-modal" id="accountModal" aria-labelledby="accountTitle" hidden>
     <button class="account-backdrop" type="button" data-action="close-account" aria-label="Fechar conta"></button>
@@ -659,6 +648,24 @@
       <label>
         <span>Nome exibido</span>
         <input id="accountDisplayName" type="text" maxlength="60" placeholder="Nome do usuario">
+      </label>
+      <div class="account-device-divider">
+        <strong>Perfil deste aparelho</strong>
+        <span>Essas informações aparecem só neste celular ou navegador.</span>
+      </div>
+      <div class="account-profile-editor account-device-editor">
+        <button class="account-profile-avatar" type="button" data-action="pick-local-account-avatar" aria-label="Escolher foto local deste aparelho">
+          <img id="localAccountAvatarImage" alt="" hidden>
+          <span id="localAccountAvatarInitial" aria-hidden="true">L</span>
+        </button>
+        <div class="account-profile-copy">
+          <strong>Foto deste aparelho</strong>
+          <span>Pode ser diferente da foto da conta principal.</span>
+        </div>
+      </div>
+      <label>
+        <span>Nome neste aparelho</span>
+        <input id="localAccountDisplayName" type="text" maxlength="40" placeholder="Opcional para este aparelho">
       </label>
       <label>
         <span>E-mail de recuperacao</span>

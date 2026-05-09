@@ -186,6 +186,7 @@ const state = {
   pendingAudioSongId: null,
   pendingArtistThumb: null,
   pendingAccountAvatar: null,
+  pendingLocalAccountAvatar: null,
   songMetrics: readSongMetrics(),
   readerFont: Number(localStorage.getItem("mdl.readerFont") || 14),
   favorites: new Set(JSON.parse(localStorage.getItem("mdl.favorites") || "[]")),
@@ -260,8 +261,6 @@ const dom = {
   loginAvatarInitial: document.getElementById("loginAvatarInitial"),
   loginProfileName: document.getElementById("loginProfileName"),
   loginProfileRole: document.getElementById("loginProfileRole"),
-  loginAvatarInput: document.getElementById("loginAvatarInput"),
-  loginDisplayName: document.getElementById("loginDisplayName"),
   appShell: document.getElementById("appShell"),
   search: document.getElementById("searchInput"),
   topArtistStack: document.getElementById("topArtistStack"),
@@ -336,9 +335,13 @@ const dom = {
   accountName: document.getElementById("accountName"),
   accountStatus: document.getElementById("accountStatus"),
   accountAvatarInput: document.getElementById("accountAvatarInput"),
+  localAccountAvatarInput: document.getElementById("localAccountAvatarInput"),
   accountAvatarImage: document.getElementById("accountAvatarImage"),
   accountAvatarInitial: document.getElementById("accountAvatarInitial"),
+  localAccountAvatarImage: document.getElementById("localAccountAvatarImage"),
+  localAccountAvatarInitial: document.getElementById("localAccountAvatarInitial"),
   accountDisplayName: document.getElementById("accountDisplayName"),
+  localAccountDisplayName: document.getElementById("localAccountDisplayName"),
   accountEmail: document.getElementById("accountEmail"),
   currentPassword: document.getElementById("currentPassword"),
   newPassword: document.getElementById("newPassword"),
@@ -678,37 +681,10 @@ function syncLoginProfile() {
   const profile = getDeviceUser(userId);
   syncAvatar(dom.loginAvatarImage, dom.loginAvatarInitial, getUserAvatar(profile, userId), getUserInitial(profile, userId));
   if (dom.loginProfileName) dom.loginProfileName.textContent = getUserDisplayName(profile, userId);
-  if (dom.loginProfileRole) dom.loginProfileRole.textContent = `${LOGIN_USERS[userId]?.label || "Perfil"} salvo neste aparelho`;
-  if (dom.loginDisplayName && document.activeElement !== dom.loginDisplayName) {
-    dom.loginDisplayName.value = String(getLocalLoginProfile(userId)?.displayName || "");
-  }
-}
-
-function saveLoginDisplayNameDraft() {
-  const userId = state.selectedLoginUser;
-  if (!LOGIN_USERS[userId] || !dom.loginDisplayName) return;
-  saveLocalLoginProfile(userId, { displayName: dom.loginDisplayName.value });
-  syncLoginProfile();
-}
-
-function chooseLoginAvatar() {
-  if (!dom.loginAvatarInput) return;
-  dom.loginAvatarInput.value = "";
-  dom.loginAvatarInput.click();
-}
-
-async function handleLoginAvatarSelected(event) {
-  const file = event.target.files?.[0];
-  if (!file) return;
-  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
-  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
-  const dataUrl = await fileToDataUrl(file);
-  saveLocalLoginProfile(state.selectedLoginUser, { avatarUrl: dataUrl });
-  syncLoginProfile();
+  if (dom.loginProfileRole) dom.loginProfileRole.textContent = `${LOGIN_USERS[userId]?.label || "Perfil"} deste aparelho. Edite em Minha conta.`;
 }
 
 async function loginSelectedUser() {
-  saveLoginDisplayNameDraft();
   const password = dom.loginPassword?.value || "";
   if (!password) {
     if (dom.loginStatus) dom.loginStatus.textContent = "Digite a senha.";
@@ -772,7 +748,16 @@ function syncAuthUi() {
   if (dom.accountDisplayName && document.activeElement !== dom.accountDisplayName) {
     dom.accountDisplayName.value = serverDisplayName;
   }
+  if (dom.localAccountDisplayName && document.activeElement !== dom.localAccountDisplayName) {
+    dom.localAccountDisplayName.value = String(getLocalLoginProfile(user?.id)?.displayName || "");
+  }
   syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.pendingAccountAvatar || serverAvatarUrl, userInitial);
+  syncAvatar(
+    dom.localAccountAvatarImage,
+    dom.localAccountAvatarInitial,
+    state.pendingLocalAccountAvatar || String(getLocalLoginProfile(user?.id)?.avatarUrl || ""),
+    userInitial
+  );
   if (dom.accountName) dom.accountName.textContent = isLeader()
     ? "Pode editar o Play do ensaio neste aparelho"
     : "Pode visualizar o Play do ensaio neste aparelho";
@@ -788,16 +773,27 @@ function openAccountModal() {
   dom.accountModal.hidden = false;
   if (dom.accountStatus) dom.accountStatus.textContent = "";
   state.pendingAccountAvatar = "";
+  state.pendingLocalAccountAvatar = "";
   if (dom.accountEmail) dom.accountEmail.value = state.auth.user.email || "";
   if (dom.accountDisplayName) dom.accountDisplayName.value = state.auth.user.displayName || state.auth.user.name || "";
   syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.auth.user.avatarUrl || state.auth.user.avatar || "", getUserInitial(state.auth.user, state.auth.user.id));
-  (dom.accountDisplayName || dom.accountEmail)?.focus();
+  if (dom.localAccountDisplayName) {
+    dom.localAccountDisplayName.value = String(getLocalLoginProfile(state.auth.user.id)?.displayName || "");
+  }
+  syncAvatar(
+    dom.localAccountAvatarImage,
+    dom.localAccountAvatarInitial,
+    String(getLocalLoginProfile(state.auth.user.id)?.avatarUrl || ""),
+    getUserInitial(state.auth.user, state.auth.user.id)
+  );
+  (dom.localAccountDisplayName || dom.accountDisplayName || dom.accountEmail)?.focus();
 }
 
 function closeAccountModal(silent = false) {
   if (!dom.accountModal) return;
   dom.accountModal.hidden = true;
   state.pendingAccountAvatar = "";
+  state.pendingLocalAccountAvatar = "";
   if (dom.accountForm) dom.accountForm.reset();
   if (!silent && dom.accountStatus) dom.accountStatus.textContent = "";
 }
@@ -825,16 +821,20 @@ function syncResetUi() {
 
 async function saveAccount() {
   const displayName = String(dom.accountDisplayName?.value || "").trim();
+  const localDisplayName = String(dom.localAccountDisplayName?.value || "").trim();
   const email = normalizeEmailInput(dom.accountEmail?.value || "");
   const currentPassword = dom.currentPassword?.value || "";
   const newPassword = dom.newPassword?.value || "";
   const confirmPassword = dom.confirmPassword?.value || "";
   const currentDisplayName = String(state.auth?.user?.displayName || state.auth?.user?.name || "").trim();
+  const currentLocalProfile = getLocalLoginProfile(state.auth?.user?.id);
+  const currentLocalDisplayName = String(currentLocalProfile?.displayName || "").trim();
   const profileChanged = Boolean(displayName && displayName !== currentDisplayName) || Boolean(state.pendingAccountAvatar);
+  const localProfileChanged = localDisplayName !== currentLocalDisplayName || Boolean(state.pendingLocalAccountAvatar);
   const emailChanged = email !== normalizeEmailInput(state.auth?.user?.email || "");
   const wantsPasswordChange = Boolean(currentPassword || newPassword || confirmPassword);
 
-  if (!profileChanged && !emailChanged && !wantsPasswordChange) {
+  if (!profileChanged && !localProfileChanged && !emailChanged && !wantsPasswordChange) {
     if (dom.accountStatus) dom.accountStatus.textContent = "Nada para salvar.";
     return;
   }
@@ -863,6 +863,14 @@ async function saveAccount() {
   if (dom.accountStatus) dom.accountStatus.textContent = "Salvando...";
   try {
     let updatedUser = state.auth?.user;
+
+    if (localProfileChanged && updatedUser?.id) {
+      saveLocalLoginProfile(updatedUser.id, {
+        displayName: localDisplayName,
+        avatarUrl: state.pendingLocalAccountAvatar || undefined
+      });
+      state.pendingLocalAccountAvatar = "";
+    }
 
     if (profileChanged) {
       const profileResponse = await fetch("/api/auth/update-profile", {
@@ -898,9 +906,10 @@ async function saveAccount() {
       syncAuthUi();
       if (dom.accountForm) dom.accountForm.reset();
       if (dom.accountDisplayName) dom.accountDisplayName.value = updatedUser?.displayName || updatedUser?.name || "";
+      if (dom.localAccountDisplayName) dom.localAccountDisplayName.value = String(getLocalLoginProfile(updatedUser?.id)?.displayName || "");
       if (dom.accountEmail) dom.accountEmail.value = updatedUser?.email || "";
-      if (dom.accountStatus) dom.accountStatus.textContent = "Perfil atualizado.";
-      toast("Perfil atualizado");
+      if (dom.accountStatus) dom.accountStatus.textContent = localProfileChanged ? "Conta e perfil deste aparelho atualizados." : "Perfil atualizado.";
+      toast(localProfileChanged ? "Perfil deste aparelho atualizado" : "Perfil atualizado");
       return;
     }
     const response = await fetch("/api/auth/change-password", {
@@ -917,9 +926,10 @@ async function saveAccount() {
     syncAuthUi();
     if (dom.accountForm) dom.accountForm.reset();
     if (dom.accountDisplayName) dom.accountDisplayName.value = updatedUser?.displayName || updatedUser?.name || "";
+    if (dom.localAccountDisplayName) dom.localAccountDisplayName.value = String(getLocalLoginProfile(updatedUser?.id)?.displayName || "");
     if (dom.accountEmail) dom.accountEmail.value = updatedUser?.email || "";
-    if (dom.accountStatus) dom.accountStatus.textContent = "Dados salvos e senha atualizada.";
-    toast("Senha atualizada neste aparelho");
+    if (dom.accountStatus) dom.accountStatus.textContent = localProfileChanged ? "Dados, senha e perfil deste aparelho atualizados." : "Dados salvos e senha atualizada.";
+    toast(localProfileChanged ? "Perfil deste aparelho e senha atualizados" : "Senha atualizada neste aparelho");
   } catch (error) {
     if (dom.accountStatus) dom.accountStatus.textContent = describeAccountError(error);
     return;
@@ -1193,12 +1203,7 @@ function bindEvents() {
   dom.devChordSearch?.addEventListener("input", renderDevChordList);
   [dom.devChordNameInput, dom.devChordNotes, dom.devChordBaseFret, dom.devChordBarre].forEach((input) => input?.addEventListener("input", syncDevChordFromInputs));
   dom.accountAvatarInput?.addEventListener("change", handleAccountAvatarSelected);
-  dom.loginAvatarInput?.addEventListener("change", handleLoginAvatarSelected);
-  dom.loginDisplayName?.addEventListener("input", () => {
-    saveLoginDisplayNameDraft();
-    if (dom.loginStatus) dom.loginStatus.textContent = "";
-  });
-  dom.loginDisplayName?.addEventListener("blur", saveLoginDisplayNameDraft);
+  dom.localAccountAvatarInput?.addEventListener("change", handleLocalAccountAvatarSelected);
   dom.localCoverInput?.addEventListener("change", handleLocalCoverSelected);
   dom.artistThumbInput?.addEventListener("change", handleArtistThumbSelected);
   dom.backupRestoreInput?.addEventListener("change", handleAdminBackupRestoreSelected);
@@ -1336,9 +1341,9 @@ async function handleClick(event) {
     event.stopPropagation();
 
     if (action === "select-login-user") return selectLoginUser(button.dataset.userId);
-    if (action === "choose-login-avatar") return chooseLoginAvatar();
     if (action === "open-account") return openAccountModal();
     if (action === "pick-account-avatar") return chooseAccountAvatar();
+    if (action === "pick-local-account-avatar") return chooseLocalAccountAvatar();
     if (action === "close-account") return closeAccountModal();
     if (action === "open-reset") return openResetModal();
     if (action === "close-reset") return closeResetModal();
@@ -1996,6 +2001,12 @@ function chooseAccountAvatar() {
   dom.accountAvatarInput.click();
 }
 
+function chooseLocalAccountAvatar() {
+  if (!dom.localAccountAvatarInput) return;
+  dom.localAccountAvatarInput.value = "";
+  dom.localAccountAvatarInput.click();
+}
+
 async function handleAccountAvatarSelected(event) {
   const file = event.target.files?.[0];
   if (!file) return;
@@ -2003,6 +2014,20 @@ async function handleAccountAvatarSelected(event) {
   if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
   state.pendingAccountAvatar = await fileToDataUrl(file);
   syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.pendingAccountAvatar, getUserInitial(state.auth?.user, state.auth?.user?.id));
+}
+
+async function handleLocalAccountAvatarSelected(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+  state.pendingLocalAccountAvatar = await fileToDataUrl(file);
+  syncAvatar(
+    dom.localAccountAvatarImage,
+    dom.localAccountAvatarInitial,
+    state.pendingLocalAccountAvatar,
+    getUserInitial(state.auth?.user, state.auth?.user?.id)
+  );
 }
 
 async function handleLocalCoverSelected(event) {

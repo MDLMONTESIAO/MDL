@@ -3759,6 +3759,28 @@ body.screen-dev .dev-view.active {
   align-items: center;
 }
 
+.account-device-divider {
+  display: grid;
+  gap: 4px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.account-device-divider strong {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.account-device-divider span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.account-device-editor {
+  margin-top: -4px;
+}
+
 .account-profile-avatar {
   display: grid;
 }
@@ -4684,12 +4706,12 @@ body {
 
   .login-screen {
     padding: 14px;
-    align-items: start;
+    place-items: center;
   }
 
   .login-card {
     width: min(100%, 420px);
-    margin: max(20px, env(safe-area-inset-top)) auto 0;
+    margin: 0 auto;
     gap: 12px;
     padding: 18px 16px 16px;
     border-radius: 24px;
