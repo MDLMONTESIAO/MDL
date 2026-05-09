@@ -1,7 +1,7 @@
 {
-  "name": "Plataforma Musical MDL Inova",
-  "short_name": "MDL Inova",
-  "description": "Aplicativo de cifras e repertórios do MDL Inova.",
+  "name": "Plataforma de Ensaios MDL Monte Sião",
+  "short_name": "MDL Monte Sião",
+  "description": "Aplicativo de cifras e repertórios do MDL Monte Sião.",
   "id": "/",
   "start_url": "/",
   "scope": "/",

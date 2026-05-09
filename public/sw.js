@@ -1,14 +1,14 @@
-const CACHE_NAME = "acervo-mdl-inova-shell-v12";
-const API_CACHE = "acervo-mdl-inova-api-v12";
+const CACHE_NAME = "mdl-monte-siao-shell-v13";
+const API_CACHE = "mdl-monte-siao-api-v13";
 
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=20260428-cache-refresh-1",
-  "/app.js?v=20260428-cache-refresh-1",
-  "/artist-view-modes.css?v=20260428-cache-refresh-1",
-  "/artist-view-modes.js?v=20260428-cache-refresh-1",
-  "/dev-editor.js?v=20260428-cache-refresh-1",
+  "/styles.css?v=20260509-login-refresh-1",
+  "/app.js?v=20260509-login-refresh-1",
+  "/artist-view-modes.css?v=20260509-login-refresh-1",
+  "/artist-view-modes.js?v=20260509-login-refresh-1",
+  "/dev-editor.js?v=20260509-login-refresh-1",
   "/manifest.webmanifest",
   "/assets/logo-inova.jpg"
 ];

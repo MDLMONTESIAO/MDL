@@ -144,6 +144,7 @@ const state = {
   deviceId: ensureDeviceId(),
   deviceLabel: getDeviceLabel(),
   deviceUsers: {},
+  localLoginProfiles: readStoredLoginProfiles(),
   auth: readStoredAuth(),
   selectedLoginUser: localStorage.getItem("mdl.lastLoginUser") || "lider",
   currentSheetHtml: "",
@@ -259,6 +260,8 @@ const dom = {
   loginAvatarInitial: document.getElementById("loginAvatarInitial"),
   loginProfileName: document.getElementById("loginProfileName"),
   loginProfileRole: document.getElementById("loginProfileRole"),
+  loginAvatarInput: document.getElementById("loginAvatarInput"),
+  loginDisplayName: document.getElementById("loginDisplayName"),
   appShell: document.getElementById("appShell"),
   search: document.getElementById("searchInput"),
   topArtistStack: document.getElementById("topArtistStack"),
@@ -522,6 +525,27 @@ function authHeaders(extra = {}) {
   };
 }
 
+function readStoredLoginProfiles() {
+  try {
+    const raw = JSON.parse(localStorage.getItem("mdl.localLoginProfiles") || "{}");
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return {};
+    const normalized = {};
+    Object.entries(raw).forEach(([userId, value]) => {
+      if (!LOGIN_USERS[userId] || !value || typeof value !== "object") return;
+      const displayName = String(value.displayName || "").trim().slice(0, 40);
+      const avatarUrl = String(value.avatarUrl || "").trim();
+      if (displayName || avatarUrl) normalized[userId] = { displayName, avatarUrl };
+    });
+    return normalized;
+  } catch {
+    return {};
+  }
+}
+
+function writeStoredLoginProfiles() {
+  localStorage.setItem("mdl.localLoginProfiles", JSON.stringify(state.localLoginProfiles || {}));
+}
+
 async function loadDeviceUsers() {
   try {
     const response = await fetch("/api/auth/device-users", {
@@ -538,6 +562,25 @@ async function loadDeviceUsers() {
 function rememberDeviceUser(user) {
   if (!user?.id) return;
   state.deviceUsers[user.id] = user;
+}
+
+function getLocalLoginProfile(userId = state.selectedLoginUser) {
+  return state.localLoginProfiles?.[userId] || null;
+}
+
+function saveLocalLoginProfile(userId, updates = {}) {
+  if (!LOGIN_USERS[userId]) return;
+  const current = getLocalLoginProfile(userId) || {};
+  const next = {
+    displayName: String(updates.displayName ?? current.displayName ?? "").trim().slice(0, 40),
+    avatarUrl: String(updates.avatarUrl ?? current.avatarUrl ?? "").trim()
+  };
+  if (!next.displayName && !next.avatarUrl) {
+    delete state.localLoginProfiles[userId];
+  } else {
+    state.localLoginProfiles[userId] = next;
+  }
+  writeStoredLoginProfiles();
 }
 
 function showLogin(message = "") {
@@ -584,18 +627,30 @@ function getRoleLabel(user) {
 }
 
 function getDeviceUser(userId) {
-  return state.deviceUsers?.[userId] || null;
+  const base = state.deviceUsers?.[userId] || null;
+  const localProfile = getLocalLoginProfile(userId);
+  return localProfile ? { ...(base || {}), ...localProfile } : base;
+}
+
+function getEffectiveUser(user, fallbackId = state.selectedLoginUser) {
+  const userId = user?.id || fallbackId;
+  const localProfile = getLocalLoginProfile(userId);
+  if (!localProfile) return user || getDeviceUser(fallbackId) || null;
+  return {
+    ...(user || getDeviceUser(fallbackId) || {}),
+    ...localProfile
+  };
 }
 
 function getUserDisplayName(user, fallbackId = state.selectedLoginUser) {
-  const source = user || getDeviceUser(fallbackId) || null;
+  const source = getEffectiveUser(user, fallbackId);
   const value = String(source?.displayName || source?.name || "").trim();
   if (value) return value;
   return LOGIN_USERS[fallbackId]?.label || "Perfil";
 }
 
 function getUserAvatar(user, fallbackId = state.selectedLoginUser) {
-  const source = user || getDeviceUser(fallbackId) || null;
+  const source = getEffectiveUser(user, fallbackId);
   return String(source?.avatarUrl || source?.avatar || "").trim();
 }
 
@@ -623,10 +678,37 @@ function syncLoginProfile() {
   const profile = getDeviceUser(userId);
   syncAvatar(dom.loginAvatarImage, dom.loginAvatarInitial, getUserAvatar(profile, userId), getUserInitial(profile, userId));
   if (dom.loginProfileName) dom.loginProfileName.textContent = getUserDisplayName(profile, userId);
-  if (dom.loginProfileRole) dom.loginProfileRole.textContent = `${LOGIN_USERS[userId]?.label || "Perfil"} deste aparelho`;
+  if (dom.loginProfileRole) dom.loginProfileRole.textContent = `${LOGIN_USERS[userId]?.label || "Perfil"} salvo neste aparelho`;
+  if (dom.loginDisplayName && document.activeElement !== dom.loginDisplayName) {
+    dom.loginDisplayName.value = String(getLocalLoginProfile(userId)?.displayName || "");
+  }
+}
+
+function saveLoginDisplayNameDraft() {
+  const userId = state.selectedLoginUser;
+  if (!LOGIN_USERS[userId] || !dom.loginDisplayName) return;
+  saveLocalLoginProfile(userId, { displayName: dom.loginDisplayName.value });
+  syncLoginProfile();
+}
+
+function chooseLoginAvatar() {
+  if (!dom.loginAvatarInput) return;
+  dom.loginAvatarInput.value = "";
+  dom.loginAvatarInput.click();
+}
+
+async function handleLoginAvatarSelected(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) return toast("Escolha uma imagem");
+  if (file.size > LOCAL_COVER_MAX_BYTES) return toast("Imagem muito grande");
+  const dataUrl = await fileToDataUrl(file);
+  saveLocalLoginProfile(state.selectedLoginUser, { avatarUrl: dataUrl });
+  syncLoginProfile();
 }
 
 async function loginSelectedUser() {
+  saveLoginDisplayNameDraft();
   const password = dom.loginPassword?.value || "";
   if (!password) {
     if (dom.loginStatus) dom.loginStatus.textContent = "Digite a senha.";
@@ -669,6 +751,8 @@ function syncAuthUi() {
   const displayName = getUserDisplayName(user, user?.id);
   const avatarUrl = getUserAvatar(user, user?.id);
   const userInitial = getUserInitial(user, user?.id);
+  const serverDisplayName = String(user?.displayName || user?.name || "").trim();
+  const serverAvatarUrl = String(user?.avatarUrl || user?.avatar || "").trim();
 
   if (dom.accountInitial) dom.accountInitial.textContent = userInitial;
   if (dom.accountButton && user) {
@@ -686,9 +770,9 @@ function syncAuthUi() {
     dom.accountEmail.value = user?.email || "";
   }
   if (dom.accountDisplayName && document.activeElement !== dom.accountDisplayName) {
-    dom.accountDisplayName.value = displayName;
+    dom.accountDisplayName.value = serverDisplayName;
   }
-  syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.pendingAccountAvatar || avatarUrl, userInitial);
+  syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.pendingAccountAvatar || serverAvatarUrl, userInitial);
   if (dom.accountName) dom.accountName.textContent = isLeader()
     ? "Pode editar o Play do ensaio neste aparelho"
     : "Pode visualizar o Play do ensaio neste aparelho";
@@ -705,8 +789,8 @@ function openAccountModal() {
   if (dom.accountStatus) dom.accountStatus.textContent = "";
   state.pendingAccountAvatar = "";
   if (dom.accountEmail) dom.accountEmail.value = state.auth.user.email || "";
-  if (dom.accountDisplayName) dom.accountDisplayName.value = getUserDisplayName(state.auth.user, state.auth.user.id);
-  syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, getUserAvatar(state.auth.user, state.auth.user.id), getUserInitial(state.auth.user, state.auth.user.id));
+  if (dom.accountDisplayName) dom.accountDisplayName.value = state.auth.user.displayName || state.auth.user.name || "";
+  syncAvatar(dom.accountAvatarImage, dom.accountAvatarInitial, state.auth.user.avatarUrl || state.auth.user.avatar || "", getUserInitial(state.auth.user, state.auth.user.id));
   (dom.accountDisplayName || dom.accountEmail)?.focus();
 }
 
@@ -1109,6 +1193,12 @@ function bindEvents() {
   dom.devChordSearch?.addEventListener("input", renderDevChordList);
   [dom.devChordNameInput, dom.devChordNotes, dom.devChordBaseFret, dom.devChordBarre].forEach((input) => input?.addEventListener("input", syncDevChordFromInputs));
   dom.accountAvatarInput?.addEventListener("change", handleAccountAvatarSelected);
+  dom.loginAvatarInput?.addEventListener("change", handleLoginAvatarSelected);
+  dom.loginDisplayName?.addEventListener("input", () => {
+    saveLoginDisplayNameDraft();
+    if (dom.loginStatus) dom.loginStatus.textContent = "";
+  });
+  dom.loginDisplayName?.addEventListener("blur", saveLoginDisplayNameDraft);
   dom.localCoverInput?.addEventListener("change", handleLocalCoverSelected);
   dom.artistThumbInput?.addEventListener("change", handleArtistThumbSelected);
   dom.backupRestoreInput?.addEventListener("change", handleAdminBackupRestoreSelected);
@@ -1246,6 +1336,7 @@ async function handleClick(event) {
     event.stopPropagation();
 
     if (action === "select-login-user") return selectLoginUser(button.dataset.userId);
+    if (action === "choose-login-avatar") return chooseLoginAvatar();
     if (action === "open-account") return openAccountModal();
     if (action === "pick-account-avatar") return chooseAccountAvatar();
     if (action === "close-account") return closeAccountModal();
@@ -3866,7 +3957,7 @@ async function refreshOfflineSongIds() {
 
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
-  navigator.serviceWorker.register("/sw.js?v=20260428-cache-refresh-1", {
+  navigator.serviceWorker.register("/sw.js?v=20260509-login-refresh-1", {
     updateViaCache: "none"
   }).catch(() => {});
 }

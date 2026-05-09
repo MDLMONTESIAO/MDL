@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#111111">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Plataforma de Ensaios">
-  <title>Plataforma de Ensaios</title>
+  <meta name="apple-mobile-web-app-title" content="MDL Monte Sião">
+  <title>Plataforma de Ensaios MDL Monte Sião</title>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/logo-inova.jpg">
-  <link rel="stylesheet" href="/styles.css?v=20260501-cache-refresh-2">
+  <link rel="stylesheet" href="/styles.css?v=20260509-login-refresh-1">
   <script>
     (() => {
       const savedTheme = localStorage.getItem("mdl.theme");
@@ -28,6 +28,7 @@
       <div class="login-heading">
         <span>Plataforma de Ensaios</span>
         <h1 id="loginTitle">MDL Monte Sião</h1>
+        <p class="login-subtitle">Entre com seu perfil e personalize este aparelho com nome e foto.</p>
       </div>
 
       <div class="login-users" role="group" aria-label="Perfil de acesso">
@@ -35,16 +36,28 @@
         <button type="button" data-action="select-login-user" data-user-id="musico" aria-pressed="false">Musico</button>
       </div>
 
-      <article class="login-profile-card" id="loginProfileCard">
-        <button class="login-profile-avatar" type="button" aria-label="Foto do perfil selecionado">
+      <article class="login-profile-card login-profile-panel" id="loginProfileCard">
+        <button class="login-profile-avatar" type="button" data-action="choose-login-avatar" aria-label="Escolher foto deste perfil no aparelho">
           <img id="loginAvatarImage" alt="" hidden>
           <span id="loginAvatarInitial" aria-hidden="true">L</span>
         </button>
-        <div class="login-profile-copy">
-          <strong id="loginProfileName">Perfil deste aparelho</strong>
-          <span id="loginProfileRole">A foto pode ser alterada em Minha conta</span>
+        <div class="login-profile-meta">
+          <div class="login-profile-copy">
+            <strong id="loginProfileName">Perfil deste aparelho</strong>
+            <span id="loginProfileRole">A foto fica salva somente neste celular</span>
+          </div>
+          <button class="login-profile-change" type="button" data-action="choose-login-avatar">Trocar foto</button>
         </div>
       </article>
+
+      <input id="loginAvatarInput" type="file" accept="image/*" hidden>
+
+      <label class="login-local-field" for="loginDisplayName">
+        <span>Nome neste aparelho</span>
+        <input id="loginDisplayName" type="text" maxlength="40" autocomplete="nickname" placeholder="Ex.: Ana Paula Louvor">
+      </label>
+
+      <p class="login-local-hint">Essas personalizações ficam só neste aparelho para cada integrante do louvor.</p>
 
       <label class="login-password" for="loginPassword">
         <span>Senha</span>
@@ -748,8 +761,8 @@
     };
   </script>
 
-  <script src="/app.js?v=20260501-cache-refresh-2"></script>
+  <script src="/app.js?v=20260509-login-refresh-1"></script>
 
-  <script src="/artist-view-modes.js?v=20260501-cache-refresh-2" defer></script>
+  <script src="/artist-view-modes.js?v=20260509-login-refresh-1" defer></script>
 </body>
 </html>
