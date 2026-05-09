@@ -7,6 +7,7 @@ Use os comandos separados abaixo para nao misturar atualizacao de cifras com atu
 Quando voce alterar o conteudo do acervo, rode:
 
 ```bat
+node scripts\importar-acervo.js
 git status
 git add acervo data
 git commit -m "Atualiza acervo de cifras"
@@ -27,5 +28,6 @@ git push origin main
 ## Observacoes
 
 - Se o `git commit` disser que nao ha nada para commit, significa que nao houve mudancas naquela parte.
+- O envio das cifras precisa atualizar a base `data\acervo-db.json`, `data\index.json` e `data\songs` antes do `git push`.
 - O comando de cifras publica somente `acervo` e `data`.
 - O comando do sistema publica a aplicacao, scripts, documentacao e interface.
