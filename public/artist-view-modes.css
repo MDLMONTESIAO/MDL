@@ -357,6 +357,224 @@
   body.mdl-authenticated #view-acervo #songList .song-card [data-tom] {
     display: none !important;
   }
+
+  /* ARTISTAS */
+  body.mdl-authenticated #view-artistas #artistList {
+    align-items: stretch !important;
+  }
+
+  body.mdl-authenticated #view-artistas #artistList .artist-card {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-card {
+    min-height: 86px !important;
+    border-radius: 14px !important;
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 12px 12px 14px !important;
+    background: rgba(14, 19, 34, .92) !important;
+    background-image: none !important;
+    border: 1px solid rgba(255, 255, 255, .08) !important;
+    color: var(--neon-text) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04) !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-thumb {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, .16) !important;
+    position: static !important;
+    justify-self: start !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-main {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: grid !important;
+    gap: 3px !important;
+    text-align: left !important;
+    justify-items: start !important;
+    align-content: center !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-title {
+    color: var(--neon-text) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+    font-weight: 950 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-meta {
+    color: rgba(255, 255, 255, .76) !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+    margin-left: auto !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="list"] #view-artistas #artistList .artist-actions .mini-action {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-card {
+    position: relative !important;
+    min-height: 170px !important;
+    height: 170px !important;
+    border-radius: 20px !important;
+    padding: 14px !important;
+    display: grid !important;
+    align-content: end !important;
+    grid-template-columns: 1fr !important;
+    background-color: #141823 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1px solid rgba(255, 255, 255, .13) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    gap: 10px !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-card::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.78)) !important;
+    z-index: 0 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-thumb {
+    display: none !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-main,
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-actions {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-title {
+    color: #fff !important;
+    font-size: 16px !important;
+    white-space: normal !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.65) !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-meta {
+    color: rgba(255,255,255,.88) !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.65) !important;
+    line-height: 1.3 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="small"] #view-artistas #artistList .artist-actions {
+    margin-top: 2px !important;
+    justify-content: flex-start !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-card {
+    position: relative !important;
+    min-height: 288px !important;
+    height: 288px !important;
+    border-radius: 24px !important;
+    padding: 20px !important;
+    display: grid !important;
+    align-content: end !important;
+    grid-template-columns: 1fr !important;
+    background-color: #141823 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1px solid rgba(255, 255, 255, .16) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    gap: 12px !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-card::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.82)) !important;
+    z-index: 0 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-thumb {
+    display: none !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-main,
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-actions {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-title {
+    color: #fff !important;
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,.7) !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-meta {
+    color: rgba(255,255,255,.9) !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,.7) !important;
+    line-height: 1.35 !important;
+  }
+
+  body.mdl-authenticated[data-mdl-song-view-mode="large"] #view-artistas #artistList .artist-actions {
+    margin-top: 2px !important;
+    justify-content: flex-start !important;
+  }
 }
 
 @media (max-width: 699px) {

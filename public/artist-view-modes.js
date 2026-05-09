@@ -7,12 +7,12 @@
     },
     {
       id: "small",
-      label: "Ícones pequenos",
+      label: "Icones pequenos",
       icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>'
     },
     {
       id: "large",
-      label: "Ícones grandes",
+      label: "Icones grandes",
       icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8"></path><path d="M8 13h5"></path></svg>'
     }
   ];
@@ -20,6 +20,7 @@
   const STORAGE_KEY = "mdl.songViewMode";
   const DEFAULT_MODE = "large";
   let songListObserver = null;
+  let artistListObserver = null;
   let appShellObserver = null;
   let syncTimer = null;
 
@@ -72,7 +73,7 @@
   function createToolbar() {
     const bar = document.createElement("div");
     bar.id = "mdlSongViewModeBar";
-    bar.setAttribute("aria-label", "Modo de visualização das músicas");
+    bar.setAttribute("aria-label", "Modo de visualizacao");
 
     MODES.forEach((mode) => {
       const button = document.createElement("button");
@@ -87,6 +88,36 @@
     return bar;
   }
 
+  function placeToolbar(bar) {
+    const activeView = document.querySelector(".view.active");
+    const acervoView = document.getElementById("view-acervo");
+    const songList = document.getElementById("songList");
+    const artistView = document.getElementById("view-artistas");
+    const artistList = document.getElementById("artistList");
+    if (!acervoView || !songList || !artistView || !artistList) return;
+
+    if (activeView?.id === "view-artistas") {
+      const artistHead = artistView.querySelector(".section-head");
+      if (artistHead) {
+        if (bar.previousElementSibling !== artistHead || bar.parentElement !== artistHead.parentElement) {
+          artistHead.insertAdjacentElement("afterend", bar);
+        }
+      } else if (artistList.previousElementSibling !== bar) {
+        artistList.insertAdjacentElement("beforebegin", bar);
+      }
+      return;
+    }
+
+    const libraryToolbar = acervoView.querySelector(".library-toolbar");
+    if (libraryToolbar) {
+      if (bar.previousElementSibling !== libraryToolbar || bar.parentElement !== libraryToolbar.parentElement) {
+        libraryToolbar.insertAdjacentElement("afterend", bar);
+      }
+    } else if (songList.previousElementSibling !== bar) {
+      songList.insertAdjacentElement("beforebegin", bar);
+    }
+  }
+
   function ensureToolbar() {
     if (!appIsAuthenticated() || !isDesktopLike()) {
       const bar = document.getElementById("mdlSongViewModeBar");
@@ -96,29 +127,15 @@
       return;
     }
 
-    const acervoView = document.getElementById("view-acervo");
-    const songList = document.getElementById("songList");
-    if (!acervoView || !songList) return;
-
     removeOldToolbars();
 
     let bar = document.getElementById("mdlSongViewModeBar");
     if (!bar) bar = createToolbar();
 
-    const libraryToolbar = acervoView.querySelector(".library-toolbar");
-    const desiredParent = libraryToolbar?.parentElement || songList.parentElement;
-    const desiredPrevious = libraryToolbar || null;
-
-    if (libraryToolbar) {
-      if (bar.previousElementSibling !== libraryToolbar) {
-        libraryToolbar.insertAdjacentElement("afterend", bar);
-      }
-    } else if (songList.previousElementSibling !== bar) {
-      songList.insertAdjacentElement("beforebegin", bar);
-    }
-
+    placeToolbar(bar);
     setMode(getMode());
     attachSongListObserver();
+    attachArtistListObserver();
   }
 
   function extractImageUrl(value) {
@@ -127,17 +144,15 @@
     return match ? match[1] : "";
   }
 
-  function applyCoverBackgrounds() {
-    if (!appIsAuthenticated()) return;
-
-    const songList = document.getElementById("songList");
-    if (!songList) return;
+  function syncCardBackgrounds(listId, cardSelector, imageSelector) {
+    const list = document.getElementById(listId);
+    if (!list) return;
 
     const mode = document.body.dataset.mdlSongViewMode;
     const useBackground = mode === "small" || mode === "large";
 
-    songList.querySelectorAll(".song-card").forEach((card) => {
-      const img = card.querySelector("img");
+    list.querySelectorAll(cardSelector).forEach((card) => {
+      const img = card.querySelector(imageSelector);
       const imgUrl = img?.getAttribute("src") || img?.src || "";
       const inlineBg = extractImageUrl(card.style.backgroundImage);
       const existing = imgUrl || card.dataset.mdlCover || inlineBg || "";
@@ -150,6 +165,12 @@
         card.style.backgroundImage = "";
       }
     });
+  }
+
+  function applyCoverBackgrounds() {
+    if (!appIsAuthenticated()) return;
+    syncCardBackgrounds("songList", ".song-card", "img");
+    syncCardBackgrounds("artistList", ".artist-card", ".artist-thumb img");
   }
 
   function attachSongListObserver() {
@@ -172,6 +193,26 @@
     });
   }
 
+  function attachArtistListObserver() {
+    if (artistListObserver) return;
+
+    const artistList = document.getElementById("artistList");
+    if (!artistList) return;
+
+    artistListObserver = new MutationObserver(() => {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(() => {
+        updateButtons(getMode());
+        applyCoverBackgrounds();
+      }, 80);
+    });
+
+    artistListObserver.observe(artistList, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   function sync() {
     ensureToolbar();
     setMode(getMode());
@@ -187,18 +228,18 @@
       });
 
       appShellObserver.observe(appShell, {
+        subtree: true,
+        childList: true,
         attributes: true,
-        attributeFilter: ["hidden"]
+        attributeFilter: ["hidden", "class"]
       });
     }
 
-    // Não mexe na tela de login; só tenta sincronizar se já estiver logado.
     sync();
 
     window.addEventListener("resize", sync);
     window.addEventListener("orientationchange", sync);
 
-    // Pequeno intervalo para pegar o momento em que o app renderiza depois do login.
     let attempts = 0;
     const interval = setInterval(() => {
       attempts += 1;
