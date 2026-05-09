@@ -21,6 +21,7 @@ Quando voce alterar o sistema, rode:
 ```bat
 git status
 git add .gitignore README.md atualizar-acervo.bat iniciar.bat package.json package-lock.json render.yaml server.js docs modos-visualizacao-musicas public scripts
+git diff --cached --quiet
 git commit -m "Atualiza sistema"
 git push origin main
 ```
@@ -31,3 +32,4 @@ git push origin main
 - O envio das cifras precisa atualizar a base `data\acervo-db.json`, `data\index.json` e `data\songs` antes do `git push`.
 - O comando de cifras publica somente `acervo` e `data`.
 - O comando do sistema publica a aplicacao, scripts, documentacao e interface.
+- O atalho de sistema agora avisa quando nao houver mudancas reais para publicar.
