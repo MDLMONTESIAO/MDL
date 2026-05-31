@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual do Usuario - Plataforma de Ensaios MDL Monte Siao</title>
+  <style>
+    :root {
+      --bg: #080a12;
+      --panel: #141824;
+      --panel-2: #f6f4ee;
+      --ink: #171923;
+      --text: #f7f7fb;
+      --muted: #aeb6c8;
+      --gold: #d8a642;
+      --green: #3ba66b;
+      --blue: #4b86d9;
+      --rose: #c95f76;
+      --line: rgba(255,255,255,.14);
+    }
+
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 18mm;
+      overflow: hidden;
+      page-break-after: always;
+      background:
+        linear-gradient(135deg, rgba(216,166,66,.16), transparent 36%),
+        linear-gradient(160deg, rgba(75,134,217,.14), transparent 54%),
+        var(--bg);
+    }
+    .page.light {
+      background: linear-gradient(135deg, #fffaf0, #eef4ff);
+      color: var(--ink);
+    }
+    .page:last-child { page-break-after: auto; }
+    .content { position: relative; z-index: 1; display: grid; gap: 18px; }
+    .cover { display: grid; align-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 62px; height: 62px; object-fit: cover; border-radius: 14px; }
+    .brand strong { display: block; font-size: 18px; }
+    .brand span, .eyebrow { color: var(--gold); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: 11px; }
+    h1 { font-size: 42px; line-height: 1.02; max-width: 760px; }
+    h2 { font-size: 30px; line-height: 1.08; }
+    h3 { font-size: 15px; margin-bottom: 7px; }
+    .lead { color: var(--muted); font-size: 17px; line-height: 1.55; max-width: 780px; }
+    .light .lead, .light .muted { color: #536071; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 16px 38px rgba(0,0,0,.18);
+    }
+    .light .card { background: rgba(255,255,255,.72); border-color: rgba(23,25,35,.12); box-shadow: none; }
+    .muted { color: var(--muted); font-size: 12.5px; line-height: 1.42; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border-radius: 999px; padding: 8px 11px; background: rgba(255,255,255,.1); border: 1px solid var(--line); font-size: 11px; font-weight: 800; }
+    .tag.gold { background: rgba(216,166,66,.18); color: #ffe4a6; }
+    .tag.green { background: rgba(59,166,107,.18); color: #aef0c8; }
+    .tag.blue { background: rgba(75,134,217,.2); color: #cfe0ff; }
+    .light .tag { color: var(--ink); border-color: rgba(23,25,35,.14); }
+
+    .steps { display: grid; gap: 9px; counter-reset: step; }
+    .step {
+      position: relative;
+      padding: 12px 12px 12px 44px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.38;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #171923;
+      background: var(--gold);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .light .step { background: rgba(255,255,255,.7); color: #536071; border-color: rgba(23,25,35,.12); }
+
+    .mock {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #101522;
+      box-shadow: 0 18px 46px rgba(0,0,0,.28);
+    }
+    .mock-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(255,255,255,.08); border-bottom: 1px solid var(--line); }
+    .mock-title b { display: block; font-size: 12px; }
+    .mock-title span { display: block; color: var(--muted); font-size: 10px; }
+    .mock-body { padding: 14px; display: grid; gap: 12px; }
+    .dots { display: flex; gap: 5px; }
+    .dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); opacity: .8; }
+    .hero-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(216,166,66,.22), rgba(75,134,217,.16));
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .hero-card strong { font-size: 24px; }
+    .circle { width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: #151515; display: grid; place-items: center; font-weight: 900; }
+    .row { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,.07); }
+    .cover-mini { width: 42px; height: 42px; border-radius: 8px; background: linear-gradient(135deg, var(--gold), var(--blue)); display: grid; place-items: center; color: #fff; font-weight: 900; }
+    .toolbar { display: flex; gap: 7px; flex-wrap: wrap; }
+    .toolbar span { padding: 7px 9px; border-radius: 7px; background: rgba(255,255,255,.1); border: 1px solid var(--line); font-size: 11px; font-weight: 800; }
+    .reader {
+      border-radius: 8px;
+      padding: 14px;
+      background: #f7f5ef;
+      color: #222;
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.6;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+    .chord { color: #c12f6a; font-weight: 900; }
+    .phone {
+      max-width: 280px;
+      margin: 0 auto;
+      border: 10px solid #0d111b;
+      border-radius: 28px;
+      background: #101522;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,.32);
+    }
+    .phone .mock { border: 0; border-radius: 0; box-shadow: none; }
+    .callout {
+      padding: 15px;
+      border-radius: 8px;
+      background: rgba(216,166,66,.16);
+      border: 1px solid rgba(216,166,66,.32);
+      color: #ffe5aa;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .light .callout { color: #6a4a0b; background: #fff1cf; border-color: #e5c46f; }
+    .footer {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 12mm;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,.48);
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .light .footer { color: rgba(23,25,35,.5); }
+    .footer::before { content: "Desenvolvido por Odiman Ramalho (21)97095-5634"; }
+    .footer::after { content: "Manual do Usuario MDL Monte Siao"; }
+    .signature {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      min-height: 210mm;
+      gap: 22px;
+    }
+    .signature img { width: 96px; height: 96px; object-fit: cover; border-radius: 22px; }
+    .signature h2 { font-size: 36px; }
+    .signature strong { font-size: 23px; color: var(--gold); }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="brand">
+      <img src="../public/assets/logo-inova.jpg" alt="Logo MDL">
+      <div>
+        <strong>Plataforma de Ensaios MDL Monte Siao</strong>
+        <span>Manual do usuario ilustrado</span>
+      </div>
+    </div>
+    <div class="content">
+      <span class="eyebrow">Guia para lideres, musicos e equipe de louvor</span>
+      <h1>Como usar o acervo de cifras no ensaio</h1>
+      <p class="lead">Este manual mostra como entrar na plataforma, encontrar artistas e musicas, abrir cifras, montar repertorios, usar recursos offline, adicionar thumbs, capas e MP3 local, alem de aproveitar o afinador e o guia de acordes.</p>
+      <div class="tag-row">
+        <span class="tag gold">Acervo</span>
+        <span class="tag blue">Artistas</span>
+        <span class="tag green">Offline</span>
+        <span class="tag">Repertorio</span>
+        <span class="tag">Afinador</span>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>1. Entre</h3><p class="muted">Acesse com o perfil correto do aparelho: lider ou musico.</p></div>
+      <div class="card"><h3>2. Encontre</h3><p class="muted">Pesquise por musica, artista ou abra a tela Artistas.</p></div>
+      <div class="card"><h3>3. Toque</h3><p class="muted">Abra a cifra, ajuste tom, letra, rolagem e apoio musical.</p></div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page">
+    <div class="content">
+      <span class="eyebrow">Primeiro acesso</span>
+      <h2>Login, perfis e instalacao no celular</h2>
+      <p class="lead">A plataforma pode ser usada pelo navegador ou instalada como app no celular. Depois de instalada, ela abre em tela cheia e fica mais pratica para o ensaio.</p>
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">Abra o link da plataforma no navegador do celular.</div>
+          <div class="step">Escolha o perfil do aparelho: Lider ou Musico.</div>
+          <div class="step">Digite a senha e toque em Entrar.</div>
+          <div class="step">Quando aparecer o aviso Instale o App, toque em Instalar.</div>
+          <div class="step">Em iPhone, use Compartilhar e depois Adicionar a Tela de Inicio.</div>
+        </div>
+        <div class="phone">
+          <div class="mock">
+            <div class="mock-head"><div class="mock-title"><b>MDL Monte Siao</b><span>Login</span></div><div class="dots"><span></span><span></span><span></span></div></div>
+            <div class="mock-body">
+              <div class="hero-card"><div><span class="eyebrow">Plataforma</span><h3>Entrar</h3><p class="muted">Perfil deste aparelho</p></div><div class="circle">L</div></div>
+              <div class="toolbar"><span>Lider</span><span>Musico</span></div>
+              <div class="row"><div class="cover-mini">***</div><div><b>Senha</b><span class="muted">Digite para acessar</span></div><span class="tag gold">OK</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout">Dica: mantenha o app instalado no celular dos musicos que usam a plataforma com frequencia. Isso reduz distrações e facilita abrir cifras durante o ensaio.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page light">
+    <div class="content">
+      <span class="eyebrow">Tela inicial</span>
+      <h2>Conhecendo o painel principal</h2>
+      <p class="lead">A tela inicial reune atalhos, busca, resumo do ensaio, artistas em destaque e as musicas do acervo.</p>
+      <div class="grid-2">
+        <div class="mock">
+          <div class="mock-head"><div class="mock-title"><b>Dashboard</b><span>Acervo Musical</span></div><div class="dots"><span></span><span></span><span></span></div></div>
+          <div class="mock-body">
+            <div class="hero-card"><div><span class="eyebrow">Ensaio de Hoje</span><h3>Repertorio pronto</h3><strong>06 musicas</strong></div><div class="circle">▶</div></div>
+            <div class="row"><div class="cover-mini">AB</div><div><b>Aline Barros</b><span class="muted">Artista em destaque</span></div><span class="tag">Abrir</span></div>
+            <div class="row"><div class="cover-mini">GR</div><div><b>Gabriela Rocha</b><span class="muted">Cifras e favoritas</span></div><span class="tag">Ver</span></div>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">Use a busca para filtrar musicas e artistas rapidamente.</div>
+          <div class="step">Toque em Inicio ou Acervo para voltar para a lista principal.</div>
+          <div class="step">Use Favoritas para guardar musicas recorrentes.</div>
+          <div class="step">Use Repertorio para abrir o Play do ensaio.</div>
+          <div class="step">Use Afinador quando precisar conferir o instrumento sem sair do app.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page">
+    <div class="content">
+      <span class="eyebrow">Artistas</span>
+      <h2>Lista grande e botao voltar do celular</h2>
+      <p class="lead">Ao abrir um artista, a lista pode ficar grande. A plataforma agora registra esse passo no historico do navegador, entao o botao voltar do Android, iPhone ou navegador retorna para a tela anterior.</p>
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">Entre em Artistas.</div>
+          <div class="step">Toque no artista desejado.</div>
+          <div class="step">A plataforma abre o acervo filtrado somente daquele artista.</div>
+          <div class="step">Para retornar, use o botao voltar do proprio celular.</div>
+          <div class="step">Se voce abrir uma cifra dentro do artista, voltar retorna para a lista do artista.</div>
+        </div>
+        <div class="phone">
+          <div class="mock">
+            <div class="mock-head"><div class="mock-title"><b>Artistas</b><span>Navegacao natural</span></div><div class="dots"><span></span><span></span><span></span></div></div>
+            <div class="mock-body">
+              <div class="row"><div class="cover-mini">AB</div><div><b>Aline Barros</b><span class="muted">245 musicas</span></div><span class="tag gold">Abrir</span></div>
+              <div class="row"><div class="cover-mini">GR</div><div><b>Gabriela Rocha</b><span class="muted">180 musicas</span></div><span class="tag gold">Abrir</span></div>
+              <div class="callout">Voltar do celular: artista > tela anterior. Cifra > artista.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page light">
+    <div class="content">
+      <span class="eyebrow">Cifras</span>
+      <h2>Leitura, tom, modo cantor e rolagem</h2>
+      <p class="lead">A tela da cifra foi feita para leitura rapida no ensaio. Os acordes ficam destacados, e os controles ajudam a adaptar a musica ao momento.</p>
+      <div class="grid-2">
+        <div>
+          <div class="toolbar"><span>Voltar</span><span>-1</span><span>Tom</span><span>+1</span><span>Aa</span><span>Auto</span></div>
+          <div class="reader"><span class="chord">G</span>          <span class="chord">D/F#</span>
+Grandioso es Tu
+<span class="chord">Em</span>         <span class="chord">C</span>
+Senhor, meu Deus
+
+<span class="chord">G</span>           <span class="chord">D</span>
+Quao grande es Tu</div>
+        </div>
+        <div class="steps">
+          <div class="step">Use -1 e +1 para transpor sem alterar a cifra original.</div>
+          <div class="step">Toque no tom para voltar ao tom base da musica.</div>
+          <div class="step">Use Aa para ajustar o tamanho da letra.</div>
+          <div class="step">Ative Auto para rolagem automatica durante a execucao.</div>
+          <div class="step">Toque em um acorde para abrir o guia visual, quando disponivel.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page">
+    <div class="content">
+      <span class="eyebrow">Repertorio</span>
+      <h2>Montando o Play do ensaio</h2>
+      <p class="lead">O Play do ensaio organiza as musicas que serao tocadas. O lider monta a ordem, e a equipe consulta para acompanhar a sequencia.</p>
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">No acervo, toque no botao de adicionar para incluir uma musica no repertorio.</div>
+          <div class="step">Abra Repertorio para revisar a lista.</div>
+          <div class="step">Use Editar para remover o que nao sera usado.</div>
+          <div class="step">Toque em Iniciar para abrir a primeira cifra.</div>
+          <div class="step">Durante o ensaio, avance na ordem definida pelo lider.</div>
+        </div>
+        <div class="mock">
+          <div class="mock-head"><div class="mock-title"><b>Play do Ensaio</b><span>Sequencia organizada</span></div><div class="dots"><span></span><span></span><span></span></div></div>
+          <div class="mock-body">
+            <div class="hero-card"><div><span class="eyebrow">Hoje</span><h3>Ensaio</h3><strong>06 musicas</strong></div><div class="circle">▶</div></div>
+            <div class="row"><div class="cover-mini">1</div><div><b>Eu Navegarei</b><span class="muted">Offline · MP3 local</span></div><span class="tag gold">Em</span></div>
+            <div class="row"><div class="cover-mini">2</div><div><b>A Bencao</b><span class="muted">Online</span></div><span class="tag gold">G</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="callout">Recomendacao: monte o repertorio com antecedencia e abra as cifras principais antes do ensaio para garantir que estejam carregadas.</div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page light">
+    <div class="content">
+      <span class="eyebrow">Offline</span>
+      <h2>Usando cifras sem internet</h2>
+      <p class="lead">O sistema trabalha online e offline. As cifras baixadas ficam no aparelho; as que nao foram baixadas precisam de internet para abrir pela primeira vez.</p>
+      <div class="grid-3">
+        <div class="card"><h3>Online</h3><p class="muted">Com internet, o acervo completo carrega as atualizacoes mais recentes.</p></div>
+        <div class="card"><h3>Baixar</h3><p class="muted">Baixe as cifras importantes no aparelho antes do ensaio.</p></div>
+        <div class="card"><h3>Offline</h3><p class="muted">Depois de baixada, a cifra abre mesmo se a internet cair.</p></div>
+      </div>
+      <div class="grid-2">
+        <div class="steps">
+          <div class="step">Abra a cifra ou biblioteca com internet.</div>
+          <div class="step">Use a opcao de baixar quando estiver disponivel.</div>
+          <div class="step">Confirme se a musica aparece como offline.</div>
+          <div class="step">Teste abrindo a cifra antes do culto ou ensaio.</div>
+        </div>
+        <div class="callout">MP3 local tambem fica no aparelho. Se limpar dados do navegador, trocar de celular ou reinstalar o app, pode ser necessario adicionar o MP3 novamente.</div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page">
+    <div class="content">
+      <span class="eyebrow">Visual do acervo</span>
+      <h2>Thumbs de artistas, capas e MP3 local</h2>
+      <p class="lead">As imagens deixam o acervo mais facil de reconhecer. Ja os MP3s locais sao arquivos pessoais do aparelho e nao sobem para o servidor.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Thumbs e capas</h3>
+          <div class="row"><div class="cover-mini">IMG</div><div><b>Artista com thumb</b><span class="muted">Imagem salva no acervo publico</span></div><span class="tag green">OK</span></div>
+          <p class="muted">Use imagens padronizadas sempre que possivel para manter a biblioteca bonita e organizada.</p>
+        </div>
+        <div class="card">
+          <h3>MP3 local</h3>
+          <div class="row"><div class="cover-mini">MP3</div><div><b>Audio do usuario</b><span class="muted">Fica somente neste aparelho</span></div><span class="tag gold">Local</span></div>
+          <p class="muted">Cada musico pode ter seus proprios arquivos de estudo sem pesar o sistema online.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">Para thumb de artista, abra a tela Artistas e toque no avatar do artista quando estiver alimentando o visual.</div>
+        <div class="step">Para capa de musica, toque na capa do card da musica.</div>
+        <div class="step">Para MP3, use o botao de audio da musica e escolha o arquivo no aparelho.</div>
+        <div class="step">Depois de alterar thumbs/capas no projeto local, envie ao GitHub para o Render publicar.</div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page light">
+    <div class="content">
+      <span class="eyebrow">Apoio musical</span>
+      <h2>Afinador, guia de acordes e boas praticas</h2>
+      <p class="lead">A plataforma tambem oferece recursos de apoio para estudo e execucao, reduzindo a necessidade de abrir outros aplicativos.</p>
+      <div class="grid-2">
+        <div class="card"><h3>Afinador</h3><p class="muted">Abra pelo atalho Afinador. Permita o uso do microfone e afine em ambiente silencioso.</p><div class="hero-card"><div><span class="eyebrow">Tuner</span><h3>A</h3><strong>440 Hz</strong></div><div class="circle">✓</div></div></div>
+        <div class="card"><h3>Guia de acordes</h3><p class="muted">Toque em um acorde dentro da cifra para consultar o desenho, quando houver forma cadastrada.</p><div class="toolbar"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      </div>
+      <div class="steps">
+        <div class="step">Abra o app com internet antes do ensaio para receber atualizacoes.</div>
+        <div class="step">Confira o repertorio e teste a primeira cifra.</div>
+        <div class="step">Baixe as cifras que precisam funcionar offline.</div>
+        <div class="step">Verifique MP3 local e permissao do microfone quando for usar afinador.</div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </section>
+
+  <section class="page">
+    <div class="signature">
+      <img src="../public/assets/logo-inova.jpg" alt="Logo MDL">
+      <div>
+        <span class="eyebrow">Pagina final</span>
+        <h2>Plataforma de Ensaios MDL Monte Siao</h2>
+        <p class="lead">Manual do usuario completo ilustrado</p>
+      </div>
+      <div class="card">
+        <h3>Desenvolvido por</h3>
+        <strong>Odiman Ramalho</strong>
+        <p class="lead">(21)97095-5634</p>
+      </div>
+      <p class="muted">Ultima atualizacao deste manual: 31/05/2026</p>
+    </div>
+    <div class="footer"></div>
+  </section>
+</body>
+</html>

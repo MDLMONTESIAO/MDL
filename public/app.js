@@ -210,8 +210,12 @@ const state = {
   devChordBarres: [],
   devChordVariations: [null, null],
   devChordVariationIndex: 0,
-  customChordShapes: {}
+  customChordShapes: {},
+  browserNavigationReady: false,
+  applyingBrowserNavigation: false
 };
+
+const BROWSER_NAVIGATION_KEY = "mdl-cifras-navigation";
 
 const sampleSongs = [
   { id: "sample-a-casa-e-sua", title: "A Casa \u00C9 Sua", artist: "Julliany Souza", collection: "Exemplo", fileType: "html", key: "C" },
@@ -441,14 +445,73 @@ async function startAuthenticatedApp() {
   const requestedView = new URLSearchParams(location.search).get("screen");
   const requestedSong = new URLSearchParams(location.search).get("song");
   if (location.pathname.toLowerCase().startsWith("/admin")) {
-    showView("admin");
+    showView("admin", { history: false });
   } else if (requestedSong) {
-    openSong(requestedSong);
+    openSong(requestedSong, { history: false });
   } else if (["acervo", "favoritas", "play", "artistas"].includes(requestedView)) {
-    showView(requestedView);
+    showView(requestedView, { history: false });
   }
+  setupBrowserNavigation();
+  replaceBrowserNavigationState();
 
   setInterval(autoRefreshLibrary, 30000);
+}
+
+function setupBrowserNavigation() {
+  if (state.browserNavigationReady) return;
+  state.browserNavigationReady = true;
+  window.addEventListener("popstate", handleBrowserNavigation);
+}
+
+function getBrowserNavigationState(overrides = {}) {
+  const artist = state.libraryFilter === "artist" ? (dom.search?.value || "") : "";
+  return {
+    key: BROWSER_NAVIGATION_KEY,
+    view: state.currentView,
+    songId: state.currentView === "reader" ? state.currentSongId : null,
+    artist,
+    ...overrides
+  };
+}
+
+function isSameBrowserNavigationState(current, next) {
+  return current?.key === next.key
+    && current.view === next.view
+    && (current.songId || null) === (next.songId || null)
+    && (current.artist || "") === (next.artist || "");
+}
+
+function pushBrowserNavigationState(overrides = {}) {
+  if (!state.browserNavigationReady || state.applyingBrowserNavigation) return;
+  const next = getBrowserNavigationState(overrides);
+  if (isSameBrowserNavigationState(history.state, next)) return;
+  history.pushState(next, "", location.href);
+}
+
+function replaceBrowserNavigationState(overrides = {}) {
+  if (!state.browserNavigationReady) return;
+  history.replaceState(getBrowserNavigationState(overrides), "", location.href);
+}
+
+async function handleBrowserNavigation(event) {
+  const next = event.state?.key === BROWSER_NAVIGATION_KEY
+    ? event.state
+    : { view: "acervo", songId: null, artist: "" };
+
+  state.applyingBrowserNavigation = true;
+  try {
+    if (next.view === "reader" && next.songId) {
+      await openSong(next.songId, { history: false });
+      return;
+    }
+    if (next.artist) {
+      renderArtistSongs(next.artist, { history: false });
+      return;
+    }
+    showView(next.view || "acervo", { history: false });
+  } finally {
+    state.applyingBrowserNavigation = false;
+  }
 }
 
 function readStoredAuth() {
@@ -1611,12 +1674,15 @@ function renderArtistCard(artist, songs) {
   `;
 }
 
-function renderArtistSongs(artist) {
+function renderArtistSongs(artist, options = {}) {
   dom.search.value = artist;
   state.libraryFilter = "artist";
   state.filtered = getArtistSongs(artist);
-  showView("acervo");
+  showView("acervo", { history: false });
   renderCatalog();
+  if (options.history !== false) {
+    pushBrowserNavigationState({ view: "acervo", songId: null, artist });
+  }
 }
 
 function openAddSongShortcut() {
@@ -1734,7 +1800,7 @@ function renderWorshipSong(entry, song, index) {
   `;
 }
 
-async function openSong(id) {
+async function openSong(id, options = {}) {
   const song = findSong(id);
   if (!song) return;
 
@@ -1749,7 +1815,14 @@ async function openSong(id) {
   dom.chordSheet.innerHTML = `<div class="loader">Abrindo cifra...</div>`;
   syncFavoriteControls();
   closeChordGuide(true);
-  showView("reader");
+  showView("reader", { history: false });
+  if (options.history !== false) {
+    pushBrowserNavigationState({
+      view: "reader",
+      songId: id,
+      artist: state.libraryFilter === "artist" ? (dom.search?.value || "") : ""
+    });
+  }
   recordSongOpen(id);
 
   try {
@@ -2253,7 +2326,7 @@ async function autoRefreshLibrary() {
   }
 }
 
-function showView(viewName) {
+function showView(viewName, options = {}) {
   if (viewName === "dev" && !state.devMode) {
     toast("Acesso desenvolvedor bloqueado");
     return;
@@ -2283,6 +2356,13 @@ function showView(viewName) {
   } else {
     const quick = document.querySelector(`[data-view="${viewName}"]`);
     if (quick) quick.classList.add("active");
+  }
+  if (options.history !== false) {
+    pushBrowserNavigationState({
+      view: viewName,
+      songId: viewName === "reader" ? state.currentSongId : null,
+      artist: ""
+    });
   }
 }
 
