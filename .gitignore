@@ -1,5 +1,6 @@
 node_modules/
 .venv-robo/
+config-local.env
 screenshots/
 public/data/
 data/auth.json

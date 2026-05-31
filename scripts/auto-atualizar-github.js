@@ -1,4 +1,5 @@
 const { spawnSync } = require("child_process");
+const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -7,11 +8,16 @@ const COMMIT_PREFIX = process.env.AUTO_GIT_COMMIT_PREFIX || "Atualiza acervo de 
 const TRACKED_PATHS = [
   "acervo",
   "data/acervo-db.json",
+  "data/artist-thumbs",
+  "data/artist-thumbs.json",
   "data/index.json",
   "data/songs"
 ];
 
-function main() {
+loadLocalEnv();
+
+async function main() {
+  run("node", ["scripts/preparar-artist-thumbs.js"]);
   run("node", ["scripts/importar-acervo.js"]);
 
   const status = git(["status", "--porcelain", "--", ...TRACKED_PATHS], { capture: true }).trim();
@@ -40,8 +46,63 @@ function main() {
   }
 
   git(["push", "origin", DEFAULT_BRANCH]);
+  await triggerRenderDeploy();
 
   console.log("Acervo atualizado e enviado ao GitHub com sucesso.");
+}
+
+function loadLocalEnv() {
+  const envPath = path.join(ROOT, "config-local.env");
+  if (!fs.existsSync(envPath)) {
+    return;
+  }
+
+  const lines = fs.readFileSync(envPath, "utf8").split(/\r?\n/);
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const separator = trimmed.indexOf("=");
+    if (separator <= 0) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separator).trim();
+    const value = trimmed.slice(separator + 1).trim();
+    if (key && !process.env[key]) {
+      process.env[key] = value;
+    }
+  }
+}
+
+async function triggerRenderDeploy() {
+  const deployHookUrl = (process.env.RENDER_DEPLOY_HOOK_URL || "").trim();
+  if (!deployHookUrl) {
+    console.log("Deploy Render nao configurado. Defina RENDER_DEPLOY_HOOK_URL para disparar automaticamente.");
+    return;
+  }
+
+  console.log("Disparando deploy automatico no Render...");
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+
+  try {
+    const response = await fetch(deployHookUrl, {
+      method: "POST",
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      throw new Error(`Render respondeu ${response.status}${body ? `: ${body}` : ""}`);
+    }
+
+    console.log("Deploy Render disparado com sucesso.");
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function git(args, options = {}) {
@@ -77,4 +138,7 @@ function formatTimestamp(date) {
   ].join("-");
 }
 
-main();
+main().catch((error) => {
+  console.error(error.message || error);
+  process.exit(1);
+});
