@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-05-31T20:33:05.926Z",
-  "totalSongs": 8254,
-  "totalArtists": 80,
+  "generatedAt": "2026-05-31T20:56:03.830Z",
+  "totalSongs": 8282,
+  "totalArtists": 81,
   "artists": [
     "3 Palavrinhas",
     "Adoracao Central",
@@ -58,6 +58,7 @@
     "Michelle Nascimento",
     "Midian Lima",
     "Ministerio Avivah",
+    "Ministerio Cristo Vivo",
     "Ministerio Zoe",
     "Morada",
     "Nivea Soares",
@@ -106,6 +107,7 @@
     "Damares": "/artist-thumbs/damares.jpg?v=1780252126246",
     "Davi Sacer": "/artist-thumbs/davi-sacer.jpg?v=1778100070643",
     "Diante Do Trono": "/artist-thumbs/diante-do-trono.jpg?v=1777392886673",
+    "Drops": "/artist-thumbs/drops.jpg?v=1780259609762",
     "Drops Ina": "/artist-thumbs/drops-ina.jpg?v=1780259558705",
     "Eli Soares": "/artist-thumbs/eli-soares.jpg?v=1777391745946",
     "Eliwelton Raymond": "/artist-thumbs/eliwelton-raymond.jpg?v=1777391751460",
@@ -28991,6 +28993,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T20:29:58.430Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-algo-bem-maior-c161c27638",
       "offlineKey": "mdl-song-drops-algo-bem-maior-c161c27638"
     },
@@ -29002,6 +29005,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T20:30:02.111Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-cancao-de-simeao-a6cbffa363",
       "offlineKey": "mdl-song-drops-cancao-de-simeao-a6cbffa363"
     },
@@ -29013,6 +29017,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T20:30:05.743Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-e-ele-df806767b8",
       "offlineKey": "mdl-song-drops-e-ele-df806767b8"
     },
@@ -29024,6 +29029,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T20:30:09.337Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-estou-seguindo-tudo-a-ti-4c257cdddd",
       "offlineKey": "mdl-song-drops-estou-seguindo-tudo-a-ti-4c257cdddd"
     },
@@ -29035,6 +29041,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T20:30:12.982Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-fome-e-sede-46229cb835",
       "offlineKey": "mdl-song-drops-fome-e-sede-46229cb835"
     },
@@ -29046,6 +29053,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T20:30:16.593Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-ha-um-lugar-eu-vou-perder-c8d62fb530",
       "offlineKey": "mdl-song-drops-ha-um-lugar-eu-vou-perder-c8d62fb530"
     },
@@ -29057,6 +29065,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T20:30:20.211Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-isso-e-que-e-viver-d03a4570b4",
       "offlineKey": "mdl-song-drops-isso-e-que-e-viver-d03a4570b4"
     },
@@ -29068,6 +29077,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T20:30:23.819Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-meus-labios-ever-be-fb2d810dde",
       "offlineKey": "mdl-song-drops-meus-labios-ever-be-fb2d810dde"
     },
@@ -29079,6 +29089,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T20:30:27.481Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-o-cordeiro-e-o-leao-4db2e9286f",
       "offlineKey": "mdl-song-drops-o-cordeiro-e-o-leao-4db2e9286f"
     },
@@ -29090,6 +29101,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T20:30:31.191Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-pai-nosso-our-father-d8d2c95c70",
       "offlineKey": "mdl-song-drops-pai-nosso-our-father-d8d2c95c70"
     },
@@ -29101,6 +29113,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T20:30:34.835Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-rei-da-gloria-52899ef7f7",
       "offlineKey": "mdl-song-drops-rei-da-gloria-52899ef7f7"
     },
@@ -29112,6 +29125,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T20:30:38.510Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-senhor-da-igreja-75d55f237e",
       "offlineKey": "mdl-song-drops-senhor-da-igreja-75d55f237e"
     },
@@ -29123,6 +29137,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T20:30:42.359Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-tu-que-es-o-primeiro-4f4175dce6",
       "offlineKey": "mdl-song-drops-tu-que-es-o-primeiro-4f4175dce6"
     },
@@ -29134,6 +29149,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T20:30:46.131Z",
+      "artistThumb": "/artist-thumbs/drops.jpg?v=1780259609762",
       "apiUrl": "/api/songs/drops-venha-ao-altar-come-to-the-altar-92488423df",
       "offlineKey": "mdl-song-drops-venha-ao-altar-come-to-the-altar-92488423df"
     },
@@ -64742,6 +64758,314 @@
       "artistThumb": "/artist-thumbs/ministerio-avivah.jpg?v=1777391942897",
       "apiUrl": "/api/songs/ministerio-avivah-tudo-e-possivel-9e7e677c68",
       "offlineKey": "mdl-song-ministerio-avivah-tudo-e-possivel-9e7e677c68"
+    },
+    {
+      "id": "ministerio-cristo-vivo-aleluia-adc12f56ac",
+      "title": "Aleluia",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:12.895Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-aleluia-adc12f56ac",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-aleluia-adc12f56ac"
+    },
+    {
+      "id": "ministerio-cristo-vivo-aleluia-poderoso-deus-87018f96d5",
+      "title": "Aleluia! poderoso deus",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:54:16.568Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-aleluia-poderoso-deus-87018f96d5",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-aleluia-poderoso-deus-87018f96d5"
+    },
+    {
+      "id": "ministerio-cristo-vivo-cantem-69fc58682d",
+      "title": "Cantem",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:20.187Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-cantem-69fc58682d",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-cantem-69fc58682d"
+    },
+    {
+      "id": "ministerio-cristo-vivo-castelo-forte-b7cf9c9aee",
+      "title": "Castelo Forte",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T20:54:23.827Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-castelo-forte-b7cf9c9aee",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-castelo-forte-b7cf9c9aee"
+    },
+    {
+      "id": "ministerio-cristo-vivo-cruz-1035466575",
+      "title": "Cruz",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T20:54:27.434Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-cruz-1035466575",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-cruz-1035466575"
+    },
+    {
+      "id": "ministerio-cristo-vivo-e-quanto-mais-eu-te-buscar-3c385da69b",
+      "title": "E quanto mais eu te buscar",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:54:31.073Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-e-quanto-mais-eu-te-buscar-3c385da69b",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-e-quanto-mais-eu-te-buscar-3c385da69b"
+    },
+    {
+      "id": "ministerio-cristo-vivo-emanuel-a573395681",
+      "title": "Emanuel",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T20:54:34.706Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-emanuel-a573395681",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-emanuel-a573395681"
+    },
+    {
+      "id": "ministerio-cristo-vivo-espirito-de-deus-524c1e2790",
+      "title": "Espírito de Deus",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:38.330Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-espirito-de-deus-524c1e2790",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-espirito-de-deus-524c1e2790"
+    },
+    {
+      "id": "ministerio-cristo-vivo-eu-te-buscarei-48fe5b81cd",
+      "title": "Eu te buscarei",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T20:54:41.965Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-eu-te-buscarei-48fe5b81cd",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-eu-te-buscarei-48fe5b81cd"
+    },
+    {
+      "id": "ministerio-cristo-vivo-felipenses-1bb9e36635",
+      "title": "Felipenses",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:45.604Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-felipenses-1bb9e36635",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-felipenses-1bb9e36635"
+    },
+    {
+      "id": "ministerio-cristo-vivo-filipenses-9e4b5424e8",
+      "title": "Filipenses",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:49.211Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-filipenses-9e4b5424e8",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-filipenses-9e4b5424e8"
+    },
+    {
+      "id": "ministerio-cristo-vivo-gratidao-82cde13bfd",
+      "title": "Gratidão",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T20:54:52.841Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-gratidao-82cde13bfd",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-gratidao-82cde13bfd"
+    },
+    {
+      "id": "ministerio-cristo-vivo-justica-0f0d4ca2c0",
+      "title": "Justiça",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:54:56.533Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-justica-0f0d4ca2c0",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-justica-0f0d4ca2c0"
+    },
+    {
+      "id": "ministerio-cristo-vivo-me-apegarei-af5f3008f7",
+      "title": "Me apegarei",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T20:55:00.167Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-me-apegarei-af5f3008f7",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-me-apegarei-af5f3008f7"
+    },
+    {
+      "id": "ministerio-cristo-vivo-me-apegarei-d-5d3f33930f",
+      "title": "Me apegarei (d)",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T20:55:03.865Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-me-apegarei-d-5d3f33930f",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-me-apegarei-d-5d3f33930f"
+    },
+    {
+      "id": "ministerio-cristo-vivo-minha-historia-064dadbf37",
+      "title": "Minha história",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:55:07.447Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-minha-historia-064dadbf37",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-minha-historia-064dadbf37"
+    },
+    {
+      "id": "ministerio-cristo-vivo-nao-ha-outro-como-tu-d6e81b6ef7",
+      "title": "Não há outro como tu",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:55:11.095Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-nao-ha-outro-como-tu-d6e81b6ef7",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-nao-ha-outro-como-tu-d6e81b6ef7"
+    },
+    {
+      "id": "ministerio-cristo-vivo-o-viver-e-cristo-986893910d",
+      "title": "O viver é cristo",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:55:14.747Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-o-viver-e-cristo-986893910d",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-o-viver-e-cristo-986893910d"
+    },
+    {
+      "id": "ministerio-cristo-vivo-pai-nosso-aae0d543f8",
+      "title": "Pai nosso",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T20:55:18.363Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-pai-nosso-aae0d543f8",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-pai-nosso-aae0d543f8"
+    },
+    {
+      "id": "ministerio-cristo-vivo-pelo-teu-sangue-cd66849195",
+      "title": "Pelo teu sangue",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T20:55:21.997Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-pelo-teu-sangue-cd66849195",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-pelo-teu-sangue-cd66849195"
+    },
+    {
+      "id": "ministerio-cristo-vivo-poderoso-deus-d57c8383e2",
+      "title": "Poderoso Deus",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:55:25.613Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-poderoso-deus-d57c8383e2",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-poderoso-deus-d57c8383e2"
+    },
+    {
+      "id": "ministerio-cristo-vivo-rei-da-gloria-912cb98d98",
+      "title": "Rei da gloria",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T20:55:29.231Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-rei-da-gloria-912cb98d98",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-rei-da-gloria-912cb98d98"
+    },
+    {
+      "id": "ministerio-cristo-vivo-teu-reino-040d3859bb",
+      "title": "Teu reino",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T20:55:32.831Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-teu-reino-040d3859bb",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-teu-reino-040d3859bb"
+    },
+    {
+      "id": "ministerio-cristo-vivo-teu-reino-acustico-9b6fa48158",
+      "title": "Teu Reino (Acústico)",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:55:36.511Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-teu-reino-acustico-9b6fa48158",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-teu-reino-acustico-9b6fa48158"
+    },
+    {
+      "id": "ministerio-cristo-vivo-teu-reino-ver-2-37e46bb4c7",
+      "title": "Teu Reino (ver. 2)",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:55:40.110Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-teu-reino-ver-2-37e46bb4c7",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-teu-reino-ver-2-37e46bb4c7"
+    },
+    {
+      "id": "ministerio-cristo-vivo-trindade-dfea8739d2",
+      "title": "Trindade",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T20:55:43.713Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-trindade-dfea8739d2",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-trindade-dfea8739d2"
+    },
+    {
+      "id": "ministerio-cristo-vivo-vida-de-deus-8570c50ccf",
+      "title": "Vida de deus",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T20:55:47.348Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-vida-de-deus-8570c50ccf",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-vida-de-deus-8570c50ccf"
+    },
+    {
+      "id": "ministerio-cristo-vivo-voto-do-profeta-te-amo-te-amo-ff2ee17f5e",
+      "title": "Voto do profeta (te amo, te amo)",
+      "artist": "Ministerio Cristo Vivo",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:55:51.030Z",
+      "apiUrl": "/api/songs/ministerio-cristo-vivo-voto-do-profeta-te-amo-te-amo-ff2ee17f5e",
+      "offlineKey": "mdl-song-ministerio-cristo-vivo-voto-do-profeta-te-amo-te-amo-ff2ee17f5e"
     },
     {
       "id": "ministerio-zoe-a-fe-na-graca-a1762047c2",
