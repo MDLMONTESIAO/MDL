@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-05-31T17:59:50.279Z",
-  "totalSongs": 7201,
-  "totalArtists": 72,
+  "generatedAt": "2026-05-31T18:14:43.352Z",
+  "totalSongs": 7460,
+  "totalArtists": 73,
   "artists": [
     "3 Palavrinhas",
     "Adoracao Central",
@@ -68,6 +68,7 @@
     "Samuel Messias",
     "Sarah Beatriz",
     "Sarah Farias",
+    "Shirley Carvalhaes",
     "Stella Laura",
     "Sued Silva",
     "Thalles Roberto",
@@ -88,6 +89,7 @@
     "Artista Teste Sync": "/artist-thumbs/artista-teste-sync.png?v=1776980367669",
     "Asaph Borba": "/artist-thumbs/asaph-borba.webp?v=1777392862280",
     "Be One Music": "/artist-thumbs/be-one-music.jpg?v=1777392871053",
+    "Biblica Da Paz": "/artist-thumbs/biblica-da-paz.jpg?v=1780250671021",
     "Brasa Church": "/artist-thumbs/brasa-church.jpg?v=1777391721335",
     "Casa Worship": "/artist-thumbs/casa-worship.jpg?v=1780249358345",
     "Cassiane": "/artist-thumbs/cassiane.png?v=1780249406498",
@@ -135,11 +137,14 @@
     "Pamela Oliveira": "/artist-thumbs/pamela-oliveira.jpg?v=1777391961936",
     "Preto No Branco": "/artist-thumbs/preto-no-branco.webp?v=1777391968605",
     "Prisma Brasil": "/artist-thumbs/prisma-brasil.jpg?v=1777391976002",
+    "Quatro Por Um": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
     "Rayssa Andreoli": "/artist-thumbs/rayssa-andreoli.jpg?v=1777391979082",
     "Renascer Praise": "/artist-thumbs/renascer-praise.jpg?v=1777415908466",
     "Rose Nascimento": "/artist-thumbs/rose-nascimento.jpg?v=1777392931103",
     "Samuel Messias": "/artist-thumbs/samuel-messias.jpg?v=1777391990513",
     "Sarah Beatriz": "/artist-thumbs/sarah-beatriz.jpg?v=1777391993655",
+    "Sarah Farias": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
+    "Stella Laura": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
     "Sued Silva": "/artist-thumbs/sued-silva.jpg?v=1777391996896",
     "Thalles Roberto": "/artist-thumbs/thalles-roberto.jpg?v=1777392000869",
     "Trazendo A Arca": "/artist-thumbs/trazendo-a-arca.jpg?v=1777392004281",
@@ -69521,6 +69526,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:34:44.032Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-a-cruz-1692d18413",
       "offlineKey": "mdl-song-quatro-por-um-a-cruz-1692d18413"
     },
@@ -69532,6 +69538,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:34:47.658Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-a-fe-em-deus-cd0f705a94",
       "offlineKey": "mdl-song-quatro-por-um-a-fe-em-deus-cd0f705a94"
     },
@@ -69543,6 +69550,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:34:51.263Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-a-minha-esperanca-5c8d589158",
       "offlineKey": "mdl-song-quatro-por-um-a-minha-esperanca-5c8d589158"
     },
@@ -69554,6 +69562,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:34:54.864Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-a-ti-seja-a-gloria-7f5e29f515",
       "offlineKey": "mdl-song-quatro-por-um-a-ti-seja-a-gloria-7f5e29f515"
     },
@@ -69565,6 +69574,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:34:58.460Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-a-tua-graca-me-basta-20fdc3e4a1",
       "offlineKey": "mdl-song-quatro-por-um-a-tua-graca-me-basta-20fdc3e4a1"
     },
@@ -69576,6 +69586,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:35:02.046Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-abre-os-olhos-do-meu-coracao-a8330eee17",
       "offlineKey": "mdl-song-quatro-por-um-abre-os-olhos-do-meu-coracao-a8330eee17"
     },
@@ -69587,6 +69598,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:35:05.639Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-abre-senhor-os-meu-olhos-ff739d9e41",
       "offlineKey": "mdl-song-quatro-por-um-abre-senhor-os-meu-olhos-ff739d9e41"
     },
@@ -69598,6 +69610,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:35:09.233Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-adorar-a-deus-3a442ae9e6",
       "offlineKey": "mdl-song-quatro-por-um-adorar-a-deus-3a442ae9e6"
     },
@@ -69609,6 +69622,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:35:12.833Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-amar-e-dividir-e4441f3334",
       "offlineKey": "mdl-song-quatro-por-um-amar-e-dividir-e4441f3334"
     },
@@ -69620,6 +69634,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:35:16.437Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-amizade-4f9c9c6859",
       "offlineKey": "mdl-song-quatro-por-um-amizade-4f9c9c6859"
     },
@@ -69631,6 +69646,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:35:20.043Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-amor-de-mae-821bf90b2f",
       "offlineKey": "mdl-song-quatro-por-um-amor-de-mae-821bf90b2f"
     },
@@ -69642,6 +69658,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:35:23.794Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-as-vezes-69f0a64ac1",
       "offlineKey": "mdl-song-quatro-por-um-as-vezes-69f0a64ac1"
     },
@@ -69653,6 +69670,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:35:27.396Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ate-te-contemplar-bd6291d8c9",
       "offlineKey": "mdl-song-quatro-por-um-ate-te-contemplar-bd6291d8c9"
     },
@@ -69664,6 +69682,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:35:31.000Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-casa-cheia-31783c99f8",
       "offlineKey": "mdl-song-quatro-por-um-casa-cheia-31783c99f8"
     },
@@ -69675,6 +69694,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:35:34.618Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-cavarei-um-pouco-mais-cd170f1c56",
       "offlineKey": "mdl-song-quatro-por-um-cavarei-um-pouco-mais-cd170f1c56"
     },
@@ -69686,6 +69706,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:35:38.226Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-chama-viva-bc78455082",
       "offlineKey": "mdl-song-quatro-por-um-chama-viva-bc78455082"
     },
@@ -69697,6 +69718,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:35:41.965Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-cinco-paes-e-dois-peixinhos-7759b5d089",
       "offlineKey": "mdl-song-quatro-por-um-cinco-paes-e-dois-peixinhos-7759b5d089"
     },
@@ -69708,6 +69730,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:35:45.577Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-compaixao-bb457ba44e",
       "offlineKey": "mdl-song-quatro-por-um-compaixao-bb457ba44e"
     },
@@ -69719,6 +69742,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:35:49.196Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-contigo-eu-venco-2cdcc70676",
       "offlineKey": "mdl-song-quatro-por-um-contigo-eu-venco-2cdcc70676"
     },
@@ -69730,6 +69754,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:35:52.808Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-corro-pra-ti-e2b1b21336",
       "offlineKey": "mdl-song-quatro-por-um-corro-pra-ti-e2b1b21336"
     },
@@ -69741,6 +69766,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T17:35:56.410Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-daniel-213f15da80",
       "offlineKey": "mdl-song-quatro-por-um-daniel-213f15da80"
     },
@@ -69752,6 +69778,7 @@
       "fileType": "html",
       "key": "D#",
       "updatedAt": "2026-05-31T17:36:00.019Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-de-volta-a-inocencia-45588b5059",
       "offlineKey": "mdl-song-quatro-por-um-de-volta-a-inocencia-45588b5059"
     },
@@ -69763,6 +69790,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T17:36:03.635Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-de-volta-a-inocencia-ver-2-a606cc908e",
       "offlineKey": "mdl-song-quatro-por-um-de-volta-a-inocencia-ver-2-a606cc908e"
     },
@@ -69774,6 +69802,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:36:07.244Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-decidiu-me-amar-2d0d7bb642",
       "offlineKey": "mdl-song-quatro-por-um-decidiu-me-amar-2d0d7bb642"
     },
@@ -69785,6 +69814,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:36:10.849Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-deixa-o-ceu-descer-a42d1dba38",
       "offlineKey": "mdl-song-quatro-por-um-deixa-o-ceu-descer-a42d1dba38"
     },
@@ -69796,6 +69826,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:36:14.449Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-dentro-do-meu-olhar-9e2e03f367",
       "offlineKey": "mdl-song-quatro-por-um-dentro-do-meu-olhar-9e2e03f367"
     },
@@ -69807,6 +69838,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:36:18.063Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-desertos-de-noites-b0d43837eb",
       "offlineKey": "mdl-song-quatro-por-um-desertos-de-noites-b0d43837eb"
     },
@@ -69818,6 +69850,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:36:21.697Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-desertos-e-noites-2aef432f40",
       "offlineKey": "mdl-song-quatro-por-um-desertos-e-noites-2aef432f40"
     },
@@ -69829,6 +69862,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:36:25.295Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-deus-e-bom-2609e9d776",
       "offlineKey": "mdl-song-quatro-por-um-deus-e-bom-2609e9d776"
     },
@@ -69840,6 +69874,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:36:28.895Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-deus-e-por-mim-ac628852d3",
       "offlineKey": "mdl-song-quatro-por-um-deus-e-por-mim-ac628852d3"
     },
@@ -69851,6 +69886,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T17:36:32.505Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-deus-me-ouvira-3c32e9cc42",
       "offlineKey": "mdl-song-quatro-por-um-deus-me-ouvira-3c32e9cc42"
     },
@@ -69862,6 +69898,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:36:36.100Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-deus-prometeu-bfa3b57b60",
       "offlineKey": "mdl-song-quatro-por-um-deus-prometeu-bfa3b57b60"
     },
@@ -69873,6 +69910,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:36:39.770Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-diante-de-ti-6d13d05515",
       "offlineKey": "mdl-song-quatro-por-um-diante-de-ti-6d13d05515"
     },
@@ -69884,6 +69922,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:36:43.378Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-diante-de-ti-ver-2-9787982ae4",
       "offlineKey": "mdl-song-quatro-por-um-diante-de-ti-ver-2-9787982ae4"
     },
@@ -69895,6 +69934,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:36:47.050Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-diante-de-tinada-e-impossivel-cb14b014e0",
       "offlineKey": "mdl-song-quatro-por-um-diante-de-tinada-e-impossivel-cb14b014e0"
     },
@@ -69906,6 +69946,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:36:50.683Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-dificil-e-te-deixar-beb5c30f4c",
       "offlineKey": "mdl-song-quatro-por-um-dificil-e-te-deixar-beb5c30f4c"
     },
@@ -69917,6 +69958,7 @@
       "fileType": "html",
       "key": "G#",
       "updatedAt": "2026-05-31T17:36:54.300Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-enfrentarei-59efe8f78a",
       "offlineKey": "mdl-song-quatro-por-um-enfrentarei-59efe8f78a"
     },
@@ -69928,6 +69970,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:36:57.937Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-enquanto-houver-folego-b89049ceee",
       "offlineKey": "mdl-song-quatro-por-um-enquanto-houver-folego-b89049ceee"
     },
@@ -69939,6 +69982,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:37:01.561Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-entao-e-so-clamar-2a820839c4",
       "offlineKey": "mdl-song-quatro-por-um-entao-e-so-clamar-2a820839c4"
     },
@@ -69950,6 +69994,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:37:05.203Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-espirito-enche-a-minha-vida-a9aa4152fe",
       "offlineKey": "mdl-song-quatro-por-um-espirito-enche-a-minha-vida-a9aa4152fe"
     },
@@ -69961,6 +70006,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:37:08.836Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-estou-seguro-0206df1dce",
       "offlineKey": "mdl-song-quatro-por-um-estou-seguro-0206df1dce"
     },
@@ -69972,6 +70018,7 @@
       "fileType": "html",
       "key": "G#",
       "updatedAt": "2026-05-31T17:37:12.473Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-acredito-48d740be3f",
       "offlineKey": "mdl-song-quatro-por-um-eu-acredito-48d740be3f"
     },
@@ -69983,6 +70030,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:37:16.099Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-canto-00c4ea945c",
       "offlineKey": "mdl-song-quatro-por-um-eu-canto-00c4ea945c"
     },
@@ -69994,6 +70042,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:37:19.762Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-celebrarei-86ed1c5e85",
       "offlineKey": "mdl-song-quatro-por-um-eu-celebrarei-86ed1c5e85"
     },
@@ -70005,6 +70054,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:37:23.385Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-sou-de-cristo-d314b7133b",
       "offlineKey": "mdl-song-quatro-por-um-eu-sou-de-cristo-d314b7133b"
     },
@@ -70016,6 +70066,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:37:27.015Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-tenho-sede-5e0320668e",
       "offlineKey": "mdl-song-quatro-por-um-eu-tenho-sede-5e0320668e"
     },
@@ -70027,6 +70078,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:37:30.625Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-tenho-um-chamado-b572259844",
       "offlineKey": "mdl-song-quatro-por-um-eu-tenho-um-chamado-b572259844"
     },
@@ -70038,6 +70090,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:37:34.244Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-vejo-a-gloria-e6cda3fa2e",
       "offlineKey": "mdl-song-quatro-por-um-eu-vejo-a-gloria-e6cda3fa2e"
     },
@@ -70049,6 +70102,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:37:37.892Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-eu-vou-gritar-3dadb28180",
       "offlineKey": "mdl-song-quatro-por-um-eu-vou-gritar-3dadb28180"
     },
@@ -70060,6 +70114,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:37:41.520Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ferido-por-mim-95b933167c",
       "offlineKey": "mdl-song-quatro-por-um-ferido-por-mim-95b933167c"
     },
@@ -70071,6 +70126,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:37:45.149Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-filho-de-davi-bc13b277f9",
       "offlineKey": "mdl-song-quatro-por-um-filho-de-davi-bc13b277f9"
     },
@@ -70082,6 +70138,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:37:48.772Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-foi-por-amor-61f1bba7c4",
       "offlineKey": "mdl-song-quatro-por-um-foi-por-amor-61f1bba7c4"
     },
@@ -70093,6 +70150,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T17:37:52.386Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-guerreior-do-amor-60eff9360d",
       "offlineKey": "mdl-song-quatro-por-um-guerreior-do-amor-60eff9360d"
     },
@@ -70104,6 +70162,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T17:37:55.997Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-guerreiro-do-amor-6f11dd14b3",
       "offlineKey": "mdl-song-quatro-por-um-guerreiro-do-amor-6f11dd14b3"
     },
@@ -70115,6 +70174,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:37:59.623Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ha-um-caminho-65b11b82c6",
       "offlineKey": "mdl-song-quatro-por-um-ha-um-caminho-65b11b82c6"
     },
@@ -70126,6 +70186,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:38:03.233Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ha-um-futuro-ebb52ef066",
       "offlineKey": "mdl-song-quatro-por-um-ha-um-futuro-ebb52ef066"
     },
@@ -70137,6 +70198,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:38:06.847Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-herois-eec5954d1f",
       "offlineKey": "mdl-song-quatro-por-um-herois-eec5954d1f"
     },
@@ -70148,6 +70210,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:38:10.492Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-hoje-c2814541f5",
       "offlineKey": "mdl-song-quatro-por-um-hoje-c2814541f5"
     },
@@ -70159,6 +70222,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:38:14.123Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-hoje-e-o-dia-911f242cbe",
       "offlineKey": "mdl-song-quatro-por-um-hoje-e-o-dia-911f242cbe"
     },
@@ -70170,6 +70234,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:38:17.731Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ir-mais-alem-bd4dd09f65",
       "offlineKey": "mdl-song-quatro-por-um-ir-mais-alem-bd4dd09f65"
     },
@@ -70181,6 +70246,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:38:21.339Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-isaias-53-a8543bb837",
       "offlineKey": "mdl-song-quatro-por-um-isaias-53-a8543bb837"
     },
@@ -70192,6 +70258,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:38:25.175Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-jesus-em-tua-presenca-72ae9d3373",
       "offlineKey": "mdl-song-quatro-por-um-jesus-em-tua-presenca-72ae9d3373"
     },
@@ -70203,6 +70270,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:38:28.799Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-lama-sabactane-a40a8578fa",
       "offlineKey": "mdl-song-quatro-por-um-lama-sabactane-a40a8578fa"
     },
@@ -70214,6 +70282,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:38:32.452Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-lama-sabactani-19fd0486c1",
       "offlineKey": "mdl-song-quatro-por-um-lama-sabactani-19fd0486c1"
     },
@@ -70225,6 +70294,7 @@
       "fileType": "html",
       "key": "G#",
       "updatedAt": "2026-05-31T17:38:36.058Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-libera-o-grito-be21651bca",
       "offlineKey": "mdl-song-quatro-por-um-libera-o-grito-be21651bca"
     },
@@ -70236,6 +70306,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T17:38:39.668Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-linda-276a0235a0",
       "offlineKey": "mdl-song-quatro-por-um-linda-276a0235a0"
     },
@@ -70247,6 +70318,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:38:43.285Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-maid-de-ti-d7b064dc57",
       "offlineKey": "mdl-song-quatro-por-um-maid-de-ti-d7b064dc57"
     },
@@ -70258,6 +70330,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:38:46.889Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-mais-de-ti-87a028a0eb",
       "offlineKey": "mdl-song-quatro-por-um-mais-de-ti-87a028a0eb"
     },
@@ -70269,6 +70342,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:38:50.507Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-mais-perto-7800108177",
       "offlineKey": "mdl-song-quatro-por-um-mais-perto-7800108177"
     },
@@ -70280,6 +70354,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:38:54.116Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-majestoso-4fcdbb4577",
       "offlineKey": "mdl-song-quatro-por-um-majestoso-4fcdbb4577"
     },
@@ -70291,6 +70366,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:38:57.732Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-me-amou-63e5cea1aa",
       "offlineKey": "mdl-song-quatro-por-um-me-amou-63e5cea1aa"
     },
@@ -70302,6 +70378,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:39:01.415Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-meu-mundo-04f8edffc4",
       "offlineKey": "mdl-song-quatro-por-um-meu-mundo-04f8edffc4"
     },
@@ -70313,6 +70390,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:39:05.059Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-meu-pranto-8a59d35533",
       "offlineKey": "mdl-song-quatro-por-um-meu-pranto-8a59d35533"
     },
@@ -70324,6 +70402,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:39:08.764Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-meu-tudo-5639e53d70",
       "offlineKey": "mdl-song-quatro-por-um-meu-tudo-5639e53d70"
     },
@@ -70335,6 +70414,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:39:12.370Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-meu-tudo-original-11d234c7b7",
       "offlineKey": "mdl-song-quatro-por-um-meu-tudo-original-11d234c7b7"
     },
@@ -70346,6 +70426,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:39:15.995Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-meus-labios-849b24214e",
       "offlineKey": "mdl-song-quatro-por-um-meus-labios-849b24214e"
     },
@@ -70357,6 +70438,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:39:19.631Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-minha-cancao-14e8328916",
       "offlineKey": "mdl-song-quatro-por-um-minha-cancao-14e8328916"
     },
@@ -70368,6 +70450,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:39:23.280Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-minha-razao-8daef024d6",
       "offlineKey": "mdl-song-quatro-por-um-minha-razao-8daef024d6"
     },
@@ -70379,6 +70462,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:39:26.907Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-na-contramao-3edc001ae6",
       "offlineKey": "mdl-song-quatro-por-um-na-contramao-3edc001ae6"
     },
@@ -70390,6 +70474,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:39:30.613Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-nada-e-impossivel-2498bdf2a7",
       "offlineKey": "mdl-song-quatro-por-um-nada-e-impossivel-2498bdf2a7"
     },
@@ -70401,6 +70486,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:39:34.235Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-nao-ha-limites-a2413363ab",
       "offlineKey": "mdl-song-quatro-por-um-nao-ha-limites-a2413363ab"
     },
@@ -70412,6 +70498,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:39:37.854Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-nao-temer-fce5e51e58",
       "offlineKey": "mdl-song-quatro-por-um-nao-temer-fce5e51e58"
     },
@@ -70423,6 +70510,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:39:41.481Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-nao-temerei-fdc29275c3",
       "offlineKey": "mdl-song-quatro-por-um-nao-temerei-fdc29275c3"
     },
@@ -70434,6 +70522,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:39:45.110Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-nao-tenho-pressa-8c91a9dbea",
       "offlineKey": "mdl-song-quatro-por-um-nao-tenho-pressa-8c91a9dbea"
     },
@@ -70445,6 +70534,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:39:48.726Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-o-amor-de-deus-9b44957ba7",
       "offlineKey": "mdl-song-quatro-por-um-o-amor-de-deus-9b44957ba7"
     },
@@ -70456,6 +70546,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:39:52.379Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-o-mover-do-espirito-2d4c34b66f",
       "offlineKey": "mdl-song-quatro-por-um-o-mover-do-espirito-2d4c34b66f"
     },
@@ -70467,6 +70558,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:39:55.992Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-o-que-vier-48f4a2a0f9",
       "offlineKey": "mdl-song-quatro-por-um-o-que-vier-48f4a2a0f9"
     },
@@ -70478,6 +70570,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:39:59.614Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-ouvirei-a-tua-voz-b7a0b057b0",
       "offlineKey": "mdl-song-quatro-por-um-ouvirei-a-tua-voz-b7a0b057b0"
     },
@@ -70489,6 +70582,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:40:03.329Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-palavra-9f92c61c43",
       "offlineKey": "mdl-song-quatro-por-um-palavra-9f92c61c43"
     },
@@ -70500,6 +70594,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:40:06.965Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-palavra-de-vitorias-1b8b4ca377",
       "offlineKey": "mdl-song-quatro-por-um-palavra-de-vitorias-1b8b4ca377"
     },
@@ -70511,6 +70606,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:40:10.587Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-pela-fe-bec91d3934",
       "offlineKey": "mdl-song-quatro-por-um-pela-fe-bec91d3934"
     },
@@ -70522,6 +70618,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:40:14.238Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-pescador-de-almas-892b99c513",
       "offlineKey": "mdl-song-quatro-por-um-pescador-de-almas-892b99c513"
     },
@@ -70533,6 +70630,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:40:17.884Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-porque-creio-em-ti-2b7f493d13",
       "offlineKey": "mdl-song-quatro-por-um-porque-creio-em-ti-2b7f493d13"
     },
@@ -70545,6 +70643,7 @@
       "key": "D",
       "updatedAt": "2026-05-31T17:40:21.510Z",
       "youtubeUrl": "https://www.youtube.com/watch?v=XlVC-jFWvBk",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-preciso-de-ti-118021971a",
       "offlineKey": "mdl-song-quatro-por-um-preciso-de-ti-118021971a"
     },
@@ -70556,6 +70655,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:40:25.125Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-quando-nao-estou-com-voce-3b85d1d005",
       "offlineKey": "mdl-song-quatro-por-um-quando-nao-estou-com-voce-3b85d1d005"
     },
@@ -70567,6 +70667,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:40:28.742Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-quando-sinto-seu-toque-78a1d71217",
       "offlineKey": "mdl-song-quatro-por-um-quando-sinto-seu-toque-78a1d71217"
     },
@@ -70578,6 +70679,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:40:32.355Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-quando-sinto-teu-toque-56bdac16ba",
       "offlineKey": "mdl-song-quatro-por-um-quando-sinto-teu-toque-56bdac16ba"
     },
@@ -70589,6 +70691,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:40:35.960Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-quem-disse-828911f00d",
       "offlineKey": "mdl-song-quatro-por-um-quem-disse-828911f00d"
     },
@@ -70600,6 +70703,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:40:39.588Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-quero-voltar-f62f559a06",
       "offlineKey": "mdl-song-quatro-por-um-quero-voltar-f62f559a06"
     },
@@ -70611,6 +70715,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T17:40:43.221Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-retete-2325c798d9",
       "offlineKey": "mdl-song-quatro-por-um-retete-2325c798d9"
     },
@@ -70622,6 +70727,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:40:46.921Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-santo-e-o-senhor-2e8e13d790",
       "offlineKey": "mdl-song-quatro-por-um-santo-e-o-senhor-2e8e13d790"
     },
@@ -70633,6 +70739,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:40:50.543Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-saudade-4a31510e82",
       "offlineKey": "mdl-song-quatro-por-um-saudade-4a31510e82"
     },
@@ -70644,6 +70751,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:40:54.156Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-so-em-jesus-ha-salvacao-17c21f6976",
       "offlineKey": "mdl-song-quatro-por-um-so-em-jesus-ha-salvacao-17c21f6976"
     },
@@ -70655,6 +70763,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:40:57.804Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-te-agradeco-a773600292",
       "offlineKey": "mdl-song-quatro-por-um-te-agradeco-a773600292"
     },
@@ -70666,6 +70775,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:41:01.415Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tenho-um-chamado-2d70921ffd",
       "offlineKey": "mdl-song-quatro-por-um-tenho-um-chamado-2d70921ffd"
     },
@@ -70677,6 +70787,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:41:05.065Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-teu-perfume-c4be84adb3",
       "offlineKey": "mdl-song-quatro-por-um-teu-perfume-c4be84adb3"
     },
@@ -70688,6 +70799,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:41:08.760Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-todo-poderoso-6f4a4e7412",
       "offlineKey": "mdl-song-quatro-por-um-todo-poderoso-6f4a4e7412"
     },
@@ -70699,6 +70811,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T17:41:12.605Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-toma-o-primeiro-lugar-0e50da4ac7",
       "offlineKey": "mdl-song-quatro-por-um-toma-o-primeiro-lugar-0e50da4ac7"
     },
@@ -70710,6 +70823,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:41:16.311Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-traducao-do-amor-64e95ce9b7",
       "offlineKey": "mdl-song-quatro-por-um-traducao-do-amor-64e95ce9b7"
     },
@@ -70721,6 +70835,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:41:19.936Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tu-es-meu-tudo-d28bbb1e2c",
       "offlineKey": "mdl-song-quatro-por-um-tu-es-meu-tudo-d28bbb1e2c"
     },
@@ -70732,6 +70847,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T17:41:23.545Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tua-presenca-em-mim-ec4a3321a5",
       "offlineKey": "mdl-song-quatro-por-um-tua-presenca-em-mim-ec4a3321a5"
     },
@@ -70743,6 +70859,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T17:41:27.176Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tua-prsenca-em-mim-ea7a3aebd3",
       "offlineKey": "mdl-song-quatro-por-um-tua-prsenca-em-mim-ea7a3aebd3"
     },
@@ -70754,6 +70871,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T17:41:30.831Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tua-vontade-d0cab2a918",
       "offlineKey": "mdl-song-quatro-por-um-tua-vontade-d0cab2a918"
     },
@@ -70765,6 +70883,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T17:41:34.453Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-tudo-vai-ficar-bem-f81da651d0",
       "offlineKey": "mdl-song-quatro-por-um-tudo-vai-ficar-bem-f81da651d0"
     },
@@ -70776,6 +70895,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:41:38.074Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-um-chamado-8118e2e347",
       "offlineKey": "mdl-song-quatro-por-um-um-chamado-8118e2e347"
     },
@@ -70787,6 +70907,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:41:41.704Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-um-deus-tao-grande-b69949498c",
       "offlineKey": "mdl-song-quatro-por-um-um-deus-tao-grande-b69949498c"
     },
@@ -70798,6 +70919,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T17:41:45.345Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-um-milagre-5cd7844c98",
       "offlineKey": "mdl-song-quatro-por-um-um-milagre-5cd7844c98"
     },
@@ -70809,6 +70931,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T17:41:48.956Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-vai-ser-pra-sempre-3c023b1230",
       "offlineKey": "mdl-song-quatro-por-um-vai-ser-pra-sempre-3c023b1230"
     },
@@ -70820,6 +70943,7 @@
       "fileType": "html",
       "key": "D#",
       "updatedAt": "2026-05-31T17:41:52.576Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-vem-de-deus-96c5cec979",
       "offlineKey": "mdl-song-quatro-por-um-vem-de-deus-96c5cec979"
     },
@@ -70831,6 +70955,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T17:41:56.190Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-vim-para-adorar-te-a220e38c59",
       "offlineKey": "mdl-song-quatro-por-um-vim-para-adorar-te-a220e38c59"
     },
@@ -70842,6 +70967,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T17:41:59.799Z",
+      "artistThumb": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
       "apiUrl": "/api/songs/quatro-por-um-vim-pra-adorar-te-019865b88e",
       "offlineKey": "mdl-song-quatro-por-um-vim-pra-adorar-te-019865b88e"
     },
@@ -76397,6 +76523,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:47:26.953Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-a-promessa-e-de-paz-fc4b62cf47",
       "offlineKey": "mdl-song-sarah-farias-a-promessa-e-de-paz-fc4b62cf47"
     },
@@ -76408,6 +76535,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:47:30.627Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-aprovado-57c2bcdee1",
       "offlineKey": "mdl-song-sarah-farias-aprovado-57c2bcdee1"
     },
@@ -76419,6 +76547,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:47:34.234Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-chegou-o-tempo-de-cantar-93b2418878",
       "offlineKey": "mdl-song-sarah-farias-chegou-o-tempo-de-cantar-93b2418878"
     },
@@ -76430,6 +76559,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:47:37.910Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-coisas-maiores-e7b1a7f910",
       "offlineKey": "mdl-song-sarah-farias-coisas-maiores-e7b1a7f910"
     },
@@ -76441,6 +76571,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:47:41.534Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-de-joelhos-6c9370cc1c",
       "offlineKey": "mdl-song-sarah-farias-de-joelhos-6c9370cc1c"
     },
@@ -76452,6 +76583,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:47:45.143Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-deixa-eu-te-usar-2da714b090",
       "offlineKey": "mdl-song-sarah-farias-deixa-eu-te-usar-2da714b090"
     },
@@ -76463,6 +76595,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:47:48.774Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-deus-de-futuro-39b38d04e5",
       "offlineKey": "mdl-song-sarah-farias-deus-de-futuro-39b38d04e5"
     },
@@ -76474,6 +76607,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-03T15:47:52.367Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-deus-dos-meus-pais-1eb86df76e",
       "offlineKey": "mdl-song-sarah-farias-deus-dos-meus-pais-1eb86df76e"
     },
@@ -76485,6 +76619,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:47:55.967Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-deus-nao-vai-parar-3d691622f6",
       "offlineKey": "mdl-song-sarah-farias-deus-nao-vai-parar-3d691622f6"
     },
@@ -76496,6 +76631,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:47:59.588Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-deus-preparou-tudo-part-midian-lima-6428683ce4",
       "offlineKey": "mdl-song-sarah-farias-deus-preparou-tudo-part-midian-lima-6428683ce4"
     },
@@ -76507,6 +76643,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:48:03.169Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-e-diferente-ba36105191",
       "offlineKey": "mdl-song-sarah-farias-e-diferente-ba36105191"
     },
@@ -76518,6 +76655,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:48:06.787Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-e-na-minha-presenca-part-ruthe-dayanne-0cc62bae32",
       "offlineKey": "mdl-song-sarah-farias-e-na-minha-presenca-part-ruthe-dayanne-0cc62bae32"
     },
@@ -76529,6 +76667,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:48:10.388Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-e-tempo-2ad285d83c",
       "offlineKey": "mdl-song-sarah-farias-e-tempo-2ad285d83c"
     },
@@ -76540,6 +76679,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:48:14.044Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-e-tempo-de-buscar-42010977e9",
       "offlineKey": "mdl-song-sarah-farias-e-tempo-de-buscar-42010977e9"
     },
@@ -76551,6 +76691,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:48:17.671Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-efata-2a609b8b35",
       "offlineKey": "mdl-song-sarah-farias-efata-2a609b8b35"
     },
@@ -76562,6 +76703,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:48:21.298Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-espirito-santo-6781a64599",
       "offlineKey": "mdl-song-sarah-farias-espirito-santo-6781a64599"
     },
@@ -76573,6 +76715,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:48:24.910Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-estabilidade-ac4e0490c5",
       "offlineKey": "mdl-song-sarah-farias-estabilidade-ac4e0490c5"
     },
@@ -76584,6 +76727,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:48:28.537Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-eu-creio-em-deus-9763c09109",
       "offlineKey": "mdl-song-sarah-farias-eu-creio-em-deus-9763c09109"
     },
@@ -76595,6 +76739,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:48:32.175Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-eu-disse-6b6c75cd4c",
       "offlineKey": "mdl-song-sarah-farias-eu-disse-6b6c75cd4c"
     },
@@ -76606,6 +76751,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:48:35.837Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-eu-faco-parte-dos-7-mil-2aceb83be7",
       "offlineKey": "mdl-song-sarah-farias-eu-faco-parte-dos-7-mil-2aceb83be7"
     },
@@ -76617,6 +76763,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:48:39.452Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-eu-posso-orar-por-voce-4132a5f780",
       "offlineKey": "mdl-song-sarah-farias-eu-posso-orar-por-voce-4132a5f780"
     },
@@ -76628,6 +76775,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:48:43.069Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-faz-chover-cca3795456",
       "offlineKey": "mdl-song-sarah-farias-faz-chover-cca3795456"
     },
@@ -76639,6 +76787,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-03T15:48:46.654Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-guarda-o-seu-coracao-f492adc485",
       "offlineKey": "mdl-song-sarah-farias-guarda-o-seu-coracao-f492adc485"
     },
@@ -76650,6 +76799,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:48:50.279Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-ha-poder-no-nome-part-one-service-f7649ac6ca",
       "offlineKey": "mdl-song-sarah-farias-ha-poder-no-nome-part-one-service-f7649ac6ca"
     },
@@ -76661,6 +76811,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:48:53.899Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-isaias-51-2-afda9a08bc",
       "offlineKey": "mdl-song-sarah-farias-isaias-51-2-afda9a08bc"
     },
@@ -76672,6 +76823,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-03T15:48:57.521Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-majestade-santa-946f882974",
       "offlineKey": "mdl-song-sarah-farias-majestade-santa-946f882974"
     },
@@ -76683,6 +76835,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:49:01.130Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-manasses-d498f9965a",
       "offlineKey": "mdl-song-sarah-farias-manasses-d498f9965a"
     },
@@ -76694,6 +76847,7 @@
       "fileType": "html",
       "key": "Eb",
       "updatedAt": "2026-05-03T15:49:04.786Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-me-escolheu-bff77a6d00",
       "offlineKey": "mdl-song-sarah-farias-me-escolheu-bff77a6d00"
     },
@@ -76705,6 +76859,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:49:08.400Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-movimenta-as-aguas-8b88bf4a28",
       "offlineKey": "mdl-song-sarah-farias-movimenta-as-aguas-8b88bf4a28"
     },
@@ -76716,6 +76871,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:49:12.017Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-novidade-6614812583",
       "offlineKey": "mdl-song-sarah-farias-novidade-6614812583"
     },
@@ -76727,6 +76883,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:49:15.624Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-nunca-mais-495cbefc0c",
       "offlineKey": "mdl-song-sarah-farias-nunca-mais-495cbefc0c"
     },
@@ -76738,6 +76895,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:49:19.282Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-o-ceu-esta-baixinho-987e5689c3",
       "offlineKey": "mdl-song-sarah-farias-o-ceu-esta-baixinho-987e5689c3"
     },
@@ -76749,6 +76907,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:49:22.908Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-o-ceu-esta-me-sustentando-2f801054a5",
       "offlineKey": "mdl-song-sarah-farias-o-ceu-esta-me-sustentando-2f801054a5"
     },
@@ -76760,6 +76919,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:49:26.506Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-o-meu-olho-brilha-8b13230071",
       "offlineKey": "mdl-song-sarah-farias-o-meu-olho-brilha-8b13230071"
     },
@@ -76771,6 +76931,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:49:30.118Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-o-poder-da-oracao-part-kailane-frauches-0a3988e3ff",
       "offlineKey": "mdl-song-sarah-farias-o-poder-da-oracao-part-kailane-frauches-0a3988e3ff"
     },
@@ -76782,6 +76943,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:49:33.740Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-o-rosto-de-cristo-c0f74b9fe9",
       "offlineKey": "mdl-song-sarah-farias-o-rosto-de-cristo-c0f74b9fe9"
     },
@@ -76793,6 +76955,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:49:37.340Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-remedio-6b638df240",
       "offlineKey": "mdl-song-sarah-farias-remedio-6b638df240"
     },
@@ -76804,6 +76967,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:49:40.943Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-renovo-8143e1e8eb",
       "offlineKey": "mdl-song-sarah-farias-renovo-8143e1e8eb"
     },
@@ -76815,6 +76979,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-03T15:49:44.580Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-santifica-me-33224b98eb",
       "offlineKey": "mdl-song-sarah-farias-santifica-me-33224b98eb"
     },
@@ -76826,6 +76991,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:49:48.199Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-sarca-63a61922a5",
       "offlineKey": "mdl-song-sarah-farias-sarca-63a61922a5"
     },
@@ -76837,6 +77003,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:49:51.792Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-se-eu-nao-te-ouvir-262db11369",
       "offlineKey": "mdl-song-sarah-farias-se-eu-nao-te-ouvir-262db11369"
     },
@@ -76848,6 +77015,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:49:55.398Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-se-renovarao-86a355087c",
       "offlineKey": "mdl-song-sarah-farias-se-renovarao-86a355087c"
     },
@@ -76859,6 +77027,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:49:59.005Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-senhor-quero-te-ouvir-0621473f27",
       "offlineKey": "mdl-song-sarah-farias-senhor-quero-te-ouvir-0621473f27"
     },
@@ -76870,6 +77039,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:50:02.634Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-sentir-tua-presenca-61fdf33223",
       "offlineKey": "mdl-song-sarah-farias-sentir-tua-presenca-61fdf33223"
     },
@@ -76881,6 +77051,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:50:06.246Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-so-quem-tem-raiz-938a990ac6",
       "offlineKey": "mdl-song-sarah-farias-so-quem-tem-raiz-938a990ac6"
     },
@@ -76892,6 +77063,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-03T15:50:09.868Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-sobrevivi-ce075801f1",
       "offlineKey": "mdl-song-sarah-farias-sobrevivi-ce075801f1"
     },
@@ -76903,6 +77075,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:50:13.472Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-sou-livre-c231ff49fe",
       "offlineKey": "mdl-song-sarah-farias-sou-livre-c231ff49fe"
     },
@@ -76914,6 +77087,7 @@
       "fileType": "html",
       "key": "A#",
       "updatedAt": "2026-05-03T15:50:17.069Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-ta-passando-20745b7696",
       "offlineKey": "mdl-song-sarah-farias-ta-passando-20745b7696"
     },
@@ -76925,6 +77099,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:50:20.681Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-transforma-em-bencao-f4ed72008f",
       "offlineKey": "mdl-song-sarah-farias-transforma-em-bencao-f4ed72008f"
     },
@@ -76936,6 +77111,7 @@
       "fileType": "html",
       "key": "Eb",
       "updatedAt": "2026-05-03T15:50:24.317Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-tua-fidelidade-de40417fba",
       "offlineKey": "mdl-song-sarah-farias-tua-fidelidade-de40417fba"
     },
@@ -76947,8 +77123,2858 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:50:27.931Z",
+      "artistThumb": "/artist-thumbs/sarah-farias.jpg?v=1780250818534",
       "apiUrl": "/api/songs/sarah-farias-vaso-pra-honra-84258f6eed",
       "offlineKey": "mdl-song-sarah-farias-vaso-pra-honra-84258f6eed"
+    },
+    {
+      "id": "shirley-carvalhaes-a-arvore-da-cruz-42038fa8f4",
+      "title": "A árvore da cruz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:31:32.151Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-arvore-da-cruz-42038fa8f4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-arvore-da-cruz-42038fa8f4"
+    },
+    {
+      "id": "shirley-carvalhaes-a-arvore-e-a-cruz-2674e82716",
+      "title": "A árvore e a cruz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:31:35.755Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-arvore-e-a-cruz-2674e82716",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-arvore-e-a-cruz-2674e82716"
+    },
+    {
+      "id": "shirley-carvalhaes-a-espera-de-um-milagre-189f1d73b4",
+      "title": "A Espera de Um Milagre",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Db",
+      "updatedAt": "2026-05-31T16:31:39.341Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-espera-de-um-milagre-189f1d73b4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-espera-de-um-milagre-189f1d73b4"
+    },
+    {
+      "id": "shirley-carvalhaes-a-estrada-e-longa-104f1e5089",
+      "title": "A estrada é longa",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:31:42.936Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-estrada-e-longa-104f1e5089",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-estrada-e-longa-104f1e5089"
+    },
+    {
+      "id": "shirley-carvalhaes-a-fe-8ba5300e9b",
+      "title": "A fé",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:31:46.530Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-fe-8ba5300e9b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-fe-8ba5300e9b"
+    },
+    {
+      "id": "shirley-carvalhaes-a-hora-314f1fd1fe",
+      "title": "A hora",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:31:50.151Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-hora-314f1fd1fe",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-hora-314f1fd1fe"
+    },
+    {
+      "id": "shirley-carvalhaes-a-hora-e-essa-e547136bef",
+      "title": "A hora é essa",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:31:53.842Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-hora-e-essa-e547136bef",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-hora-e-essa-e547136bef"
+    },
+    {
+      "id": "shirley-carvalhaes-a-mensagem-da-cruz-414dc3bf82",
+      "title": "A Mensagem da Cruz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Db",
+      "updatedAt": "2026-05-31T16:31:57.493Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-mensagem-da-cruz-414dc3bf82",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-mensagem-da-cruz-414dc3bf82"
+    },
+    {
+      "id": "shirley-carvalhaes-a-sos-com-deus-c622d799cc",
+      "title": "A sós com deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T16:32:01.116Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-sos-com-deus-c622d799cc",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-sos-com-deus-c622d799cc"
+    },
+    {
+      "id": "shirley-carvalhaes-a-terra-tremeu-47a9b79e12",
+      "title": "A Terra Tremeu",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:32:04.935Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-terra-tremeu-47a9b79e12",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-terra-tremeu-47a9b79e12"
+    },
+    {
+      "id": "shirley-carvalhaes-a-vitoria-e-do-povo-de-deus-009a5fb7c1",
+      "title": "A vitória é do povo de deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:32:08.704Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-vitoria-e-do-povo-de-deus-009a5fb7c1",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-vitoria-e-do-povo-de-deus-009a5fb7c1"
+    },
+    {
+      "id": "shirley-carvalhaes-a-voz-do-silencio-df64222317",
+      "title": "A voz do silêncio",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:32:12.357Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-a-voz-do-silencio-df64222317",
+      "offlineKey": "mdl-song-shirley-carvalhaes-a-voz-do-silencio-df64222317"
+    },
+    {
+      "id": "shirley-carvalhaes-acima-das-estrelas-a68d9b20ad",
+      "title": "Acima das estrelas",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:32:16.051Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-acima-das-estrelas-a68d9b20ad",
+      "offlineKey": "mdl-song-shirley-carvalhaes-acima-das-estrelas-a68d9b20ad"
+    },
+    {
+      "id": "shirley-carvalhaes-agonia-cruel-21587bd57e",
+      "title": "AGONIA CRUEL",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:32:19.676Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-agonia-cruel-21587bd57e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-agonia-cruel-21587bd57e"
+    },
+    {
+      "id": "shirley-carvalhaes-ai-de-mim-ced93802ea",
+      "title": "Ai de mim",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:32:23.290Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ai-de-mim-ced93802ea",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ai-de-mim-ced93802ea"
+    },
+    {
+      "id": "shirley-carvalhaes-aleluia-1a42859ee0",
+      "title": "Aleluia",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:32:26.917Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-aleluia-1a42859ee0",
+      "offlineKey": "mdl-song-shirley-carvalhaes-aleluia-1a42859ee0"
+    },
+    {
+      "id": "shirley-carvalhaes-aleluia-cantai-fb084cf980",
+      "title": "Aleluia, cantai",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:32:30.546Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-aleluia-cantai-fb084cf980",
+      "offlineKey": "mdl-song-shirley-carvalhaes-aleluia-cantai-fb084cf980"
+    },
+    {
+      "id": "shirley-carvalhaes-algo-novo-266ab91685",
+      "title": "Algo novo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:32:34.207Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-algo-novo-266ab91685",
+      "offlineKey": "mdl-song-shirley-carvalhaes-algo-novo-266ab91685"
+    },
+    {
+      "id": "shirley-carvalhaes-alguem-sobre-o-trono-b742c53ae9",
+      "title": "Alguém Sobre o Trono",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:32:37.824Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-alguem-sobre-o-trono-b742c53ae9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-alguem-sobre-o-trono-b742c53ae9"
+    },
+    {
+      "id": "shirley-carvalhaes-amigo-do-peito-6da531943b",
+      "title": "Amigo Do Peito",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:32:41.434Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-amigo-do-peito-6da531943b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-amigo-do-peito-6da531943b"
+    },
+    {
+      "id": "shirley-carvalhaes-amor-de-deus-c46f80e9bb",
+      "title": "Amor de deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:32:45.059Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-amor-de-deus-c46f80e9bb",
+      "offlineKey": "mdl-song-shirley-carvalhaes-amor-de-deus-c46f80e9bb"
+    },
+    {
+      "id": "shirley-carvalhaes-amor-verdadeiro-de69d47f11",
+      "title": "Amor Verdadeiro",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:32:48.674Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-amor-verdadeiro-de69d47f11",
+      "offlineKey": "mdl-song-shirley-carvalhaes-amor-verdadeiro-de69d47f11"
+    },
+    {
+      "id": "shirley-carvalhaes-ao-deus-do-meu-louvor-216c28ea32",
+      "title": "Ao deus do meu louvor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:32:52.304Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ao-deus-do-meu-louvor-216c28ea32",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ao-deus-do-meu-louvor-216c28ea32"
+    },
+    {
+      "id": "shirley-carvalhaes-as-marcas-da-dor-6e4a4fbcad",
+      "title": "As marcas da dor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:32:56.003Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-as-marcas-da-dor-6e4a4fbcad",
+      "offlineKey": "mdl-song-shirley-carvalhaes-as-marcas-da-dor-6e4a4fbcad"
+    },
+    {
+      "id": "shirley-carvalhaes-asas-da-humilhacao-6589df5d14",
+      "title": "Asas da Humilhação",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:32:59.745Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-asas-da-humilhacao-6589df5d14",
+      "offlineKey": "mdl-song-shirley-carvalhaes-asas-da-humilhacao-6589df5d14"
+    },
+    {
+      "id": "shirley-carvalhaes-asas-do-vento-440ece8904",
+      "title": "Asas do vento",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:33:03.429Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-asas-do-vento-440ece8904",
+      "offlineKey": "mdl-song-shirley-carvalhaes-asas-do-vento-440ece8904"
+    },
+    {
+      "id": "shirley-carvalhaes-ate-siao-bcc268da7c",
+      "title": "Até sião",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:33:07.084Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ate-siao-bcc268da7c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ate-siao-bcc268da7c"
+    },
+    {
+      "id": "shirley-carvalhaes-barulho-de-gloria-1254f6ed11",
+      "title": "Barulho de Glória",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:33:10.684Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-barulho-de-gloria-1254f6ed11",
+      "offlineKey": "mdl-song-shirley-carvalhaes-barulho-de-gloria-1254f6ed11"
+    },
+    {
+      "id": "shirley-carvalhaes-basta-uma-palavra-76633fd6cd",
+      "title": "Basta uma palavra",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Ab",
+      "updatedAt": "2026-05-31T16:33:14.282Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-basta-uma-palavra-76633fd6cd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-basta-uma-palavra-76633fd6cd"
+    },
+    {
+      "id": "shirley-carvalhaes-bate-coracao-b18c933816",
+      "title": "Bate coração",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:33:17.885Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-bate-coracao-b18c933816",
+      "offlineKey": "mdl-song-shirley-carvalhaes-bate-coracao-b18c933816"
+    },
+    {
+      "id": "shirley-carvalhaes-bem-distante-eu-te-vi-e083254722",
+      "title": "Bem distante eu te vi",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:33:21.473Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-bem-distante-eu-te-vi-e083254722",
+      "offlineKey": "mdl-song-shirley-carvalhaes-bem-distante-eu-te-vi-e083254722"
+    },
+    {
+      "id": "shirley-carvalhaes-breve-verei-o-bom-jesus-59d52359ba",
+      "title": "Breve Verei o Bom Jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:33:25.104Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-breve-verei-o-bom-jesus-59d52359ba",
+      "offlineKey": "mdl-song-shirley-carvalhaes-breve-verei-o-bom-jesus-59d52359ba"
+    },
+    {
+      "id": "shirley-carvalhaes-caminho-do-mestre-486991803f",
+      "title": "Caminho do Mestre",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:33:28.780Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-caminho-do-mestre-486991803f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-caminho-do-mestre-486991803f"
+    },
+    {
+      "id": "shirley-carvalhaes-canaa-e-logo-ali-eb7662ff2b",
+      "title": "Canaã é logo ali",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:33:32.392Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-canaa-e-logo-ali-eb7662ff2b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-canaa-e-logo-ali-eb7662ff2b"
+    },
+    {
+      "id": "shirley-carvalhaes-cantando-vou-5b4623d85e",
+      "title": "Cantando Vou",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:33:35.985Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-cantando-vou-5b4623d85e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-cantando-vou-5b4623d85e"
+    },
+    {
+      "id": "shirley-carvalhaes-cenario-de-vitoria-8569f63d8c",
+      "title": "Cenário De Vitória",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:33:39.578Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-cenario-de-vitoria-8569f63d8c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-cenario-de-vitoria-8569f63d8c"
+    },
+    {
+      "id": "shirley-carvalhaes-chega-de-sofrer-c2dc94f732",
+      "title": "Chega de sofrer",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:33:43.265Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-chega-de-sofrer-c2dc94f732",
+      "offlineKey": "mdl-song-shirley-carvalhaes-chega-de-sofrer-c2dc94f732"
+    },
+    {
+      "id": "shirley-carvalhaes-cidade-linda-7752bc55b2",
+      "title": "Cidade Linda",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:33:46.861Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-cidade-linda-7752bc55b2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-cidade-linda-7752bc55b2"
+    },
+    {
+      "id": "shirley-carvalhaes-cidade-santa-530ac50623",
+      "title": "Cidade Santa",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:33:50.476Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-cidade-santa-530ac50623",
+      "offlineKey": "mdl-song-shirley-carvalhaes-cidade-santa-530ac50623"
+    },
+    {
+      "id": "shirley-carvalhaes-crente-nao-acha-tem-certeza-fd50e33515",
+      "title": "Crente não acha, tem certeza",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:33:54.075Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-crente-nao-acha-tem-certeza-fd50e33515",
+      "offlineKey": "mdl-song-shirley-carvalhaes-crente-nao-acha-tem-certeza-fd50e33515"
+    },
+    {
+      "id": "shirley-carvalhaes-cristo-99585a0f7c",
+      "title": "Cristo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:33:57.684Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-cristo-99585a0f7c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-cristo-99585a0f7c"
+    },
+    {
+      "id": "shirley-carvalhaes-de-coracao-pra-coracao-1e59fcb5a2",
+      "title": "De coração pra coração",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:34:01.322Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-de-coracao-pra-coracao-1e59fcb5a2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-de-coracao-pra-coracao-1e59fcb5a2"
+    },
+    {
+      "id": "shirley-carvalhaes-de-corpo-e-alma-a4d656b28a",
+      "title": "De corpo e alma",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:34:05.023Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-de-corpo-e-alma-a4d656b28a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-de-corpo-e-alma-a4d656b28a"
+    },
+    {
+      "id": "shirley-carvalhaes-de-joelhos-763ada5c36",
+      "title": "De joelhos",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:34:08.674Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-de-joelhos-763ada5c36",
+      "offlineKey": "mdl-song-shirley-carvalhaes-de-joelhos-763ada5c36"
+    },
+    {
+      "id": "shirley-carvalhaes-de-madrugada-be4ecc6e61",
+      "title": "De madrugada",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:34:12.271Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-de-madrugada-be4ecc6e61",
+      "offlineKey": "mdl-song-shirley-carvalhaes-de-madrugada-be4ecc6e61"
+    },
+    {
+      "id": "shirley-carvalhaes-desapareceu-um-povo-00fb660df5",
+      "title": "Desapareceu um povo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:34:15.874Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-desapareceu-um-povo-00fb660df5",
+      "offlineKey": "mdl-song-shirley-carvalhaes-desapareceu-um-povo-00fb660df5"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-2e5b06d57c",
+      "title": "Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:34:19.465Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-2e5b06d57c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-2e5b06d57c"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-dara-de-volta-d4c873918b",
+      "title": "Deus dará de volta",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:34:23.064Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-dara-de-volta-d4c873918b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-dara-de-volta-d4c873918b"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-dara-de-volta-tudo-pra-voce-699dd5be01",
+      "title": "Deus Dara De Volta Tudo Pra Você",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:34:26.705Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-dara-de-volta-tudo-pra-voce-699dd5be01",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-dara-de-volta-tudo-pra-voce-699dd5be01"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-faz-e260f95639",
+      "title": "Deus faz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:34:30.336Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-faz-e260f95639",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-faz-e260f95639"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-nunca-falha-9e8df264a7",
+      "title": "Deus Nunca Falha",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:34:33.943Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-nunca-falha-9e8df264a7",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-nunca-falha-9e8df264a7"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-provera-9dfc71074e",
+      "title": "Deus proverá",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:34:37.539Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-provera-9dfc71074e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-provera-9dfc71074e"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-tem-amor-e830a28996",
+      "title": "Deus tem amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:34:41.141Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-tem-amor-e830a28996",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-tem-amor-e830a28996"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-tem-amor-pra-da-8b8221f476",
+      "title": "Deus Tem Amor Pra Dá",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:34:44.755Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-tem-amor-pra-da-8b8221f476",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-tem-amor-pra-da-8b8221f476"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-tremendo-b69784ca6e",
+      "title": "Deus tremendo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:34:48.373Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-tremendo-b69784ca6e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-tremendo-b69784ca6e"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-tremendo-ii-23cb77e23b",
+      "title": "Deus Tremendo II",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:34:51.979Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-tremendo-ii-23cb77e23b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-tremendo-ii-23cb77e23b"
+    },
+    {
+      "id": "shirley-carvalhaes-deus-vai-na-frente-6ad2773218",
+      "title": "Deus vai na frente",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:34:55.611Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-deus-vai-na-frente-6ad2773218",
+      "offlineKey": "mdl-song-shirley-carvalhaes-deus-vai-na-frente-6ad2773218"
+    },
+    {
+      "id": "shirley-carvalhaes-dialogo-com-deus-9df506fdb8",
+      "title": "Diálogo com deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:34:59.229Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-dialogo-com-deus-9df506fdb8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-dialogo-com-deus-9df506fdb8"
+    },
+    {
+      "id": "shirley-carvalhaes-ditosa-cidade-b0ca268dbf",
+      "title": "Ditosa cidade",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:35:02.835Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ditosa-cidade-b0ca268dbf",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ditosa-cidade-b0ca268dbf"
+    },
+    {
+      "id": "shirley-carvalhaes-dna-de-campeao-f9e1771341",
+      "title": "Dna De Campeão",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:35:06.463Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-dna-de-campeao-f9e1771341",
+      "offlineKey": "mdl-song-shirley-carvalhaes-dna-de-campeao-f9e1771341"
+    },
+    {
+      "id": "shirley-carvalhaes-do-anonimato-a-vencedor-7e3c84e009",
+      "title": "Do anonimato a vencedor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:35:10.092Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-do-anonimato-a-vencedor-7e3c84e009",
+      "offlineKey": "mdl-song-shirley-carvalhaes-do-anonimato-a-vencedor-7e3c84e009"
+    },
+    {
+      "id": "shirley-carvalhaes-dono-de-tudo-18fe9f3d5a",
+      "title": "Dono de tudo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:35:13.719Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-dono-de-tudo-18fe9f3d5a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-dono-de-tudo-18fe9f3d5a"
+    },
+    {
+      "id": "shirley-carvalhaes-e-ele-701db27d6e",
+      "title": "É Ele",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:35:17.323Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-e-ele-701db27d6e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-e-ele-701db27d6e"
+    },
+    {
+      "id": "shirley-carvalhaes-e-inexplicavel-c03bf0cabb",
+      "title": "É inexplicável",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:35:20.914Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-e-inexplicavel-c03bf0cabb",
+      "offlineKey": "mdl-song-shirley-carvalhaes-e-inexplicavel-c03bf0cabb"
+    },
+    {
+      "id": "shirley-carvalhaes-e-pra-guerrear-8e9b81bf16",
+      "title": "É pra guerrear",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:35:24.520Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-e-pra-guerrear-8e9b81bf16",
+      "offlineKey": "mdl-song-shirley-carvalhaes-e-pra-guerrear-8e9b81bf16"
+    },
+    {
+      "id": "shirley-carvalhaes-e-preciso-e44b71a257",
+      "title": "É Preciso",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:35:28.136Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-e-preciso-e44b71a257",
+      "offlineKey": "mdl-song-shirley-carvalhaes-e-preciso-e44b71a257"
+    },
+    {
+      "id": "shirley-carvalhaes-ele-e-deus-7a545b085f",
+      "title": "Ele É Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Eb",
+      "updatedAt": "2026-05-31T16:35:31.739Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ele-e-deus-7a545b085f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ele-e-deus-7a545b085f"
+    },
+    {
+      "id": "shirley-carvalhaes-ele-e-jeova-34e87bdb0f",
+      "title": "Ele é jeová",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:35:35.415Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ele-e-jeova-34e87bdb0f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ele-e-jeova-34e87bdb0f"
+    },
+    {
+      "id": "shirley-carvalhaes-ele-e-santo-a99f73a1ad",
+      "title": "Ele É Santo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:35:39.021Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ele-e-santo-a99f73a1ad",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ele-e-santo-a99f73a1ad"
+    },
+    {
+      "id": "shirley-carvalhaes-ele-veio-a8027e5c37",
+      "title": "Ele veio",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:35:42.629Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ele-veio-a8027e5c37",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ele-veio-a8027e5c37"
+    },
+    {
+      "id": "shirley-carvalhaes-eles-sumiram-62d70b0c78",
+      "title": "Eles Sumiram",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:35:46.304Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eles-sumiram-62d70b0c78",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eles-sumiram-62d70b0c78"
+    },
+    {
+      "id": "shirley-carvalhaes-em-fervente-oracao-3e32c35631",
+      "title": "Em Fervente Oração",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:35:49.920Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-em-fervente-oracao-3e32c35631",
+      "offlineKey": "mdl-song-shirley-carvalhaes-em-fervente-oracao-3e32c35631"
+    },
+    {
+      "id": "shirley-carvalhaes-em-nome-de-jesus-c84400f50b",
+      "title": "Em nome de jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:35:53.620Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-em-nome-de-jesus-c84400f50b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-em-nome-de-jesus-c84400f50b"
+    },
+    {
+      "id": "shirley-carvalhaes-ergue-se-a-cruz-fa00a46f95",
+      "title": "Ergue-se a cruz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:35:57.234Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ergue-se-a-cruz-fa00a46f95",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ergue-se-a-cruz-fa00a46f95"
+    },
+    {
+      "id": "shirley-carvalhaes-escudo-forte-5a122d416c",
+      "title": "Escudo Forte",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:36:00.820Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-escudo-forte-5a122d416c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-escudo-forte-5a122d416c"
+    },
+    {
+      "id": "shirley-carvalhaes-espada-cortante-bb5f475b55",
+      "title": "Espada cortante",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:36:04.460Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-espada-cortante-bb5f475b55",
+      "offlineKey": "mdl-song-shirley-carvalhaes-espada-cortante-bb5f475b55"
+    },
+    {
+      "id": "shirley-carvalhaes-esse-adorador-6deb29576f",
+      "title": "Esse adorador",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:36:08.061Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-esse-adorador-6deb29576f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-esse-adorador-6deb29576f"
+    },
+    {
+      "id": "shirley-carvalhaes-esta-bencao-e-pra-voce-9e807dc08b",
+      "title": "Esta Bênção É Pra Você",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:36:11.702Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-esta-bencao-e-pra-voce-9e807dc08b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-esta-bencao-e-pra-voce-9e807dc08b"
+    },
+    {
+      "id": "shirley-carvalhaes-estamos-reunidos-ef9c01a7e8",
+      "title": "Estamos reunidos",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:36:15.340Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-estamos-reunidos-ef9c01a7e8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-estamos-reunidos-ef9c01a7e8"
+    },
+    {
+      "id": "shirley-carvalhaes-este-deus-e-demais-ef7e2acb8a",
+      "title": "Este deus é demais",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:36:18.954Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-este-deus-e-demais-ef7e2acb8a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-este-deus-e-demais-ef7e2acb8a"
+    },
+    {
+      "id": "shirley-carvalhaes-estou-contigo-5dcdd68b84",
+      "title": "Estou contigo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:36:22.569Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-estou-contigo-5dcdd68b84",
+      "offlineKey": "mdl-song-shirley-carvalhaes-estou-contigo-5dcdd68b84"
+    },
+    {
+      "id": "shirley-carvalhaes-estou-contigo-ver-2-9a55625a63",
+      "title": "Estou contigo (Ver.2)",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:36:26.177Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-estou-contigo-ver-2-9a55625a63",
+      "offlineKey": "mdl-song-shirley-carvalhaes-estou-contigo-ver-2-9a55625a63"
+    },
+    {
+      "id": "shirley-carvalhaes-eterno-adorador-f072c868e4",
+      "title": "Eterno Adorador",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:36:29.771Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eterno-adorador-f072c868e4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eterno-adorador-f072c868e4"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-preciso-de-ti-497b448af0",
+      "title": "Eu preciso de ti",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:36:33.403Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-preciso-de-ti-497b448af0",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-preciso-de-ti-497b448af0"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-preciso-falar-de-jesus-b24a8fb55c",
+      "title": "Eu preciso falar de jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:36:37.054Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-preciso-falar-de-jesus-b24a8fb55c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-preciso-falar-de-jesus-b24a8fb55c"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-sou-deus-341dda106b",
+      "title": "Eu Sou Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:36:40.661Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-sou-deus-341dda106b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-sou-deus-341dda106b"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-sou-o-teu-deus-65e5a73aca",
+      "title": "Eu sou o teu deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:36:44.283Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-sou-o-teu-deus-65e5a73aca",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-sou-o-teu-deus-65e5a73aca"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-sou-um-crente-02a26e5f0e",
+      "title": "Eu Sou Um Crente",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:36:47.883Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-sou-um-crente-02a26e5f0e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-sou-um-crente-02a26e5f0e"
+    },
+    {
+      "id": "shirley-carvalhaes-eu-vou-d62536f433",
+      "title": "Eu Vou",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:36:51.530Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-eu-vou-d62536f433",
+      "offlineKey": "mdl-song-shirley-carvalhaes-eu-vou-d62536f433"
+    },
+    {
+      "id": "shirley-carvalhaes-explode-coracao-9bea20d964",
+      "title": "Explode Coração",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:36:55.286Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-explode-coracao-9bea20d964",
+      "offlineKey": "mdl-song-shirley-carvalhaes-explode-coracao-9bea20d964"
+    },
+    {
+      "id": "shirley-carvalhaes-fala-com-deus-a46e438d73",
+      "title": "Fala Com Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:36:58.923Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-fala-com-deus-a46e438d73",
+      "offlineKey": "mdl-song-shirley-carvalhaes-fala-com-deus-a46e438d73"
+    },
+    {
+      "id": "shirley-carvalhaes-fala-que-eu-te-escuto-aedae7d4f5",
+      "title": "Fala que eu te escuto",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:37:02.574Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-fala-que-eu-te-escuto-aedae7d4f5",
+      "offlineKey": "mdl-song-shirley-carvalhaes-fala-que-eu-te-escuto-aedae7d4f5"
+    },
+    {
+      "id": "shirley-carvalhaes-fale-com-jesus-8f03c29cf6",
+      "title": "Fale com jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:37:06.219Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-fale-com-jesus-8f03c29cf6",
+      "offlineKey": "mdl-song-shirley-carvalhaes-fale-com-jesus-8f03c29cf6"
+    },
+    {
+      "id": "shirley-carvalhaes-farao-ou-deus-55e6021440",
+      "title": "Faraó ou deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:37:09.844Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-farao-ou-deus-55e6021440",
+      "offlineKey": "mdl-song-shirley-carvalhaes-farao-ou-deus-55e6021440"
+    },
+    {
+      "id": "shirley-carvalhaes-farol-na-escuridao-9a383744ca",
+      "title": "Farol na escuridão",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Eb",
+      "updatedAt": "2026-05-31T16:37:13.493Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-farol-na-escuridao-9a383744ca",
+      "offlineKey": "mdl-song-shirley-carvalhaes-farol-na-escuridao-9a383744ca"
+    },
+    {
+      "id": "shirley-carvalhaes-felicidade-693d261477",
+      "title": "Felicidade",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:37:17.130Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-felicidade-693d261477",
+      "offlineKey": "mdl-song-shirley-carvalhaes-felicidade-693d261477"
+    },
+    {
+      "id": "shirley-carvalhaes-feridos-na-arena-c462dbb1d4",
+      "title": "Feridos na Arena",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:37:20.796Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-feridos-na-arena-c462dbb1d4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-feridos-na-arena-c462dbb1d4"
+    },
+    {
+      "id": "shirley-carvalhaes-filho-do-rei-df6441b8bb",
+      "title": "Filho do rei",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:37:24.390Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-filho-do-rei-df6441b8bb",
+      "offlineKey": "mdl-song-shirley-carvalhaes-filho-do-rei-df6441b8bb"
+    },
+    {
+      "id": "shirley-carvalhaes-filho-prodigo-b293e80eb9",
+      "title": "Filho pródigo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:37:28.010Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-filho-prodigo-b293e80eb9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-filho-prodigo-b293e80eb9"
+    },
+    {
+      "id": "shirley-carvalhaes-folha-seca-433abb2b72",
+      "title": "Folha Seca",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:37:31.634Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-folha-seca-433abb2b72",
+      "offlineKey": "mdl-song-shirley-carvalhaes-folha-seca-433abb2b72"
+    },
+    {
+      "id": "shirley-carvalhaes-gaivota-3e7c2fc57f",
+      "title": "Gaivota",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:37:35.234Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-gaivota-3e7c2fc57f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-gaivota-3e7c2fc57f"
+    },
+    {
+      "id": "shirley-carvalhaes-general-de-guerra-f82b23986d",
+      "title": "General de guerra",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:37:38.854Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-general-de-guerra-f82b23986d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-general-de-guerra-f82b23986d"
+    },
+    {
+      "id": "shirley-carvalhaes-grande-em-bondade-cf7008bb19",
+      "title": "Grande Em Bondade",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:37:42.491Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-grande-em-bondade-cf7008bb19",
+      "offlineKey": "mdl-song-shirley-carvalhaes-grande-em-bondade-cf7008bb19"
+    },
+    {
+      "id": "shirley-carvalhaes-grande-em-bondade-obrigado-obrigado-sen-3104eeae20",
+      "title": "Grande Em Bondade Obrigado, Obrigado Senhor (pot-pourri)",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:37:46.177Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-grande-em-bondade-obrigado-obrigado-sen-3104eeae20",
+      "offlineKey": "mdl-song-shirley-carvalhaes-grande-em-bondade-obrigado-obrigado-sen-3104eeae20"
+    },
+    {
+      "id": "shirley-carvalhaes-grito-da-alma-2bfc9526ac",
+      "title": "Grito da Alma",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:37:49.882Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-grito-da-alma-2bfc9526ac",
+      "offlineKey": "mdl-song-shirley-carvalhaes-grito-da-alma-2bfc9526ac"
+    },
+    {
+      "id": "shirley-carvalhaes-ha-uma-saida-b0d25f7bcd",
+      "title": "Há uma saída",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:37:53.468Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ha-uma-saida-b0d25f7bcd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ha-uma-saida-b0d25f7bcd"
+    },
+    {
+      "id": "shirley-carvalhaes-hei-jesus-61442e6e3b",
+      "title": "Hei! jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:37:57.329Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-hei-jesus-61442e6e3b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-hei-jesus-61442e6e3b"
+    },
+    {
+      "id": "shirley-carvalhaes-hoje-e-o-grande-dia-731c1ff6a4",
+      "title": "Hoje é o grande dia",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Ab",
+      "updatedAt": "2026-05-31T16:38:00.959Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-hoje-e-o-grande-dia-731c1ff6a4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-hoje-e-o-grande-dia-731c1ff6a4"
+    },
+    {
+      "id": "shirley-carvalhaes-homem-da-cruz-c5e4a1c6c3",
+      "title": "Homem da Cruz",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:38:04.560Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-homem-da-cruz-c5e4a1c6c3",
+      "offlineKey": "mdl-song-shirley-carvalhaes-homem-da-cruz-c5e4a1c6c3"
+    },
+    {
+      "id": "shirley-carvalhaes-hora-de-vencer-49f78a7c3d",
+      "title": "Hora de vencer",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:38:08.212Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-hora-de-vencer-49f78a7c3d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-hora-de-vencer-49f78a7c3d"
+    },
+    {
+      "id": "shirley-carvalhaes-jeova-jire-22138092b5",
+      "title": "Jeová jirê",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:38:11.806Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jeova-jire-22138092b5",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jeova-jire-22138092b5"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-47a5d37b0d",
+      "title": "Jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:38:15.448Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-47a5d37b0d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-47a5d37b0d"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-a-porta-aberta-972ea08b26",
+      "title": "Jesus a porta aberta",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:38:19.052Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-a-porta-aberta-972ea08b26",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-a-porta-aberta-972ea08b26"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-de-nazare-e8ceb46002",
+      "title": "Jesus De Nazaré",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:38:22.653Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-de-nazare-e8ceb46002",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-de-nazare-e8ceb46002"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-de-nazareth-a5b25eb2cd",
+      "title": "Jesus de Nazareth",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:38:26.275Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-de-nazareth-a5b25eb2cd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-de-nazareth-a5b25eb2cd"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-e-rei-31786efd52",
+      "title": "Jesus É Rei",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:38:29.928Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-e-rei-31786efd52",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-e-rei-31786efd52"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-e-santo-25d359fb47",
+      "title": "Jesus è santo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:38:33.550Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-e-santo-25d359fb47",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-e-santo-25d359fb47"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-me-amou-8c8ff2dcbc",
+      "title": "Jesus Me Amou",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:38:37.188Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-me-amou-8c8ff2dcbc",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-me-amou-8c8ff2dcbc"
+    },
+    {
+      "id": "shirley-carvalhaes-jesus-tem-todo-poder-fb196b8a64",
+      "title": "Jesus tem todo poder",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:38:40.835Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-jesus-tem-todo-poder-fb196b8a64",
+      "offlineKey": "mdl-song-shirley-carvalhaes-jesus-tem-todo-poder-fb196b8a64"
+    },
+    {
+      "id": "shirley-carvalhaes-lamentas-oh-alma-ff3f3a224d",
+      "title": "Lamentas, Oh Alma!",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:38:44.470Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-lamentas-oh-alma-ff3f3a224d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-lamentas-oh-alma-ff3f3a224d"
+    },
+    {
+      "id": "shirley-carvalhaes-lavado-e-remido-5792f6a94b",
+      "title": "Lavado E Remido",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T16:38:48.098Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-lavado-e-remido-5792f6a94b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-lavado-e-remido-5792f6a94b"
+    },
+    {
+      "id": "shirley-carvalhaes-levando-a-vida-06ca5821e4",
+      "title": "Levando a Vida",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:38:51.714Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-levando-a-vida-06ca5821e4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-levando-a-vida-06ca5821e4"
+    },
+    {
+      "id": "shirley-carvalhaes-lindo-coral-817bcfa46e",
+      "title": "Lindo coral",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:38:55.352Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-lindo-coral-817bcfa46e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-lindo-coral-817bcfa46e"
+    },
+    {
+      "id": "shirley-carvalhaes-luz-dourada-567a8c1bc3",
+      "title": "Luz Dourada",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:38:58.978Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-luz-dourada-567a8c1bc3",
+      "offlineKey": "mdl-song-shirley-carvalhaes-luz-dourada-567a8c1bc3"
+    },
+    {
+      "id": "shirley-carvalhaes-madrugada-de-misterio-6348ff2d03",
+      "title": "Madrugada de Mistério",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:39:02.614Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-madrugada-de-misterio-6348ff2d03",
+      "offlineKey": "mdl-song-shirley-carvalhaes-madrugada-de-misterio-6348ff2d03"
+    },
+    {
+      "id": "shirley-carvalhaes-magoas-3d4f63021c",
+      "title": "Mágoas",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:39:06.257Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-magoas-3d4f63021c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-magoas-3d4f63021c"
+    },
+    {
+      "id": "shirley-carvalhaes-manha-em-jerusalem-4752902184",
+      "title": "Manhã em jerusalém",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:39:09.844Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-manha-em-jerusalem-4752902184",
+      "offlineKey": "mdl-song-shirley-carvalhaes-manha-em-jerusalem-4752902184"
+    },
+    {
+      "id": "shirley-carvalhaes-mansoes-celestiais-c46879a119",
+      "title": "Mansões celestiais",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:39:13.515Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-mansoes-celestiais-c46879a119",
+      "offlineKey": "mdl-song-shirley-carvalhaes-mansoes-celestiais-c46879a119"
+    },
+    {
+      "id": "shirley-carvalhaes-maos-ungidas-fac263157f",
+      "title": "Mãos ungidas",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:39:17.126Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-maos-ungidas-fac263157f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-maos-ungidas-fac263157f"
+    },
+    {
+      "id": "shirley-carvalhaes-mar-bravio-1069303696",
+      "title": "Mar bravio",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:39:20.732Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-mar-bravio-1069303696",
+      "offlineKey": "mdl-song-shirley-carvalhaes-mar-bravio-1069303696"
+    },
+    {
+      "id": "shirley-carvalhaes-mar-da-vida-5dd31ba12e",
+      "title": "Mar da Vida",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:39:24.347Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-mar-da-vida-5dd31ba12e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-mar-da-vida-5dd31ba12e"
+    },
+    {
+      "id": "shirley-carvalhaes-maravilhoso-e-jesus-a9b4bc0973",
+      "title": "Maravilhoso É Jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:39:27.965Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-maravilhoso-e-jesus-a9b4bc0973",
+      "offlineKey": "mdl-song-shirley-carvalhaes-maravilhoso-e-jesus-a9b4bc0973"
+    },
+    {
+      "id": "shirley-carvalhaes-mestre-8eeb673dae",
+      "title": "Mestre",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:39:31.585Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-mestre-8eeb673dae",
+      "offlineKey": "mdl-song-shirley-carvalhaes-mestre-8eeb673dae"
+    },
+    {
+      "id": "shirley-carvalhaes-meu-canto-5c17c52c7e",
+      "title": "Meu Canto",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:39:35.203Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-meu-canto-5c17c52c7e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-meu-canto-5c17c52c7e"
+    },
+    {
+      "id": "shirley-carvalhaes-milagre-1bde030208",
+      "title": "Milagre",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:39:38.819Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-milagre-1bde030208",
+      "offlineKey": "mdl-song-shirley-carvalhaes-milagre-1bde030208"
+    },
+    {
+      "id": "shirley-carvalhaes-minimo-de-mim-352f21f69f",
+      "title": "Mínimo De Mim",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G#",
+      "updatedAt": "2026-05-31T16:39:42.417Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-minimo-de-mim-352f21f69f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-minimo-de-mim-352f21f69f"
+    },
+    {
+      "id": "shirley-carvalhaes-missionario-6d44d929f0",
+      "title": "Missionário",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:39:46.024Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-missionario-6d44d929f0",
+      "offlineKey": "mdl-song-shirley-carvalhaes-missionario-6d44d929f0"
+    },
+    {
+      "id": "shirley-carvalhaes-momentos-8b11d792f5",
+      "title": "Momentos",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:39:49.618Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-momentos-8b11d792f5",
+      "offlineKey": "mdl-song-shirley-carvalhaes-momentos-8b11d792f5"
+    },
+    {
+      "id": "shirley-carvalhaes-momentos-renuncia-4f7c0c1ec7",
+      "title": "Momentos (Renúncia)",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:39:53.228Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-momentos-renuncia-4f7c0c1ec7",
+      "offlineKey": "mdl-song-shirley-carvalhaes-momentos-renuncia-4f7c0c1ec7"
+    },
+    {
+      "id": "shirley-carvalhaes-morada-de-deus-59dc1f7f9f",
+      "title": "Morada de Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:39:56.820Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-morada-de-deus-59dc1f7f9f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-morada-de-deus-59dc1f7f9f"
+    },
+    {
+      "id": "shirley-carvalhaes-movimento-de-deus-e51a53b9b9",
+      "title": "Movimento De Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:40:00.404Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-movimento-de-deus-e51a53b9b9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-movimento-de-deus-e51a53b9b9"
+    },
+    {
+      "id": "shirley-carvalhaes-muito-obrigado-senhor-d68a1ea67e",
+      "title": "Muito obrigado senhor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:40:03.992Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-muito-obrigado-senhor-d68a1ea67e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-muito-obrigado-senhor-d68a1ea67e"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-chores-mais-aeed909d7f",
+      "title": "Não Chores Mais",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:40:07.584Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-chores-mais-aeed909d7f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-chores-mais-aeed909d7f"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-desista-dos-teus-sonhos-486b5e7732",
+      "title": "Não Desista Dos Teus Sonhos",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:40:11.201Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-desista-dos-teus-sonhos-486b5e7732",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-desista-dos-teus-sonhos-486b5e7732"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-pare-de-adorar-ffcdb39ed1",
+      "title": "Não pare de adorar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:40:14.790Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-pare-de-adorar-ffcdb39ed1",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-pare-de-adorar-ffcdb39ed1"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-temas-1ed1d111c8",
+      "title": "Não temas",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:40:18.431Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-temas-1ed1d111c8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-temas-1ed1d111c8"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-vou-desistir-16eacf9631",
+      "title": "Não Vou Desistir",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:40:22.051Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-vou-desistir-16eacf9631",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-vou-desistir-16eacf9631"
+    },
+    {
+      "id": "shirley-carvalhaes-nao-vou-desistir-part-matheus-aguiar-23a6898391",
+      "title": "Não vou desistir (part. matheus aguiar)",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:40:25.646Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nao-vou-desistir-part-matheus-aguiar-23a6898391",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nao-vou-desistir-part-matheus-aguiar-23a6898391"
+    },
+    {
+      "id": "shirley-carvalhaes-neste-nome-tem-poder-f59eba3fe2",
+      "title": "Neste nome tem poder",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:40:29.267Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-neste-nome-tem-poder-f59eba3fe2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-neste-nome-tem-poder-f59eba3fe2"
+    },
+    {
+      "id": "shirley-carvalhaes-ninguem-vai-calar-meu-canto-c047dc66ba",
+      "title": "Ninguém Vai Calar Meu Canto",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:40:32.910Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ninguem-vai-calar-meu-canto-c047dc66ba",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ninguem-vai-calar-meu-canto-c047dc66ba"
+    },
+    {
+      "id": "shirley-carvalhaes-ninguem-vai-tirar-me-de-ti-c37a2f538f",
+      "title": "Ninguém Vai Tirar-me De Ti",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:40:36.504Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ninguem-vai-tirar-me-de-ti-c37a2f538f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ninguem-vai-tirar-me-de-ti-c37a2f538f"
+    },
+    {
+      "id": "shirley-carvalhaes-ninguem-ve-23926606c7",
+      "title": "Ninguem Vê",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:40:40.105Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ninguem-ve-23926606c7",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ninguem-ve-23926606c7"
+    },
+    {
+      "id": "shirley-carvalhaes-nome-sem-igual-b3699e42b7",
+      "title": "Nome sem igual",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:40:43.775Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nome-sem-igual-b3699e42b7",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nome-sem-igual-b3699e42b7"
+    },
+    {
+      "id": "shirley-carvalhaes-nossa-cancao-7c95055b22",
+      "title": "Nossa canção",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:40:47.372Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nossa-cancao-7c95055b22",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nossa-cancao-7c95055b22"
+    },
+    {
+      "id": "shirley-carvalhaes-nosso-deus-e-tremendo-802597286f",
+      "title": "Nosso deus é tremendo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G#",
+      "updatedAt": "2026-05-31T16:40:50.964Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nosso-deus-e-tremendo-802597286f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nosso-deus-e-tremendo-802597286f"
+    },
+    {
+      "id": "shirley-carvalhaes-nuvem-de-uncao-88343d2443",
+      "title": "Nuvem de Unção",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:40:54.641Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nuvem-de-uncao-88343d2443",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nuvem-de-uncao-88343d2443"
+    },
+    {
+      "id": "shirley-carvalhaes-nuvens-celestes-8019bcfa81",
+      "title": "Nuvens Celestes",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:40:58.252Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-nuvens-celestes-8019bcfa81",
+      "offlineKey": "mdl-song-shirley-carvalhaes-nuvens-celestes-8019bcfa81"
+    },
+    {
+      "id": "shirley-carvalhaes-o-amor-de-deus-29fd9bd9fc",
+      "title": "O amor de deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:41:01.906Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-amor-de-deus-29fd9bd9fc",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-amor-de-deus-29fd9bd9fc"
+    },
+    {
+      "id": "shirley-carvalhaes-o-astro-101bc33d7b",
+      "title": "O astro",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T16:41:05.559Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-astro-101bc33d7b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-astro-101bc33d7b"
+    },
+    {
+      "id": "shirley-carvalhaes-o-calice-fa7d278e65",
+      "title": "O calice",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:41:09.173Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-calice-fa7d278e65",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-calice-fa7d278e65"
+    },
+    {
+      "id": "shirley-carvalhaes-o-cenario-de-vitoria-2805115ef8",
+      "title": "O cenário de vitória",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:41:12.772Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-cenario-de-vitoria-2805115ef8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-cenario-de-vitoria-2805115ef8"
+    },
+    {
+      "id": "shirley-carvalhaes-o-fogo-vai-queimar-86a9a96727",
+      "title": "O fogo vai queimar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:41:16.391Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-fogo-vai-queimar-86a9a96727",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-fogo-vai-queimar-86a9a96727"
+    },
+    {
+      "id": "shirley-carvalhaes-o-martir-ff3769ff7e",
+      "title": "O Mártir",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:41:20.010Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-martir-ff3769ff7e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-martir-ff3769ff7e"
+    },
+    {
+      "id": "shirley-carvalhaes-o-menino-e-o-gigante-dcde0a7eda",
+      "title": "O Menino e o Gigante",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:41:23.608Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-menino-e-o-gigante-dcde0a7eda",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-menino-e-o-gigante-dcde0a7eda"
+    },
+    {
+      "id": "shirley-carvalhaes-o-mesmo-deus-a4af3292b7",
+      "title": "O mesmo deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:41:27.233Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-mesmo-deus-a4af3292b7",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-mesmo-deus-a4af3292b7"
+    },
+    {
+      "id": "shirley-carvalhaes-o-minimo-de-mim-01d53ef266",
+      "title": "O Mínimo de Mim",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G#",
+      "updatedAt": "2026-05-31T16:41:30.864Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-minimo-de-mim-01d53ef266",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-minimo-de-mim-01d53ef266"
+    },
+    {
+      "id": "shirley-carvalhaes-o-veu-do-templo-7d3772d709",
+      "title": "O Véu do Templo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:41:34.450Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-o-veu-do-templo-7d3772d709",
+      "offlineKey": "mdl-song-shirley-carvalhaes-o-veu-do-templo-7d3772d709"
+    },
+    {
+      "id": "shirley-carvalhaes-olha-para-mim-6df3ad1e08",
+      "title": "Olha Para Mim",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:41:38.084Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-olha-para-mim-6df3ad1e08",
+      "offlineKey": "mdl-song-shirley-carvalhaes-olha-para-mim-6df3ad1e08"
+    },
+    {
+      "id": "shirley-carvalhaes-olhos-de-quem-ama-592315cdb0",
+      "title": "Olhos de quem ama",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:41:41.698Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-olhos-de-quem-ama-592315cdb0",
+      "offlineKey": "mdl-song-shirley-carvalhaes-olhos-de-quem-ama-592315cdb0"
+    },
+    {
+      "id": "shirley-carvalhaes-ouve-se-o-jubilo-24a7d76d5f",
+      "title": "Ouve-se o júbilo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:41:45.305Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ouve-se-o-jubilo-24a7d76d5f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ouve-se-o-jubilo-24a7d76d5f"
+    },
+    {
+      "id": "shirley-carvalhaes-ouvi-dizer-2fd6879612",
+      "title": "Ouvi dizer",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:41:48.920Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-ouvi-dizer-2fd6879612",
+      "offlineKey": "mdl-song-shirley-carvalhaes-ouvi-dizer-2fd6879612"
+    },
+    {
+      "id": "shirley-carvalhaes-pagina-virada-4a262d0a61",
+      "title": "Página Virada",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:41:52.561Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-pagina-virada-4a262d0a61",
+      "offlineKey": "mdl-song-shirley-carvalhaes-pagina-virada-4a262d0a61"
+    },
+    {
+      "id": "shirley-carvalhaes-pai-segura-a-minha-mao-63bd700846",
+      "title": "Pai segura a minha mão!",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:41:56.177Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-pai-segura-a-minha-mao-63bd700846",
+      "offlineKey": "mdl-song-shirley-carvalhaes-pai-segura-a-minha-mao-63bd700846"
+    },
+    {
+      "id": "shirley-carvalhaes-passar-pela-moenda-f1db1ac6fb",
+      "title": "Passar Pela Moenda",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:41:59.875Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-passar-pela-moenda-f1db1ac6fb",
+      "offlineKey": "mdl-song-shirley-carvalhaes-passar-pela-moenda-f1db1ac6fb"
+    },
+    {
+      "id": "shirley-carvalhaes-pedras-0b2d6819c6",
+      "title": "Pedras",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:42:03.480Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-pedras-0b2d6819c6",
+      "offlineKey": "mdl-song-shirley-carvalhaes-pedras-0b2d6819c6"
+    },
+    {
+      "id": "shirley-carvalhaes-perfuma-jesus-71afb49646",
+      "title": "Perfuma jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:42:07.073Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-perfuma-jesus-71afb49646",
+      "offlineKey": "mdl-song-shirley-carvalhaes-perfuma-jesus-71afb49646"
+    },
+    {
+      "id": "shirley-carvalhaes-pessoas-carentes-b4d4ef8fd6",
+      "title": "Pessoas carentes",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:42:10.673Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-pessoas-carentes-b4d4ef8fd6",
+      "offlineKey": "mdl-song-shirley-carvalhaes-pessoas-carentes-b4d4ef8fd6"
+    },
+    {
+      "id": "shirley-carvalhaes-poemas-361a0a123d",
+      "title": "Poemas",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:42:14.280Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-poemas-361a0a123d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-poemas-361a0a123d"
+    },
+    {
+      "id": "shirley-carvalhaes-por-amor-67b919c511",
+      "title": "Por Amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:42:17.910Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-por-amor-67b919c511",
+      "offlineKey": "mdl-song-shirley-carvalhaes-por-amor-67b919c511"
+    },
+    {
+      "id": "shirley-carvalhaes-por-mim-jesus-sofreu-91715f86b9",
+      "title": "Por Mim Jesus Sofreu",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:42:21.525Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-por-mim-jesus-sofreu-91715f86b9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-por-mim-jesus-sofreu-91715f86b9"
+    },
+    {
+      "id": "shirley-carvalhaes-porque-sera-78868c052b",
+      "title": "Porque Será",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:42:25.110Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-porque-sera-78868c052b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-porque-sera-78868c052b"
+    },
+    {
+      "id": "shirley-carvalhaes-porta-de-amor-1acd6c243e",
+      "title": "Porta de amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:42:28.697Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-porta-de-amor-1acd6c243e",
+      "offlineKey": "mdl-song-shirley-carvalhaes-porta-de-amor-1acd6c243e"
+    },
+    {
+      "id": "shirley-carvalhaes-portas-de-amor-68431032f8",
+      "title": "Portas de Amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:42:32.290Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-portas-de-amor-68431032f8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-portas-de-amor-68431032f8"
+    },
+    {
+      "id": "shirley-carvalhaes-porto-seguro-6616a9357b",
+      "title": "Porto seguro",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:42:35.886Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-porto-seguro-6616a9357b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-porto-seguro-6616a9357b"
+    },
+    {
+      "id": "shirley-carvalhaes-pra-te-abencoar-ab0bc31a63",
+      "title": "Pra te abençoar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:42:39.490Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-pra-te-abencoar-ab0bc31a63",
+      "offlineKey": "mdl-song-shirley-carvalhaes-pra-te-abencoar-ab0bc31a63"
+    },
+    {
+      "id": "shirley-carvalhaes-preco-de-sangue-307d6e5941",
+      "title": "Preço de Sangue",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:42:43.092Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-preco-de-sangue-307d6e5941",
+      "offlineKey": "mdl-song-shirley-carvalhaes-preco-de-sangue-307d6e5941"
+    },
+    {
+      "id": "shirley-carvalhaes-primeiro-amor-0c5d7f3724",
+      "title": "Primeiro amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:42:46.703Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-primeiro-amor-0c5d7f3724",
+      "offlineKey": "mdl-song-shirley-carvalhaes-primeiro-amor-0c5d7f3724"
+    },
+    {
+      "id": "shirley-carvalhaes-prole-perdida-f7a5e21bc3",
+      "title": "Prole Perdida",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:42:50.342Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-prole-perdida-f7a5e21bc3",
+      "offlineKey": "mdl-song-shirley-carvalhaes-prole-perdida-f7a5e21bc3"
+    },
+    {
+      "id": "shirley-carvalhaes-prova-de-amor-4d4dacbbb2",
+      "title": "Prova De Amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:42:53.953Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-prova-de-amor-4d4dacbbb2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-prova-de-amor-4d4dacbbb2"
+    },
+    {
+      "id": "shirley-carvalhaes-quando-ele-chega-a201d8e136",
+      "title": "Quando ele chega",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T16:42:57.566Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quando-ele-chega-a201d8e136",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quando-ele-chega-a201d8e136"
+    },
+    {
+      "id": "shirley-carvalhaes-quando-ele-quer-8bfd7731df",
+      "title": "Quando ele quer",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:43:01.163Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quando-ele-quer-8bfd7731df",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quando-ele-quer-8bfd7731df"
+    },
+    {
+      "id": "shirley-carvalhaes-quem-ficou-ficou-quem-partiu-partiu-1b80822ead",
+      "title": "Quem ficou ficou quem partiu partiu",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:43:04.769Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quem-ficou-ficou-quem-partiu-partiu-1b80822ead",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quem-ficou-ficou-quem-partiu-partiu-1b80822ead"
+    },
+    {
+      "id": "shirley-carvalhaes-quem-poderia-285ab5fcb2",
+      "title": "Quem poderia",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:43:08.360Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quem-poderia-285ab5fcb2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quem-poderia-285ab5fcb2"
+    },
+    {
+      "id": "shirley-carvalhaes-quem-te-viu-vera-d9378d45ab",
+      "title": "Quem te viu verá",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:43:12.017Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quem-te-viu-vera-d9378d45ab",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quem-te-viu-vera-d9378d45ab"
+    },
+    {
+      "id": "shirley-carvalhaes-quero-te-adorar-91b8b57d46",
+      "title": "Quero Te Adorar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:43:15.611Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-quero-te-adorar-91b8b57d46",
+      "offlineKey": "mdl-song-shirley-carvalhaes-quero-te-adorar-91b8b57d46"
+    },
+    {
+      "id": "shirley-carvalhaes-rasgou-se-o-veu-5c8d3897cc",
+      "title": "Rasgou-se o veu",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:43:19.226Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-rasgou-se-o-veu-5c8d3897cc",
+      "offlineKey": "mdl-song-shirley-carvalhaes-rasgou-se-o-veu-5c8d3897cc"
+    },
+    {
+      "id": "shirley-carvalhaes-recompensa-da-alma-54e50e6ebd",
+      "title": "Recompensa da Alma",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:43:22.828Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-recompensa-da-alma-54e50e6ebd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-recompensa-da-alma-54e50e6ebd"
+    },
+    {
+      "id": "shirley-carvalhaes-resgate-de-deus-91065aae28",
+      "title": "Resgate de Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:43:26.465Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-resgate-de-deus-91065aae28",
+      "offlineKey": "mdl-song-shirley-carvalhaes-resgate-de-deus-91065aae28"
+    },
+    {
+      "id": "shirley-carvalhaes-resta-pouco-tempo-d4edd64439",
+      "title": "Resta pouco tempo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:43:30.077Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-resta-pouco-tempo-d4edd64439",
+      "offlineKey": "mdl-song-shirley-carvalhaes-resta-pouco-tempo-d4edd64439"
+    },
+    {
+      "id": "shirley-carvalhaes-rocha-inabalavel-f97d68c6f8",
+      "title": "Rocha Inabalável",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:43:33.692Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-rocha-inabalavel-f97d68c6f8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-rocha-inabalavel-f97d68c6f8"
+    },
+    {
+      "id": "shirley-carvalhaes-sangue-54d7039cd6",
+      "title": "Sangue",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:43:37.339Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sangue-54d7039cd6",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sangue-54d7039cd6"
+    },
+    {
+      "id": "shirley-carvalhaes-santo-santo-6ab8d07d2a",
+      "title": "Santo, santo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:43:40.923Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-santo-santo-6ab8d07d2a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-santo-santo-6ab8d07d2a"
+    },
+    {
+      "id": "shirley-carvalhaes-santo-santo-e-o-senhor-951fe51b1d",
+      "title": "Santo, Santo É O Senhor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:43:44.506Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-santo-santo-e-o-senhor-951fe51b1d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-santo-santo-e-o-senhor-951fe51b1d"
+    },
+    {
+      "id": "shirley-carvalhaes-se-eu-pudesse-voava-3358190806",
+      "title": "Se Eu Pudesse Voava",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:43:48.110Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-se-eu-pudesse-voava-3358190806",
+      "offlineKey": "mdl-song-shirley-carvalhaes-se-eu-pudesse-voava-3358190806"
+    },
+    {
+      "id": "shirley-carvalhaes-se-eu-quiser-adorar-a-deus-6717322a83",
+      "title": "Se eu quiser adorar a deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:43:51.788Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-se-eu-quiser-adorar-a-deus-6717322a83",
+      "offlineKey": "mdl-song-shirley-carvalhaes-se-eu-quiser-adorar-a-deus-6717322a83"
+    },
+    {
+      "id": "shirley-carvalhaes-se-forte-b465808709",
+      "title": "Sê Forte",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:43:55.392Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-se-forte-b465808709",
+      "offlineKey": "mdl-song-shirley-carvalhaes-se-forte-b465808709"
+    },
+    {
+      "id": "shirley-carvalhaes-se-isso-nao-for-amor-4ef75381a4",
+      "title": "Se isso não for amor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:43:58.981Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-se-isso-nao-for-amor-4ef75381a4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-se-isso-nao-for-amor-4ef75381a4"
+    },
+    {
+      "id": "shirley-carvalhaes-se-o-amanha-f292e12b7c",
+      "title": "Se o Amanhã",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:44:02.597Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-se-o-amanha-f292e12b7c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-se-o-amanha-f292e12b7c"
+    },
+    {
+      "id": "shirley-carvalhaes-segura-minha-mao-ccf3aa8bb9",
+      "title": "Segura Minha Mão",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:44:06.197Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-segura-minha-mao-ccf3aa8bb9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-segura-minha-mao-ccf3aa8bb9"
+    },
+    {
+      "id": "shirley-carvalhaes-seja-deus-louvado-e341172d6a",
+      "title": "Seja Deus Louvado",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:44:09.851Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-seja-deus-louvado-e341172d6a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-seja-deus-louvado-e341172d6a"
+    },
+    {
+      "id": "shirley-carvalhaes-seja-fiel-4cb3fc3258",
+      "title": "Seja Fiel",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:44:13.453Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-seja-fiel-4cb3fc3258",
+      "offlineKey": "mdl-song-shirley-carvalhaes-seja-fiel-4cb3fc3258"
+    },
+    {
+      "id": "shirley-carvalhaes-sem-deus-ee34a02a91",
+      "title": "Sem Deus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:44:17.064Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sem-deus-ee34a02a91",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sem-deus-ee34a02a91"
+    },
+    {
+      "id": "shirley-carvalhaes-senhor-tu-estais-comigo-8591eaaea8",
+      "title": "Senhor, Tu Estais Comigo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:44:20.664Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-senhor-tu-estais-comigo-8591eaaea8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-senhor-tu-estais-comigo-8591eaaea8"
+    },
+    {
+      "id": "shirley-carvalhaes-sera-glorioso-2436e79069",
+      "title": "Será Glorioso",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:44:24.254Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sera-glorioso-2436e79069",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sera-glorioso-2436e79069"
+    },
+    {
+      "id": "shirley-carvalhaes-seu-nome-e-jesus-eb6308c1bf",
+      "title": "Seu Nome É Jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:44:27.846Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-seu-nome-e-jesus-eb6308c1bf",
+      "offlineKey": "mdl-song-shirley-carvalhaes-seu-nome-e-jesus-eb6308c1bf"
+    },
+    {
+      "id": "shirley-carvalhaes-seu-nome-e-jesus-ver-2-b6173fac39",
+      "title": "Seu Nome É Jesus (ver. 2)",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:44:31.444Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-seu-nome-e-jesus-ver-2-b6173fac39",
+      "offlineKey": "mdl-song-shirley-carvalhaes-seu-nome-e-jesus-ver-2-b6173fac39"
+    },
+    {
+      "id": "shirley-carvalhaes-silencio-aflito-75d63f3d37",
+      "title": "Silêncio Aflito",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:44:35.059Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-silencio-aflito-75d63f3d37",
+      "offlineKey": "mdl-song-shirley-carvalhaes-silencio-aflito-75d63f3d37"
+    },
+    {
+      "id": "shirley-carvalhaes-simplesmente-invencivel-4597fa3ecd",
+      "title": "Simplesmente invencível",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:44:38.652Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-simplesmente-invencivel-4597fa3ecd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-simplesmente-invencivel-4597fa3ecd"
+    },
+    {
+      "id": "shirley-carvalhaes-situacoes-1eaf838be4",
+      "title": "Situações",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:44:42.278Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-situacoes-1eaf838be4",
+      "offlineKey": "mdl-song-shirley-carvalhaes-situacoes-1eaf838be4"
+    },
+    {
+      "id": "shirley-carvalhaes-so-jesus-cristo-4c17263b14",
+      "title": "Só jesus cristo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:44:45.893Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-so-jesus-cristo-4c17263b14",
+      "offlineKey": "mdl-song-shirley-carvalhaes-so-jesus-cristo-4c17263b14"
+    },
+    {
+      "id": "shirley-carvalhaes-sobrevivente-de-um-naufragio-7aa009ec5b",
+      "title": "Sobrevivente de um naufrágio",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:44:49.491Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sobrevivente-de-um-naufragio-7aa009ec5b",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sobrevivente-de-um-naufragio-7aa009ec5b"
+    },
+    {
+      "id": "shirley-carvalhaes-sobrevivi-1843746b1d",
+      "title": "Sobrevivi",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:44:53.110Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sobrevivi-1843746b1d",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sobrevivi-1843746b1d"
+    },
+    {
+      "id": "shirley-carvalhaes-solucao-2cd1fe119a",
+      "title": "Solução",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:44:56.722Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-solucao-2cd1fe119a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-solucao-2cd1fe119a"
+    },
+    {
+      "id": "shirley-carvalhaes-sopra-sobre-o-vale-f3c1010d43",
+      "title": "Sopra sobre o vale",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:45:00.320Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-sopra-sobre-o-vale-f3c1010d43",
+      "offlineKey": "mdl-song-shirley-carvalhaes-sopra-sobre-o-vale-f3c1010d43"
+    },
+    {
+      "id": "shirley-carvalhaes-supremo-autor-91f2b75480",
+      "title": "Supremo Autor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:45:03.908Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-supremo-autor-91f2b75480",
+      "offlineKey": "mdl-song-shirley-carvalhaes-supremo-autor-91f2b75480"
+    },
+    {
+      "id": "shirley-carvalhaes-tanque-de-betesda-210a52aac3",
+      "title": "Tanque de betesda",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:45:07.515Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tanque-de-betesda-210a52aac3",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tanque-de-betesda-210a52aac3"
+    },
+    {
+      "id": "shirley-carvalhaes-tempo-87ab0339f9",
+      "title": "Tempo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:45:11.123Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tempo-87ab0339f9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tempo-87ab0339f9"
+    },
+    {
+      "id": "shirley-carvalhaes-tesouro-incompativel-d451275af8",
+      "title": "Tesouro Incompatível",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:45:14.724Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tesouro-incompativel-d451275af8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tesouro-incompativel-d451275af8"
+    },
+    {
+      "id": "shirley-carvalhaes-todo-poderoso-966f984144",
+      "title": "Todo poderoso",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:45:18.340Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-todo-poderoso-966f984144",
+      "offlineKey": "mdl-song-shirley-carvalhaes-todo-poderoso-966f984144"
+    },
+    {
+      "id": "shirley-carvalhaes-tu-es-santo-9fa5087a78",
+      "title": "Tu és santo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:45:21.942Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tu-es-santo-9fa5087a78",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tu-es-santo-9fa5087a78"
+    },
+    {
+      "id": "shirley-carvalhaes-tu-estas-comigo-194f4df990",
+      "title": "Tu estas comigo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:45:25.543Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tu-estas-comigo-194f4df990",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tu-estas-comigo-194f4df990"
+    },
+    {
+      "id": "shirley-carvalhaes-tudo-por-voce-8e71fe1afe",
+      "title": "Tudo por você",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:45:29.153Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tudo-por-voce-8e71fe1afe",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tudo-por-voce-8e71fe1afe"
+    },
+    {
+      "id": "shirley-carvalhaes-tudo-sobre-mim-ab0eaaf606",
+      "title": "Tudo sobre mim",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:45:32.768Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tudo-sobre-mim-ab0eaaf606",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tudo-sobre-mim-ab0eaaf606"
+    },
+    {
+      "id": "shirley-carvalhaes-tudo-vai-mudar-f633dc83fd",
+      "title": "Tudo vai mudar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:45:36.367Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-tudo-vai-mudar-f633dc83fd",
+      "offlineKey": "mdl-song-shirley-carvalhaes-tudo-vai-mudar-f633dc83fd"
+    },
+    {
+      "id": "shirley-carvalhaes-uma-lagrima-no-rosto-faa5127528",
+      "title": "Uma lagrima no rosto",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:45:40.010Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-uma-lagrima-no-rosto-faa5127528",
+      "offlineKey": "mdl-song-shirley-carvalhaes-uma-lagrima-no-rosto-faa5127528"
+    },
+    {
+      "id": "shirley-carvalhaes-uma-vez-mais-senhor-411ebfd8cc",
+      "title": "Uma Vez Mais Senhor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:45:43.640Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-uma-vez-mais-senhor-411ebfd8cc",
+      "offlineKey": "mdl-song-shirley-carvalhaes-uma-vez-mais-senhor-411ebfd8cc"
+    },
+    {
+      "id": "shirley-carvalhaes-usa-me-f067c38ff2",
+      "title": "Usa-me",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T16:45:47.272Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-usa-me-f067c38ff2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-usa-me-f067c38ff2"
+    },
+    {
+      "id": "shirley-carvalhaes-vai-26d66d3bf2",
+      "title": "Vai",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T16:45:50.882Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vai-26d66d3bf2",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vai-26d66d3bf2"
+    },
+    {
+      "id": "shirley-carvalhaes-vai-dar-certo-c1402e5a1c",
+      "title": "Vai dar certo",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:45:54.503Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vai-dar-certo-c1402e5a1c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vai-dar-certo-c1402e5a1c"
+    },
+    {
+      "id": "shirley-carvalhaes-vai-moises-47eee80105",
+      "title": "Vai Moisés",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:45:58.100Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vai-moises-47eee80105",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vai-moises-47eee80105"
+    },
+    {
+      "id": "shirley-carvalhaes-vai-ser-bom-demais-1427c60a6f",
+      "title": "Vai Ser Bom Demais",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:46:01.723Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vai-ser-bom-demais-1427c60a6f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vai-ser-bom-demais-1427c60a6f"
+    },
+    {
+      "id": "shirley-carvalhaes-vai-tudo-bem-a43f98fb32",
+      "title": "Vai Tudo Bem",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:46:05.341Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vai-tudo-bem-a43f98fb32",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vai-tudo-bem-a43f98fb32"
+    },
+    {
+      "id": "shirley-carvalhaes-valeu-a-pena-51044f252c",
+      "title": "Valeu a pena",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D#",
+      "updatedAt": "2026-05-31T16:46:08.955Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-valeu-a-pena-51044f252c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-valeu-a-pena-51044f252c"
+    },
+    {
+      "id": "shirley-carvalhaes-vaso-quebrado-80258e8b4f",
+      "title": "Vaso Quebrado",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Eb",
+      "updatedAt": "2026-05-31T16:46:12.568Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vaso-quebrado-80258e8b4f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vaso-quebrado-80258e8b4f"
+    },
+    {
+      "id": "shirley-carvalhaes-vem-acalmar-o-mar-b806466063",
+      "title": "Vem acalmar o mar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T16:46:16.202Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vem-acalmar-o-mar-b806466063",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vem-acalmar-o-mar-b806466063"
+    },
+    {
+      "id": "shirley-carvalhaes-vem-jeova-083cee005c",
+      "title": "Vem Jeová",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:46:19.796Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vem-jeova-083cee005c",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vem-jeova-083cee005c"
+    },
+    {
+      "id": "shirley-carvalhaes-vencedor-84f9843f8a",
+      "title": "Vencedor",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T16:46:23.400Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vencedor-84f9843f8a",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vencedor-84f9843f8a"
+    },
+    {
+      "id": "shirley-carvalhaes-vendavais-c7824fa3b9",
+      "title": "Vendavais",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:46:26.999Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vendavais-c7824fa3b9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vendavais-c7824fa3b9"
+    },
+    {
+      "id": "shirley-carvalhaes-verei-jesus-70342d5b30",
+      "title": "Verei jesus",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:46:30.597Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-verei-jesus-70342d5b30",
+      "offlineKey": "mdl-song-shirley-carvalhaes-verei-jesus-70342d5b30"
+    },
+    {
+      "id": "shirley-carvalhaes-voce-tem-um-dono-af7ed7eaed",
+      "title": "Você Tem Um Dono",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:46:34.201Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-voce-tem-um-dono-af7ed7eaed",
+      "offlineKey": "mdl-song-shirley-carvalhaes-voce-tem-um-dono-af7ed7eaed"
+    },
+    {
+      "id": "shirley-carvalhaes-voce-vai-ver-a7850770b9",
+      "title": "Você vai ver",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T16:46:37.803Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-voce-vai-ver-a7850770b9",
+      "offlineKey": "mdl-song-shirley-carvalhaes-voce-vai-ver-a7850770b9"
+    },
+    {
+      "id": "shirley-carvalhaes-volta-ovelha-de3e84e0b0",
+      "title": "Volta Ovelha",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T16:46:41.425Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-volta-ovelha-de3e84e0b0",
+      "offlineKey": "mdl-song-shirley-carvalhaes-volta-ovelha-de3e84e0b0"
+    },
+    {
+      "id": "shirley-carvalhaes-voo-livre-332451946f",
+      "title": "Vôo Livre",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:46:45.023Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-voo-livre-332451946f",
+      "offlineKey": "mdl-song-shirley-carvalhaes-voo-livre-332451946f"
+    },
+    {
+      "id": "shirley-carvalhaes-vou-adorar-42dd90c7c8",
+      "title": "Vou adorar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T16:46:48.625Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vou-adorar-42dd90c7c8",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vou-adorar-42dd90c7c8"
+    },
+    {
+      "id": "shirley-carvalhaes-vou-contar-minha-vida-e3057ca510",
+      "title": "Vou Contar Minha Vida",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:46:52.263Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vou-contar-minha-vida-e3057ca510",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vou-contar-minha-vida-e3057ca510"
+    },
+    {
+      "id": "shirley-carvalhaes-vou-te-amar-1652ca9070",
+      "title": "Vou Te Amar",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:46:55.861Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vou-te-amar-1652ca9070",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vou-te-amar-1652ca9070"
+    },
+    {
+      "id": "shirley-carvalhaes-vou-voar-vou-subir-958020e111",
+      "title": "Vou voar, vou subir",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:46:59.473Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-vou-voar-vou-subir-958020e111",
+      "offlineKey": "mdl-song-shirley-carvalhaes-vou-voar-vou-subir-958020e111"
+    },
+    {
+      "id": "shirley-carvalhaes-voz-do-coracao-5201cb4092",
+      "title": "Voz do Coração",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T16:47:03.087Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-voz-do-coracao-5201cb4092",
+      "offlineKey": "mdl-song-shirley-carvalhaes-voz-do-coracao-5201cb4092"
+    },
+    {
+      "id": "shirley-carvalhaes-voz-do-silencio-dd9b0d4bca",
+      "title": "Voz Do Silêncio",
+      "artist": "Shirley Carvalhaes",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T16:47:06.782Z",
+      "apiUrl": "/api/songs/shirley-carvalhaes-voz-do-silencio-dd9b0d4bca",
+      "offlineKey": "mdl-song-shirley-carvalhaes-voz-do-silencio-dd9b0d4bca"
     },
     {
       "id": "stella-laura-bastidores-part-alisson-santos-594e823b2b",
@@ -76958,6 +79984,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-03T15:51:11.593Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-bastidores-part-alisson-santos-594e823b2b",
       "offlineKey": "mdl-song-stella-laura-bastidores-part-alisson-santos-594e823b2b"
     },
@@ -76969,6 +79996,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-03T15:51:15.190Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-bastidores-part-stella-laura-292f48c81a",
       "offlineKey": "mdl-song-stella-laura-bastidores-part-stella-laura-292f48c81a"
     },
@@ -76980,6 +80008,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:51:18.803Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-carta-de-deus-7f38942563",
       "offlineKey": "mdl-song-stella-laura-carta-de-deus-7f38942563"
     },
@@ -76991,6 +80020,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-03T15:51:22.396Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-cheiro-de-vida-ad869829ec",
       "offlineKey": "mdl-song-stella-laura-cheiro-de-vida-ad869829ec"
     },
@@ -77002,6 +80032,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-03T15:51:25.997Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-cicatrizes-c19e400651",
       "offlineKey": "mdl-song-stella-laura-cicatrizes-c19e400651"
     },
@@ -77013,6 +80044,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:51:29.596Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-conta-pra-mim-1bd908326b",
       "offlineKey": "mdl-song-stella-laura-conta-pra-mim-1bd908326b"
     },
@@ -77024,6 +80056,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:51:33.221Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-descansa-8865d2ed3d",
       "offlineKey": "mdl-song-stella-laura-descansa-8865d2ed3d"
     },
@@ -77035,6 +80068,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-03T15:51:36.848Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-descansa-existe-vida-ai-part-sued-silva-pot-p-a81f30136f",
       "offlineKey": "mdl-song-stella-laura-descansa-existe-vida-ai-part-sued-silva-pot-p-a81f30136f"
     },
@@ -77046,6 +80080,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:51:40.491Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-destino-ao-ceu-5f05a3bc5f",
       "offlineKey": "mdl-song-stella-laura-destino-ao-ceu-5f05a3bc5f"
     },
@@ -77057,6 +80092,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:51:44.125Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-deus-dos-bastidores-a4fe9c3f26",
       "offlineKey": "mdl-song-stella-laura-deus-dos-bastidores-a4fe9c3f26"
     },
@@ -77068,6 +80104,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:51:47.737Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-deus-vai-te-honrar-4e88c9083b",
       "offlineKey": "mdl-song-stella-laura-deus-vai-te-honrar-4e88c9083b"
     },
@@ -77079,6 +80116,7 @@
       "fileType": "html",
       "key": "Ab",
       "updatedAt": "2026-05-03T15:51:51.357Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-ele-nao-se-esquece-a7e6feafcb",
       "offlineKey": "mdl-song-stella-laura-ele-nao-se-esquece-a7e6feafcb"
     },
@@ -77090,6 +80128,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:51:54.992Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-em-teu-altar-part-edson-junio-3624086904",
       "offlineKey": "mdl-song-stella-laura-em-teu-altar-part-edson-junio-3624086904"
     },
@@ -77101,6 +80140,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:51:58.590Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-entregarei-322ce518f5",
       "offlineKey": "mdl-song-stella-laura-entregarei-322ce518f5"
     },
@@ -77112,6 +80152,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:52:02.196Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-estrangeiro-part-jessica-augusto-0db2a6089d",
       "offlineKey": "mdl-song-stella-laura-estrangeiro-part-jessica-augusto-0db2a6089d"
     },
@@ -77123,6 +80164,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:52:05.811Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-eu-nao-desisto-45cedbb973",
       "offlineKey": "mdl-song-stella-laura-eu-nao-desisto-45cedbb973"
     },
@@ -77134,6 +80176,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:52:09.412Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-eu-nao-era-nada-aea51e4228",
       "offlineKey": "mdl-song-stella-laura-eu-nao-era-nada-aea51e4228"
     },
@@ -77145,6 +80188,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:52:13.049Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-eu-vou-profetizar-edafcfbe03",
       "offlineKey": "mdl-song-stella-laura-eu-vou-profetizar-edafcfbe03"
     },
@@ -77156,6 +80200,7 @@
       "fileType": "html",
       "key": "G#",
       "updatedAt": "2026-05-03T15:52:16.641Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-historia-de-jesus-055773f643",
       "offlineKey": "mdl-song-stella-laura-historia-de-jesus-055773f643"
     },
@@ -77167,6 +80212,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:52:20.231Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-jesus-e-o-caminho-139f3f4dc3",
       "offlineKey": "mdl-song-stella-laura-jesus-e-o-caminho-139f3f4dc3"
     },
@@ -77178,6 +80224,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-03T15:52:23.875Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-me-ensina-23365d64cf",
       "offlineKey": "mdl-song-stella-laura-me-ensina-23365d64cf"
     },
@@ -77189,6 +80236,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-03T15:52:27.490Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-no-principio-6dd906c1e1",
       "offlineKey": "mdl-song-stella-laura-no-principio-6dd906c1e1"
     },
@@ -77200,6 +80248,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:52:31.121Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-o-melhor-lugar-92870a2d29",
       "offlineKey": "mdl-song-stella-laura-o-melhor-lugar-92870a2d29"
     },
@@ -77211,6 +80260,7 @@
       "fileType": "html",
       "key": "Db",
       "updatedAt": "2026-05-03T15:52:34.758Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-o-mestre-esta-chegando-ai-4c0a420d40",
       "offlineKey": "mdl-song-stella-laura-o-mestre-esta-chegando-ai-4c0a420d40"
     },
@@ -77222,6 +80272,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:52:38.395Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-o-meu-coracao-queima-part-samuel-messias-4d93ccf333",
       "offlineKey": "mdl-song-stella-laura-o-meu-coracao-queima-part-samuel-messias-4d93ccf333"
     },
@@ -77233,6 +80284,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:52:41.997Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-o-senhor-e-o-meu-pastor-159c65e753",
       "offlineKey": "mdl-song-stella-laura-o-senhor-e-o-meu-pastor-159c65e753"
     },
@@ -77244,6 +80296,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-03T15:52:45.596Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-onde-estao-5ab9bb569c",
       "offlineKey": "mdl-song-stella-laura-onde-estao-5ab9bb569c"
     },
@@ -77255,6 +80308,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:52:49.208Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-plano-perfeito-b87400e6f4",
       "offlineKey": "mdl-song-stella-laura-plano-perfeito-b87400e6f4"
     },
@@ -77266,6 +80320,7 @@
       "fileType": "html",
       "key": "Ab",
       "updatedAt": "2026-05-03T15:52:52.795Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-preciso-confiar-0173bd3b80",
       "offlineKey": "mdl-song-stella-laura-preciso-confiar-0173bd3b80"
     },
@@ -77277,6 +80332,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:52:56.443Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-sensibilidade-e19d2664f1",
       "offlineKey": "mdl-song-stella-laura-sensibilidade-e19d2664f1"
     },
@@ -77288,6 +80344,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-03T15:53:00.116Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-tempestade-bda50f4aac",
       "offlineKey": "mdl-song-stella-laura-tempestade-bda50f4aac"
     },
@@ -77299,6 +80356,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-03T15:53:03.759Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-ultimos-dias-5c4ba862b3",
       "offlineKey": "mdl-song-stella-laura-ultimos-dias-5c4ba862b3"
     },
@@ -77310,6 +80368,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-03T15:53:07.383Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-vai-adorando-39c3dbc98e",
       "offlineKey": "mdl-song-stella-laura-vai-adorando-39c3dbc98e"
     },
@@ -77321,6 +80380,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-03T15:53:10.995Z",
+      "artistThumb": "/artist-thumbs/stella-laura.jpg?v=1780250953880",
       "apiUrl": "/api/songs/stella-laura-vem-senhor-90e6fdc9b9",
       "offlineKey": "mdl-song-stella-laura-vem-senhor-90e6fdc9b9"
     },
