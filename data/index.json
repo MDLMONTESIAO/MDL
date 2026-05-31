@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-05-31T18:23:03.418Z",
-  "totalSongs": 7539,
-  "totalArtists": 74,
+  "generatedAt": "2026-05-31T18:33:03.612Z",
+  "totalSongs": 7543,
+  "totalArtists": 75,
   "artists": [
     "3 Palavrinhas",
     "Adoracao Central",
@@ -19,6 +19,7 @@
     "Central 3",
     "Comunidade Da Graca",
     "Comunidade De Nilopolis",
+    "Damares",
     "Davi Sacer",
     "Diante Do Trono",
     "Eli Soares",
@@ -97,6 +98,7 @@
     "Central 3": "/artist-thumbs/central-3.jpg?v=1777392878475",
     "Comunidade Da Graca": "/artist-thumbs/comunidade-da-graca.jpg?v=1777391730175",
     "Comunidade De Nilopolis": "/artist-thumbs/comunidade-de-nilopolis.jpg?v=1777391734763",
+    "Damares": "/artist-thumbs/damares.jpg?v=1780252126246",
     "Davi Sacer": "/artist-thumbs/davi-sacer.jpg?v=1778100070643",
     "Diante Do Trono": "/artist-thumbs/diante-do-trono.jpg?v=1777392886673",
     "Eli Soares": "/artist-thumbs/eli-soares.jpg?v=1777391745946",
@@ -141,6 +143,7 @@
     "Quatro Por Um": "/artist-thumbs/quatro-por-um.png?v=1780250542320",
     "Rayssa Andreoli": "/artist-thumbs/rayssa-andreoli.jpg?v=1777391979082",
     "Renascer Praise": "/artist-thumbs/renascer-praise.jpg?v=1777415908466",
+    "Rodolfo Abrantes": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
     "Rose Nascimento": "/artist-thumbs/rose-nascimento.jpg?v=1777392931103",
     "Samuel Messias": "/artist-thumbs/samuel-messias.jpg?v=1777391990513",
     "Sarah Beatriz": "/artist-thumbs/sarah-beatriz.jpg?v=1777391993655",
@@ -19308,6 +19311,54 @@
       "artistThumb": "/artist-thumbs/comunidade-de-nilopolis.jpg?v=1777391734763",
       "apiUrl": "/api/songs/comunidade-de-nilopolis-vou-pedir-com-fe-297e516c68",
       "offlineKey": "mdl-song-comunidade-de-nilopolis-vou-pedir-com-fe-297e516c68"
+    },
+    {
+      "id": "damares-a-dracma-e-o-seu-dono-9fdc9031a8",
+      "title": "A dracma e o seu dono",
+      "artist": "Damares",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T18:26:12.317Z",
+      "artistThumb": "/artist-thumbs/damares.jpg?v=1780252126246",
+      "apiUrl": "/api/songs/damares-a-dracma-e-o-seu-dono-9fdc9031a8",
+      "offlineKey": "mdl-song-damares-a-dracma-e-o-seu-dono-9fdc9031a8"
+    },
+    {
+      "id": "damares-a-dracma-e-seu-dono-c95d299c3e",
+      "title": "A dracma e seu dono",
+      "artist": "Damares",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "E",
+      "updatedAt": "2026-05-31T18:26:15.953Z",
+      "artistThumb": "/artist-thumbs/damares.jpg?v=1780252126246",
+      "apiUrl": "/api/songs/damares-a-dracma-e-seu-dono-c95d299c3e",
+      "offlineKey": "mdl-song-damares-a-dracma-e-seu-dono-c95d299c3e"
+    },
+    {
+      "id": "damares-a-essencia-da-adoracao-8425490c8a",
+      "title": "A essência da adoração",
+      "artist": "Damares",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C",
+      "updatedAt": "2026-05-31T18:26:19.611Z",
+      "artistThumb": "/artist-thumbs/damares.jpg?v=1780252126246",
+      "apiUrl": "/api/songs/damares-a-essencia-da-adoracao-8425490c8a",
+      "offlineKey": "mdl-song-damares-a-essencia-da-adoracao-8425490c8a"
+    },
+    {
+      "id": "damares-a-gloria-e-tua-d1b5c9989f",
+      "title": "A gloria é tua",
+      "artist": "Damares",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "C#",
+      "updatedAt": "2026-05-31T18:26:23.265Z",
+      "artistThumb": "/artist-thumbs/damares.jpg?v=1780252126246",
+      "apiUrl": "/api/songs/damares-a-gloria-e-tua-d1b5c9989f",
+      "offlineKey": "mdl-song-damares-a-gloria-e-tua-d1b5c9989f"
     },
     {
       "id": "davi-sacer-a-espada-e-escudo-78f5bbe4ee",
@@ -75349,6 +75400,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:17:52.802Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-agua-da-vida-a2682b2501",
       "offlineKey": "mdl-song-rodolfo-abrantes-agua-da-vida-a2682b2501"
     },
@@ -75360,6 +75412,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:17:56.433Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-alem-do-que-eu-queira-mostar-772700d821",
       "offlineKey": "mdl-song-rodolfo-abrantes-alem-do-que-eu-queira-mostar-772700d821"
     },
@@ -75371,6 +75424,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:18:00.055Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-alem-do-que-eu-queira-mostrar-ed9cc7bc8c",
       "offlineKey": "mdl-song-rodolfo-abrantes-alem-do-que-eu-queira-mostrar-ed9cc7bc8c"
     },
@@ -75382,6 +75436,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:18:03.660Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-alem-do-que-eu-queira-mostrar-versao-2-f6666f2cf3",
       "offlineKey": "mdl-song-rodolfo-abrantes-alem-do-que-eu-queira-mostrar-versao-2-f6666f2cf3"
     },
@@ -75393,6 +75448,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:18:07.451Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-amor-dos-primeiros-dias-bc948b19e4",
       "offlineKey": "mdl-song-rodolfo-abrantes-amor-dos-primeiros-dias-bc948b19e4"
     },
@@ -75404,6 +75460,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:18:11.065Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ao-que-vive-e-reina-83794c5941",
       "offlineKey": "mdl-song-rodolfo-abrantes-ao-que-vive-e-reina-83794c5941"
     },
@@ -75415,6 +75472,7 @@
       "fileType": "html",
       "key": "D#",
       "updatedAt": "2026-05-31T18:18:14.661Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ao-redor-do-pai-38d6013012",
       "offlineKey": "mdl-song-rodolfo-abrantes-ao-redor-do-pai-38d6013012"
     },
@@ -75426,6 +75484,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:18:18.287Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ao-redor-do-rei-993dc80171",
       "offlineKey": "mdl-song-rodolfo-abrantes-ao-redor-do-rei-993dc80171"
     },
@@ -75437,6 +75496,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:18:21.910Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ao-redor-do-rei-solo-181b65aed5",
       "offlineKey": "mdl-song-rodolfo-abrantes-ao-redor-do-rei-solo-181b65aed5"
     },
@@ -75448,6 +75508,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T18:18:25.990Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ao-redor-rei-a386f7df31",
       "offlineKey": "mdl-song-rodolfo-abrantes-ao-redor-rei-a386f7df31"
     },
@@ -75459,6 +75520,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:18:29.634Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-as-portas-vao-se-levantar-264ebaecf8",
       "offlineKey": "mdl-song-rodolfo-abrantes-as-portas-vao-se-levantar-264ebaecf8"
     },
@@ -75470,6 +75532,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:18:33.247Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ate-que-a-casa-esteja-cheia-f984c03b42",
       "offlineKey": "mdl-song-rodolfo-abrantes-ate-que-a-casa-esteja-cheia-f984c03b42"
     },
@@ -75481,6 +75544,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:18:36.922Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-casticais-de-ouro-0955a3dbaf",
       "offlineKey": "mdl-song-rodolfo-abrantes-casticais-de-ouro-0955a3dbaf"
     },
@@ -75492,6 +75556,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T18:18:40.659Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-cego-de-jerico-fb2acb57f8",
       "offlineKey": "mdl-song-rodolfo-abrantes-cego-de-jerico-fb2acb57f8"
     },
@@ -75503,6 +75568,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:18:44.311Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-contigo-a-mesa-e7993601a9",
       "offlineKey": "mdl-song-rodolfo-abrantes-contigo-a-mesa-e7993601a9"
     },
@@ -75514,6 +75580,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:18:47.937Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-continuar-de-pe-04f1dcfcc9",
       "offlineKey": "mdl-song-rodolfo-abrantes-continuar-de-pe-04f1dcfcc9"
     },
@@ -75525,6 +75592,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:18:51.573Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-de-malas-prontas-2cfc55f9a2",
       "offlineKey": "mdl-song-rodolfo-abrantes-de-malas-prontas-2cfc55f9a2"
     },
@@ -75536,6 +75604,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:18:55.206Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-de-uma-so-vez-1139004202",
       "offlineKey": "mdl-song-rodolfo-abrantes-de-uma-so-vez-1139004202"
     },
@@ -75547,6 +75616,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:18:58.873Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-deixa-a-gloria-vir-77076a51eb",
       "offlineKey": "mdl-song-rodolfo-abrantes-deixa-a-gloria-vir-77076a51eb"
     },
@@ -75558,6 +75628,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:19:02.554Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-dia-quente-0864add2b7",
       "offlineKey": "mdl-song-rodolfo-abrantes-dia-quente-0864add2b7"
     },
@@ -75569,6 +75640,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:19:06.168Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-dracena-b932e1bc06",
       "offlineKey": "mdl-song-rodolfo-abrantes-dracena-b932e1bc06"
     },
@@ -75580,6 +75652,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:19:09.777Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ele-nao-falha-88869e6eac",
       "offlineKey": "mdl-song-rodolfo-abrantes-ele-nao-falha-88869e6eac"
     },
@@ -75591,6 +75664,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:19:13.386Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ele-vem-pra-medir-b23ad519ae",
       "offlineKey": "mdl-song-rodolfo-abrantes-ele-vem-pra-medir-b23ad519ae"
     },
@@ -75602,6 +75676,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:19:17.005Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-enquanto-e-dia-9bd5167e99",
       "offlineKey": "mdl-song-rodolfo-abrantes-enquanto-e-dia-9bd5167e99"
     },
@@ -75613,6 +75688,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:19:20.615Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-escondido-em-mim-4423adad22",
       "offlineKey": "mdl-song-rodolfo-abrantes-escondido-em-mim-4423adad22"
     },
@@ -75624,6 +75700,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:19:24.239Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-eu-sou-este-lugar-a98c9601f2",
       "offlineKey": "mdl-song-rodolfo-abrantes-eu-sou-este-lugar-a98c9601f2"
     },
@@ -75635,6 +75712,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:19:27.876Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-face-a-face-0b0c805744",
       "offlineKey": "mdl-song-rodolfo-abrantes-face-a-face-0b0c805744"
     },
@@ -75646,6 +75724,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:19:31.456Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ha-um-lugar-pra-mim-78ecd0bcc9",
       "offlineKey": "mdl-song-rodolfo-abrantes-ha-um-lugar-pra-mim-78ecd0bcc9"
     },
@@ -75657,6 +75736,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:19:35.073Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-isaias-9-4117448bfe",
       "offlineKey": "mdl-song-rodolfo-abrantes-isaias-9-4117448bfe"
     },
@@ -75668,6 +75748,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:19:38.698Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-isaias-9-fornalha-2ef7da7265",
       "offlineKey": "mdl-song-rodolfo-abrantes-isaias-9-fornalha-2ef7da7265"
     },
@@ -75679,6 +75760,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:19:42.301Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-isias-9-55c826309c",
       "offlineKey": "mdl-song-rodolfo-abrantes-isias-9-55c826309c"
     },
@@ -75690,6 +75772,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T18:19:45.911Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-jardim-dos-inocentes-bd1bad6d33",
       "offlineKey": "mdl-song-rodolfo-abrantes-jardim-dos-inocentes-bd1bad6d33"
     },
@@ -75701,6 +75784,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:19:49.517Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-joio-ou-trigo-49879cce75",
       "offlineKey": "mdl-song-rodolfo-abrantes-joio-ou-trigo-49879cce75"
     },
@@ -75712,6 +75796,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T18:19:53.153Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-lagrimas-do-ceu-d1001e4ec2",
       "offlineKey": "mdl-song-rodolfo-abrantes-lagrimas-do-ceu-d1001e4ec2"
     },
@@ -75723,6 +75808,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:19:56.758Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-louvado-seja-o-cordeiro-05f5a4fd2f",
       "offlineKey": "mdl-song-rodolfo-abrantes-louvado-seja-o-cordeiro-05f5a4fd2f"
     },
@@ -75734,6 +75820,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:20:00.371Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-mar-de-vidro-07d3bc5d1f",
       "offlineKey": "mdl-song-rodolfo-abrantes-mar-de-vidro-07d3bc5d1f"
     },
@@ -75745,6 +75832,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T18:20:04.016Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-mate-a-besta-412edf4930",
       "offlineKey": "mdl-song-rodolfo-abrantes-mate-a-besta-412edf4930"
     },
@@ -75756,6 +75844,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:20:07.651Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-minha-maior-riqueza-0fdb962185",
       "offlineKey": "mdl-song-rodolfo-abrantes-minha-maior-riqueza-0fdb962185"
     },
@@ -75767,6 +75856,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:20:11.260Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-minha-prioridade-2c6b293775",
       "offlineKey": "mdl-song-rodolfo-abrantes-minha-prioridade-2c6b293775"
     },
@@ -75778,6 +75868,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:20:14.938Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-na-gravidade-da-presenca-9b3768e3dd",
       "offlineKey": "mdl-song-rodolfo-abrantes-na-gravidade-da-presenca-9b3768e3dd"
     },
@@ -75789,6 +75880,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:20:18.545Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-na-videira-69d52d6095",
       "offlineKey": "mdl-song-rodolfo-abrantes-na-videira-69d52d6095"
     },
@@ -75800,6 +75892,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:20:22.232Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-nacao-santa-6ebe2839c1",
       "offlineKey": "mdl-song-rodolfo-abrantes-nacao-santa-6ebe2839c1"
     },
@@ -75811,6 +75904,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-31T18:20:25.859Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-nem-lua-nem-sol-d1c415cf81",
       "offlineKey": "mdl-song-rodolfo-abrantes-nem-lua-nem-sol-d1c415cf81"
     },
@@ -75822,6 +75916,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:20:29.503Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-ninguem-por-perto-51ec14d6ad",
       "offlineKey": "mdl-song-rodolfo-abrantes-ninguem-por-perto-51ec14d6ad"
     },
@@ -75833,6 +75928,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:20:33.118Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-nivel-raso-323e256a58",
       "offlineKey": "mdl-song-rodolfo-abrantes-nivel-raso-323e256a58"
     },
@@ -75844,6 +75940,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:20:36.779Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-no-teu-jardim-3192584f82",
       "offlineKey": "mdl-song-rodolfo-abrantes-no-teu-jardim-3192584f82"
     },
@@ -75855,6 +75952,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:20:40.392Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-o-dia-que-sera-pra-sempre-b967519268",
       "offlineKey": "mdl-song-rodolfo-abrantes-o-dia-que-sera-pra-sempre-b967519268"
     },
@@ -75866,6 +75964,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:20:44.001Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-o-fim-e-bom-3ff723e987",
       "offlineKey": "mdl-song-rodolfo-abrantes-o-fim-e-bom-3ff723e987"
     },
@@ -75877,6 +75976,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:20:47.624Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-o-mel-e-mais-doce-1a0486959e",
       "offlineKey": "mdl-song-rodolfo-abrantes-o-mel-e-mais-doce-1a0486959e"
     },
@@ -75888,6 +75988,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:20:51.280Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-o-tempo-mudou-a8a182c248",
       "offlineKey": "mdl-song-rodolfo-abrantes-o-tempo-mudou-a8a182c248"
     },
@@ -75899,6 +76000,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:20:54.891Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-onde-o-mel-e-mais-doce-b6cfd69d8f",
       "offlineKey": "mdl-song-rodolfo-abrantes-onde-o-mel-e-mais-doce-b6cfd69d8f"
     },
@@ -75910,6 +76012,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:20:58.492Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-parecido-contigo-fb5ce6e53c",
       "offlineKey": "mdl-song-rodolfo-abrantes-parecido-contigo-fb5ce6e53c"
     },
@@ -75921,6 +76024,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:21:02.103Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-paz-aos-homens-410f23f615",
       "offlineKey": "mdl-song-rodolfo-abrantes-paz-aos-homens-410f23f615"
     },
@@ -75932,6 +76036,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:21:05.698Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-pisaduras-788cfd9da6",
       "offlineKey": "mdl-song-rodolfo-abrantes-pisaduras-788cfd9da6"
     },
@@ -75943,6 +76048,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:21:09.595Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-quando-o-ceu-parou-pra-me-abracar-25069a2c5f",
       "offlineKey": "mdl-song-rodolfo-abrantes-quando-o-ceu-parou-pra-me-abracar-25069a2c5f"
     },
@@ -75954,6 +76060,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:21:13.223Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-quem-e-essa-00a7317366",
       "offlineKey": "mdl-song-rodolfo-abrantes-quem-e-essa-00a7317366"
     },
@@ -75965,6 +76072,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-31T18:21:16.825Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-quem-tem-coragem-nao-finge-1cad56797a",
       "offlineKey": "mdl-song-rodolfo-abrantes-quem-tem-coragem-nao-finge-1cad56797a"
     },
@@ -75976,6 +76084,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:21:20.448Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-quero-acordar-d7ab858d75",
       "offlineKey": "mdl-song-rodolfo-abrantes-quero-acordar-d7ab858d75"
     },
@@ -75987,6 +76096,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:21:24.058Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-quero-ver-voce-medley-d45dd67a73",
       "offlineKey": "mdl-song-rodolfo-abrantes-quero-ver-voce-medley-d45dd67a73"
     },
@@ -75998,6 +76108,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:21:27.700Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-santidade-ao-senhor-5230dc4f9d",
       "offlineKey": "mdl-song-rodolfo-abrantes-santidade-ao-senhor-5230dc4f9d"
     },
@@ -76009,6 +76120,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:21:31.307Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-saudade-de-casa-8440aedfb4",
       "offlineKey": "mdl-song-rodolfo-abrantes-saudade-de-casa-8440aedfb4"
     },
@@ -76020,6 +76132,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-31T18:21:34.918Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-saudades-de-casa-1ed69a373f",
       "offlineKey": "mdl-song-rodolfo-abrantes-saudades-de-casa-1ed69a373f"
     },
@@ -76031,6 +76144,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T18:21:38.531Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-seja-feita-a-tua-vontade-6b4969821c",
       "offlineKey": "mdl-song-rodolfo-abrantes-seja-feita-a-tua-vontade-6b4969821c"
     },
@@ -76042,6 +76156,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:21:42.148Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-so-quer-ver-vc-medley-5a1e74218f",
       "offlineKey": "mdl-song-rodolfo-abrantes-so-quer-ver-vc-medley-5a1e74218f"
     },
@@ -76053,6 +76168,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:21:45.758Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-so-quero-ver-voce-18bc86c4c3",
       "offlineKey": "mdl-song-rodolfo-abrantes-so-quero-ver-voce-18bc86c4c3"
     },
@@ -76064,6 +76180,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:21:49.419Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-so-quero-ver-voce-feat-laura-souguellis-992eea09eb",
       "offlineKey": "mdl-song-rodolfo-abrantes-so-quero-ver-voce-feat-laura-souguellis-992eea09eb"
     },
@@ -76075,6 +76192,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:21:53.028Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-sujo-e-descalco-4c4ccc2f43",
       "offlineKey": "mdl-song-rodolfo-abrantes-sujo-e-descalco-4c4ccc2f43"
     },
@@ -76086,6 +76204,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:21:56.644Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-tao-sublime-40f700089f",
       "offlineKey": "mdl-song-rodolfo-abrantes-tao-sublime-40f700089f"
     },
@@ -76097,6 +76216,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:22:00.258Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-temos-tempo-ae42148c89",
       "offlineKey": "mdl-song-rodolfo-abrantes-temos-tempo-ae42148c89"
     },
@@ -76108,6 +76228,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:22:03.866Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-tesouro-de-valor-e6edd6ef59",
       "offlineKey": "mdl-song-rodolfo-abrantes-tesouro-de-valor-e6edd6ef59"
     },
@@ -76119,6 +76240,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:22:07.485Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-teu-amor-me-aproxima-do-ceu-64dc982b92",
       "offlineKey": "mdl-song-rodolfo-abrantes-teu-amor-me-aproxima-do-ceu-64dc982b92"
     },
@@ -76130,6 +76252,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:22:11.121Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-todo-dia-ate-morrer-49db86d616",
       "offlineKey": "mdl-song-rodolfo-abrantes-todo-dia-ate-morrer-49db86d616"
     },
@@ -76141,6 +76264,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-31T18:22:14.767Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-tudo-mais-pode-esperar-9ae254981d",
       "offlineKey": "mdl-song-rodolfo-abrantes-tudo-mais-pode-esperar-9ae254981d"
     },
@@ -76152,6 +76276,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-31T18:22:18.390Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-um-dia-em-tua-casa-ab7ca12c52",
       "offlineKey": "mdl-song-rodolfo-abrantes-um-dia-em-tua-casa-ab7ca12c52"
     },
@@ -76163,6 +76288,7 @@
       "fileType": "html",
       "key": "C#",
       "updatedAt": "2026-05-31T18:22:22.014Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-um-presente-pro-futuro-4c9ca869e8",
       "offlineKey": "mdl-song-rodolfo-abrantes-um-presente-pro-futuro-4c9ca869e8"
     },
@@ -76174,6 +76300,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-31T18:22:25.644Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-uma-luz-que-nao-pode-se-apagar-8a2b1ca9ef",
       "offlineKey": "mdl-song-rodolfo-abrantes-uma-luz-que-nao-pode-se-apagar-8a2b1ca9ef"
     },
@@ -76185,6 +76312,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-31T18:22:29.298Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-veja-a-terra-te-adorar-d848fae589",
       "offlineKey": "mdl-song-rodolfo-abrantes-veja-a-terra-te-adorar-d848fae589"
     },
@@ -76196,6 +76324,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-31T18:22:32.941Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-vem-derramar-ebc63f9f19",
       "offlineKey": "mdl-song-rodolfo-abrantes-vem-derramar-ebc63f9f19"
     },
@@ -76207,6 +76336,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-31T18:22:36.558Z",
+      "artistThumb": "/artist-thumbs/rodolfo-abrantes.jpg?v=1780251855875",
       "apiUrl": "/api/songs/rodolfo-abrantes-virei-crente-8a3861b56c",
       "offlineKey": "mdl-song-rodolfo-abrantes-virei-crente-8a3861b56c"
     },
