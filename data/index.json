@@ -1,6 +1,6 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-05-31T17:22:10.860Z",
+  "generatedAt": "2026-05-31T17:24:44.147Z",
   "totalSongs": 7080,
   "totalArtists": 71,
   "artists": [
@@ -80322,7 +80322,7 @@
       "collection": "cifras_multi",
       "fileType": "html",
       "key": "D",
-      "updatedAt": "2026-05-31T17:21:59.871Z",
+      "updatedAt": "2026-05-31T17:24:36.068Z",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg",
       "apiUrl": "/api/songs/vencedores-por-cristo-aleluia-458a97e317",
       "offlineKey": "mdl-song-vencedores-por-cristo-aleluia-458a97e317"
@@ -81546,7 +81546,7 @@
       "collection": "cifras_multi",
       "fileType": "html",
       "key": "E",
-      "updatedAt": "2026-05-31T17:21:59.872Z",
+      "updatedAt": "2026-05-31T17:24:36.068Z",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg",
       "apiUrl": "/api/songs/vencedores-por-cristo-lancemos-sobre-deus-9860e60a0f",
       "offlineKey": "mdl-song-vencedores-por-cristo-lancemos-sobre-deus-9860e60a0f"
@@ -82410,7 +82410,7 @@
       "collection": "cifras_multi",
       "fileType": "html",
       "key": "C",
-      "updatedAt": "2026-05-31T17:21:59.873Z",
+      "updatedAt": "2026-05-31T17:24:36.069Z",
       "artistThumb": "/assets/artists/vencedores-por-cristo.jpg",
       "apiUrl": "/api/songs/vencedores-por-cristo-quero-transmitir-aa2d660f6a",
       "offlineKey": "mdl-song-vencedores-por-cristo-quero-transmitir-aa2d660f6a"
