@@ -1,6 +1,7 @@
 node_modules/
-acervo/
+.venv-robo/
 screenshots/
+public/data/
 data/auth.json
 *.log
 .DS_Store

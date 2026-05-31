@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "import": "node scripts/importar-acervo.js"
+    "import": "node scripts/importar-acervo.js",
+    "sync": "node scripts/auto-atualizar-github.js",
+    "watch:acervo": "node scripts/monitorar-acervo.js",
+    "download:banana": ".venv-robo/Scripts/python.exe scripts/baixar-bananacifras.py"
   },
   "engines": {
     "node": ">=22 <23"

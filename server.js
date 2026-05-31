@@ -239,6 +239,50 @@ function writeJsonIfChanged(filePath, data) {
   }
 }
 
+function syncVersionedCatalogToRuntime() {
+  if (RUNTIME_DATA_DIR === APP_DATA_DIR) return;
+  if (!fs.existsSync(FALLBACK_INDEX_PATH)) return;
+
+  const sourceIndex = safeJsonParse(fs.readFileSync(FALLBACK_INDEX_PATH, "utf8"), null);
+  if (!sourceIndex) return;
+
+  const runtimeIndex = fs.existsSync(RUNTIME_INDEX_PATH)
+    ? safeJsonParse(fs.readFileSync(RUNTIME_INDEX_PATH, "utf8"), null)
+    : null;
+
+  const sourceTime = Date.parse(sourceIndex.generatedAt || "");
+  const runtimeTime = Date.parse(runtimeIndex?.generatedAt || "");
+  const sourceSongs = Array.isArray(sourceIndex.songs) ? sourceIndex.songs.length : 0;
+  const runtimeSongs = Array.isArray(runtimeIndex?.songs) ? runtimeIndex.songs.length : 0;
+  const sourceIsNewer = Number.isFinite(sourceTime) && (!Number.isFinite(runtimeTime) || sourceTime > runtimeTime);
+  const runtimeMissing = !runtimeIndex || runtimeSongs === 0;
+
+  if (!sourceIsNewer && !runtimeMissing) return;
+
+  try {
+    fs.mkdirSync(RUNTIME_DATA_DIR, { recursive: true });
+    copyFileIfExists(FALLBACK_DB_PATH, RUNTIME_DB_PATH);
+    copyFileIfExists(FALLBACK_INDEX_PATH, RUNTIME_INDEX_PATH);
+    copyDirIfExists(FALLBACK_SONGS_DIR, RUNTIME_SONGS_DIR);
+    console.log(`[storage] Catalogo versionado sincronizado para ${RUNTIME_DATA_DIR}: ${sourceSongs} musicas.`);
+  } catch (error) {
+    console.warn(`[storage] Nao foi possivel sincronizar catalogo versionado: ${error.message}`);
+  }
+}
+
+function copyFileIfExists(sourcePath, targetPath) {
+  if (!fs.existsSync(sourcePath)) return;
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.copyFileSync(sourcePath, targetPath);
+}
+
+function copyDirIfExists(sourceDir, targetDir) {
+  if (!fs.existsSync(sourceDir)) return;
+  fs.rmSync(targetDir, { recursive: true, force: true });
+  fs.mkdirSync(path.dirname(targetDir), { recursive: true });
+  fs.cpSync(sourceDir, targetDir, { recursive: true });
+}
+
 function getCatalogDbPath() {
   return firstExistingPath([RUNTIME_DB_PATH, DB_PATH, FALLBACK_DB_PATH]) || FALLBACK_DB_PATH;
 }
@@ -1798,6 +1842,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Acervo Musical em http://localhost:${PORT}`);
+  syncVersionedCatalogToRuntime();
   scheduleImport("inicio");
   watchCatalogFolders();
 });

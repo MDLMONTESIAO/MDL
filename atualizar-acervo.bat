@@ -1,4 +1,4 @@
 @echo off
 cd /d "%~dp0"
-node scripts\importar-acervo.js
+node scripts\auto-atualizar-github.js
 pause
