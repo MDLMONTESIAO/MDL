@@ -1,8 +1,8 @@
 {
   "name": "Acervo Musical MDL Inova",
-  "generatedAt": "2026-05-31T20:03:40.766Z",
-  "totalSongs": 8217,
-  "totalArtists": 78,
+  "generatedAt": "2026-05-31T20:30:58.209Z",
+  "totalSongs": 8231,
+  "totalArtists": 79,
   "artists": [
     "3 Palavrinhas",
     "Adoracao Central",
@@ -22,6 +22,7 @@
     "Damares",
     "Davi Sacer",
     "Diante Do Trono",
+    "Drops",
     "Eli Soares",
     "Eliwelton Raymond",
     "Eyshila",
@@ -118,6 +119,7 @@
     "Grupo Logos": "/artist-thumbs/grupo-logos.jpg?v=1777391826907",
     "Heloisa Rosa": "/artist-thumbs/heloisa-rosa.jpg?v=1777391831890",
     "Igreja Batista Nova Jerusalem": "/artist-thumbs/igreja-batista-nova-jerusalem.jpg?v=1777391835758",
+    "Igreja Biblica Da Paz": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
     "Isadora Pompeo": "/artist-thumbs/isadora-pompeo.jpg?v=1777391842992",
     "Isaías Saad": "/artist-thumbs/isaias-saad.jpg?v=1777392703267",
     "Israel Subira": "/artist-thumbs/israel-subira.jpg?v=1777391853745",
@@ -28980,6 +28982,160 @@
       "offlineKey": "mdl-song-diante-do-trono-vou-vencer-a18fe63a72"
     },
     {
+      "id": "drops-algo-bem-maior-c161c27638",
+      "title": "Algo Bem Maior",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "Bb",
+      "updatedAt": "2026-05-31T20:29:58.430Z",
+      "apiUrl": "/api/songs/drops-algo-bem-maior-c161c27638",
+      "offlineKey": "mdl-song-drops-algo-bem-maior-c161c27638"
+    },
+    {
+      "id": "drops-cancao-de-simeao-a6cbffa363",
+      "title": "Canção De Simeão",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:30:02.111Z",
+      "apiUrl": "/api/songs/drops-cancao-de-simeao-a6cbffa363",
+      "offlineKey": "mdl-song-drops-cancao-de-simeao-a6cbffa363"
+    },
+    {
+      "id": "drops-e-ele-df806767b8",
+      "title": "É Ele",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:30:05.743Z",
+      "apiUrl": "/api/songs/drops-e-ele-df806767b8",
+      "offlineKey": "mdl-song-drops-e-ele-df806767b8"
+    },
+    {
+      "id": "drops-estou-seguindo-tudo-a-ti-4c257cdddd",
+      "title": "Estou Seguindo (tudo A Ti)",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T20:30:09.337Z",
+      "apiUrl": "/api/songs/drops-estou-seguindo-tudo-a-ti-4c257cdddd",
+      "offlineKey": "mdl-song-drops-estou-seguindo-tudo-a-ti-4c257cdddd"
+    },
+    {
+      "id": "drops-fome-e-sede-46229cb835",
+      "title": "Fome E Sede",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F#",
+      "updatedAt": "2026-05-31T20:30:12.982Z",
+      "apiUrl": "/api/songs/drops-fome-e-sede-46229cb835",
+      "offlineKey": "mdl-song-drops-fome-e-sede-46229cb835"
+    },
+    {
+      "id": "drops-ha-um-lugar-eu-vou-perder-c8d62fb530",
+      "title": "Há Um Lugar (eu Vou Perder)",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T20:30:16.593Z",
+      "apiUrl": "/api/songs/drops-ha-um-lugar-eu-vou-perder-c8d62fb530",
+      "offlineKey": "mdl-song-drops-ha-um-lugar-eu-vou-perder-c8d62fb530"
+    },
+    {
+      "id": "drops-isso-e-que-e-viver-d03a4570b4",
+      "title": "Isso É Que É Viver",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "F",
+      "updatedAt": "2026-05-31T20:30:20.211Z",
+      "apiUrl": "/api/songs/drops-isso-e-que-e-viver-d03a4570b4",
+      "offlineKey": "mdl-song-drops-isso-e-que-e-viver-d03a4570b4"
+    },
+    {
+      "id": "drops-meus-labios-ever-be-fb2d810dde",
+      "title": "Meus Lábios (Ever Be)",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "A",
+      "updatedAt": "2026-05-31T20:30:23.819Z",
+      "apiUrl": "/api/songs/drops-meus-labios-ever-be-fb2d810dde",
+      "offlineKey": "mdl-song-drops-meus-labios-ever-be-fb2d810dde"
+    },
+    {
+      "id": "drops-o-cordeiro-e-o-leao-4db2e9286f",
+      "title": "O Cordeiro E O Leão",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:30:27.481Z",
+      "apiUrl": "/api/songs/drops-o-cordeiro-e-o-leao-4db2e9286f",
+      "offlineKey": "mdl-song-drops-o-cordeiro-e-o-leao-4db2e9286f"
+    },
+    {
+      "id": "drops-pai-nosso-our-father-d8d2c95c70",
+      "title": "Pai Nosso (our Father)",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "D",
+      "updatedAt": "2026-05-31T20:30:31.191Z",
+      "apiUrl": "/api/songs/drops-pai-nosso-our-father-d8d2c95c70",
+      "offlineKey": "mdl-song-drops-pai-nosso-our-father-d8d2c95c70"
+    },
+    {
+      "id": "drops-rei-da-gloria-52899ef7f7",
+      "title": "Rei Da Glória",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:30:34.835Z",
+      "apiUrl": "/api/songs/drops-rei-da-gloria-52899ef7f7",
+      "offlineKey": "mdl-song-drops-rei-da-gloria-52899ef7f7"
+    },
+    {
+      "id": "drops-senhor-da-igreja-75d55f237e",
+      "title": "Senhor da Igreja",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "B",
+      "updatedAt": "2026-05-31T20:30:38.510Z",
+      "apiUrl": "/api/songs/drops-senhor-da-igreja-75d55f237e",
+      "offlineKey": "mdl-song-drops-senhor-da-igreja-75d55f237e"
+    },
+    {
+      "id": "drops-tu-que-es-o-primeiro-4f4175dce6",
+      "title": "Tu Que És o Primeiro",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:30:42.359Z",
+      "apiUrl": "/api/songs/drops-tu-que-es-o-primeiro-4f4175dce6",
+      "offlineKey": "mdl-song-drops-tu-que-es-o-primeiro-4f4175dce6"
+    },
+    {
+      "id": "drops-venha-ao-altar-come-to-the-altar-92488423df",
+      "title": "Venha Ao Altar (Come To The Altar)",
+      "artist": "Drops",
+      "collection": "cifras_multi",
+      "fileType": "html",
+      "key": "G",
+      "updatedAt": "2026-05-31T20:30:46.131Z",
+      "apiUrl": "/api/songs/drops-venha-ao-altar-come-to-the-altar-92488423df",
+      "offlineKey": "mdl-song-drops-venha-ao-altar-come-to-the-altar-92488423df"
+    },
+    {
       "id": "eli-soares-a-melhor-coisa-que-ja-fiz-b19bfb8e03",
       "title": "A Melhor Coisa Que Já Fiz",
       "artist": "Eli Soares",
@@ -49140,6 +49296,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:49:12.723Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-a-ti-me-entregarei-03169c22ab",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-a-ti-me-entregarei-03169c22ab"
     },
@@ -49151,6 +49308,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:49:16.394Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-aclame-ao-senhor-69f607d9c0",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-aclame-ao-senhor-69f607d9c0"
     },
@@ -49162,6 +49320,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:49:19.996Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-aproveite-a-liberdade-fd9bcd7d0c",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-aproveite-a-liberdade-fd9bcd7d0c"
     },
@@ -49173,6 +49332,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:49:23.627Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-aviva-me-37b7e728e9",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-aviva-me-37b7e728e9"
     },
@@ -49184,6 +49344,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:49:27.241Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-bom-e-louvar-a-deus-37c33edef6",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-bom-e-louvar-a-deus-37c33edef6"
     },
@@ -49195,6 +49356,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:49:30.846Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-caminhando-com-o-senhor-e9cd247dcf",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-caminhando-com-o-senhor-e9cd247dcf"
     },
@@ -49206,6 +49368,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:49:34.444Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-cantai-953b5fea48",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-cantai-953b5fea48"
     },
@@ -49217,6 +49380,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-09T16:49:38.062Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-cantarei-para-sempre-e3a22f498a",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-cantarei-para-sempre-e3a22f498a"
     },
@@ -49228,6 +49392,7 @@
       "fileType": "html",
       "key": "Eb",
       "updatedAt": "2026-05-09T16:49:41.677Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-celebracao-eb6d7447a7",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-celebracao-eb6d7447a7"
     },
@@ -49239,6 +49404,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:49:45.289Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-clamo-hosana-7edaaeb319",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-clamo-hosana-7edaaeb319"
     },
@@ -49250,6 +49416,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:49:48.919Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-com-reverencia-e5f1c95084",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-com-reverencia-e5f1c95084"
     },
@@ -49261,6 +49428,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:49:52.514Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-confianca-3b71a6c11c",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-confianca-3b71a6c11c"
     },
@@ -49272,6 +49440,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-09T16:49:56.131Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-constante-amor-ae24fc81c5",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-constante-amor-ae24fc81c5"
     },
@@ -49283,6 +49452,7 @@
       "fileType": "html",
       "key": "Eb",
       "updatedAt": "2026-05-09T16:49:59.723Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-cristo-vivo-esta-97b69e348e",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-cristo-vivo-esta-97b69e348e"
     },
@@ -49294,6 +49464,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:50:03.323Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-desde-os-confins-da-terra-abf9be531e",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-desde-os-confins-da-terra-abf9be531e"
     },
@@ -49305,6 +49476,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:50:06.927Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-desejo-entrar-nos-teus-atrios-71c02faa92",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-desejo-entrar-nos-teus-atrios-71c02faa92"
     },
@@ -49316,6 +49488,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-09T16:50:10.558Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-dou-te-gracas-4f17a5368e",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-dou-te-gracas-4f17a5368e"
     },
@@ -49327,6 +49500,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:50:14.424Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-ele-e-a-imagem-51eef390ec",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-ele-e-a-imagem-51eef390ec"
     },
@@ -49338,6 +49512,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:50:18.041Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-em-uma-voz-4c761d432a",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-em-uma-voz-4c761d432a"
     },
@@ -49349,6 +49524,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:50:21.678Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-ensina-me-15d8fd3995",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-ensina-me-15d8fd3995"
     },
@@ -49360,6 +49536,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:50:25.281Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-entrego-os-meus-cuidados-053a4e8bb2",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-entrego-os-meus-cuidados-053a4e8bb2"
     },
@@ -49371,6 +49548,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-09T16:50:28.881Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-es-meu-rei-b59e0aef7a",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-es-meu-rei-b59e0aef7a"
     },
@@ -49382,6 +49560,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:50:32.508Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-este-e-o-dia-1de8f92364",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-este-e-o-dia-1de8f92364"
     },
@@ -49393,6 +49572,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:50:36.145Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-eu-confio-em-ti-senhor-c321d49ef4",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-eu-confio-em-ti-senhor-c321d49ef4"
     },
@@ -49404,6 +49584,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:50:40.167Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-eu-me-rendo-a8932d4c98",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-eu-me-rendo-a8932d4c98"
     },
@@ -49415,6 +49596,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:50:43.931Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-eu-sei-que-tudo-posso-4807c394da",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-eu-sei-que-tudo-posso-4807c394da"
     },
@@ -49426,6 +49608,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:50:47.539Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-eu-sei-que-tudo-posso-o-senhor-te-li-e07ad49be0",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-eu-sei-que-tudo-posso-o-senhor-te-li-e07ad49be0"
     },
@@ -49437,6 +49620,7 @@
       "fileType": "html",
       "key": "Db",
       "updatedAt": "2026-05-09T16:50:51.142Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-exaltai-71d506c061",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-exaltai-71d506c061"
     },
@@ -49448,6 +49632,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:50:54.762Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-forte-e-poderoso-969bf80b5b",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-forte-e-poderoso-969bf80b5b"
     },
@@ -49459,6 +49644,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-09T16:50:58.380Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-grande-e-glorioso-our-god-reigns-for-8245bf6d28",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-grande-e-glorioso-our-god-reigns-for-8245bf6d28"
     },
@@ -49470,6 +49656,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:51:01.974Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-leva-me-a-um-lugar-acad45b576",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-leva-me-a-um-lugar-acad45b576"
     },
@@ -49481,6 +49668,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:51:05.582Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-leva-se-a-um-lugar-38ae8e6a97",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-leva-se-a-um-lugar-38ae8e6a97"
     },
@@ -49492,6 +49680,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:51:09.171Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-me-alegro-em-teu-amor-a3cee01b6d",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-me-alegro-em-teu-amor-a3cee01b6d"
     },
@@ -49503,6 +49692,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:51:12.801Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-meu-pastor-d8cfba0667",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-meu-pastor-d8cfba0667"
     },
@@ -49514,6 +49704,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:51:16.395Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-minha-vida-eu-te-dou-dddab194c8",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-minha-vida-eu-te-dou-dddab194c8"
     },
@@ -49525,6 +49716,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:51:19.987Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-nao-ha-limitacao-520b53b8c0",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-nao-ha-limitacao-520b53b8c0"
     },
@@ -49536,6 +49728,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:51:23.577Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-nao-temas-624d023341",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-nao-temas-624d023341"
     },
@@ -49547,6 +49740,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:51:27.174Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-nosso-refugio-155c42de5e",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-nosso-refugio-155c42de5e"
     },
@@ -49558,6 +49752,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:51:30.770Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-nosso-regufio-91e9b9b4b1",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-nosso-regufio-91e9b9b4b1"
     },
@@ -49569,6 +49764,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:51:34.363Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-o-deus-b4d42d6684",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-o-deus-b4d42d6684"
     },
@@ -49580,6 +49776,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:51:37.980Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-o-senhor-te-livrara-9d16e60023",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-o-senhor-te-livrara-9d16e60023"
     },
@@ -49591,6 +49788,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:51:41.622Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-o-teu-trono-66e76d0dea",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-o-teu-trono-66e76d0dea"
     },
@@ -49602,6 +49800,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:51:45.265Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-ofereco-minha-vida-a-ti-c039726b85",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-ofereco-minha-vida-a-ti-c039726b85"
     },
@@ -49613,6 +49812,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:51:48.891Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-palavra-de-deus-af8128f94d",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-palavra-de-deus-af8128f94d"
     },
@@ -49624,6 +49824,7 @@
       "fileType": "html",
       "key": "G",
       "updatedAt": "2026-05-09T16:51:52.538Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-para-a-terra-transformar-024449db49",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-para-a-terra-transformar-024449db49"
     },
@@ -49635,6 +49836,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:51:56.135Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-plenitude-6294082229",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-plenitude-6294082229"
     },
@@ -49646,6 +49848,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:51:59.748Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-pra-te-adorar-47672a3cbc",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-pra-te-adorar-47672a3cbc"
     },
@@ -49657,6 +49860,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:52:03.367Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-pra-ti-eu-correrei-9939c03846",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-pra-ti-eu-correrei-9939c03846"
     },
@@ -49668,6 +49872,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:52:06.992Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-prostramo-nos-90e334c495",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-prostramo-nos-90e334c495"
     },
@@ -49679,6 +49884,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:52:10.590Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-provisao-b225890c94",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-provisao-b225890c94"
     },
@@ -49690,6 +49896,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-09T16:52:14.400Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-quando-entro-em-tua-presenca-1ff7e4c18b",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-quando-entro-em-tua-presenca-1ff7e4c18b"
     },
@@ -49701,6 +49908,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:52:18.012Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-que-bom-e-ao-teu-lado-estar-845b05dc26",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-que-bom-e-ao-teu-lado-estar-845b05dc26"
     },
@@ -49712,6 +49920,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-09T16:52:21.605Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-raca-eleita-3b2fc1e258",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-raca-eleita-3b2fc1e258"
     },
@@ -49723,6 +49932,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:52:25.231Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-razao-de-viver-39d6746937",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-razao-de-viver-39d6746937"
     },
@@ -49734,6 +49944,7 @@
       "fileType": "html",
       "key": "Bb",
       "updatedAt": "2026-05-09T16:52:28.839Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-revestido-f0ba296786",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-revestido-f0ba296786"
     },
@@ -49745,6 +49956,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:52:32.452Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-rio-de-uncao-41b61746fe",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-rio-de-uncao-41b61746fe"
     },
@@ -49756,6 +49968,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:52:36.057Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-santos-es-king-of-all-glory-2a69ede67f",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-santos-es-king-of-all-glory-2a69ede67f"
     },
@@ -49767,6 +49980,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:52:39.663Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-senhor-estamos-aqui-2f7acdba4d",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-senhor-estamos-aqui-2f7acdba4d"
     },
@@ -49778,6 +49992,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:52:43.309Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-sigo-firme-4f4eb14d61",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-sigo-firme-4f4eb14d61"
     },
@@ -49789,6 +50004,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:52:46.914Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-somente-tu-es-santo-cfdccab8c3",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-somente-tu-es-santo-cfdccab8c3"
     },
@@ -49800,6 +50016,7 @@
       "fileType": "html",
       "key": "Eb",
       "updatedAt": "2026-05-09T16:52:50.538Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-somente-um-instante-64f47890eb",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-somente-um-instante-64f47890eb"
     },
@@ -49811,6 +50028,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-09T16:52:54.148Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-tao-alto-como-os-ceus-03fa57d3a4",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-tao-alto-como-os-ceus-03fa57d3a4"
     },
@@ -49822,6 +50040,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:52:57.782Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-tu-es-meu-deus-79a03b6cf7",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-tu-es-meu-deus-79a03b6cf7"
     },
@@ -49833,6 +50052,7 @@
       "fileType": "html",
       "key": "E",
       "updatedAt": "2026-05-09T16:53:01.372Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-tu-es-tremendo-36048e3daf",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-tu-es-tremendo-36048e3daf"
     },
@@ -49844,6 +50064,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:53:05.010Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-tu-me-amaste-antes-fb3c23207a",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-tu-me-amaste-antes-fb3c23207a"
     },
@@ -49855,6 +50076,7 @@
       "fileType": "html",
       "key": "C",
       "updatedAt": "2026-05-09T16:53:08.621Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-um-novo-tempo-b80cb99192",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-um-novo-tempo-b80cb99192"
     },
@@ -49866,6 +50088,7 @@
       "fileType": "html",
       "key": "F#",
       "updatedAt": "2026-05-09T16:53:12.255Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vamos-adorar-a5b588a4b3",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vamos-adorar-a5b588a4b3"
     },
@@ -49877,6 +50100,7 @@
       "fileType": "html",
       "key": "F",
       "updatedAt": "2026-05-09T16:53:15.858Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vaso-novo-0f09b3cfca",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vaso-novo-0f09b3cfca"
     },
@@ -49888,6 +50112,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:53:19.477Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vejo-o-senhor-44ced9feaf",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vejo-o-senhor-44ced9feaf"
     },
@@ -49899,6 +50124,7 @@
       "fileType": "html",
       "key": "B",
       "updatedAt": "2026-05-09T16:53:23.084Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vejo-senhor-8b1810435f",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vejo-senhor-8b1810435f"
     },
@@ -49910,6 +50136,7 @@
       "fileType": "html",
       "key": "A",
       "updatedAt": "2026-05-09T16:53:26.710Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vem-senhor-30aff9330e",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vem-senhor-30aff9330e"
     },
@@ -49921,6 +50148,7 @@
       "fileType": "html",
       "key": "D",
       "updatedAt": "2026-05-09T16:53:30.313Z",
+      "artistThumb": "/artist-thumbs/igreja-biblica-da-paz.jpg?v=1780257323519",
       "apiUrl": "/api/songs/igreja-biblica-da-paz-vou-caminhando-com-o-senhor-4f7b528839",
       "offlineKey": "mdl-song-igreja-biblica-da-paz-vou-caminhando-com-o-senhor-4f7b528839"
     },
